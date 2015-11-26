@@ -21,6 +21,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -90,6 +91,9 @@ public class OtherFunctionActivity extends FragmentActivity implements
 		tvSprint.setOnClickListener(this);
 		tvDash.setSelected(true);
 		tvSprint.setSelected(false);
+		
+		ImageButton btnBack = (ImageButton) findViewById(R.id.plan_back);
+		btnBack.setOnClickListener(this);
 	}
 
 	private void initData() {
@@ -149,6 +153,9 @@ public class OtherFunctionActivity extends FragmentActivity implements
 			break;
 		case R.id.tvTag2:
 			viewpager.setCurrentItem(1);
+			break;
+		case R.id.plan_back:
+			finish();
 			break;
 		default:
 			break;

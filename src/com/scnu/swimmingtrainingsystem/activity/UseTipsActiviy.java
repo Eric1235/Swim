@@ -1,6 +1,7 @@
 ﻿package com.scnu.swimmingtrainingsystem.activity;
 
 import com.scnu.swimmingtrainingsystem.R;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -8,12 +9,14 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.Gravity;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -49,6 +52,15 @@ public class UseTipsActiviy extends Activity {
 		@SuppressWarnings("unused")
 		long userID = (Long) application.getMap().get(Constants.CURRENT_USER_ID);
 		
+		ImageButton btnBack = (ImageButton) findViewById(R.id.plan_back);
+		btnBack.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
 		expandableListView = (ExpandableListView) findViewById(R.id.tips_list);
 		final ExpandableListAdapter adapter = new BaseExpandableListAdapter() {
 

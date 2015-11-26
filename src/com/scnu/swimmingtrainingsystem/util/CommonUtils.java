@@ -23,7 +23,7 @@ import com.scnu.swimmingtrainingsystem.R;
 @SuppressLint("DefaultLocale")
 public class CommonUtils {
 
-	public static String HOSTURL = "";
+	public static String HOSTURL = "http://104.160.34.110:8080/SWIMYUE33/httpPost.action?action_flag=";
 
 	/**
 	 * 是否第一次启动

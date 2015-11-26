@@ -48,11 +48,11 @@ public class LoginActivity extends Activity {
 	/**
 	 * 默认用户帐号
 	 */
-	private static final String DEFAULT_USERNAME = "defaultUser";
+	private static final String DEFAULT_USERNAME = "abc";
 	/**
 	 * 默认用户的密码
 	 */
-	private static final String DEFAULT_PASSWORD = "123456asdjkl";
+	private static final String DEFAULT_PASSWORD = "123456";
 	private MyApplication app;
 	private DBManager dbManager;
 
@@ -371,11 +371,11 @@ public class LoginActivity extends Activity {
 				.setButton1Click(new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						etLogin.setText("defaultUser");
-						etPassword.setText("123456asdjkl");
+						etLogin.setText("abc");
+						etPassword.setText("123456");
 						// 保存登录信息
 						CommonUtils.SaveLoginInfo(LoginActivity.this,
-								"defaultUser", "123456asdjkl");
+								"abc", "123456");
 						userDialog.dismiss();
 						offlineLogin();
 					}
