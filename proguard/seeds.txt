@@ -1,0 +1,995 @@
+android.support.v4.app.BackStackState
+android.support.v4.app.BackStackState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.DialogFragment
+android.support.v4.app.Fragment$InstantiationException
+android.support.v4.app.Fragment$InstantiationException: Fragment$InstantiationException(java.lang.String,java.lang.Exception)
+android.support.v4.app.Fragment$SavedState
+android.support.v4.app.Fragment$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentActivity
+android.support.v4.app.FragmentActivity: FragmentActivity()
+android.support.v4.app.FragmentManagerState
+android.support.v4.app.FragmentManagerState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentState
+android.support.v4.app.FragmentState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentTabHost
+android.support.v4.app.FragmentTabHost: FragmentTabHost(android.content.Context)
+android.support.v4.app.FragmentTabHost: FragmentTabHost(android.content.Context,android.util.AttributeSet)
+android.support.v4.app.FragmentTabHost: void setOnTabChangedListener(android.widget.TabHost$OnTabChangeListener)
+android.support.v4.app.FragmentTabHost$SavedState
+android.support.v4.app.FragmentTabHost$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.ListFragment
+android.support.v4.app.NotificationCompatSideChannelService
+android.support.v4.content.FileProvider
+android.support.v4.content.Loader: void reset()
+android.support.v4.content.ModernAsyncTask$Status
+android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status PENDING
+android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status RUNNING
+android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status FINISHED
+android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status[] $VALUES
+android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status[] values()
+android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status valueOf(java.lang.String)
+android.support.v4.content.ModernAsyncTask$Status: ModernAsyncTask$Status(java.lang.String,int)
+android.support.v4.content.WakefulBroadcastReceiver
+android.support.v4.view.PagerTabStrip
+android.support.v4.view.PagerTabStrip: PagerTabStrip(android.content.Context)
+android.support.v4.view.PagerTabStrip: PagerTabStrip(android.content.Context,android.util.AttributeSet)
+android.support.v4.view.PagerTabStrip: void setTabIndicatorColor(int)
+android.support.v4.view.PagerTabStrip: void setTabIndicatorColorResource(int)
+android.support.v4.view.PagerTabStrip: int getTabIndicatorColor()
+android.support.v4.view.PagerTabStrip: void setTextSpacing(int)
+android.support.v4.view.PagerTabStrip: void setBackgroundDrawable(android.graphics.drawable.Drawable)
+android.support.v4.view.PagerTabStrip: void setBackgroundColor(int)
+android.support.v4.view.PagerTabStrip: void setBackgroundResource(int)
+android.support.v4.view.PagerTabStrip: void setDrawFullUnderline(boolean)
+android.support.v4.view.PagerTabStrip: boolean getDrawFullUnderline()
+android.support.v4.view.PagerTabStrip: int getMinHeight()
+android.support.v4.view.PagerTitleStrip
+android.support.v4.view.PagerTitleStrip: void setSingleLineAllCaps(android.widget.TextView)
+android.support.v4.view.PagerTitleStrip: PagerTitleStrip(android.content.Context)
+android.support.v4.view.PagerTitleStrip: PagerTitleStrip(android.content.Context,android.util.AttributeSet)
+android.support.v4.view.PagerTitleStrip: void setTextSpacing(int)
+android.support.v4.view.PagerTitleStrip: int getTextSpacing()
+android.support.v4.view.PagerTitleStrip: void setNonPrimaryAlpha(float)
+android.support.v4.view.PagerTitleStrip: void setTextColor(int)
+android.support.v4.view.PagerTitleStrip: void setGravity(int)
+android.support.v4.view.PagerTitleStrip: int getMinHeight()
+android.support.v4.view.ViewPager
+android.support.v4.view.ViewPager: ViewPager(android.content.Context)
+android.support.v4.view.ViewPager: ViewPager(android.content.Context,android.util.AttributeSet)
+android.support.v4.view.ViewPager: void setScrollState(int)
+android.support.v4.view.ViewPager: void setAdapter(android.support.v4.view.PagerAdapter)
+android.support.v4.view.ViewPager: android.support.v4.view.PagerAdapter getAdapter()
+android.support.v4.view.ViewPager: void setOnAdapterChangeListener(android.support.v4.view.ViewPager$OnAdapterChangeListener)
+android.support.v4.view.ViewPager: int getClientWidth()
+android.support.v4.view.ViewPager: void setCurrentItem(int)
+android.support.v4.view.ViewPager: int getCurrentItem()
+android.support.v4.view.ViewPager: void setOnPageChangeListener(android.support.v4.view.ViewPager$OnPageChangeListener)
+android.support.v4.view.ViewPager: void setChildrenDrawingOrderEnabledCompat(boolean)
+android.support.v4.view.ViewPager: int getOffscreenPageLimit()
+android.support.v4.view.ViewPager: void setOffscreenPageLimit(int)
+android.support.v4.view.ViewPager: void setPageMargin(int)
+android.support.v4.view.ViewPager: int getPageMargin()
+android.support.v4.view.ViewPager: void setPageMarginDrawable(android.graphics.drawable.Drawable)
+android.support.v4.view.ViewPager: void setPageMarginDrawable(int)
+android.support.v4.view.ViewPager: void setScrollingCacheEnabled(boolean)
+android.support.v4.view.ViewPager$SavedState
+android.support.v4.view.ViewPager$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.widget.ContentLoadingProgressBar
+android.support.v4.widget.ContentLoadingProgressBar: ContentLoadingProgressBar(android.content.Context)
+android.support.v4.widget.ContentLoadingProgressBar: ContentLoadingProgressBar(android.content.Context,android.util.AttributeSet)
+android.support.v4.widget.DrawerLayout
+android.support.v4.widget.DrawerLayout: DrawerLayout(android.content.Context)
+android.support.v4.widget.DrawerLayout: DrawerLayout(android.content.Context,android.util.AttributeSet)
+android.support.v4.widget.DrawerLayout: DrawerLayout(android.content.Context,android.util.AttributeSet,int)
+android.support.v4.widget.DrawerLayout: void setScrimColor(int)
+android.support.v4.widget.DrawerLayout: void setDrawerListener(android.support.v4.widget.DrawerLayout$DrawerListener)
+android.support.v4.widget.DrawerLayout: void setDrawerLockMode(int)
+android.support.v4.widget.DrawerLayout$SavedState
+android.support.v4.widget.DrawerLayout$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.widget.SearchViewCompatIcs$MySearchView
+android.support.v4.widget.SearchViewCompatIcs$MySearchView: SearchViewCompatIcs$MySearchView(android.content.Context)
+android.support.v4.widget.SlidingPaneLayout
+android.support.v4.widget.SlidingPaneLayout: SlidingPaneLayout(android.content.Context)
+android.support.v4.widget.SlidingPaneLayout: SlidingPaneLayout(android.content.Context,android.util.AttributeSet)
+android.support.v4.widget.SlidingPaneLayout: SlidingPaneLayout(android.content.Context,android.util.AttributeSet,int)
+android.support.v4.widget.SlidingPaneLayout: void setParallaxDistance(int)
+android.support.v4.widget.SlidingPaneLayout: int getParallaxDistance()
+android.support.v4.widget.SlidingPaneLayout: void setSliderFadeColor(int)
+android.support.v4.widget.SlidingPaneLayout: int getSliderFadeColor()
+android.support.v4.widget.SlidingPaneLayout: void setCoveredFadeColor(int)
+android.support.v4.widget.SlidingPaneLayout: int getCoveredFadeColor()
+android.support.v4.widget.SlidingPaneLayout: void setPanelSlideListener(android.support.v4.widget.SlidingPaneLayout$PanelSlideListener)
+android.support.v4.widget.SlidingPaneLayout: void setShadowDrawable(android.graphics.drawable.Drawable)
+android.support.v4.widget.SlidingPaneLayout: void setShadowDrawableLeft(android.graphics.drawable.Drawable)
+android.support.v4.widget.SlidingPaneLayout: void setShadowDrawableRight(android.graphics.drawable.Drawable)
+android.support.v4.widget.SlidingPaneLayout: void setShadowResource(int)
+android.support.v4.widget.SlidingPaneLayout: void setShadowResourceLeft(int)
+android.support.v4.widget.SlidingPaneLayout: void setShadowResourceRight(int)
+android.support.v4.widget.SlidingPaneLayout$SavedState
+android.support.v4.widget.SlidingPaneLayout$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.widget.SwipeRefreshLayout
+android.support.v4.widget.SwipeRefreshLayout: SwipeRefreshLayout(android.content.Context)
+android.support.v4.widget.SwipeRefreshLayout: SwipeRefreshLayout(android.content.Context,android.util.AttributeSet)
+android.support.v4.widget.SwipeRefreshLayout: void setOnRefreshListener(android.support.v4.widget.SwipeRefreshLayout$OnRefreshListener)
+android.support.v4.widget.SwipeRefreshLayout: void setTriggerPercentage(float)
+android.support.v4.widget.SwipeRefreshLayout: void setRefreshing(boolean)
+android.support.v4.widget.SwipeRefreshLayout: void setTargetOffsetTopAndBottom(int)
+com.android.volley.AuthFailureError
+com.android.volley.AuthFailureError: android.content.Intent mResolutionIntent
+com.android.volley.AuthFailureError: AuthFailureError()
+com.android.volley.AuthFailureError: AuthFailureError(android.content.Intent)
+com.android.volley.AuthFailureError: AuthFailureError(com.android.volley.NetworkResponse)
+com.android.volley.AuthFailureError: AuthFailureError(java.lang.String)
+com.android.volley.AuthFailureError: AuthFailureError(java.lang.String,java.lang.Exception)
+com.android.volley.AuthFailureError: android.content.Intent getResolutionIntent()
+com.android.volley.AuthFailureError: java.lang.String getMessage()
+com.android.volley.NetworkError
+com.android.volley.NetworkError: NetworkError()
+com.android.volley.NetworkError: NetworkError(java.lang.Throwable)
+com.android.volley.NetworkError: NetworkError(com.android.volley.NetworkResponse)
+com.android.volley.NoConnectionError
+com.android.volley.NoConnectionError: NoConnectionError()
+com.android.volley.NoConnectionError: NoConnectionError(java.lang.Throwable)
+com.android.volley.ParseError
+com.android.volley.ParseError: ParseError()
+com.android.volley.ParseError: ParseError(com.android.volley.NetworkResponse)
+com.android.volley.ParseError: ParseError(java.lang.Throwable)
+com.android.volley.Request$Priority
+com.android.volley.Request$Priority: com.android.volley.Request$Priority LOW
+com.android.volley.Request$Priority: com.android.volley.Request$Priority NORMAL
+com.android.volley.Request$Priority: com.android.volley.Request$Priority HIGH
+com.android.volley.Request$Priority: com.android.volley.Request$Priority IMMEDIATE
+com.android.volley.Request$Priority: com.android.volley.Request$Priority[] ENUM$VALUES
+com.android.volley.Request$Priority: Request$Priority(java.lang.String,int)
+com.android.volley.Request$Priority: com.android.volley.Request$Priority[] values()
+com.android.volley.Request$Priority: com.android.volley.Request$Priority valueOf(java.lang.String)
+com.android.volley.ServerError
+com.android.volley.ServerError: ServerError(com.android.volley.NetworkResponse)
+com.android.volley.ServerError: ServerError()
+com.android.volley.TimeoutError
+com.android.volley.TimeoutError: TimeoutError()
+com.android.volley.VolleyError
+com.android.volley.VolleyError: com.android.volley.NetworkResponse networkResponse
+com.android.volley.VolleyError: VolleyError()
+com.android.volley.VolleyError: VolleyError(com.android.volley.NetworkResponse)
+com.android.volley.VolleyError: VolleyError(java.lang.String)
+com.android.volley.VolleyError: VolleyError(java.lang.String,java.lang.Throwable)
+com.android.volley.VolleyError: VolleyError(java.lang.Throwable)
+com.android.volley.toolbox.NetworkImageView
+com.android.volley.toolbox.NetworkImageView: NetworkImageView(android.content.Context)
+com.android.volley.toolbox.NetworkImageView: NetworkImageView(android.content.Context,android.util.AttributeSet)
+com.android.volley.toolbox.NetworkImageView: NetworkImageView(android.content.Context,android.util.AttributeSet,int)
+com.android.volley.toolbox.NetworkImageView: void setDefaultImageResId(int)
+com.android.volley.toolbox.NetworkImageView: void setErrorImageResId(int)
+com.google.gson.FieldNamingPolicy
+com.google.gson.FieldNamingPolicy: com.google.gson.FieldNamingPolicy UPPER_CAMEL_CASE
+com.google.gson.FieldNamingPolicy: com.google.gson.FieldNamingPolicy UPPER_CAMEL_CASE_WITH_SPACES
+com.google.gson.FieldNamingPolicy: com.google.gson.FieldNamingPolicy LOWER_CASE_WITH_UNDERSCORES
+com.google.gson.FieldNamingPolicy: com.google.gson.FieldNamingPolicy LOWER_CASE_WITH_DASHES
+com.google.gson.FieldNamingPolicy: com.google.gson.FieldNamingStrategy2 namingPolicy
+com.google.gson.FieldNamingPolicy: com.google.gson.FieldNamingPolicy[] $VALUES
+com.google.gson.FieldNamingPolicy: com.google.gson.FieldNamingPolicy[] values()
+com.google.gson.FieldNamingPolicy: com.google.gson.FieldNamingPolicy valueOf(java.lang.String)
+com.google.gson.FieldNamingPolicy: FieldNamingPolicy(java.lang.String,int,com.google.gson.FieldNamingStrategy2)
+com.google.gson.JsonIOException
+com.google.gson.JsonIOException: long serialVersionUID
+com.google.gson.JsonIOException: JsonIOException(java.lang.String)
+com.google.gson.JsonIOException: JsonIOException(java.lang.String,java.lang.Throwable)
+com.google.gson.JsonIOException: JsonIOException(java.lang.Throwable)
+com.google.gson.JsonParseException
+com.google.gson.JsonParseException: JsonParseException(java.lang.String)
+com.google.gson.JsonParseException: JsonParseException(java.lang.String,java.lang.Throwable)
+com.google.gson.JsonParseException: JsonParseException(java.lang.Throwable)
+com.google.gson.JsonSyntaxException
+com.google.gson.JsonSyntaxException: long serialVersionUID
+com.google.gson.JsonSyntaxException: JsonSyntaxException(java.lang.String)
+com.google.gson.JsonSyntaxException: JsonSyntaxException(java.lang.String,java.lang.Throwable)
+com.google.gson.JsonSyntaxException: JsonSyntaxException(java.lang.Throwable)
+com.google.gson.LongSerializationPolicy
+com.google.gson.LongSerializationPolicy: com.google.gson.LongSerializationPolicy DEFAULT
+com.google.gson.LongSerializationPolicy: com.google.gson.LongSerializationPolicy STRING
+com.google.gson.LongSerializationPolicy: com.google.gson.LongSerializationPolicy$Strategy strategy
+com.google.gson.LongSerializationPolicy: com.google.gson.LongSerializationPolicy[] $VALUES
+com.google.gson.LongSerializationPolicy: com.google.gson.LongSerializationPolicy[] values()
+com.google.gson.LongSerializationPolicy: com.google.gson.LongSerializationPolicy valueOf(java.lang.String)
+com.google.gson.LongSerializationPolicy: LongSerializationPolicy(java.lang.String,int,com.google.gson.LongSerializationPolicy$Strategy)
+com.google.gson.LongSerializationPolicy: com.google.gson.JsonElement serialize(java.lang.Long)
+com.google.gson.ModifyFirstLetterNamingPolicy$LetterModifier
+com.google.gson.ModifyFirstLetterNamingPolicy$LetterModifier: com.google.gson.ModifyFirstLetterNamingPolicy$LetterModifier UPPER
+com.google.gson.ModifyFirstLetterNamingPolicy$LetterModifier: com.google.gson.ModifyFirstLetterNamingPolicy$LetterModifier LOWER
+com.google.gson.ModifyFirstLetterNamingPolicy$LetterModifier: com.google.gson.ModifyFirstLetterNamingPolicy$LetterModifier[] $VALUES
+com.google.gson.ModifyFirstLetterNamingPolicy$LetterModifier: com.google.gson.ModifyFirstLetterNamingPolicy$LetterModifier[] values()
+com.google.gson.ModifyFirstLetterNamingPolicy$LetterModifier: com.google.gson.ModifyFirstLetterNamingPolicy$LetterModifier valueOf(java.lang.String)
+com.google.gson.ModifyFirstLetterNamingPolicy$LetterModifier: ModifyFirstLetterNamingPolicy$LetterModifier(java.lang.String,int)
+com.google.gson.stream.JsonScope: com.google.gson.stream.JsonScope[] values()
+com.google.gson.stream.JsonScope: com.google.gson.stream.JsonScope valueOf(java.lang.String)
+com.google.gson.stream.JsonToken
+com.google.gson.stream.JsonToken: com.google.gson.stream.JsonToken BEGIN_ARRAY
+com.google.gson.stream.JsonToken: com.google.gson.stream.JsonToken END_ARRAY
+com.google.gson.stream.JsonToken: com.google.gson.stream.JsonToken BEGIN_OBJECT
+com.google.gson.stream.JsonToken: com.google.gson.stream.JsonToken END_OBJECT
+com.google.gson.stream.JsonToken: com.google.gson.stream.JsonToken NAME
+com.google.gson.stream.JsonToken: com.google.gson.stream.JsonToken STRING
+com.google.gson.stream.JsonToken: com.google.gson.stream.JsonToken NUMBER
+com.google.gson.stream.JsonToken: com.google.gson.stream.JsonToken BOOLEAN
+com.google.gson.stream.JsonToken: com.google.gson.stream.JsonToken NULL
+com.google.gson.stream.JsonToken: com.google.gson.stream.JsonToken END_DOCUMENT
+com.google.gson.stream.JsonToken: com.google.gson.stream.JsonToken[] $VALUES
+com.google.gson.stream.JsonToken: com.google.gson.stream.JsonToken[] values()
+com.google.gson.stream.JsonToken: com.google.gson.stream.JsonToken valueOf(java.lang.String)
+com.google.gson.stream.JsonToken: JsonToken(java.lang.String,int)
+com.google.gson.stream.MalformedJsonException
+com.google.gson.stream.MalformedJsonException: long serialVersionUID
+com.google.gson.stream.MalformedJsonException: MalformedJsonException(java.lang.String)
+com.google.gson.stream.MalformedJsonException: MalformedJsonException(java.lang.String,java.lang.Throwable)
+com.google.gson.stream.MalformedJsonException: MalformedJsonException(java.lang.Throwable)
+com.mobeta.android.dslv.DragSortCursorAdapter: void reset()
+com.mobeta.android.dslv.DragSortItemView
+com.mobeta.android.dslv.DragSortItemView: DragSortItemView(android.content.Context)
+com.mobeta.android.dslv.DragSortItemView: void setGravity(int)
+com.mobeta.android.dslv.DragSortItemView: int getGravity()
+com.mobeta.android.dslv.DragSortItemViewCheckable
+com.mobeta.android.dslv.DragSortItemViewCheckable: DragSortItemViewCheckable(android.content.Context)
+com.mobeta.android.dslv.DragSortItemViewCheckable: void setChecked(boolean)
+com.mobeta.android.dslv.DragSortListView
+com.mobeta.android.dslv.DragSortListView: DragSortListView(android.content.Context,android.util.AttributeSet)
+com.mobeta.android.dslv.DragSortListView: void setFloatAlpha(float)
+com.mobeta.android.dslv.DragSortListView: float getFloatAlpha()
+com.mobeta.android.dslv.DragSortListView: void setMaxScrollSpeed(float)
+com.mobeta.android.dslv.DragSortListView: void setAdapter(android.widget.ListAdapter)
+com.mobeta.android.dslv.DragSortListView: android.widget.ListAdapter getInputAdapter()
+com.mobeta.android.dslv.DragSortListView: void setDragScrollStart(float)
+com.mobeta.android.dslv.DragSortListView: void setFloatViewManager(com.mobeta.android.dslv.DragSortListView$FloatViewManager)
+com.mobeta.android.dslv.DragSortListView: void setDragListener(com.mobeta.android.dslv.DragSortListView$DragListener)
+com.mobeta.android.dslv.DragSortListView: void setDragEnabled(boolean)
+com.mobeta.android.dslv.DragSortListView: void setDropListener(com.mobeta.android.dslv.DragSortListView$DropListener)
+com.mobeta.android.dslv.DragSortListView: void setRemoveListener(com.mobeta.android.dslv.DragSortListView$RemoveListener)
+com.mobeta.android.dslv.DragSortListView: void setDragSortListener(com.mobeta.android.dslv.DragSortListView$DragSortListener)
+com.mobeta.android.dslv.DragSortListView: void setDragScrollProfile(com.mobeta.android.dslv.DragSortListView$DragScrollProfile)
+com.mobeta.android.dslv.R$attr: int click_remove_id
+com.mobeta.android.dslv.R$attr: int collapsed_height
+com.mobeta.android.dslv.R$attr: int drag_enabled
+com.mobeta.android.dslv.R$attr: int drag_handle_id
+com.mobeta.android.dslv.R$attr: int drag_scroll_start
+com.mobeta.android.dslv.R$attr: int drag_start_mode
+com.mobeta.android.dslv.R$attr: int drop_animation_duration
+com.mobeta.android.dslv.R$attr: int fling_handle_id
+com.mobeta.android.dslv.R$attr: int float_alpha
+com.mobeta.android.dslv.R$attr: int float_background_color
+com.mobeta.android.dslv.R$attr: int max_drag_scroll_speed
+com.mobeta.android.dslv.R$attr: int remove_animation_duration
+com.mobeta.android.dslv.R$attr: int remove_enabled
+com.mobeta.android.dslv.R$attr: int remove_mode
+com.mobeta.android.dslv.R$attr: int slide_shuffle_speed
+com.mobeta.android.dslv.R$attr: int sort_enabled
+com.mobeta.android.dslv.R$attr: int track_drag_sort
+com.mobeta.android.dslv.R$attr: int use_default_controller
+com.mobeta.android.dslv.R$id: int clickRemove
+com.mobeta.android.dslv.R$id: int flingRemove
+com.mobeta.android.dslv.R$id: int onDown
+com.mobeta.android.dslv.R$id: int onLongPress
+com.mobeta.android.dslv.R$id: int onMove
+com.mobeta.android.dslv.R$styleable: int[] DragSortListView
+com.mobeta.android.dslv.R$styleable: int DragSortListView_click_remove_id
+com.mobeta.android.dslv.R$styleable: int DragSortListView_collapsed_height
+com.mobeta.android.dslv.R$styleable: int DragSortListView_drag_enabled
+com.mobeta.android.dslv.R$styleable: int DragSortListView_drag_handle_id
+com.mobeta.android.dslv.R$styleable: int DragSortListView_drag_scroll_start
+com.mobeta.android.dslv.R$styleable: int DragSortListView_drag_start_mode
+com.mobeta.android.dslv.R$styleable: int DragSortListView_drop_animation_duration
+com.mobeta.android.dslv.R$styleable: int DragSortListView_fling_handle_id
+com.mobeta.android.dslv.R$styleable: int DragSortListView_float_alpha
+com.mobeta.android.dslv.R$styleable: int DragSortListView_float_background_color
+com.mobeta.android.dslv.R$styleable: int DragSortListView_max_drag_scroll_speed
+com.mobeta.android.dslv.R$styleable: int DragSortListView_remove_animation_duration
+com.mobeta.android.dslv.R$styleable: int DragSortListView_remove_enabled
+com.mobeta.android.dslv.R$styleable: int DragSortListView_remove_mode
+com.mobeta.android.dslv.R$styleable: int DragSortListView_slide_shuffle_speed
+com.mobeta.android.dslv.R$styleable: int DragSortListView_sort_enabled
+com.mobeta.android.dslv.R$styleable: int DragSortListView_track_drag_sort
+com.mobeta.android.dslv.R$styleable: int DragSortListView_use_default_controller
+com.nineoldandroids.util.NoSuchPropertyException
+com.nineoldandroids.util.NoSuchPropertyException: NoSuchPropertyException(java.lang.String)
+com.scnu.swimmingtrainingsystem.R$anim: int animationa
+com.scnu.swimmingtrainingsystem.R$anim: int animationb
+com.scnu.swimmingtrainingsystem.R$anim: int in_from_left
+com.scnu.swimmingtrainingsystem.R$anim: int out_to_right
+com.scnu.swimmingtrainingsystem.R$anim: int photo_dialog_in_anim
+com.scnu.swimmingtrainingsystem.R$anim: int photo_dialog_out_anim
+com.scnu.swimmingtrainingsystem.R$anim: int progress_round
+com.scnu.swimmingtrainingsystem.R$anim: int push_left_out
+com.scnu.swimmingtrainingsystem.R$anim: int push_right_in
+com.scnu.swimmingtrainingsystem.R$anim: int push_up_in
+com.scnu.swimmingtrainingsystem.R$anim: int push_up_out
+com.scnu.swimmingtrainingsystem.R$anim: int scale_in
+com.scnu.swimmingtrainingsystem.R$anim: int scale_out
+com.scnu.swimmingtrainingsystem.R$anim: int slide_bottom_in
+com.scnu.swimmingtrainingsystem.R$anim: int slide_bottom_out
+com.scnu.swimmingtrainingsystem.R$anim: int slide_down_out
+com.scnu.swimmingtrainingsystem.R$anim: int slide_top_in
+com.scnu.swimmingtrainingsystem.R$anim: int slide_top_out
+com.scnu.swimmingtrainingsystem.R$anim: int slide_up_in
+com.scnu.swimmingtrainingsystem.R$attr: int backcolor
+com.scnu.swimmingtrainingsystem.R$attr: int backgroundDrawable
+com.scnu.swimmingtrainingsystem.R$attr: int big
+com.scnu.swimmingtrainingsystem.R$attr: int click_remove_id
+com.scnu.swimmingtrainingsystem.R$attr: int collapsed_height
+com.scnu.swimmingtrainingsystem.R$attr: int colorChecked
+com.scnu.swimmingtrainingsystem.R$attr: int colorUnChecked
+com.scnu.swimmingtrainingsystem.R$attr: int drag_enabled
+com.scnu.swimmingtrainingsystem.R$attr: int drag_handle_id
+com.scnu.swimmingtrainingsystem.R$attr: int drag_scroll_start
+com.scnu.swimmingtrainingsystem.R$attr: int drag_start_mode
+com.scnu.swimmingtrainingsystem.R$attr: int drop_animation_duration
+com.scnu.swimmingtrainingsystem.R$attr: int fling_handle_id
+com.scnu.swimmingtrainingsystem.R$attr: int float_alpha
+com.scnu.swimmingtrainingsystem.R$attr: int float_background_color
+com.scnu.swimmingtrainingsystem.R$attr: int home
+com.scnu.swimmingtrainingsystem.R$attr: int innerPadding
+com.scnu.swimmingtrainingsystem.R$attr: int isChecked
+com.scnu.swimmingtrainingsystem.R$attr: int max_drag_scroll_speed
+com.scnu.swimmingtrainingsystem.R$attr: int remove_animation_duration
+com.scnu.swimmingtrainingsystem.R$attr: int remove_enabled
+com.scnu.swimmingtrainingsystem.R$attr: int remove_mode
+com.scnu.swimmingtrainingsystem.R$attr: int slide_shuffle_speed
+com.scnu.swimmingtrainingsystem.R$attr: int sort_enabled
+com.scnu.swimmingtrainingsystem.R$attr: int switchDrawable
+com.scnu.swimmingtrainingsystem.R$attr: int switchMinWidth
+com.scnu.swimmingtrainingsystem.R$attr: int switchPadding
+com.scnu.swimmingtrainingsystem.R$attr: int switchStyle
+com.scnu.swimmingtrainingsystem.R$attr: int textLeft
+com.scnu.swimmingtrainingsystem.R$attr: int textRight
+com.scnu.swimmingtrainingsystem.R$attr: int textSize
+com.scnu.swimmingtrainingsystem.R$attr: int texts
+com.scnu.swimmingtrainingsystem.R$attr: int track_drag_sort
+com.scnu.swimmingtrainingsystem.R$attr: int use_default_controller
+com.scnu.swimmingtrainingsystem.R$color: int FlightCXListInfoActivityBg
+com.scnu.swimmingtrainingsystem.R$color: int aliceblue
+com.scnu.swimmingtrainingsystem.R$color: int black
+com.scnu.swimmingtrainingsystem.R$color: int black_black
+com.scnu.swimmingtrainingsystem.R$color: int blacks
+com.scnu.swimmingtrainingsystem.R$color: int blue
+com.scnu.swimmingtrainingsystem.R$color: int brown
+com.scnu.swimmingtrainingsystem.R$color: int btn_press_color
+com.scnu.swimmingtrainingsystem.R$color: int btn_unpress_color
+com.scnu.swimmingtrainingsystem.R$color: int bule_bule
+com.scnu.swimmingtrainingsystem.R$color: int color_flight
+com.scnu.swimmingtrainingsystem.R$color: int color_hotel
+com.scnu.swimmingtrainingsystem.R$color: int color_mgray
+com.scnu.swimmingtrainingsystem.R$color: int color_remind
+com.scnu.swimmingtrainingsystem.R$color: int color_sales
+com.scnu.swimmingtrainingsystem.R$color: int color_setting
+com.scnu.swimmingtrainingsystem.R$color: int color_toast
+com.scnu.swimmingtrainingsystem.R$color: int color_train
+com.scnu.swimmingtrainingsystem.R$color: int color_user
+com.scnu.swimmingtrainingsystem.R$color: int dark_gray
+com.scnu.swimmingtrainingsystem.R$color: int dark_orange
+com.scnu.swimmingtrainingsystem.R$color: int dark_red
+com.scnu.swimmingtrainingsystem.R$color: int dialog_bg
+com.scnu.swimmingtrainingsystem.R$color: int dimgray
+com.scnu.swimmingtrainingsystem.R$color: int gray
+com.scnu.swimmingtrainingsystem.R$color: int gray_1
+com.scnu.swimmingtrainingsystem.R$color: int gray_2
+com.scnu.swimmingtrainingsystem.R$color: int gray_3
+com.scnu.swimmingtrainingsystem.R$color: int huise
+com.scnu.swimmingtrainingsystem.R$color: int keworddefault
+com.scnu.swimmingtrainingsystem.R$color: int light_blue
+com.scnu.swimmingtrainingsystem.R$color: int light_gray
+com.scnu.swimmingtrainingsystem.R$color: int light_gray1
+com.scnu.swimmingtrainingsystem.R$color: int light_gray2
+com.scnu.swimmingtrainingsystem.R$color: int lighter_gray
+com.scnu.swimmingtrainingsystem.R$color: int lightgray
+com.scnu.swimmingtrainingsystem.R$color: int list_arrive
+com.scnu.swimmingtrainingsystem.R$color: int list_cancel
+com.scnu.swimmingtrainingsystem.R$color: int list_dark
+com.scnu.swimmingtrainingsystem.R$color: int list_late
+com.scnu.swimmingtrainingsystem.R$color: int list_light
+com.scnu.swimmingtrainingsystem.R$color: int orange
+com.scnu.swimmingtrainingsystem.R$color: int popup_char_color
+com.scnu.swimmingtrainingsystem.R$color: int promotion_bg
+com.scnu.swimmingtrainingsystem.R$color: int red
+com.scnu.swimmingtrainingsystem.R$color: int royalblue
+com.scnu.swimmingtrainingsystem.R$color: int transparent
+com.scnu.swimmingtrainingsystem.R$color: int transparent_background
+com.scnu.swimmingtrainingsystem.R$color: int unwhite
+com.scnu.swimmingtrainingsystem.R$color: int white
+com.scnu.swimmingtrainingsystem.R$color: int yellow
+com.scnu.swimmingtrainingsystem.R$dimen: int activity_horizontal_margin
+com.scnu.swimmingtrainingsystem.R$dimen: int activity_vertical_margin
+com.scnu.swimmingtrainingsystem.R$drawable: int add
+com.scnu.swimmingtrainingsystem.R$drawable: int base_list_divider_drawable
+com.scnu.swimmingtrainingsystem.R$drawable: int bg__normal
+com.scnu.swimmingtrainingsystem.R$drawable: int bg__pressed
+com.scnu.swimmingtrainingsystem.R$drawable: int bg_dialog
+com.scnu.swimmingtrainingsystem.R$drawable: int bg_edit
+com.scnu.swimmingtrainingsystem.R$drawable: int bg_effect_dialog
+com.scnu.swimmingtrainingsystem.R$drawable: int bg_ll_title
+com.scnu.swimmingtrainingsystem.R$drawable: int bg_login
+com.scnu.swimmingtrainingsystem.R$drawable: int bg_main
+com.scnu.swimmingtrainingsystem.R$drawable: int bg_pool2
+com.scnu.swimmingtrainingsystem.R$drawable: int bg_query_score_pressed
+com.scnu.swimmingtrainingsystem.R$drawable: int bg_register
+com.scnu.swimmingtrainingsystem.R$drawable: int bg_reset
+com.scnu.swimmingtrainingsystem.R$drawable: int bg_setting_selector
+com.scnu.swimmingtrainingsystem.R$drawable: int bg_singlepool
+com.scnu.swimmingtrainingsystem.R$drawable: int bg_toast
+com.scnu.swimmingtrainingsystem.R$drawable: int bg_toggle_gender
+com.scnu.swimmingtrainingsystem.R$drawable: int bg_unediable
+com.scnu.swimmingtrainingsystem.R$drawable: int bg_welcome
+com.scnu.swimmingtrainingsystem.R$drawable: int blank
+com.scnu.swimmingtrainingsystem.R$drawable: int btn_back
+com.scnu.swimmingtrainingsystem.R$drawable: int btn_back_normal
+com.scnu.swimmingtrainingsystem.R$drawable: int btn_back_pressed
+com.scnu.swimmingtrainingsystem.R$drawable: int cancellation
+com.scnu.swimmingtrainingsystem.R$drawable: int checkbox_style
+com.scnu.swimmingtrainingsystem.R$drawable: int clock1
+com.scnu.swimmingtrainingsystem.R$drawable: int clock_main_bg
+com.scnu.swimmingtrainingsystem.R$drawable: int cursor
+com.scnu.swimmingtrainingsystem.R$drawable: int deletable
+com.scnu.swimmingtrainingsystem.R$drawable: int delete
+com.scnu.swimmingtrainingsystem.R$drawable: int details
+com.scnu.swimmingtrainingsystem.R$drawable: int dialog_btn_selector
+com.scnu.swimmingtrainingsystem.R$drawable: int dialogbtn_press
+com.scnu.swimmingtrainingsystem.R$drawable: int dialogbtn_selector
+com.scnu.swimmingtrainingsystem.R$drawable: int dialogbtn_unpress
+com.scnu.swimmingtrainingsystem.R$drawable: int drag
+com.scnu.swimmingtrainingsystem.R$drawable: int gradient_bg_timer
+com.scnu.swimmingtrainingsystem.R$drawable: int gradient_blue_normal
+com.scnu.swimmingtrainingsystem.R$drawable: int gradient_blue_pressed
+com.scnu.swimmingtrainingsystem.R$drawable: int gradient_orange_normal
+com.scnu.swimmingtrainingsystem.R$drawable: int gradient_orange_pressed
+com.scnu.swimmingtrainingsystem.R$drawable: int hour_dial
+com.scnu.swimmingtrainingsystem.R$drawable: int hour_progress
+com.scnu.swimmingtrainingsystem.R$drawable: int hour_progress_hand
+com.scnu.swimmingtrainingsystem.R$drawable: int ic_launcher
+com.scnu.swimmingtrainingsystem.R$drawable: int min_dial
+com.scnu.swimmingtrainingsystem.R$drawable: int min_progress_hand
+com.scnu.swimmingtrainingsystem.R$drawable: int mm_title_btn_focused
+com.scnu.swimmingtrainingsystem.R$drawable: int mm_title_btn_normal
+com.scnu.swimmingtrainingsystem.R$drawable: int mm_title_btn_pressed
+com.scnu.swimmingtrainingsystem.R$drawable: int pager_title_selector
+com.scnu.swimmingtrainingsystem.R$drawable: int password
+com.scnu.swimmingtrainingsystem.R$drawable: int password_change
+com.scnu.swimmingtrainingsystem.R$drawable: int people1
+com.scnu.swimmingtrainingsystem.R$drawable: int photo_camera_normal
+com.scnu.swimmingtrainingsystem.R$drawable: int photo_camera_pressed
+com.scnu.swimmingtrainingsystem.R$drawable: int photo_camera_selector
+com.scnu.swimmingtrainingsystem.R$drawable: int photo_cancel_normal
+com.scnu.swimmingtrainingsystem.R$drawable: int photo_cancel_pressed
+com.scnu.swimmingtrainingsystem.R$drawable: int photo_cancel_selector
+com.scnu.swimmingtrainingsystem.R$drawable: int photo_choose_bg
+com.scnu.swimmingtrainingsystem.R$drawable: int photo_gallery_normal
+com.scnu.swimmingtrainingsystem.R$drawable: int photo_gallery_pressed
+com.scnu.swimmingtrainingsystem.R$drawable: int photo_gallery_selector
+com.scnu.swimmingtrainingsystem.R$drawable: int plan
+com.scnu.swimmingtrainingsystem.R$drawable: int progress_1
+com.scnu.swimmingtrainingsystem.R$drawable: int progress_2
+com.scnu.swimmingtrainingsystem.R$drawable: int progress_3
+com.scnu.swimmingtrainingsystem.R$drawable: int progress_4
+com.scnu.swimmingtrainingsystem.R$drawable: int progress_5
+com.scnu.swimmingtrainingsystem.R$drawable: int progress_6
+com.scnu.swimmingtrainingsystem.R$drawable: int progress_7
+com.scnu.swimmingtrainingsystem.R$drawable: int progress_8
+com.scnu.swimmingtrainingsystem.R$drawable: int radio
+com.scnu.swimmingtrainingsystem.R$drawable: int rank_point
+com.scnu.swimmingtrainingsystem.R$drawable: int redo
+com.scnu.swimmingtrainingsystem.R$drawable: int result1
+com.scnu.swimmingtrainingsystem.R$drawable: int second_progress_hand
+com.scnu.swimmingtrainingsystem.R$drawable: int setting
+com.scnu.swimmingtrainingsystem.R$drawable: int startback
+com.scnu.swimmingtrainingsystem.R$drawable: int switch_bg_holo_light
+com.scnu.swimmingtrainingsystem.R$drawable: int switch_thumb_activated_holo_light
+com.scnu.swimmingtrainingsystem.R$drawable: int tick
+com.scnu.swimmingtrainingsystem.R$drawable: int tips
+com.scnu.swimmingtrainingsystem.R$drawable: int title_btn_right
+com.scnu.swimmingtrainingsystem.R$drawable: int title_function_bg
+com.scnu.swimmingtrainingsystem.R$drawable: int togo
+com.scnu.swimmingtrainingsystem.R$drawable: int untick
+com.scnu.swimmingtrainingsystem.R$drawable: int user
+com.scnu.swimmingtrainingsystem.R$drawable: int v5_bottom_bar_bg_light
+com.scnu.swimmingtrainingsystem.R$drawable: int v5_btn_bg_rect_normal_light
+com.scnu.swimmingtrainingsystem.R$drawable: int v5_btn_bg_rect_pressed_light
+com.scnu.swimmingtrainingsystem.R$drawable: int v5_btn_bg_single_normal_light
+com.scnu.swimmingtrainingsystem.R$drawable: int v5_btn_bg_single_pressed_light
+com.scnu.swimmingtrainingsystem.R$drawable: int xlistview_arrow
+com.scnu.swimmingtrainingsystem.R$id: int AthID
+com.scnu.swimmingtrainingsystem.R$id: int AthName
+com.scnu.swimmingtrainingsystem.R$id: int act_current_distance
+com.scnu.swimmingtrainingsystem.R$id: int act_interval
+com.scnu.swimmingtrainingsystem.R$id: int action_settings
+com.scnu.swimmingtrainingsystem.R$id: int add
+com.scnu.swimmingtrainingsystem.R$id: int add_et_age
+com.scnu.swimmingtrainingsystem.R$id: int add_et_contact
+com.scnu.swimmingtrainingsystem.R$id: int add_et_extra
+com.scnu.swimmingtrainingsystem.R$id: int add_et_user
+com.scnu.swimmingtrainingsystem.R$id: int add_ll2
+com.scnu.swimmingtrainingsystem.R$id: int add_ll3
+com.scnu.swimmingtrainingsystem.R$id: int add_ll4
+com.scnu.swimmingtrainingsystem.R$id: int add_ll5
+com.scnu.swimmingtrainingsystem.R$id: int add_ll6
+com.scnu.swimmingtrainingsystem.R$id: int add_match_athlete
+com.scnu.swimmingtrainingsystem.R$id: int alertTitle
+com.scnu.swimmingtrainingsystem.R$id: int ath_name
+com.scnu.swimmingtrainingsystem.R$id: int athlete_back
+com.scnu.swimmingtrainingsystem.R$id: int athlete_headbar
+com.scnu.swimmingtrainingsystem.R$id: int bt_choose_athlete
+com.scnu.swimmingtrainingsystem.R$id: int bt_dash_modify
+com.scnu.swimmingtrainingsystem.R$id: int bt_dash_reload
+com.scnu.swimmingtrainingsystem.R$id: int bt_dash_reset
+com.scnu.swimmingtrainingsystem.R$id: int bt_frequen_reset
+com.scnu.swimmingtrainingsystem.R$id: int bt_match_dash_save
+com.scnu.swimmingtrainingsystem.R$id: int bt_regist
+com.scnu.swimmingtrainingsystem.R$id: int bt_show_save
+com.scnu.swimmingtrainingsystem.R$id: int btn_0
+com.scnu.swimmingtrainingsystem.R$id: int btn_1
+com.scnu.swimmingtrainingsystem.R$id: int button1
+com.scnu.swimmingtrainingsystem.R$id: int button2
+com.scnu.swimmingtrainingsystem.R$id: int check
+com.scnu.swimmingtrainingsystem.R$id: int choose_list
+com.scnu.swimmingtrainingsystem.R$id: int choose_plan_dialog_title
+com.scnu.swimmingtrainingsystem.R$id: int choose_plan_ll1
+com.scnu.swimmingtrainingsystem.R$id: int clcokset_rl
+com.scnu.swimmingtrainingsystem.R$id: int clcokview
+com.scnu.swimmingtrainingsystem.R$id: int clickRemove
+com.scnu.swimmingtrainingsystem.R$id: int clockset_headbar
+com.scnu.swimmingtrainingsystem.R$id: int container
+com.scnu.swimmingtrainingsystem.R$id: int contentPanel
+com.scnu.swimmingtrainingsystem.R$id: int customPanel
+com.scnu.swimmingtrainingsystem.R$id: int customviewlayMessage
+com.scnu.swimmingtrainingsystem.R$id: int dash_area
+com.scnu.swimmingtrainingsystem.R$id: int dash_line
+com.scnu.swimmingtrainingsystem.R$id: int dash_ll_bt
+com.scnu.swimmingtrainingsystem.R$id: int date_list
+com.scnu.swimmingtrainingsystem.R$id: int delete
+com.scnu.swimmingtrainingsystem.R$id: int deperate_back
+com.scnu.swimmingtrainingsystem.R$id: int details
+com.scnu.swimmingtrainingsystem.R$id: int dialog_cancle
+com.scnu.swimmingtrainingsystem.R$id: int dialog_foot
+com.scnu.swimmingtrainingsystem.R$id: int dialog_reset
+com.scnu.swimmingtrainingsystem.R$id: int dialog_save
+com.scnu.swimmingtrainingsystem.R$id: int dispatch_athlete
+com.scnu.swimmingtrainingsystem.R$id: int drag_handle
+com.scnu.swimmingtrainingsystem.R$id: int drag_list_item_text
+com.scnu.swimmingtrainingsystem.R$id: int duocihour_dial
+com.scnu.swimmingtrainingsystem.R$id: int duocihour_progress_hand
+com.scnu.swimmingtrainingsystem.R$id: int duocijishilist
+com.scnu.swimmingtrainingsystem.R$id: int duocimin_dial
+com.scnu.swimmingtrainingsystem.R$id: int duocimin_progress_hand
+com.scnu.swimmingtrainingsystem.R$id: int duocisecond_dial
+com.scnu.swimmingtrainingsystem.R$id: int duocisecond_progress_hand
+com.scnu.swimmingtrainingsystem.R$id: int duocitvTime
+com.scnu.swimmingtrainingsystem.R$id: int edt_email
+com.scnu.swimmingtrainingsystem.R$id: int et_email
+com.scnu.swimmingtrainingsystem.R$id: int et_password
+com.scnu.swimmingtrainingsystem.R$id: int et_password1
+com.scnu.swimmingtrainingsystem.R$id: int et_phone
+com.scnu.swimmingtrainingsystem.R$id: int et_remarks
+com.scnu.swimmingtrainingsystem.R$id: int et_userID
+com.scnu.swimmingtrainingsystem.R$id: int flingRemove
+com.scnu.swimmingtrainingsystem.R$id: int forget_password
+com.scnu.swimmingtrainingsystem.R$id: int frequence_area
+com.scnu.swimmingtrainingsystem.R$id: int getPassword_back
+com.scnu.swimmingtrainingsystem.R$id: int getPassword_headbar
+com.scnu.swimmingtrainingsystem.R$id: int horizontalScrollView_home
+com.scnu.swimmingtrainingsystem.R$id: int hour_dial
+com.scnu.swimmingtrainingsystem.R$id: int hour_progress_hand
+com.scnu.swimmingtrainingsystem.R$id: int icon
+com.scnu.swimmingtrainingsystem.R$id: int image
+com.scnu.swimmingtrainingsystem.R$id: int item1
+com.scnu.swimmingtrainingsystem.R$id: int ivCursor
+com.scnu.swimmingtrainingsystem.R$id: int layloading
+com.scnu.swimmingtrainingsystem.R$id: int list_choosed
+com.scnu.swimmingtrainingsystem.R$id: int list_item_textview
+com.scnu.swimmingtrainingsystem.R$id: int listjishi
+com.scnu.swimmingtrainingsystem.R$id: int ll1
+com.scnu.swimmingtrainingsystem.R$id: int ll2
+com.scnu.swimmingtrainingsystem.R$id: int ll3
+com.scnu.swimmingtrainingsystem.R$id: int ll4
+com.scnu.swimmingtrainingsystem.R$id: int ll5
+com.scnu.swimmingtrainingsystem.R$id: int ll_bottom
+com.scnu.swimmingtrainingsystem.R$id: int ll_fragment_disatance
+com.scnu.swimmingtrainingsystem.R$id: int ll_match_dash2
+com.scnu.swimmingtrainingsystem.R$id: int ll_match_dash3
+com.scnu.swimmingtrainingsystem.R$id: int ll_match_dash_save
+com.scnu.swimmingtrainingsystem.R$id: int ll_match_score
+com.scnu.swimmingtrainingsystem.R$id: int ll_pop
+com.scnu.swimmingtrainingsystem.R$id: int ll_query_score
+com.scnu.swimmingtrainingsystem.R$id: int ll_shouyebiaoqian
+com.scnu.swimmingtrainingsystem.R$id: int ll_title
+com.scnu.swimmingtrainingsystem.R$id: int loadingImageView
+com.scnu.swimmingtrainingsystem.R$id: int login
+com.scnu.swimmingtrainingsystem.R$id: int lv
+com.scnu.swimmingtrainingsystem.R$id: int main
+com.scnu.swimmingtrainingsystem.R$id: int matchName_list
+com.scnu.swimmingtrainingsystem.R$id: int match_act_current_distance
+com.scnu.swimmingtrainingsystem.R$id: int match_back
+com.scnu.swimmingtrainingsystem.R$id: int match_dash_headbar
+com.scnu.swimmingtrainingsystem.R$id: int match_done
+com.scnu.swimmingtrainingsystem.R$id: int match_people
+com.scnu.swimmingtrainingsystem.R$id: int match_reload
+com.scnu.swimmingtrainingsystem.R$id: int match_score
+com.scnu.swimmingtrainingsystem.R$id: int match_score_headbar
+com.scnu.swimmingtrainingsystem.R$id: int match_statistic
+com.scnu.swimmingtrainingsystem.R$id: int matchscore_list
+com.scnu.swimmingtrainingsystem.R$id: int message
+com.scnu.swimmingtrainingsystem.R$id: int min_dial
+com.scnu.swimmingtrainingsystem.R$id: int modify_act_current_distance
+com.scnu.swimmingtrainingsystem.R$id: int modify_back
+com.scnu.swimmingtrainingsystem.R$id: int modify_comfirmpass
+com.scnu.swimmingtrainingsystem.R$id: int modify_headbar
+com.scnu.swimmingtrainingsystem.R$id: int modify_ll1
+com.scnu.swimmingtrainingsystem.R$id: int modify_ll2
+com.scnu.swimmingtrainingsystem.R$id: int modify_ll3
+com.scnu.swimmingtrainingsystem.R$id: int modify_newpass
+com.scnu.swimmingtrainingsystem.R$id: int modify_oldpass
+com.scnu.swimmingtrainingsystem.R$id: int onDown
+com.scnu.swimmingtrainingsystem.R$id: int onLongPress
+com.scnu.swimmingtrainingsystem.R$id: int onMove
+com.scnu.swimmingtrainingsystem.R$id: int operation
+com.scnu.swimmingtrainingsystem.R$id: int parentPanel
+com.scnu.swimmingtrainingsystem.R$id: int plan_back
+com.scnu.swimmingtrainingsystem.R$id: int pool_length
+com.scnu.swimmingtrainingsystem.R$id: int query_score_list
+com.scnu.swimmingtrainingsystem.R$id: int radiogroup1
+com.scnu.swimmingtrainingsystem.R$id: int ranking
+com.scnu.swimmingtrainingsystem.R$id: int regist_back
+com.scnu.swimmingtrainingsystem.R$id: int regist_headbar
+com.scnu.swimmingtrainingsystem.R$id: int register
+com.scnu.swimmingtrainingsystem.R$id: int resetbutton
+com.scnu.swimmingtrainingsystem.R$id: int rl_buttom
+com.scnu.swimmingtrainingsystem.R$id: int rl_content
+com.scnu.swimmingtrainingsystem.R$id: int scroe_back
+com.scnu.swimmingtrainingsystem.R$id: int scroe_headbar
+com.scnu.swimmingtrainingsystem.R$id: int search_date_list
+com.scnu.swimmingtrainingsystem.R$id: int search_scroe_back
+com.scnu.swimmingtrainingsystem.R$id: int search_scroe_headbar
+com.scnu.swimmingtrainingsystem.R$id: int search_text_category
+com.scnu.swimmingtrainingsystem.R$id: int second_dial
+com.scnu.swimmingtrainingsystem.R$id: int second_progress_hand
+com.scnu.swimmingtrainingsystem.R$id: int setting_back
+com.scnu.swimmingtrainingsystem.R$id: int setting_change_password
+com.scnu.swimmingtrainingsystem.R$id: int setting_exit
+com.scnu.swimmingtrainingsystem.R$id: int setting_headbar
+com.scnu.swimmingtrainingsystem.R$id: int setting_host
+com.scnu.swimmingtrainingsystem.R$id: int setting_illustration
+com.scnu.swimmingtrainingsystem.R$id: int sexangleView
+com.scnu.swimmingtrainingsystem.R$id: int show_back
+com.scnu.swimmingtrainingsystem.R$id: int show_details
+com.scnu.swimmingtrainingsystem.R$id: int show_headbar
+com.scnu.swimmingtrainingsystem.R$id: int show_list
+com.scnu.swimmingtrainingsystem.R$id: int show_name
+com.scnu.swimmingtrainingsystem.R$id: int show_rank
+com.scnu.swimmingtrainingsystem.R$id: int show_score
+com.scnu.swimmingtrainingsystem.R$id: int show_the_plan
+com.scnu.swimmingtrainingsystem.R$id: int show_times
+com.scnu.swimmingtrainingsystem.R$id: int spinner_match_dash
+com.scnu.swimmingtrainingsystem.R$id: int sprint_score_list
+com.scnu.swimmingtrainingsystem.R$id: int tb_AthID
+com.scnu.swimmingtrainingsystem.R$id: int tb_AthName
+com.scnu.swimmingtrainingsystem.R$id: int tb_ll
+com.scnu.swimmingtrainingsystem.R$id: int test_date
+com.scnu.swimmingtrainingsystem.R$id: int test_plan
+com.scnu.swimmingtrainingsystem.R$id: int test_score
+com.scnu.swimmingtrainingsystem.R$id: int test_times
+com.scnu.swimmingtrainingsystem.R$id: int text_category
+com.scnu.swimmingtrainingsystem.R$id: int textwujici
+com.scnu.swimmingtrainingsystem.R$id: int tick
+com.scnu.swimmingtrainingsystem.R$id: int time_title
+com.scnu.swimmingtrainingsystem.R$id: int timer_back
+com.scnu.swimmingtrainingsystem.R$id: int timer_headbar
+com.scnu.swimmingtrainingsystem.R$id: int tips_list
+com.scnu.swimmingtrainingsystem.R$id: int titleDivider
+com.scnu.swimmingtrainingsystem.R$id: int title_template
+com.scnu.swimmingtrainingsystem.R$id: int toggle_gender
+com.scnu.swimmingtrainingsystem.R$id: int topPanel
+com.scnu.swimmingtrainingsystem.R$id: int ttvv1
+com.scnu.swimmingtrainingsystem.R$id: int ttvv2
+com.scnu.swimmingtrainingsystem.R$id: int tvTag1
+com.scnu.swimmingtrainingsystem.R$id: int tvTag2
+com.scnu.swimmingtrainingsystem.R$id: int tvTime
+com.scnu.swimmingtrainingsystem.R$id: int tv_1
+com.scnu.swimmingtrainingsystem.R$id: int tv_between_time
+com.scnu.swimmingtrainingsystem.R$id: int tv_chosen_ath_name
+com.scnu.swimmingtrainingsystem.R$id: int tv_distance
+com.scnu.swimmingtrainingsystem.R$id: int tv_frequen_result
+com.scnu.swimmingtrainingsystem.R$id: int tv_ip
+com.scnu.swimmingtrainingsystem.R$id: int tv_password
+com.scnu.swimmingtrainingsystem.R$id: int tv_pop_tips
+com.scnu.swimmingtrainingsystem.R$id: int tv_port
+com.scnu.swimmingtrainingsystem.R$id: int tv_ranking
+com.scnu.swimmingtrainingsystem.R$id: int tv_score
+com.scnu.swimmingtrainingsystem.R$id: int tv_user
+com.scnu.swimmingtrainingsystem.R$id: int tv_userID
+com.scnu.swimmingtrainingsystem.R$id: int txtLoading
+com.scnu.swimmingtrainingsystem.R$id: int view_1
+com.scnu.swimmingtrainingsystem.R$id: int view_2
+com.scnu.swimmingtrainingsystem.R$id: int view_plan_tv
+com.scnu.swimmingtrainingsystem.R$id: int viewparger_home
+com.scnu.swimmingtrainingsystem.R$id: int vp_fuction
+com.scnu.swimmingtrainingsystem.R$id: int wv_athleteName
+com.scnu.swimmingtrainingsystem.R$id: int wv_poolway
+com.scnu.swimmingtrainingsystem.R$id: int xlistview_footer_content
+com.scnu.swimmingtrainingsystem.R$id: int xlistview_footer_hint_textview
+com.scnu.swimmingtrainingsystem.R$id: int xlistview_footer_progressbar
+com.scnu.swimmingtrainingsystem.R$id: int xlistview_header_arrow
+com.scnu.swimmingtrainingsystem.R$id: int xlistview_header_content
+com.scnu.swimmingtrainingsystem.R$id: int xlistview_header_hint_textview
+com.scnu.swimmingtrainingsystem.R$id: int xlistview_header_progressbar
+com.scnu.swimmingtrainingsystem.R$id: int xlistview_header_text
+com.scnu.swimmingtrainingsystem.R$id: int xlistview_header_time
+com.scnu.swimmingtrainingsystem.R$layout: int activity_athlete
+com.scnu.swimmingtrainingsystem.R$layout: int activity_clockset
+com.scnu.swimmingtrainingsystem.R$layout: int activity_login
+com.scnu.swimmingtrainingsystem.R$layout: int activity_main
+com.scnu.swimmingtrainingsystem.R$layout: int activity_match_dash_score
+com.scnu.swimmingtrainingsystem.R$layout: int activity_matchscore
+com.scnu.swimmingtrainingsystem.R$layout: int activity_modify
+com.scnu.swimmingtrainingsystem.R$layout: int activity_modify_each_score
+com.scnu.swimmingtrainingsystem.R$layout: int activity_other_function
+com.scnu.swimmingtrainingsystem.R$layout: int activity_queryscore
+com.scnu.swimmingtrainingsystem.R$layout: int activity_regist
+com.scnu.swimmingtrainingsystem.R$layout: int activity_retrieve_password
+com.scnu.swimmingtrainingsystem.R$layout: int activity_searchbox
+com.scnu.swimmingtrainingsystem.R$layout: int activity_setting
+com.scnu.swimmingtrainingsystem.R$layout: int activity_showscore
+com.scnu.swimmingtrainingsystem.R$layout: int activity_timer
+com.scnu.swimmingtrainingsystem.R$layout: int activity_tips
+com.scnu.swimmingtrainingsystem.R$layout: int activity_wlecome
+com.scnu.swimmingtrainingsystem.R$layout: int add_athlete_dialog
+com.scnu.swimmingtrainingsystem.R$layout: int athlete_list_item
+com.scnu.swimmingtrainingsystem.R$layout: int base_loading
+com.scnu.swimmingtrainingsystem.R$layout: int choose_list_item
+com.scnu.swimmingtrainingsystem.R$layout: int chosen_athlete_list_item
+com.scnu.swimmingtrainingsystem.R$layout: int dialog_choose_athlete
+com.scnu.swimmingtrainingsystem.R$layout: int dialog_dispatch_athlete
+com.scnu.swimmingtrainingsystem.R$layout: int dialog_layout
+com.scnu.swimmingtrainingsystem.R$layout: int dialog_setting_host
+com.scnu.swimmingtrainingsystem.R$layout: int drag_list_item
+com.scnu.swimmingtrainingsystem.R$layout: int fragment_frequence
+com.scnu.swimmingtrainingsystem.R$layout: int fragment_modify_scores
+com.scnu.swimmingtrainingsystem.R$layout: int fragment_sprint
+com.scnu.swimmingtrainingsystem.R$layout: int layout_timer
+com.scnu.swimmingtrainingsystem.R$layout: int match_2_list
+com.scnu.swimmingtrainingsystem.R$layout: int matchscore_list_item
+com.scnu.swimmingtrainingsystem.R$layout: int photo_choose_dialog
+com.scnu.swimmingtrainingsystem.R$layout: int popupwindow_tips
+com.scnu.swimmingtrainingsystem.R$layout: int query_date_list
+com.scnu.swimmingtrainingsystem.R$layout: int query_score_list_item_head
+com.scnu.swimmingtrainingsystem.R$layout: int query_score_list_item_sub
+com.scnu.swimmingtrainingsystem.R$layout: int show_score_list_item_head
+com.scnu.swimmingtrainingsystem.R$layout: int show_score_list_item_sub
+com.scnu.swimmingtrainingsystem.R$layout: int timeline_item
+com.scnu.swimmingtrainingsystem.R$layout: int warp_main_left
+com.scnu.swimmingtrainingsystem.R$layout: int warp_main_right
+com.scnu.swimmingtrainingsystem.R$layout: int xlist_item
+com.scnu.swimmingtrainingsystem.R$layout: int xlistview_footer
+com.scnu.swimmingtrainingsystem.R$layout: int xlistview_header
+com.scnu.swimmingtrainingsystem.R$menu: int main
+com.scnu.swimmingtrainingsystem.R$string: int action_settings
+com.scnu.swimmingtrainingsystem.R$string: int app_name
+com.scnu.swimmingtrainingsystem.R$string: int off
+com.scnu.swimmingtrainingsystem.R$string: int on
+com.scnu.swimmingtrainingsystem.R$string: int xlistview_footer_hint_normal
+com.scnu.swimmingtrainingsystem.R$string: int xlistview_footer_hint_ready
+com.scnu.swimmingtrainingsystem.R$string: int xlistview_header_hint_loading
+com.scnu.swimmingtrainingsystem.R$string: int xlistview_header_hint_normal
+com.scnu.swimmingtrainingsystem.R$string: int xlistview_header_hint_ready
+com.scnu.swimmingtrainingsystem.R$string: int xlistview_header_last_time
+com.scnu.swimmingtrainingsystem.R$style: int AppBaseTheme
+com.scnu.swimmingtrainingsystem.R$style: int AppTheme
+com.scnu.swimmingtrainingsystem.R$style: int AppThemeLight
+com.scnu.swimmingtrainingsystem.R$style: int CustomCheckboxTheme
+com.scnu.swimmingtrainingsystem.R$style: int CustomDialog
+com.scnu.swimmingtrainingsystem.R$style: int CustomProgressDialog
+com.scnu.swimmingtrainingsystem.R$style: int DialogWindowTitle
+com.scnu.swimmingtrainingsystem.R$style: int MyDialog
+com.scnu.swimmingtrainingsystem.R$style: int dialog_btn
+com.scnu.swimmingtrainingsystem.R$style: int dialog_tran
+com.scnu.swimmingtrainingsystem.R$style: int dialog_untran
+com.scnu.swimmingtrainingsystem.R$style: int main_menu_animstyle
+com.scnu.swimmingtrainingsystem.R$style: int switch_light
+com.scnu.swimmingtrainingsystem.R$style: int transparentFrameWindowStyle
+com.scnu.swimmingtrainingsystem.R$styleable: int[] DragSortListView
+com.scnu.swimmingtrainingsystem.R$styleable: int DragSortListView_click_remove_id
+com.scnu.swimmingtrainingsystem.R$styleable: int DragSortListView_collapsed_height
+com.scnu.swimmingtrainingsystem.R$styleable: int DragSortListView_drag_enabled
+com.scnu.swimmingtrainingsystem.R$styleable: int DragSortListView_drag_handle_id
+com.scnu.swimmingtrainingsystem.R$styleable: int DragSortListView_drag_scroll_start
+com.scnu.swimmingtrainingsystem.R$styleable: int DragSortListView_drag_start_mode
+com.scnu.swimmingtrainingsystem.R$styleable: int DragSortListView_drop_animation_duration
+com.scnu.swimmingtrainingsystem.R$styleable: int DragSortListView_fling_handle_id
+com.scnu.swimmingtrainingsystem.R$styleable: int DragSortListView_float_alpha
+com.scnu.swimmingtrainingsystem.R$styleable: int DragSortListView_float_background_color
+com.scnu.swimmingtrainingsystem.R$styleable: int DragSortListView_max_drag_scroll_speed
+com.scnu.swimmingtrainingsystem.R$styleable: int DragSortListView_remove_animation_duration
+com.scnu.swimmingtrainingsystem.R$styleable: int DragSortListView_remove_enabled
+com.scnu.swimmingtrainingsystem.R$styleable: int DragSortListView_remove_mode
+com.scnu.swimmingtrainingsystem.R$styleable: int DragSortListView_slide_shuffle_speed
+com.scnu.swimmingtrainingsystem.R$styleable: int DragSortListView_sort_enabled
+com.scnu.swimmingtrainingsystem.R$styleable: int DragSortListView_track_drag_sort
+com.scnu.swimmingtrainingsystem.R$styleable: int DragSortListView_use_default_controller
+com.scnu.swimmingtrainingsystem.R$styleable: int[] Switch
+com.scnu.swimmingtrainingsystem.R$styleable: int Switch_backgroundDrawable
+com.scnu.swimmingtrainingsystem.R$styleable: int Switch_colorChecked
+com.scnu.swimmingtrainingsystem.R$styleable: int Switch_colorUnChecked
+com.scnu.swimmingtrainingsystem.R$styleable: int Switch_innerPadding
+com.scnu.swimmingtrainingsystem.R$styleable: int Switch_isChecked
+com.scnu.swimmingtrainingsystem.R$styleable: int Switch_switchDrawable
+com.scnu.swimmingtrainingsystem.R$styleable: int Switch_switchMinWidth
+com.scnu.swimmingtrainingsystem.R$styleable: int Switch_switchPadding
+com.scnu.swimmingtrainingsystem.R$styleable: int Switch_textLeft
+com.scnu.swimmingtrainingsystem.R$styleable: int Switch_textRight
+com.scnu.swimmingtrainingsystem.R$styleable: int[] sexangleImageView
+com.scnu.swimmingtrainingsystem.R$styleable: int sexangleImageView_backcolor
+com.scnu.swimmingtrainingsystem.R$styleable: int sexangleImageView_big
+com.scnu.swimmingtrainingsystem.R$styleable: int sexangleImageView_home
+com.scnu.swimmingtrainingsystem.R$styleable: int sexangleImageView_textSize
+com.scnu.swimmingtrainingsystem.R$styleable: int sexangleImageView_texts
+com.scnu.swimmingtrainingsystem.activity.AthleteActivity
+com.scnu.swimmingtrainingsystem.activity.AthleteActivity: AthleteActivity()
+com.scnu.swimmingtrainingsystem.activity.AthleteActivity: void addAthlete(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.AthleteActivity: void addAthlete(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String)
+com.scnu.swimmingtrainingsystem.activity.AthleteActivity: void back(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.EachTimeScoreActivity
+com.scnu.swimmingtrainingsystem.activity.EachTimeScoreActivity: EachTimeScoreActivity()
+com.scnu.swimmingtrainingsystem.activity.EachTimeScoreActivity: void finishModify(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.LoginActivity
+com.scnu.swimmingtrainingsystem.activity.LoginActivity: LoginActivity()
+com.scnu.swimmingtrainingsystem.activity.LoginActivity: void onRegister(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.LoginActivity: void onLogin(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.MainActivity
+com.scnu.swimmingtrainingsystem.activity.MainActivity: MainActivity()
+com.scnu.swimmingtrainingsystem.activity.MatchScoreActivity
+com.scnu.swimmingtrainingsystem.activity.MatchScoreActivity: MatchScoreActivity()
+com.scnu.swimmingtrainingsystem.activity.MatchScoreActivity: void matchDone(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.MatchScoreActivity: void finishTiming(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.MatchScoreActivity: void matchBack(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.MatchScoreActivity: void reLoad(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.MatchSprintScoreActivity
+com.scnu.swimmingtrainingsystem.activity.MatchSprintScoreActivity: MatchSprintScoreActivity()
+com.scnu.swimmingtrainingsystem.activity.MatchSprintScoreActivity: void chooseAthlete(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.MatchSprintScoreActivity: void saveScores(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.MatchSprintScoreActivity: void matchBack(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.MatchSprintScoreActivity: void reLoad(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.ModifyPassActivity
+com.scnu.swimmingtrainingsystem.activity.ModifyPassActivity: ModifyPassActivity()
+com.scnu.swimmingtrainingsystem.activity.ModifyPassActivity: void modify(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.ModifyPassActivity: void getback(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.MyApplication
+com.scnu.swimmingtrainingsystem.activity.MyApplication: MyApplication()
+com.scnu.swimmingtrainingsystem.activity.OtherFunctionActivity
+com.scnu.swimmingtrainingsystem.activity.OtherFunctionActivity: OtherFunctionActivity()
+com.scnu.swimmingtrainingsystem.activity.QueryScoreActivity
+com.scnu.swimmingtrainingsystem.activity.QueryScoreActivity: QueryScoreActivity()
+com.scnu.swimmingtrainingsystem.activity.QueryScoreActivity: void back(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.RegistAcyivity
+com.scnu.swimmingtrainingsystem.activity.RegistAcyivity: RegistAcyivity()
+com.scnu.swimmingtrainingsystem.activity.RegistAcyivity: void getback(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.RegistAcyivity: void quick_regist(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.RetrievePasswordActivity
+com.scnu.swimmingtrainingsystem.activity.RetrievePasswordActivity: RetrievePasswordActivity()
+com.scnu.swimmingtrainingsystem.activity.RetrievePasswordActivity: void back(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.RetrievePasswordActivity: void sendEmail(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.SearchboxActivity
+com.scnu.swimmingtrainingsystem.activity.SearchboxActivity: SearchboxActivity()
+com.scnu.swimmingtrainingsystem.activity.SearchboxActivity: void back(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.SettingActivity
+com.scnu.swimmingtrainingsystem.activity.SettingActivity: SettingActivity()
+com.scnu.swimmingtrainingsystem.activity.SettingActivity: void setting_back(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.SettingActivity: void setting(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.ShowScoreActivity
+com.scnu.swimmingtrainingsystem.activity.ShowScoreActivity: ShowScoreActivity()
+com.scnu.swimmingtrainingsystem.activity.ShowScoreActivity: void showBack(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.TimerActivity
+com.scnu.swimmingtrainingsystem.activity.TimerActivity: TimerActivity()
+com.scnu.swimmingtrainingsystem.activity.TimerActivity: void back(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.TimerActivity: void reset(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.TimerActivity: void matchAthlete(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.TimerSettingActivity
+com.scnu.swimmingtrainingsystem.activity.TimerSettingActivity: TimerSettingActivity()
+com.scnu.swimmingtrainingsystem.activity.TimerSettingActivity: void chooseAthlete(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.TimerSettingActivity: void startTiming(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.TimerSettingActivity: void clcokset_back(android.view.View)
+com.scnu.swimmingtrainingsystem.activity.UseTipsActiviy
+com.scnu.swimmingtrainingsystem.activity.UseTipsActiviy: UseTipsActiviy()
+com.scnu.swimmingtrainingsystem.activity.WlecomeActivity
+com.scnu.swimmingtrainingsystem.activity.WlecomeActivity: WlecomeActivity()
+com.scnu.swimmingtrainingsystem.effect.BaseEffects: void reset(android.view.View)
+com.scnu.swimmingtrainingsystem.effect.Effectstype
+com.scnu.swimmingtrainingsystem.effect.Effectstype: com.scnu.swimmingtrainingsystem.effect.Effectstype SlideBottom
+com.scnu.swimmingtrainingsystem.effect.Effectstype: com.scnu.swimmingtrainingsystem.effect.Effectstype Fall
+com.scnu.swimmingtrainingsystem.effect.Effectstype: com.scnu.swimmingtrainingsystem.effect.Effectstype RotateLeft
+com.scnu.swimmingtrainingsystem.effect.Effectstype: com.scnu.swimmingtrainingsystem.effect.Effectstype Slit
+com.scnu.swimmingtrainingsystem.effect.Effectstype: java.lang.Class effectsClazz
+com.scnu.swimmingtrainingsystem.effect.Effectstype: com.scnu.swimmingtrainingsystem.effect.Effectstype[] ENUM$VALUES
+com.scnu.swimmingtrainingsystem.effect.Effectstype: Effectstype(java.lang.String,int,java.lang.Class)
+com.scnu.swimmingtrainingsystem.effect.Effectstype: com.scnu.swimmingtrainingsystem.effect.BaseEffects getAnimator()
+com.scnu.swimmingtrainingsystem.effect.Effectstype: com.scnu.swimmingtrainingsystem.effect.Effectstype[] values()
+com.scnu.swimmingtrainingsystem.effect.Effectstype: com.scnu.swimmingtrainingsystem.effect.Effectstype valueOf(java.lang.String)
+com.scnu.swimmingtrainingsystem.fragment.EachTimeScoreFragment
+com.scnu.swimmingtrainingsystem.fragment.FrequenceFragment
+com.scnu.swimmingtrainingsystem.fragment.SprintFragment
+com.scnu.swimmingtrainingsystem.view.EditTextWithDel
+com.scnu.swimmingtrainingsystem.view.EditTextWithDel: EditTextWithDel(android.content.Context)
+com.scnu.swimmingtrainingsystem.view.EditTextWithDel: EditTextWithDel(android.content.Context,android.util.AttributeSet,int)
+com.scnu.swimmingtrainingsystem.view.EditTextWithDel: EditTextWithDel(android.content.Context,android.util.AttributeSet)
+com.scnu.swimmingtrainingsystem.view.MyTextView
+com.scnu.swimmingtrainingsystem.view.MyTextView: MyTextView(android.content.Context,android.util.AttributeSet)
+com.scnu.swimmingtrainingsystem.view.SexangleImageViews
+com.scnu.swimmingtrainingsystem.view.SexangleImageViews: SexangleImageViews(android.content.Context)
+com.scnu.swimmingtrainingsystem.view.SexangleImageViews: void setCustomAttributes(com.scnu.swimmingtrainingsystem.model.ViewBean)
+com.scnu.swimmingtrainingsystem.view.SexangleImageViews: SexangleImageViews(android.content.Context,android.util.AttributeSet)
+com.scnu.swimmingtrainingsystem.view.SexangleImageViews: void setOnSexangleImageClick(com.scnu.swimmingtrainingsystem.view.SexangleImageViews$OnSexangleImageClickListener)
+com.scnu.swimmingtrainingsystem.view.SexangleViewGroup
+com.scnu.swimmingtrainingsystem.view.SexangleViewGroup: SexangleViewGroup(android.content.Context,android.util.AttributeSet)
+com.scnu.swimmingtrainingsystem.view.Switch
+com.scnu.swimmingtrainingsystem.view.Switch: Switch(android.content.Context)
+com.scnu.swimmingtrainingsystem.view.Switch: Switch(android.content.Context,android.util.AttributeSet)
+com.scnu.swimmingtrainingsystem.view.Switch: Switch(android.content.Context,android.util.AttributeSet,int)
+com.scnu.swimmingtrainingsystem.view.Switch: void setTextLeft(java.lang.CharSequence)
+com.scnu.swimmingtrainingsystem.view.Switch: java.lang.CharSequence getTextLeft()
+com.scnu.swimmingtrainingsystem.view.Switch: java.lang.CharSequence getTextRight()
+com.scnu.swimmingtrainingsystem.view.Switch: void setTextRight(java.lang.CharSequence)
+com.scnu.swimmingtrainingsystem.view.Switch: int getCompoundPaddingRight()
+com.scnu.swimmingtrainingsystem.view.Switch: void setOnClickListener(android.view.View$OnClickListener)
+com.scnu.swimmingtrainingsystem.view.XListView
+com.scnu.swimmingtrainingsystem.view.XListView: XListView(android.content.Context)
+com.scnu.swimmingtrainingsystem.view.XListView: XListView(android.content.Context,android.util.AttributeSet)
+com.scnu.swimmingtrainingsystem.view.XListView: XListView(android.content.Context,android.util.AttributeSet,int)
+com.scnu.swimmingtrainingsystem.view.XListView: void setAdapter(android.widget.ListAdapter)
+com.scnu.swimmingtrainingsystem.view.XListView: void setPullRefreshEnable(boolean)
+com.scnu.swimmingtrainingsystem.view.XListView: void setPullLoadEnable(boolean)
+com.scnu.swimmingtrainingsystem.view.XListView: void setRefreshTime(java.lang.String)
+com.scnu.swimmingtrainingsystem.view.XListView: void setOnScrollListener(android.widget.AbsListView$OnScrollListener)
+com.scnu.swimmingtrainingsystem.view.XListView: void setXListViewListener(com.scnu.swimmingtrainingsystem.view.XListView$IXListViewListener)
+com.scnu.swimmingtrainingsystem.view.XListViewFooter
+com.scnu.swimmingtrainingsystem.view.XListViewFooter: XListViewFooter(android.content.Context)
+com.scnu.swimmingtrainingsystem.view.XListViewFooter: XListViewFooter(android.content.Context,android.util.AttributeSet)
+com.scnu.swimmingtrainingsystem.view.XListViewFooter: void setState(int)
+com.scnu.swimmingtrainingsystem.view.XListViewFooter: void setBottomMargin(int)
+com.scnu.swimmingtrainingsystem.view.XListViewFooter: int getBottomMargin()
+com.scnu.swimmingtrainingsystem.view.XListViewHeader
+com.scnu.swimmingtrainingsystem.view.XListViewHeader: XListViewHeader(android.content.Context)
+com.scnu.swimmingtrainingsystem.view.XListViewHeader: XListViewHeader(android.content.Context,android.util.AttributeSet)
+com.scnu.swimmingtrainingsystem.view.XListViewHeader: void setState(int)
+com.scnu.swimmingtrainingsystem.view.XListViewHeader: void setVisiableHeight(int)
+com.scnu.swimmingtrainingsystem.view.XListViewHeader: int getVisiableHeight()
+org.litepal.LitePalApplication
+org.litepal.LitePalApplication: LitePalApplication()
+org.litepal.exceptions.DataSupportException
+org.litepal.exceptions.DataSupportException: long serialVersionUID
+org.litepal.exceptions.DataSupportException: java.lang.String ID_TYPE_INVALID_EXCEPTION
+org.litepal.exceptions.DataSupportException: java.lang.String MODEL_IS_NOT_AN_INSTANCE_OF_DATA_SUPPORT
+org.litepal.exceptions.DataSupportException: java.lang.String WRONG_FIELD_TYPE_FOR_ASSOCIATIONS
+org.litepal.exceptions.DataSupportException: java.lang.String SAVE_FAILED
+org.litepal.exceptions.DataSupportException: java.lang.String INSTANTIATION_EXCEPTION
+org.litepal.exceptions.DataSupportException: java.lang.String UPDATE_CONDITIONS_EXCEPTION
+org.litepal.exceptions.DataSupportException: DataSupportException(java.lang.String)
+org.litepal.exceptions.DataSupportException: java.lang.String noSuchMethodException(java.lang.String,java.lang.String)
+org.litepal.exceptions.DataSupportException: java.lang.String noSuchFieldExceptioin(java.lang.String,java.lang.String)
+org.litepal.exceptions.DatabaseGenerateException
+org.litepal.exceptions.DatabaseGenerateException: long serialVersionUID
+org.litepal.exceptions.DatabaseGenerateException: java.lang.String CLASS_NOT_FOUND
+org.litepal.exceptions.DatabaseGenerateException: java.lang.String SQL_ERROR
+org.litepal.exceptions.DatabaseGenerateException: java.lang.String SQL_SYNTAX_ERROR
+org.litepal.exceptions.DatabaseGenerateException: java.lang.String TABLE_DOES_NOT_EXIST_WHEN_EXECUTING
+org.litepal.exceptions.DatabaseGenerateException: java.lang.String TABLE_DOES_NOT_EXIST
+org.litepal.exceptions.DatabaseGenerateException: DatabaseGenerateException(java.lang.String)
+org.litepal.exceptions.GlobalException
+org.litepal.exceptions.GlobalException: long serialVersionUID
+org.litepal.exceptions.GlobalException: java.lang.String APPLICATION_CONTEXT_IS_NULL
+org.litepal.exceptions.GlobalException: GlobalException(java.lang.String)
+org.litepal.exceptions.InvalidAttributesException
+org.litepal.exceptions.InvalidAttributesException: long serialVersionUID
+org.litepal.exceptions.InvalidAttributesException: java.lang.String DBNAME_IS_EMPTY_OR_NOT_DEFINED
+org.litepal.exceptions.InvalidAttributesException: java.lang.String VERSION_OF_DATABASE_LESS_THAN_ONE
+org.litepal.exceptions.InvalidAttributesException: java.lang.String VERSION_IS_EARLIER_THAN_CURRENT
+org.litepal.exceptions.InvalidAttributesException: java.lang.String CASES_VALUE_IS_INVALID
+org.litepal.exceptions.InvalidAttributesException: InvalidAttributesException(java.lang.String)
+org.litepal.exceptions.ParseConfigurationFileException
+org.litepal.exceptions.ParseConfigurationFileException: long serialVersionUID
+org.litepal.exceptions.ParseConfigurationFileException: java.lang.String CAN_NOT_FIND_LITEPAL_FILE
+org.litepal.exceptions.ParseConfigurationFileException: java.lang.String FILE_FORMAT_IS_NOT_CORRECT
+org.litepal.exceptions.ParseConfigurationFileException: java.lang.String PARSE_CONFIG_FAILED
+org.litepal.exceptions.ParseConfigurationFileException: java.lang.String IO_EXCEPTION
+org.litepal.exceptions.ParseConfigurationFileException: ParseConfigurationFileException(java.lang.String)
