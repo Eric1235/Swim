@@ -165,7 +165,7 @@ public class LoginActivity extends Activity {
 			String passwordString = etPassword.getText().toString().trim();
 			if (TextUtils.isEmpty(loginString)
 					|| TextUtils.isEmpty(passwordString)) {
-				CommonUtils.showToast(this, toast, "用户名或密码不能为空");
+				CommonUtils.showToast(this, toast, getResources().getString(R.string.nameorpwd_cannot_be_empty));
 			} else {
 				// 保存登录信息
 				CommonUtils.SaveLoginInfo(this, loginString, passwordString);
@@ -174,7 +174,7 @@ public class LoginActivity extends Activity {
 				if (tryConnect) {
 					if (loadingDialog == null) {
 						loadingDialog = LoadingDialog.createDialog(this);
-						loadingDialog.setMessage("正在登录...");
+						loadingDialog.setMessage(getResources().getString(R.string.logining));
 						loadingDialog.setCanceledOnTouchOutside(false);
 					}
 					loadingDialog.show();
@@ -209,7 +209,7 @@ public class LoginActivity extends Activity {
 							int resCode = (Integer) obj.get("resCode");
 							if (resCode == 1) {
 								CommonUtils.showToast(LoginActivity.this,
-										toast, "登录成功");
+										toast, getResources().getString(R.string.login_success));
 								String userJson = obj.get("user").toString();
 								User user = JsonTools.getObject(userJson,
 										User.class);
@@ -236,13 +236,13 @@ public class LoginActivity extends Activity {
 								}
 							} else if (resCode == 2) {
 								CommonUtils.showToast(LoginActivity.this,
-										toast, "用户名不存在！");
+										toast, getResources().getString(R.string.user_donot_exists));
 							} else if (resCode == 3) {
 								CommonUtils.showToast(LoginActivity.this,
-										toast, "密码错误！");
+										toast, getResources().getString(R.string.pwd_wrong));
 							} else {
 								CommonUtils.showToast(LoginActivity.this,
-										toast, "服务器错误！");
+										toast, getResources().getString(R.string.server_error));
 							}
 
 						} catch (JSONException e) {
@@ -251,7 +251,7 @@ public class LoginActivity extends Activity {
 						}
 
 						CommonUtils
-								.showToast(LoginActivity.this, toast, "登陆成功");
+								.showToast(LoginActivity.this, toast, getResources().getString(R.string.login_success));
 
 						Handler handler = new Handler();
 						Runnable updateThread = new Runnable() {
@@ -304,11 +304,11 @@ public class LoginActivity extends Activity {
 		final NiftyDialogBuilder settingDialog = NiftyDialogBuilder
 				.getInstance(this);
 		effect = Effectstype.Slit;
-		settingDialog.withTitle("服务器IP与端口设置").withMessage(null)
+		settingDialog.withTitle(getResources().getString(R.string.server_ip_port_setting)).withMessage(null)
 				.withIcon(getResources().getDrawable(R.drawable.ic_launcher))
 				.isCancelableOnTouchOutside(true).withDuration(500)
 				.withEffect(effect).withButton1Text(Constants.CANCLE_STRING)
-				.withButton2Text("完成")
+				.withButton2Text(getResources().getString(R.string.finish))
 				.setCustomView(R.layout.dialog_setting_host, this);
 		SharedPreferences hostSp = getSharedPreferences(Constants.LOGININFO,
 				Context.MODE_PRIVATE);
@@ -333,7 +333,7 @@ public class LoginActivity extends Activity {
 				String hostPort = tv_port.getText().toString().trim();
 				if (TextUtils.isEmpty(hostIp) || TextUtils.isEmpty(hostPort)) {
 					CommonUtils.showToast(LoginActivity.this, toast,
-							"ip与端口地址均不可为空！");
+							getResources().getString(R.string.ip_and_port_notnull));
 				} else {
 					// String hostUrl = "http://" + hostIp + ":" + hostPort
 					// + "/SWIMYUE33/httpPost.action?action_flag=";

@@ -138,7 +138,7 @@ public class AthleteActivity extends Activity {
 			CommonUtils.saveIsThisUserFirstLogin(this, false);
 			if (loadingDialog == null) {
 				loadingDialog = LoadingDialog.createDialog(this);
-				loadingDialog.setMessage("正在同步...");
+				loadingDialog.setMessage(getResources().getString(R.string.synchronizing));
 				loadingDialog.setCanceledOnTouchOutside(false);
 			}
 			loadingDialog.show();
@@ -184,9 +184,9 @@ public class AthleteActivity extends Activity {
 
 						boolean isCheck = mGenderSwitch.isChecked();
 
-						String gender = "男";
+						String gender = getResources().getString(R.string.male);
 						if (!isCheck) {
-							gender = "女";
+							gender = getResources().getString(R.string.female);
 						}
 						boolean isExit = mDbManager.isAthleteNameExsit(mUserId,
 								name);
@@ -243,7 +243,7 @@ public class AthleteActivity extends Activity {
 		if (isConnect) {
 			if (loadingDialog == null) {
 				loadingDialog = LoadingDialog.createDialog(this);
-				loadingDialog.setMessage("正在同步...");
+				loadingDialog.setMessage(getResources().getString(R.string.synchronizing));
 				loadingDialog.setCanceledOnTouchOutside(false);
 			}
 			loadingDialog.show();
@@ -361,7 +361,7 @@ public class AthleteActivity extends Activity {
 								mAthleteListAdapter.setDatas(mAthletes);
 								mAthleteListAdapter.notifyDataSetChanged();
 								CommonUtils.showToast(AthleteActivity.this,
-										mToast, "同步成功！");
+										mToast, getResources().getString(R.string.synchronized_success));
 							} else {
 								CommonUtils.showToast(AthleteActivity.this,
 										mToast, UNKNOW_ERROR);
