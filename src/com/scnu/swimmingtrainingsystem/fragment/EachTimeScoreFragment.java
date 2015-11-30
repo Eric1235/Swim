@@ -1,4 +1,4 @@
-﻿package com.scnu.swimmingtrainingsystem.fragment;
+package com.scnu.swimmingtrainingsystem.fragment;
 
 import java.util.ArrayList;
 import java.util.HashMap;

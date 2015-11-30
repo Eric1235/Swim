@@ -8,7 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 /**
- * GsonÏà¹Ø¹¤¾ßÀà
+ * Gsonç›¸å…³å·¥å…·ç±»
  * 
  * @author LittleByte
  * 
@@ -16,7 +16,7 @@ import com.google.gson.reflect.TypeToken;
 public class JsonTools {
 
 	/**
-	 * ½«¶ÔÏó×ª»»³Éjson×Ö·û´®
+	 * å°†å¯¹è±¡è½¬æ¢æˆjsonå­—ç¬¦ä¸²
 	 * 
 	 * @param key
 	 * @param value
@@ -28,7 +28,7 @@ public class JsonTools {
 	}
 
 	/**
-	 * ½«Json×Ö·û´®×ª»¯ÎªÒ»¸ö¶ÔÏó
+	 * å°†Jsonå­—ç¬¦ä¸²è½¬åŒ–ä¸ºä¸€ä¸ªå¯¹è±¡
 	 * 
 	 * @param jsonString
 	 * @param cls
@@ -46,7 +46,7 @@ public class JsonTools {
 	}
 
 	/**
-	 * ½«Json×Ö·û´®×ª»¯Îª¶à¸ö¶ÔÏóµÄlist
+	 * å°†Jsonå­—ç¬¦ä¸²è½¬åŒ–ä¸ºå¤šä¸ªå¯¹è±¡çš„list
 	 * 
 	 * @param jsonString
 	 * @param cls
@@ -56,7 +56,7 @@ public class JsonTools {
 		List<T> list = new ArrayList<T>();
 		try {
 			Gson gson = new Gson();
-			// ½«json×Ö·û´®ÖĞµÄ¶ÔÏóÈ¡³öÀ´·â×°µ½list¼¯ºÏÖĞÖ¸¶¨¶ÔÓ¦µÄÀàĞÍ
+			// å°†jsonå­—ç¬¦ä¸²ä¸­çš„å¯¹è±¡å–å‡ºæ¥å°è£…åˆ°listé›†åˆä¸­æŒ‡å®šå¯¹åº”çš„ç±»å‹
 			list = gson.fromJson(jsonString, new TypeToken<List<T>>() {
 			}.getType());
 		} catch (Exception e) {
@@ -66,7 +66,7 @@ public class JsonTools {
 	}
 
 	/**
-	 * ½«Json×Ö·û´®×ª»¯Îª¶à¸öMapµÄlist
+	 * å°†Jsonå­—ç¬¦ä¸²è½¬åŒ–ä¸ºå¤šä¸ªMapçš„list
 	 * 
 	 * @param jsonString
 	 * @return

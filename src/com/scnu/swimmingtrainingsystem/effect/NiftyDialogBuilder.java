@@ -1,4 +1,4 @@
-﻿package com.scnu.swimmingtrainingsystem.effect;
+package com.scnu.swimmingtrainingsystem.effect;
 
 import com.scnu.swimmingtrainingsystem.R;
 import android.app.Dialog;

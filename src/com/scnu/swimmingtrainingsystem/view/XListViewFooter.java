@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file XFooterView.java
  * @create Mar 31, 2012 9:33:43 PM
  * @author Maxwin

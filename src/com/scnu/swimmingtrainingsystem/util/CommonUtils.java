@@ -1,4 +1,4 @@
-﻿package com.scnu.swimmingtrainingsystem.util;
+package com.scnu.swimmingtrainingsystem.util;
 
 import java.util.List;
 import java.util.regex.Matcher;

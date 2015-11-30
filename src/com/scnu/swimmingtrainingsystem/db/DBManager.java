@@ -1,4 +1,4 @@
-﻿package com.scnu.swimmingtrainingsystem.db;
+package com.scnu.swimmingtrainingsystem.db;
 
 import java.util.ArrayList;
 import java.util.Collections;

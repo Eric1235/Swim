@@ -1,4 +1,4 @@
-﻿package com.scnu.swimmingtrainingsystem.model;
+package com.scnu.swimmingtrainingsystem.model;
 
 public class ResponseScore {
 	int athlete_id;

@@ -1,4 +1,4 @@
-﻿package com.scnu.swimmingtrainingsystem.util;
+package com.scnu.swimmingtrainingsystem.util;
 
 import android.content.Context;
 import android.util.DisplayMetrics;

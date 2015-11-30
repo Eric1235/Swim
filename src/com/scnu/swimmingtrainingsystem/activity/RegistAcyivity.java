@@ -36,7 +36,7 @@ import com.scnu.swimmingtrainingsystem.util.Constants;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
 
 /**
- * ×¢²áActivity
+ * æ³¨å†ŒActivity
  * 
  * @author LittleByte
  * 
@@ -70,7 +70,7 @@ public class RegistAcyivity extends Activity {
 
 		SharedPreferences hostSp = getSharedPreferences(Constants.LOGININFO,
 				Context.MODE_PRIVATE);
-		// ±£´æ·şÎñÆ÷ipºÍ¶Ë¿ÚµØÖ·µ½sp
+		// ä¿å­˜æœåŠ¡å™¨ipå’Œç«¯å£åœ°å€åˆ°sp
 		CommonUtils.HOSTURL = hostSp.getString("hostInfo", "");
 
 	}
@@ -80,7 +80,7 @@ public class RegistAcyivity extends Activity {
 	}
 
 	/**
-	 * ×¢²áÏìÓ¦
+	 * æ³¨å†Œå“åº”
 	 * 
 	 * @param v
 	 */
@@ -91,19 +91,19 @@ public class RegistAcyivity extends Activity {
 		final String Email = email.getText().toString().trim();
 		final String cellphone = phone.getText().toString().trim();
 		if (TextUtils.isEmpty(user)) {
-			CommonUtils.showToast(this, toast, "ÓÃ»§Ãû²»ÄÜÎª¿Õ");
+			CommonUtils.showToast(this, toast, "ç”¨æˆ·åä¸èƒ½ä¸ºç©º");
 		} else if (TextUtils.isEmpty(pass)) {
-			CommonUtils.showToast(this, toast, "ÃÜÂë²»ÄÜÎª¿Õ");
+			CommonUtils.showToast(this, toast, "å¯†ç ä¸èƒ½ä¸ºç©º");
 		} else if (TextUtils.isEmpty(pass1) || !pass.equals(pass1)) {
-			CommonUtils.showToast(this, toast, "Á½´ÎÊäÈëÃÜÂë²»Ò»ÖÂ");
+			CommonUtils.showToast(this, toast, "ä¸¤æ¬¡è¾“å…¥å¯†ç ä¸ä¸€è‡´");
 		} else if (!TextUtils.isEmpty(Email)
 				&& !CommonUtils.isEmail(email.getText().toString().trim())) {
-			CommonUtils.showToast(this, toast, "ÓÊÏä¸ñÊ½´íÎó");
+			CommonUtils.showToast(this, toast, "é‚®ç®±æ ¼å¼é”™è¯¯");
 		} else if (!TextUtils.isEmpty(cellphone)
 				&& !CommonUtils.isMobileNO(phone.getText().toString().trim())) {
-			CommonUtils.showToast(this, toast, "ÊÖ»úºÅÂë¸ñÊ½´íÎó");
+			CommonUtils.showToast(this, toast, "æ‰‹æœºå·ç æ ¼å¼é”™è¯¯");
 		} else {
-			// Èç¹û´¦ÔÚÁªÍø×´Ì¬£¬Ôò·¢ËÍÖÁ·şÎñÆ÷
+			// å¦‚æœå¤„åœ¨è”ç½‘çŠ¶æ€ï¼Œåˆ™å‘é€è‡³æœåŠ¡å™¨
 			boolean isConnect = (Boolean) app.getMap().get(
 					Constants.IS_CONNECT_SERVER);
 			if (isConnect) {
@@ -112,25 +112,25 @@ public class RegistAcyivity extends Activity {
 				newUser.setPassword(pass);
 				newUser.setEmail(Email);
 				newUser.setPhone(cellphone);
-				// ·¢ËÍÖÁ·şÎñÆ÷
+				// å‘é€è‡³æœåŠ¡å™¨
 				registRequest(newUser);
 			} else {
 				CommonUtils.showToast(RegistAcyivity.this, toast,
-						"ÎŞ·¨Á¬½Ó·şÎñÆ÷£¡ÇëÖ±½ÓÊ¹ÓÃÄ¬ÈÏÕËºÅµÇÂ½ÊÔÓÃ");
+						"æ— æ³•è¿æ¥æœåŠ¡å™¨ï¼è¯·ç›´æ¥ä½¿ç”¨é»˜è®¤è´¦å·ç™»é™†è¯•ç”¨");
 			}
 		}
 
 	}
 
 	/**
-	 * ×¢²áÇëÇó
+	 * æ³¨å†Œè¯·æ±‚
 	 * 
 	 * @param jsonString
 	 */
 	private void registRequest(final User user) {
 		if (loadingDialog == null) {
 			loadingDialog = LoadingDialog.createDialog(this);
-			loadingDialog.setMessage("ÕıÔÚ×¢²á...");
+			loadingDialog.setMessage("æ­£åœ¨æ³¨å†Œ...");
 			loadingDialog.setCanceledOnTouchOutside(false);
 		}
 		loadingDialog.show();
@@ -150,7 +150,7 @@ public class RegistAcyivity extends Activity {
 							int resCode = (Integer) obj.get("resCode");
 							if (resCode == 1) {
 								CommonUtils.showToast(RegistAcyivity.this,
-										toast, "×¢²á³É¹¦");
+										toast, "æ³¨å†ŒæˆåŠŸ");
 								String uid = obj.get("uid").toString();
 								user.setUid(Integer.parseInt(uid));
 								user.save();
@@ -159,10 +159,10 @@ public class RegistAcyivity extends Activity {
 								finish();
 							} else if (resCode == 2) {
 								CommonUtils.showToast(RegistAcyivity.this,
-										toast, "ÓÃ»§ÃûÒÑ¾­´æÔÚ£¡");
+										toast, "ç”¨æˆ·åå·²ç»å­˜åœ¨ï¼");
 							} else {
 								CommonUtils.showToast(RegistAcyivity.this,
-										toast, "·şÎñÆ÷´íÎó£¡");
+										toast, "æœåŠ¡å™¨é”™è¯¯ï¼");
 							}
 
 						} catch (JSONException e) {
@@ -178,14 +178,14 @@ public class RegistAcyivity extends Activity {
 						// TODO Auto-generated method stub
 						loadingDialog.dismiss();
 						CommonUtils.showToast(RegistAcyivity.this, toast,
-								"ÎŞ·¨Á¬½Ó·şÎñÆ÷£¡ÇëÊ¹ÓÃÄ¬ÈÏÕËºÅÊÔÓÃ");
+								"æ— æ³•è¿æ¥æœåŠ¡å™¨ï¼è¯·ä½¿ç”¨é»˜è®¤è´¦å·è¯•ç”¨");
 						app.getMap().put(Constants.IS_CONNECT_SERVER, false);
 					}
 				}) {
 
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
-				// ÉèÖÃÇëÇó²ÎÊı
+				// è®¾ç½®è¯·æ±‚å‚æ•°
 				Map<String, String> map = new HashMap<String, String>();
 				map.put("registJson", jsonInfo);
 				return map;

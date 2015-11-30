@@ -1,4 +1,4 @@
-﻿package com.scnu.swimmingtrainingsystem.activity;
+package com.scnu.swimmingtrainingsystem.activity;
 
 import com.scnu.swimmingtrainingsystem.R;
 

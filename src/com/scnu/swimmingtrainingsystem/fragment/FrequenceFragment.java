@@ -1,4 +1,4 @@
-﻿package com.scnu.swimmingtrainingsystem.fragment;
+package com.scnu.swimmingtrainingsystem.fragment;
 
 import java.text.DecimalFormat;
 import java.util.Timer;

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/DragListview_library/DragListview_library.iml" filepath="$PROJECT_DIR$/DragListview_library/DragListview_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/SwimmingTrainingSystem.iml" filepath="$PROJECT_DIR$/SwimmingTrainingSystem.iml" />
     </modules>
   </component>

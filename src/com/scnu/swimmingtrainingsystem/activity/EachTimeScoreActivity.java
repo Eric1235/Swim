@@ -1,4 +1,4 @@
-﻿package com.scnu.swimmingtrainingsystem.activity;
+package com.scnu.swimmingtrainingsystem.activity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -214,14 +214,14 @@ public class EachTimeScoreActivity extends FragmentActivity {
 
 	private void createDialog() {
 		AlertDialog.Builder build = new AlertDialog.Builder(this);
-		build.setTitle("系统提示").setMessage("是否放弃保存本轮成绩");
-		build.setNegativeButton("否", new DialogInterface.OnClickListener() {
+		build.setTitle(getResources().getString(R.string.system_hint)).setMessage(getResources().getString(R.string.cancel_save_record));
+		build.setNegativeButton(getResources().getString(R.string.no), new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();
 			}
 		});
-		build.setPositiveButton("是", new DialogInterface.OnClickListener() {
+		build.setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();
@@ -245,11 +245,11 @@ public class EachTimeScoreActivity extends FragmentActivity {
 			int position = (Integer) result.get("position");
 			if (resCode == 1 && number != length) {
 				viewPager.setCurrentItem(position);
-				CommonUtils.showToast(this, mToast, "该趟成绩当前成绩距离为0！");
+				CommonUtils.showToast(this, mToast, getResources().getString(R.string.score_is_zero));
 				break;
 			} else if (resCode == 2 && number != length) {
 				viewPager.setCurrentItem(position);
-				CommonUtils.showToast(this, mToast, "成绩与运动员人数不对应！");
+				CommonUtils.showToast(this, mToast, getResources().getString(R.string.score_num_not_match_athlete_num));
 				break;
 			} else if (resCode == 0 && number != length) {
 				// 以下只是保存length-1次
@@ -258,7 +258,7 @@ public class EachTimeScoreActivity extends FragmentActivity {
 			} else if (resCode == 0 && number == length) {
 				saveScore(i, result);
 				viewPager.setCurrentItem(length - 1);
-				CommonUtils.showToast(this, mToast, "匹配完成！");
+				CommonUtils.showToast(this, mToast, getResources().getString(R.string.match_done));
 
 				boolean isConnect = (Boolean) myApplication.getMap().get(
 						Constants.IS_CONNECT_SERVER);
@@ -266,7 +266,7 @@ public class EachTimeScoreActivity extends FragmentActivity {
 					// 如果可以联通服务器则发送添加成绩请求
 					if (loadingDialog == null) {
 						loadingDialog = LoadingDialog.createDialog(this);
-						loadingDialog.setMessage("正在同步...");
+						loadingDialog.setMessage(getResources().getString(R.string.synchronizing));
 						loadingDialog.setCanceledOnTouchOutside(false);
 					}
 					loadingDialog.show();
@@ -361,7 +361,7 @@ public class EachTimeScoreActivity extends FragmentActivity {
 							if (resCode == 1) {
 								CommonUtils.showToast(
 										EachTimeScoreActivity.this, mToast,
-										"成功同步至服务器!");
+										getResources().getString(R.string.synchronized_success));
 								ContentValues values = new ContentValues();
 								values.put("pid", planId);
 								Plan.updateAll(Plan.class, values,
@@ -369,7 +369,7 @@ public class EachTimeScoreActivity extends FragmentActivity {
 							} else {
 								CommonUtils.showToast(
 										EachTimeScoreActivity.this, mToast,
-										"同步失敗！");
+										getResources().getString(R.string.synchronized_failed));
 							}
 
 						} catch (JSONException e) {

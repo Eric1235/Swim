@@ -1,4 +1,4 @@
-﻿package com.scnu.swimmingtrainingsystem.model;
+package com.scnu.swimmingtrainingsystem.model;
 
 import java.util.ArrayList;
 import java.util.List;

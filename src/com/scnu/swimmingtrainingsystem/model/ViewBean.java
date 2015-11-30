@@ -1,4 +1,4 @@
-﻿package com.scnu.swimmingtrainingsystem.model;
+package com.scnu.swimmingtrainingsystem.model;
 
 /**
  * 六边形实体

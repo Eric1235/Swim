@@ -4,6 +4,7 @@
     <!-- common -->
     <string name="synchronizing">正在同步…………</string>
     <string name="synchronized_success">同步成功</string>
+    <string name="synchronized_failed">同步失败</string>
     <string name="app_name">游泳计时器</string>
     <string name="action_settings">Settings</string>
     <string name="on">男</string>
@@ -34,4 +35,15 @@
     <string name="server_ip_port_setting">服务器IP与端口设置</string>
     <string name="finish">完成</string>
     <string name="ip_and_port_notnull">IP与端口地址均不可为空</string>
+
+    <!-- EachtimeScore activity -->
+    <string name="NO">第</string>
+    <string name="time_record">趟计时</string>
+    <string name="system_hint">系统提示</string>
+    <string name="cancel_save_record">是否放弃保存本轮成绩</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="score_is_zero">该趟成绩当前距离为0!</string>
+    <string name="score_num_not_match_athlete_num">成绩数与运动员人数不对应!</string>
+    <string name="match_done">匹配完成!</string>
 </resources>

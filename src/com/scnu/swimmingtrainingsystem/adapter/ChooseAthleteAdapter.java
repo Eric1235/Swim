@@ -1,4 +1,4 @@
-﻿package com.scnu.swimmingtrainingsystem.adapter;
+package com.scnu.swimmingtrainingsystem.adapter;
 
 import java.util.List;
 

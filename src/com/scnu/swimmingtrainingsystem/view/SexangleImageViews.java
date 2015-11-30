@@ -1,4 +1,4 @@
-﻿package com.scnu.swimmingtrainingsystem.view;
+package com.scnu.swimmingtrainingsystem.view;
 
 import com.scnu.swimmingtrainingsystem.R;
 import android.annotation.SuppressLint;
