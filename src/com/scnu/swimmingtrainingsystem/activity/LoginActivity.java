@@ -1,20 +1,12 @@
 package com.scnu.swimmingtrainingsystem.activity;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -37,9 +29,15 @@ import com.scnu.swimmingtrainingsystem.effect.Effectstype;
 import com.scnu.swimmingtrainingsystem.effect.NiftyDialogBuilder;
 import com.scnu.swimmingtrainingsystem.http.JsonTools;
 import com.scnu.swimmingtrainingsystem.model.User;
-import com.scnu.swimmingtrainingsystem.util.Constants;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
+import com.scnu.swimmingtrainingsystem.util.Constants;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author LittleByte
@@ -199,7 +197,7 @@ public class LoginActivity extends Activity {
 					@Override
 					public void onResponse(String response) {
 						// TODO Auto-generated method stub
-						Log.i(Constants.TAG, response);
+//						Log.i(Constants.TAG, response);
 						loadingDialog.dismiss();
 						try {
 							JSONObject obj = new JSONObject(response);
@@ -296,7 +294,7 @@ public class LoginActivity extends Activity {
 	/**
 	 * 设置服务器IP地址和端口地址对话框
 	 * 
-	 * @param context
+	 *
 	 */
 	protected void showSettingDialog() {
 
@@ -448,7 +446,7 @@ public class LoginActivity extends Activity {
 		Handler handler = new Handler();
 		Runnable updateThread = new Runnable() {
 			public void run() {
-				Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+				Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
 				LoginActivity.this.startActivity(intent);
 		
 				overridePendingTransition(R.anim.push_right_in,

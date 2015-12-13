@@ -5,12 +5,12 @@
     <color name="white">#ffffff</color>
     <color name="black">#ff000000</color>
     <color name="dark_gray">#ff585858</color>
-    <color name="gray">#ff333333</color>
+    <color name="gray">#898484</color>
     <color name="gray_2">#ffd3d3d3</color>
     <color name="light_green">#A0AEEEEE</color>
     <color name="transparent">#00000000</color>
     <color name="blue">#3399FF</color>
-    <color name="light_blue">#33CCFF</color>
+    <color name="light_blue">#A033CCFF</color>
     <color name="light_gray">#ff9b9b9b</color>
     <color name="promotion_bg">#ffd5e6f8</color>
     <color name="dimgray">#696969</color>
