@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical" >
+    <com.scnu.swimmingtrainingsystem.view.NoScrollViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="@drawable/tab_bg" >
+    	<com.scnu.swimmingtrainingsystem.view.ChangeColorIconWithText
+     	   	android:id="@+id/fragment_index"
+     	   	android:layout_height="match_parent"
+     	   	android:layout_weight="1"
+     	   	android:layout_width="0dp"
+     	   	android:padding="5dp"
+     	   	app:icon="@drawable/ic_menu_emoticons"
+            app:text="@string/fragment_athlete"
+            app:text_size="12sp"
+            app:color="#ff45c01a"/>  
+        <com.scnu.swimmingtrainingsystem.view.ChangeColorIconWithText 
+     	   	android:id="@+id/fragment_consume"
+     	   	android:layout_height="match_parent"
+     	   	android:layout_weight="1"
+     	   	android:layout_width="0dp"
+     	   	android:padding="5dp"
+     	   	app:icon="@drawable/ic_menu_allfriends"
+            app:text="@string/fragment_consume"
+            app:text_size="12sp"
+            app:color="#ff45c01a"/>
+        <com.scnu.swimmingtrainingsystem.view.ChangeColorIconWithText 
+     	   	android:id="@+id/fragment_chart"
+     	   	android:layout_height="match_parent"
+     	   	android:layout_weight="1"
+     	   	android:layout_width="0dp"
+     	   	android:padding="5dp"
+     	   	app:icon="@drawable/ic_menu_friendslist"
+            app:text="@string/fragment_chart"
+            app:text_size="12sp"
+            app:color="#ff45c01a"/>
+        <com.scnu.swimmingtrainingsystem.view.ChangeColorIconWithText 
+     	   	android:id="@+id/fragment_all"
+     	   	android:layout_height="match_parent"
+     	   	android:layout_weight="1"
+     	   	android:layout_width="0dp"
+     	   	android:padding="5dp"
+     	   	app:icon="@drawable/ic_menu_emoticons"
+            app:text="@string/fragment_all"
+            app:text_size="12sp"
+            app:color="#ff45c01a"/>
+        <com.scnu.swimmingtrainingsystem.view.ChangeColorIconWithText
+     	   	android:id="@+id/fragment_more"
+     	   	android:layout_height="match_parent"
+     	   	android:layout_weight="1"
+     	   	android:layout_width="0dp"
+     	   	android:padding="5dp"
+     	   	app:icon="@drawable/ic_menu_start_conversation"
+            app:text="@string/fragment_more"
+            app:text_size="12sp"
+            app:color="#ff45c01a"/> 
+	</LinearLayout>
+
+</LinearLayout>
+<!-- From: file:/Users/lixinkun/git/SwimmingTrainingSystem/res/layout/activity_home.xml -->

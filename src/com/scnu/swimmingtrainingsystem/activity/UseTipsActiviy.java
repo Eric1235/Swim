@@ -1,7 +1,5 @@
 package com.scnu.swimmingtrainingsystem.activity;
 
-import com.scnu.swimmingtrainingsystem.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -20,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.scnu.swimmingtrainingsystem.R;
 import com.scnu.swimmingtrainingsystem.util.Constants;
 
 /**
@@ -31,6 +30,7 @@ import com.scnu.swimmingtrainingsystem.util.Constants;
 public class UseTipsActiviy extends Activity {
 	private MyApplication application;
 	private ExpandableListView expandableListView;
+	private ImageButton btnBack;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +50,8 @@ public class UseTipsActiviy extends Activity {
 	private void init() {
 		application=(MyApplication) getApplication();
 		@SuppressWarnings("unused")
-		long userID = (Long) application.getMap().get(Constants.CURRENT_USER_ID);
-		
-		ImageButton btnBack = (ImageButton) findViewById(R.id.plan_back);
+		int userID = (Integer) application.getMap().get(Constants.CURRENT_USER_ID);
+		btnBack = (ImageButton) findViewById(R.id.btn_back);
 		btnBack.setOnClickListener(new OnClickListener() {
 			
 			@Override

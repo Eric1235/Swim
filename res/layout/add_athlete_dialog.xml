@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res/com.scnu.swimmingtrainingsystem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_dialog"
-    android:orientation="vertical" >
+    android:background="@color/common_bg"
+     >
 
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
     <RelativeLayout
         android:id="@+id/rl_content"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="#e2e2e2" >
+        android:layout_height="wrap_content"
+        android:background="@color/title_bar_bg" >
 
         <LinearLayout
             android:id="@+id/add_ll2"
@@ -23,12 +27,12 @@
             android:paddingRight="10dp" >
 
             <TextView
+                 style="@style/custom_normal_textview"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="运动员姓名:"
-                android:textColor="#FF6633"
-                android:textSize="18sp" />
+                 />
 
             <EditText
                 android:id="@+id/add_et_user"
@@ -54,14 +58,14 @@
             android:paddingRight="10dp" >
 
             <TextView
+                 style="@style/custom_normal_textview"
                 android:id="@+id/tv_userID"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:paddingLeft="5dp"
                 android:text="运动员年龄:"
-                android:textColor="#FF6633"
-                android:textSize="18sp" />
+                 />
 
             <EditText
                 android:id="@+id/add_et_age"
@@ -87,15 +91,15 @@
             android:paddingRight="10dp" >
 
             <TextView
+                style="@style/custom_normal_textview"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:paddingLeft="5dp"
                 android:text="性别"
-                android:textColor="#FF6633"
-                android:textSize="18sp" />
+                 />
 
-            <com.scnu.swimmingtrainingsystem.view.Switch
+          <com.scnu.swimmingtrainingsystem.view.Switch
                 android:id="@+id/toggle_gender"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
@@ -105,9 +109,9 @@
                 app:textLeft="@string/on"
                 app:textRight="@string/off" />
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/add_ll5"
+        
+         <LinearLayout
+            android:id="@+id/add_ll7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/add_ll4"
@@ -118,13 +122,46 @@
             android:paddingRight="10dp" >
 
             <TextView
+                 style="@style/custom_normal_textview"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingLeft="5dp"
+                android:text="运动员编号:"
+                 />
+
+            <EditText
+                android:id="@+id/add_et_number"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/bg_edit"
+                android:inputType="number"
+                android:maxLength="20"
+                android:paddingLeft="5dp"
+                android:singleLine="true" >
+            </EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/add_ll5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/add_ll7"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" >
+
+            <TextView
+                style="@style/custom_normal_textview"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:paddingLeft="5dp"
                 android:text="联系方式:"
-                android:textColor="#FF6633"
-                android:textSize="18sp" />
+                />
 
             <EditText
                 android:id="@+id/add_et_contact"
@@ -152,13 +189,13 @@
             android:paddingRight="10dp" >
 
             <TextView
+                style="@style/custom_normal_textview"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:paddingLeft="5dp"
                 android:text="备注:"
-                android:textColor="#FF6633"
-                android:textSize="18sp" />
+                 />
 
             <EditText
                 android:id="@+id/add_et_extra"
@@ -170,5 +207,5 @@
             </EditText>
         </LinearLayout>
     </RelativeLayout>
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

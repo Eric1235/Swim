@@ -161,10 +161,10 @@ public class SprintFragment extends Fragment implements OnClickListener {
 			if (i == 1) {
 				// 第一名
 				map.put("score_between", "");
-				map.put("athlete_ranking", "第1名");
+				map.put("athlete_ranking", "1");
 			} else {
 				map.put("score_between", timesub.get(i - 2));
-				map.put("athlete_ranking", "第" + i + "名");
+				map.put("athlete_ranking", String.valueOf(i));
 			}
 			listItem.add(map);
 		}
@@ -181,7 +181,7 @@ public class SprintFragment extends Fragment implements OnClickListener {
 		listView.setAdapter(null);
 		tvTime.setText("点击表盘开始计时，再次点击记录成绩");
 		tvTime.setTextSize(14);
-		tvTime.setTextColor(getResources().getColor(R.color.gray_1));
+		tvTime.setTextColor(getResources().getColor(R.color.gray));
 		handler = new Handler() {
 			@Override
 			public void handleMessage(Message msg) {

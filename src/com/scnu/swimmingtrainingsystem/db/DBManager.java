@@ -1,14 +1,8 @@
 package com.scnu.swimmingtrainingsystem.db;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
-import org.litepal.crud.DataSupport;
-
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.util.Log;
 
 import com.scnu.swimmingtrainingsystem.model.Athlete;
 import com.scnu.swimmingtrainingsystem.model.Plan;
@@ -16,6 +10,13 @@ import com.scnu.swimmingtrainingsystem.model.Score;
 import com.scnu.swimmingtrainingsystem.model.ScoreSum;
 import com.scnu.swimmingtrainingsystem.model.User;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
+
+import org.litepal.crud.DataSupport;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * 数据库操作类
@@ -48,7 +49,22 @@ public class DBManager {
 	 * @return
 	 */
 	public User getUser(long id) {
-		return DataSupport.find(User.class, id);
+		
+		String userId = String.valueOf(id);
+		List<User> users = DataSupport.where("id=?",userId).find(User.class);
+		if(users.size()>0){
+			return users.get(0);
+		}
+		return null;
+	}
+	
+	public User getUserByUid(int uid){
+		String userId = String.valueOf(uid);
+		List<User> users = DataSupport.where("uid=?",userId).find(User.class);
+		if(users.size()>0){
+			return users.get(0);
+		}
+		return null;
 	}
 
 	/**
@@ -66,21 +82,8 @@ public class DBManager {
 			return "";
 	}
 
-	/**
-	 * 通过登录名查找user对象
-	 * 
-	 * @param name
-	 * @return
-	 */
-	public User getUserByName(String name) {
-		User user = null;
-		List<User> users = DataSupport.where("username=?", name).find(
-				User.class);
-		if (users.size() != 0) {
-			user = users.get(0);
-		}
-		return user;
-	}
+	
+	
 
 	/**
 	 * 修改该id的登录密码
@@ -103,9 +106,16 @@ public class DBManager {
 	 * @return
 	 */
 	public List<Athlete> getAthletes(long userId) {
-		String id = String.valueOf(userId);
-		List<Athlete> athletes = DataSupport.where("user_id=?", id).find(
-				Athlete.class, true);
+		User user = null ;
+		List<User> users = DataSupport.where("uid=?",String.valueOf(userId)).find(User.class);
+		if(users.size()>0){
+			user = users.get(0);
+		}
+//		User user = DataSupport.find(User.class, userId);
+		Log.d("lixnkun", "query user=" + user.toString());
+//		List<Athlete> athletes = DataSupport.where("user_id=?", String.valueOf(user.getId())).find(
+//				Athlete.class, true);
+		List<Athlete> athletes = user.getAthletes();
 		return athletes;
 	}
 

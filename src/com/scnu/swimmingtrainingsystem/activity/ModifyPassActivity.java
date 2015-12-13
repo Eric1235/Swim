@@ -5,9 +5,12 @@ import java.util.Map;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.litepal.crud.DataSupport;
 
 import com.scnu.swimmingtrainingsystem.R;
+
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -40,8 +43,10 @@ public class ModifyPassActivity extends Activity {
 	private EditText modify_comfirmpass;
 	private RequestQueue mQueue;
 	private Toast toast;
-	private Long userId;
+	private int userId;
+	private User user;
 	private LoadingDialog loadingDialog;
+	private String newPassword;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +65,9 @@ public class ModifyPassActivity extends Activity {
 
 	private void init() {
 		app = (MyApplication) getApplication();
-		userId = (Long) app.getMap().get(Constants.CURRENT_USER_ID);
+		userId = (Integer) app.getMap().get(Constants.CURRENT_USER_ID);
 		dbManager = DBManager.getInstance();
+		user = dbManager.getUserByUid(userId);
 		modify_oldpass = (EditText) findViewById(R.id.modify_oldpass);
 		modify_newpass = (EditText) findViewById(R.id.modify_newpass);
 		modify_comfirmpass = (EditText) findViewById(R.id.modify_comfirmpass);
@@ -75,23 +81,23 @@ public class ModifyPassActivity extends Activity {
 	 */
 	public void modify(View v) {
 		String oldPassword = modify_oldpass.getText().toString().trim();
-		String newPassword = modify_newpass.getText().toString().trim();
+		newPassword = modify_newpass.getText().toString().trim();
 		String comfPassword = modify_comfirmpass.getText().toString().trim();
 
-		String name = dbManager.getUser(userId).getUsername();
-		String userPass = dbManager.getUser(userId).getPassword();
+		String name = user.getUsername();
+		String userPass = user.getPassword();
 		if (TextUtils.isEmpty(oldPassword)) {
-			CommonUtils.showToast(this, toast, "原密码不能为空！");
+			CommonUtils.showToast(this, toast, getString(R.string.old_pwd_not_null));
 		} else if (TextUtils.isEmpty(newPassword)) {
-			CommonUtils.showToast(this, toast, "新密码不能为空！");
+			CommonUtils.showToast(this, toast, getString(R.string.new_pwd_not_null));
 		} else if (TextUtils.isEmpty(comfPassword)) {
-			CommonUtils.showToast(this, toast, "确认密码不能为空！");
+			CommonUtils.showToast(this, toast, getString(R.string.confirm_pwd_not_null));
 		} else if (!userPass.equals(oldPassword)) {
-			CommonUtils.showToast(this, toast, "原密码错误！");
+			CommonUtils.showToast(this, toast, getString(R.string.old_pwd_wrong));
 		} else if (userPass.equals(newPassword)) {
-			CommonUtils.showToast(this, toast, "原密码与新密码相同，无需修改！");
+			CommonUtils.showToast(this, toast, getString(R.string.new_pwd_the_same_with_the_old));
 		} else if (name.equals("defaultUser")) {
-			CommonUtils.showToast(this, toast, "当前为系统默认帐号，不能修改密码！");
+			CommonUtils.showToast(this, toast, getString(R.string.the_default_account_cannot_be_modified));
 		} else {
 			dbManager.modifyUserPassword(userId, comfPassword);
 		
@@ -101,14 +107,14 @@ public class ModifyPassActivity extends Activity {
 			if (isConnect) {
 				if (loadingDialog == null) {
 					loadingDialog = LoadingDialog.createDialog(this);
-					loadingDialog.setMessage("正在提交请求...");
+					loadingDialog.setMessage(getString(R.string.onSubmitting));
 					loadingDialog.setCanceledOnTouchOutside(false);
 				}
 				loadingDialog.show();
 				// 发送至服务器
 				modifyRequest(oldPassword, newPassword, comfPassword);
 			}else {
-				CommonUtils.showToast(this, toast, "修改密码成功！");
+				CommonUtils.showToast(this, toast, getString(R.string.modify_succeed));
 				finish();
 			}
 			
@@ -140,8 +146,15 @@ public class ModifyPassActivity extends Activity {
 							obj = new JSONObject(response);
 							int resCode = (Integer) obj.get("resCode");
 							if (resCode == 1) {
+								//在网络更新以后，更新本地数据库
+								ContentValues values = new ContentValues();
+								values.put("password", newPassword);
+								DataSupport.updateAll(User.class, values, "password=?",oldPassword);
 								CommonUtils.showToast(ModifyPassActivity.this,
-										toast, "修改成功！");
+										toast, getString(R.string.modify_succeed));
+								Intent i = new Intent(ModifyPassActivity.this,LoginActivity.class);
+								startActivity(i);
+								finish();
 							}
 						} catch (JSONException e) {
 							// TODO Auto-generated catch block
@@ -163,7 +176,6 @@ public class ModifyPassActivity extends Activity {
 			protected Map<String, String> getParams() throws AuthFailureError {
 				// 设置请求参数
 				Map<String, String> map = new HashMap<String, String>();
-				User user = dbManager.getUser(userId);
 				map.put("uid", user.getUid() + "");
 				map.put("newPass", newPassword);
 				return map;

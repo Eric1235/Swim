@@ -2,15 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/common_bg"
     android:orientation="vertical" >
 
     <LinearLayout
         android:id="@+id/search_scroe_headbar"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="#3D8BFF"
         android:gravity="center_vertical"
         android:orientation="horizontal"
+        android:background="@color/title_bar_bg"
         android:padding="5dp" >
 
         <ImageButton
@@ -30,7 +31,7 @@
             android:background="@drawable/bg_query_score_pressed"
             android:padding="7dp"
             android:text="请选择日期进行查询"
-            android:textColor="@color/huise"
+            android:textColor="@color/white"
             android:textSize="18sp" />
     </LinearLayout>
 
@@ -53,7 +54,7 @@
             android:padding="3dp"
             android:text="本地查询"
             android:textColor="@color/aliceblue"
-            android:textSize="17.0sp" />
+            android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/btn_1"

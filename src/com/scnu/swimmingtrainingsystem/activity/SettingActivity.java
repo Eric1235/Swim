@@ -31,7 +31,7 @@ public class SettingActivity extends Activity {
 			app = (MyApplication) getApplication();
 			//这里是为了应对可能出现的application里面的全局变量被系统回收导致的错误
 			@SuppressWarnings("unused")
-			Long mUserId = (Long) app.getMap().get(Constants.CURRENT_USER_ID);
+			int mUserId = (Integer) app.getMap().get(Constants.CURRENT_USER_ID);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -42,7 +42,7 @@ public class SettingActivity extends Activity {
 
 	public void createDialog() {
 		AlertDialog.Builder build = new AlertDialog.Builder(this);
-		build.setTitle("系统提示").setMessage("确定退出？");
+		build.setTitle(getString(R.string.system_hint)).setMessage(getString(R.string.confirm_to_quit_app));
 		build.setPositiveButton(Constants.OK_STRING,
 				new DialogInterface.OnClickListener() {
 					@Override

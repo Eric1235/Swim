@@ -93,6 +93,8 @@ public class Constants {
 	public static final String ADD_SUCCESS_STRING = "添加成功";
 
 	public static final String SELECTED_POOL = "selectedPool";
+	
+	public static final String SELECTED_STROKE = "selectedStroke";
 
 	public static final String SWIM_DISTANCE = "swimDistance";
 

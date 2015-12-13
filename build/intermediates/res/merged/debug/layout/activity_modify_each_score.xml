@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical" >
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/ll_shouyebiaoqian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            
+            android:gravity="center"
+            android:orientation="horizontal" >
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#d1dade" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewparger_home"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+         >
+    </android.support.v4.view.ViewPager>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="16dp" >
+
+        <Button
+            style="@style/custom_btn"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.0"
+            android:onClick="finishModify"
+            android:text="@string/finish_modify_and_count"
+             />
+    </LinearLayout>
+
+</LinearLayout><!-- From: file:/Users/lixinkun/git/SwimmingTrainingSystem/res/layout/activity_modify_each_score.xml -->

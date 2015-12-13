@@ -2,24 +2,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/clock_main_bg" >
+    android:background="@color/common_bg" >
 
     <RelativeLayout
         android:id="@+id/timer_headbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
-        android:background="#3D8BFF" >
+        android:background="@color/title_bar_bg" >
 
         <TextView
+            style="@style/custom_textview"
             android:id="@+id/time_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="第一次计时"
-            android:textColor="#fff"
-            android:textSize="20sp" />
+             />
 
         <ImageButton
             android:id="@+id/timer_back"
@@ -32,13 +32,13 @@
             android:src="@drawable/btn_back" />
 
         <Button
+            style="@style/custom_btn"
             android:id="@+id/resetbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
-            android:background="@drawable/bg_reset"
             android:onClick="reset"
             android:padding="10dp"
             android:text="重  置" />
@@ -50,7 +50,11 @@
         android:layout_height="wrap_content"
         layout="@layout/layout_timer" 
         android:layout_below="@id/timer_headbar"/>
-
+	<include 
+        layout="@layout/separator_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/clcokview"/>
     <RelativeLayout
         android:id="@+id/listjishi"
         android:layout_width="match_parent"
@@ -58,26 +62,24 @@
         android:layout_above="@+id/ll_bottom"
         android:layout_below="@id/clcokview"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/v5_bottom_bar_bg_light" >
+         >
 
         <TextView
             android:id="@+id/textwujici"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:background="@drawable/v5_bottom_bar_bg_light"
             android:gravity="center"
             android:text="点击上方表盘开始计时!再次点击即可记录成绩"
             android:textColor="#777777"
             android:textSize="15sp"
             android:textStyle="bold" />
 
+        
         <ListView
             android:id="@+id/duocijishilist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#00000000"
             android:divider="#00000000" >
         </ListView>
     </RelativeLayout>
@@ -87,19 +89,18 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/v5_bottom_bar_bg_light" 
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:gravity="center_vertical" >
 
 
         <Button
+            style="@style/custom_btn"
             android:id="@+id/match_people"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1.0"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/startback"
             android:onClick="matchAthlete"
             android:text="运动员成绩匹配" />
     </LinearLayout>

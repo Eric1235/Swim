@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg" >
+
+    <com.scnu.swimmingtrainingsystem.view.EditTextWithDel
+        android:id="@+id/tv_user"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="80dp"
+        android:padding="10dp"
+        android:background="@drawable/bg_edit"
+        android:singleLine="true"
+        android:hint="@string/input_user_name"
+        android:textColorHint="@color/light_gray" />
+
+    <com.scnu.swimmingtrainingsystem.view.EditTextWithDel
+        android:id="@+id/tv_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/tv_user"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:background="@drawable/bg_edit"
+        android:hint="@string/input_pwd"
+        android:textColorHint="@color/light_gray" 
+        android:singleLine="true"
+        android:inputType="textPassword" />
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="16dp"
+        android:layout_centerVertical="true">
+     <Button
+        style="@style/custom_btn"
+        android:id="@+id/register"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginRight="4dp"
+        android:layout_centerVertical="true"
+        android:onClick="onRegister"
+        android:text="@string/quick_regist" />
+
+    <Button
+        style="@style/custom_btn"
+        android:id="@+id/login"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="4dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:onClick="onLogin"
+        android:text="立即登录"
+        />
+    </LinearLayout>
+
+   
+
+    <TextView
+        android:id="@+id/forget_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/tv_password"
+        android:layout_marginBottom="20dp"
+        android:text="@string/forget_pwd"
+        android:textColor="@color/light_gray" />
+
+    <TextView
+        android:id="@+id/setting_host"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/forget_password"
+        android:layout_alignBottom="@+id/forget_password"
+        android:layout_alignLeft="@+id/tv_password"
+        android:text="@string/set_ip_and_port"
+        android:textColor="@color/light_gray" />
+
+</RelativeLayout>
+<!-- From: file:/Users/lixinkun/git/SwimmingTrainingSystem/res/layout/activity_login.xml -->

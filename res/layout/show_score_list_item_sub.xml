@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:text="第1名"
+        android:textSize="14sp"
         android:textStyle="italic" />
 
     <TextView
@@ -22,7 +23,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="1分11秒123"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold" />
 
     <TextView
@@ -32,6 +33,6 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
         android:text="张三"
-        android:textSize="18sp" />
+        android:textSize="14sp" />
 
 </RelativeLayout>

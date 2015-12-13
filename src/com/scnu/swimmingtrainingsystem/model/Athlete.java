@@ -36,6 +36,12 @@ public class Athlete extends DataSupport {
 	 * 运动员电话
 	 */
 	private String phone;
+
+	/**
+	 * 运动员编号
+	 */
+	private String number;
+	
 	/**
 	 * 运动员备注
 	 */
@@ -123,6 +129,16 @@ public class Athlete extends DataSupport {
 	public List<Score> getScores() {
 		return scores;
 	}
+	
+	
+
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
+	}
 
 	public void setScores(List<Score> scores) {
 		this.scores = scores;
@@ -132,7 +148,10 @@ public class Athlete extends DataSupport {
 	public String toString() {
 		return "Athlete [id=" + id + ", aid=" + aid + ", name=" + name
 				+ ", age=" + age + ", gender=" + gender + ", phone=" + phone
-				+ ", extras=" + extras + "]";
+				+ ", number=" + number + ", extras=" + extras + ", user="
+				+ user + ", plans=" + plans + ", scores=" + scores + "]";
 	}
+
+	
 
 }

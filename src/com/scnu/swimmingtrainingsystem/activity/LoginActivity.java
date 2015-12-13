@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -48,7 +49,7 @@ public class LoginActivity extends Activity {
 	/**
 	 * 默认用户帐号
 	 */
-	private static final String DEFAULT_USERNAME = "abc";
+	private static final String DEFAULT_USERNAME = "lixinkun";
 	/**
 	 * 默认用户的密码
 	 */
@@ -91,6 +92,7 @@ public class LoginActivity extends Activity {
 		etPassword.setText(passwrod);
 		mQueue = Volley.newRequestQueue(this);
 		boolean isFirst = sp.getBoolean("isFirst", true);
+	
 		if (isFirst) {
 			User defaulrUser = new User();
 			defaulrUser.setId(1L);
@@ -133,10 +135,7 @@ public class LoginActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				LoginActivity.this.startActivity(new Intent(LoginActivity.this,
-						RetrievePasswordActivity.class));
-				overridePendingTransition(R.anim.push_right_in,
-						R.anim.push_left_out);
+				gotoForgetPwd();
 			}
 		});
 	}
@@ -147,9 +146,7 @@ public class LoginActivity extends Activity {
 	 * @param v
 	 */
 	public void onRegister(View v) {
-		Intent i = new Intent(this, RegistAcyivity.class);
-		startActivity(i);
-		overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
+		gotoRegister();
 	}
 
 	/**
@@ -165,7 +162,7 @@ public class LoginActivity extends Activity {
 			String passwordString = etPassword.getText().toString().trim();
 			if (TextUtils.isEmpty(loginString)
 					|| TextUtils.isEmpty(passwordString)) {
-				CommonUtils.showToast(this, toast, getResources().getString(R.string.nameorpwd_cannot_be_empty));
+				CommonUtils.showToast(this, toast, getString(R.string.nameorpwd_cannot_be_empty));
 			} else {
 				// 保存登录信息
 				CommonUtils.SaveLoginInfo(this, loginString, passwordString);
@@ -174,7 +171,7 @@ public class LoginActivity extends Activity {
 				if (tryConnect) {
 					if (loadingDialog == null) {
 						loadingDialog = LoadingDialog.createDialog(this);
-						loadingDialog.setMessage(getResources().getString(R.string.logining));
+						loadingDialog.setMessage(getString(R.string.logining));
 						loadingDialog.setCanceledOnTouchOutside(false);
 					}
 					loadingDialog.show();
@@ -207,19 +204,27 @@ public class LoginActivity extends Activity {
 						try {
 							JSONObject obj = new JSONObject(response);
 							int resCode = (Integer) obj.get("resCode");
+//							Log.d("lixinkun", response);
 							if (resCode == 1) {
 								CommonUtils.showToast(LoginActivity.this,
-										toast, getResources().getString(R.string.login_success));
+										toast, getString(R.string.login_success));
 								String userJson = obj.get("user").toString();
+//								Log.d("lixinkun", "userJson = " + userJson);
 								User user = JsonTools.getObject(userJson,
 										User.class);
+								
 								int uid = (Integer) obj.get("uid");
 								user.setUid(uid);
-								if (dbManager.getUserByName(user.getUsername()) == null) {
-									// 如果数据库中不存在该用户，则直接将该用户保存至数据库
+//								Log.d("lixinkun", ""
+//										+ "user = " + user.toString());
+								//判断当前用户是否存在与数据库
+							
+								if (dbManager.getUserByUid(uid) == null) {
+//									Log.d("lixinkun", "user first login");
 									user.save();
 									app.getMap().put(Constants.CURRENT_USER_ID,
-											user.getId());
+											user.getUid());
+//									Log.d("lixinkun","uid = " + user.getUid());
 									// 用户第一次登陆
 									CommonUtils.saveIsThisUserFirstLogin(
 											LoginActivity.this, true);
@@ -229,20 +234,26 @@ public class LoginActivity extends Activity {
 											LoginActivity.this, "");
 								} else {
 									// 如果该用户信息已存在本地数据库，则取出当前id作为全局变量
-									long currentId = dbManager.getUserByName(
-											user.getUsername()).getId();
+//									Log.d("lixinkun", "user not first login");
+									int logineduid = dbManager.getUserByUid(uid).getUid();
+									
+//									Log.d("lixinkun","logineduid = " + logineduid);
 									app.getMap().put(Constants.CURRENT_USER_ID,
-											currentId);
+											logineduid);
 								}
+								
+								gotoMainActivity();
+								
+								
 							} else if (resCode == 2) {
 								CommonUtils.showToast(LoginActivity.this,
-										toast, getResources().getString(R.string.user_donot_exists));
+										toast, getString(R.string.user_donot_exists));
 							} else if (resCode == 3) {
 								CommonUtils.showToast(LoginActivity.this,
-										toast, getResources().getString(R.string.pwd_wrong));
+										toast, getString(R.string.pwd_wrong));
 							} else {
 								CommonUtils.showToast(LoginActivity.this,
-										toast, getResources().getString(R.string.server_error));
+										toast, getString(R.string.server_error));
 							}
 
 						} catch (JSONException e) {
@@ -250,20 +261,6 @@ public class LoginActivity extends Activity {
 							e.printStackTrace();
 						}
 
-						CommonUtils
-								.showToast(LoginActivity.this, toast, getResources().getString(R.string.login_success));
-
-						Handler handler = new Handler();
-						Runnable updateThread = new Runnable() {
-							public void run() {
-								Intent intent = new Intent(LoginActivity.this,
-										MainActivity.class);
-								LoginActivity.this.startActivity(intent);
-								overridePendingTransition(R.anim.push_right_in,
-										R.anim.push_left_out);
-							}
-						};
-						handler.postDelayed(updateThread, 800);
 					}
 				}, new ErrorListener() {
 
@@ -273,7 +270,9 @@ public class LoginActivity extends Activity {
 						// Log.e(TAG, error.getMessage());
 						loadingDialog.dismiss();
 						app.getMap().put(Constants.IS_CONNECT_SERVER, false);
-						showUserSelectDialog();
+						CommonUtils
+						.showToast(LoginActivity.this, toast, getString(R.string.network_error));
+//						showUserSelectDialog();
 					}
 				}) {
 
@@ -304,11 +303,11 @@ public class LoginActivity extends Activity {
 		final NiftyDialogBuilder settingDialog = NiftyDialogBuilder
 				.getInstance(this);
 		effect = Effectstype.Slit;
-		settingDialog.withTitle(getResources().getString(R.string.server_ip_port_setting)).withMessage(null)
+		settingDialog.withTitle(getString(R.string.server_ip_port_setting)).withMessage(null)
 				.withIcon(getResources().getDrawable(R.drawable.ic_launcher))
 				.isCancelableOnTouchOutside(true).withDuration(500)
 				.withEffect(effect).withButton1Text(Constants.CANCLE_STRING)
-				.withButton2Text(getResources().getString(R.string.finish))
+				.withButton2Text(getString(R.string.finish))
 				.setCustomView(R.layout.dialog_setting_host, this);
 		SharedPreferences hostSp = getSharedPreferences(Constants.LOGININFO,
 				Context.MODE_PRIVATE);
@@ -333,7 +332,7 @@ public class LoginActivity extends Activity {
 				String hostPort = tv_port.getText().toString().trim();
 				if (TextUtils.isEmpty(hostIp) || TextUtils.isEmpty(hostPort)) {
 					CommonUtils.showToast(LoginActivity.this, toast,
-							getResources().getString(R.string.ip_and_port_notnull));
+							getString(R.string.ip_and_port_notnull));
 				} else {
 					// String hostUrl = "http://" + hostIp + ":" + hostPort
 					// + "/SWIMYUE33/httpPost.action?action_flag=";
@@ -342,7 +341,7 @@ public class LoginActivity extends Activity {
 					CommonUtils.HOSTURL = hostUrl;
 					CommonUtils.SaveLoginInfo(LoginActivity.this, hostUrl,
 							hostIp, hostPort);
-					CommonUtils.showToast(LoginActivity.this, toast, "设置成功!");
+					CommonUtils.showToast(LoginActivity.this, toast, getString(R.string.setting_success));
 					settingDialog.dismiss();
 				}
 			}
@@ -358,24 +357,23 @@ public class LoginActivity extends Activity {
 				.getInstance(this);
 		effect = Effectstype.SlideBottom;
 		userDialog
-				.withTitle("无法连接服务器！")
+				.withTitle(getString(R.string.cannot_login))
 				.withMessage(
-						"如果要继续使用，未注册请选择系统默认帐号登录,或者重新尝试登陆\n"
-								+ "注意：默认账号只能试用，数据无法上传至服务器！")
+						getString(R.string.continute_use_tip))
 				.withIcon(getResources().getDrawable(R.drawable.ic_launcher))
 				.isCancelableOnTouchOutside(false).withDuration(500)
 				// def
-				.withEffect(effect).withButton1Text("默认帐号登录")
-				.withButton2Text("重新登陆")
+				.withEffect(effect).withButton1Text(getString(R.string.default_acount_login))
+				.withButton2Text(getString(R.string.login_again))
 				// def gone
 				.setButton1Click(new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						etLogin.setText("abc");
-						etPassword.setText("123456");
+						etLogin.setText("defaultUser");
+						etPassword.setText("123456asdjkl");
 						// 保存登录信息
 						CommonUtils.SaveLoginInfo(LoginActivity.this,
-								"abc", "123456");
+								"defaultUser", "123456asdjkl");
 						userDialog.dismiss();
 						offlineLogin();
 					}
@@ -396,21 +394,21 @@ public class LoginActivity extends Activity {
 	 */
 	private void offlineLogin() {
 		// 连接服务器失败，则会使用离线功能登录，可以保存数据但暂时无法上传,只是功能试用
-		CommonUtils.showToast(LoginActivity.this, toast, "登陆成功,立即跳转");
-		// 将当前用户id保存为全局变量
-		User user = dbManager.getUserByName("defaultUser");
-		app.getMap().put(Constants.CURRENT_USER_ID, user.getId());
-		Handler handler = new Handler();
-		Runnable updateThread = new Runnable() {
-			public void run() {
-				Intent intent = new Intent(LoginActivity.this,
-						MainActivity.class);
-				LoginActivity.this.startActivity(intent);
-				overridePendingTransition(R.anim.push_right_in,
-						R.anim.push_left_out);
-			}
-		};
-		handler.postDelayed(updateThread, 500);
+//		CommonUtils.showToast(LoginActivity.this, toast, getString(R.string.login_success_and_jump));
+//		// 将当前用户id保存为全局变量
+//		User user = dbManager.getUserByName("defaultUser");
+//		app.getMap().put(Constants.CURRENT_USER_ID, user.getId());
+//		Handler handler = new Handler();
+//		Runnable updateThread = new Runnable() {
+//			public void run() {
+//				Intent intent = new Intent(LoginActivity.this,
+//						MainActivity.class);
+//				LoginActivity.this.startActivity(intent);
+//				overridePendingTransition(R.anim.push_right_in,
+//						R.anim.push_left_out);
+//			}
+//		};
+//		handler.postDelayed(updateThread, 500);
 	}
 
 	/**
@@ -439,4 +437,44 @@ public class LoginActivity extends Activity {
 				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 		mQueue.add(testRequest);
 	}
+	
+	/**
+	 * 跳转到主界面
+	 */
+	private void gotoMainActivity(){
+		CommonUtils
+		.showToast(LoginActivity.this, toast, getString(R.string.login_success));
+
+		Handler handler = new Handler();
+		Runnable updateThread = new Runnable() {
+			public void run() {
+				Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+				LoginActivity.this.startActivity(intent);
+		
+				overridePendingTransition(R.anim.push_right_in,
+						R.anim.push_left_out);
+			}
+		};
+		handler.postDelayed(updateThread,800);
+	}
+	
+	/**
+	 * 跳转到忘记密码
+	 */
+	private void gotoForgetPwd(){
+		LoginActivity.this.startActivity(new Intent(LoginActivity.this,
+				RetrievePasswordActivity.class));
+		overridePendingTransition(R.anim.push_right_in,
+				R.anim.push_left_out);
+	}
+	
+	/**
+	 * 跳转到注册页面
+	 */
+	private void gotoRegister(){
+		Intent i = new Intent(this, RegistAcyivity.class);
+		startActivity(i);
+		overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
+	}
+
 }

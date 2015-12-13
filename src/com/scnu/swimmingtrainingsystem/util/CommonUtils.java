@@ -23,7 +23,7 @@ import com.scnu.swimmingtrainingsystem.R;
 @SuppressLint("DefaultLocale")
 public class CommonUtils {
 
-	public static String HOSTURL = "http://104.160.34.110:8080/SWIMYUE33/httpPost.action?action_flag=";
+	public static String HOSTURL = "";
 
 	/**
 	 * 是否第一次启动
@@ -87,6 +87,13 @@ public class CommonUtils {
 				Constants.LOGININFO, Context.MODE_PRIVATE);
 		Editor editor = sp.edit();
 		editor.putInt(Constants.SELECTED_POOL, position);
+		editor.commit();
+	}
+	
+	public static void saveSelectedStroke(Context context,int position){
+		SharedPreferences sp = context.getSharedPreferences(Constants.LOGININFO, Context.MODE_PRIVATE);
+		Editor editor = sp.edit();
+		editor.putInt(Constants.SELECTED_STROKE, position);
 		editor.commit();
 	}
 

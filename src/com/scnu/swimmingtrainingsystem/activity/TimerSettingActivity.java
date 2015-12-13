@@ -2,6 +2,7 @@ package com.scnu.swimmingtrainingsystem.activity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -79,10 +80,13 @@ public class TimerSettingActivity extends Activity {
 	 */
 	private List<String> chosenAthletes = new ArrayList<String>();
 	private Spinner poolSpinner;
+	
+	//泳姿选择
+	private Spinner strokeSpinner;
 
 	private Toast toast;
 	private SparseBooleanArray map = new SparseBooleanArray();
-	private Long userid;
+	private int userid;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -107,18 +111,16 @@ public class TimerSettingActivity extends Activity {
 		dbManager = DBManager.getInstance();
 		chosenListView = (ListView) findViewById(R.id.list_choosed);
 		poolSpinner = (Spinner) findViewById(R.id.pool_length);
+		strokeSpinner = (Spinner) findViewById(R.id.stroke);
 		acTextView = (AutoCompleteTextView) findViewById(R.id.tv_distance);
-		String[] autoStrings = new String[] { "25", "50", "75", "100", "125",
-				"150", "175", "200", "225", "250", "275", "300", "325", "350",
-				"375", "400" };
+		String[] autoStrings = getResources().getStringArray(R.array.swim_length);
 		ArrayAdapter<String> tipsAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_dropdown_item_1line, autoStrings);
 		acTextView.setAdapter(tipsAdapter);
 		acTextView.setDropDownHeight(350);
 		acTextView.setThreshold(1);
 		actInterval = (AutoCompleteTextView) findViewById(R.id.act_interval);
-		String[] autoIntervals = new String[] { "25米", "50米", "75米", "100米",
-				"125米", "150米", "175米", "200米", "250米", "300米", };
+		String[] autoIntervals = getResources().getStringArray(R.array.swim_length);
 		ArrayAdapter<String> intervalsAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_dropdown_item_1line, autoIntervals);
 		actInterval.setAdapter(intervalsAdapter);
@@ -140,7 +142,7 @@ public class TimerSettingActivity extends Activity {
 		SparseBooleanArray configArray = JsonTools.getObject(mapConfigString,
 				SparseBooleanArray.class);
 		app.getMap().put(Constants.CURRENT_SWIM_TIME, 0);
-		userid = (Long) app.getMap().get(Constants.CURRENT_USER_ID);
+		userid = (Integer) app.getMap().get(Constants.CURRENT_USER_ID);
 		athletes = dbManager.getAthletes(userid);
 		for (Athlete ath : athletes) {
 			athleteNames.add(ath.getName());
@@ -164,13 +166,21 @@ public class TimerSettingActivity extends Activity {
 		actInterval.setText(swimInterval);
 		acTextView.setText(swimDistance);
 		List<String> poolLength = new ArrayList<String>();
-		poolLength.add("25米池");
-		poolLength.add("50米池");
+		List<String> stroke = new ArrayList<String>();
+		String[] strokes = getResources().getStringArray(R.array.strokestrarray);
+		String[] poolLengths = getResources().getStringArray(R.array.pool_length);
+		Collections.addAll(poolLength, poolLengths);
+		Collections.addAll(stroke,strokes);
+		ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_item, stroke);
 		ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, poolLength);
 		adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		poolSpinner.setAdapter(adapter1);
 		poolSpinner.setSelection(selectedPositoin);
+		strokeSpinner.setAdapter(adapter2);
+		strokeSpinner.setSelection(selectedPositoin);
 		showChosenAthleteAdapter = new ShowChosenAthleteAdapter(
 				TimerSettingActivity.this, chosenAthletes);
 		chosenListView.setAdapter(showChosenAthleteAdapter);
@@ -215,10 +225,10 @@ public class TimerSettingActivity extends Activity {
 				map.put(arg2, holder.cb.isChecked());
 			}
 		});
-		selectDialog.withTitle("选择运动员").withMessage(null)
+		selectDialog.withTitle(getString(R.string.choose_athlete)).withMessage(null)
 				.withIcon(getResources().getDrawable(R.drawable.ic_launcher))
 				.isCancelableOnTouchOutside(false).withDuration(500)
-				.withEffect(effect).withButton1Text("返回")
+				.withEffect(effect).withButton1Text(getString(R.string.back))
 				.withButton2Text(Constants.OK_STRING)
 				.setButton1Click(new View.OnClickListener() {
 					@Override
@@ -251,18 +261,19 @@ public class TimerSettingActivity extends Activity {
 		String intervalDistance = actInterval.getText().toString().trim();
 
 		if (TextUtils.isEmpty(totalDistance)) {
-			CommonUtils.showToast(this, toast, "请设置本轮计时的总距离！");
+			CommonUtils.showToast(this, toast, getString(R.string.set_total_length));
 		} else if (TextUtils.isEmpty(intervalDistance)) {
-			CommonUtils.showToast(this, toast, "请设置本轮游泳的计时间隔距离！");
+			CommonUtils.showToast(this, toast, getString(R.string.set_timer_interval_length));
 		} else if (Integer.parseInt(totalDistance) < Integer
 				.parseInt(intervalDistance.replace("米", ""))) {
-			CommonUtils.showToast(this, toast, "计时间隔距离不能大于总距离");
+			CommonUtils.showToast(this, toast, getString(R.string.interval_length_cannot_loger_than_total_length));
 		} else if (chosenAthletes.size() == 0) {
-			CommonUtils.showToast(this, toast, "请添加运动员后再开始计时！");
+			CommonUtils.showToast(this, toast, getString(R.string.add_athlete_before_timer));
 		} else {
 			// 保存这一次的配置到sp
 			CommonUtils.saveSelectedPool(this,
 					poolSpinner.getSelectedItemPosition());
+			CommonUtils.saveSelectedStroke(this, strokeSpinner.getSelectedItemPosition());
 			CommonUtils.saveDistance(this, totalDistance, intervalDistance);
 			CommonUtils.saveSelectedAthlete(this,
 					JsonTools.creatJsonString(map));
@@ -282,9 +293,10 @@ public class TimerSettingActivity extends Activity {
 			app.getMap().put(Constants.DRAG_NAME_LIST, athleteNames);
 
 			String poolString = (String) poolSpinner.getSelectedItem();
+			int strokeNumber = strokeSpinner.getSelectedItemPosition();
 			String extra = remarksEditText.getText().toString();
 			// 将配置保存到数据库计划表中
-			savePlan(poolString, totalDistance, extra, chosenPersons);
+			savePlan(poolString, strokeNumber,totalDistance, extra, chosenPersons);
 			Intent i = new Intent(this, TimerActivity.class);
 			startActivity(i);
 			finish();
@@ -292,12 +304,21 @@ public class TimerSettingActivity extends Activity {
 
 	}
 
-	private void savePlan(String pool, String distance, String extra,
+	/**
+	 * 存储信息到数据库
+	 * @param pool
+	 * @param stroke
+	 * @param distance
+	 * @param extra
+	 * @param athlete
+	 */
+	private void savePlan(String pool,int stroke, String distance, String extra,
 			List<Athlete> athlete) {
 		// TODO Auto-generated method stub
 		User user = dbManager.getUser(userid);
 		Plan plan = new Plan();
 		plan.setPool(pool);
+		plan.setStrokeNumber(stroke);
 		plan.setDistance(Integer.parseInt(distance));
 		plan.setExtra(extra);
 		plan.setUser(user);

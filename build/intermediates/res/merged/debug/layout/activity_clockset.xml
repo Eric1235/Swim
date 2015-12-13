@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@color/common_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/clockset_headbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/title_bar_bg"
+        android:gravity="center_vertical" >
+
+        <TextView
+            style="@style/custom_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/timer_setting"
+             />
+
+        <ImageButton
+            android:id="@+id/plan_back"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@color/transparent"
+            android:onClick="clcokset_back"
+            android:src="@drawable/btn_back" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/clcokset_rl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="visible" >
+
+        <LinearLayout
+            android:id="@+id/choose_plan_ll1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="10dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pool_length"
+                        android:textColor="@color/aliceblue" />
+
+                    <Spinner
+                        android:id="@+id/pool_length"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp" />
+                </LinearLayout>
+                
+                 <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/choose_stroke"
+                        android:textColor="@color/aliceblue" />
+
+                    <Spinner
+                        android:id="@+id/stroke"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp" />
+                </LinearLayout>
+
+             
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <AutoCompleteTextView
+                    android:id="@+id/act_interval"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:ems="5"
+                    android:hint="@string/time_interval"
+                    android:inputType="number"
+                    android:nextFocusLeft="@+id/bt_choose_athlete"
+                    android:nextFocusUp="@+id/pool_length"
+                    android:singleLine="true"
+                    android:textColor="@color/color_text"
+                    android:textSize="14sp" />
+                
+                   <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <AutoCompleteTextView
+                        android:id="@+id/tv_distance"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:ems="5"
+                        android:hint="@string/swim_total_length"
+                        android:inputType="number"
+                        android:nextFocusLeft="@+id/bt_choose_athlete"
+                        android:nextFocusUp="@+id/pool_length"
+                        android:singleLine="true"
+                        android:textColor="@color/color_text"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="米"
+                        android:textColor="@color/aliceblue"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+              
+            </LinearLayout>
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                  <com.scnu.swimmingtrainingsystem.view.EditTextWithDel
+                    android:id="@+id/et_remarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/bg_edit"
+                    android:hint="@string/input_extra"
+                    android:singleLine="true" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            style="@style/custom_btn"
+            android:id="@+id/bt_choose_athlete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/choose_plan_ll1"
+            android:layout_centerHorizontal="true"
+            android:onClick="chooseAthlete"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/choose_athlete" />
+
+        <ListView
+            android:id="@+id/list_choosed"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/bt_choose_athlete"
+            android:cacheColorHint="#fff" >
+        </ListView>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="8dp" >
+
+        <Button
+            style="@style/custom_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="startTiming"
+            android:padding="6dp"
+            android:text="@string/start_timer" />
+    </LinearLayout>
+
+</LinearLayout><!-- From: file:/Users/lixinkun/git/SwimmingTrainingSystem/res/layout/activity_clockset.xml -->

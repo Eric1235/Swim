@@ -4,6 +4,7 @@ public class SmallPlan {
 	private int distance;
 	private String pool;
 	private String extra;
+	private int strokeNumber;
 
 	public int getDistance() {
 		return distance;
@@ -29,10 +30,22 @@ public class SmallPlan {
 		this.extra = extra;
 	}
 
+	
+
+	public int getStrokeNumber() {
+		return strokeNumber;
+	}
+
+	public void setStrokeNumber(int strokeNumber) {
+		this.strokeNumber = strokeNumber;
+	}
+
 	@Override
 	public String toString() {
 		return "SmallPlan [distance=" + distance + ", pool=" + pool
-				+ ", extra=" + extra + "]";
+				+ ", extra=" + extra + ", stroke=" + strokeNumber + "]";
 	}
+
+
 
 }

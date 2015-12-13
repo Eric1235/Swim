@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
@@ -36,7 +36,7 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:background">@android:color/transparent</item>
-        <item name="android:windowBackground">@color/color_mgray</item>
+        <item name="android:windowBackground">@color/gray</item>
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:backgroundDimAmount">0.6</item>
     </style>
@@ -59,7 +59,7 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="dialog_btn">
+ <!--    <style name="dialog_btn">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:minHeight">36dp</item>
@@ -68,7 +68,7 @@
         <item name="android:background">@drawable/dialogbtn_selector</item>
         <item name="android:textColor">#ffffff</item>
         <item name="android:gravity">center</item>
-    </style>
+    </style> -->
 
     <style name="dialog_tran" parent="android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
@@ -94,6 +94,31 @@
         <item name="@attr/colorUnChecked">#181818</item>
         <item name="@attr/backgroundDrawable">@drawable/switch_bg_holo_light</item>
         <item name="@attr/switchDrawable">@drawable/switch_thumb_activated_holo_light</item>
+    </style>
+    
+    <style name="custom_btn" parent="@android:style/Widget.Button">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/button_text_color</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">@drawable/bg_login</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    
+    <style name="custom_textview" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">20sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    
+    <style name="custom_normal_textview" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    
+    <style name="custom_radio_btn" parent="@android:style/Widget.CompoundButton">
+        <item name="android:textSize">14sp</item>
     </style>
 
 </resources>

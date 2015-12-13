@@ -76,7 +76,7 @@ public class MatchScoreActivity extends Activity implements
 	private AutoCompleteTextView acTextView;
 	private DBManager mDbManager;
 	private boolean isConnected;
-	private Long userId;
+	private int userId;
 	private Plan plan;
 	private LoadingDialog loadingDialog;
 	private RequestQueue mQueue;
@@ -103,7 +103,7 @@ public class MatchScoreActivity extends Activity implements
 				dragAdapter.remove(dragAdapter.getItem(which));
 			} else {
 				CommonUtils.showToast(MatchScoreActivity.this, mToast,
-						"至少要保留一个运动员");
+						getString(R.string.leave_at_least_one_athlete));
 			}
 			dragAdapter.notifyDataSetChanged();
 		}
@@ -128,7 +128,7 @@ public class MatchScoreActivity extends Activity implements
 				scores.remove(which);
 			} else {
 				CommonUtils.showToast(MatchScoreActivity.this, mToast,
-						"至少要保留一个成绩");
+						getString(R.string.leave_at_least_one_score));
 			}
 			adapter.notifyDataSetChanged();
 		}
@@ -170,12 +170,11 @@ public class MatchScoreActivity extends Activity implements
 		nameListView.setDragScrollProfile(ssProfile);
 
 		scoreListView.setRemoveListener(onRemove2);
-		userId = (Long) app.getMap().get(Constants.CURRENT_USER_ID);
+		userId = (Integer) app.getMap().get(Constants.CURRENT_USER_ID);
 		Long planId = (Long) app.getMap().get(Constants.PLAN_ID);
 		plan = DataSupport.find(Plan.class, planId);
 		// 设置数据源
-		String[] autoStrings = new String[] { "25", "50", "75", "100", "125",
-				"150", "175", "200", "225", "250", "275", "300" };
+		String[] autoStrings = getResources().getStringArray(R.array.swim_length);
 		acTextView = (AutoCompleteTextView) findViewById(R.id.match_act_current_distance);
 		ArrayAdapter<String> tipsAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_dropdown_item_1line, autoStrings);
@@ -191,7 +190,7 @@ public class MatchScoreActivity extends Activity implements
 		int totalDistance = plan.getDistance();
 		if (totalDistance <= intervalDistance * numberth) {
 			btNextTiming.setVisibility(View.GONE);
-			btStatistics.setText("调整完毕，进入统计页面");
+			btStatistics.setText(getString(R.string.adjust_finish_goto_statistics));
 		}
 
 		dragDatas = (List<String>) app.getMap().get(Constants.DRAG_NAME_LIST);
@@ -258,7 +257,7 @@ public class MatchScoreActivity extends Activity implements
 		if (isConnected) {
 			if (loadingDialog == null) {
 				loadingDialog = LoadingDialog.createDialog(this);
-				loadingDialog.setMessage("正在提交...");
+				loadingDialog.setMessage(getString(R.string.onSubmitting));
 				loadingDialog.setCanceledOnTouchOutside(false);
 			}
 			loadingDialog.show();
@@ -293,10 +292,10 @@ public class MatchScoreActivity extends Activity implements
 
 		if (nowCurrent == 1) {
 			if (crrentDistance == 0 && TextUtils.isEmpty(actv)) {
-				CommonUtils.showToast(this, mToast, "请填写记录当前成绩的距离！");
+				CommonUtils.showToast(this, mToast, getString(R.string.fill_in_scores_distance));
 				return;
 			} else if (scoresNumber != athleteNumber) {
-				CommonUtils.showToast(this, mToast, "成绩数目与运动员数目不相等！");
+				CommonUtils.showToast(this, mToast, getString(R.string.score_num_not_equalwith_athlete_num));
 				return;
 			} else {
 				// 如果这是第一趟并且成绩数目与运动员数目相等，则直接保存到数据库
@@ -348,15 +347,15 @@ public class MatchScoreActivity extends Activity implements
 			final int crrentDistance, final String scoreString,
 			final String athleteString) {
 		AlertDialog.Builder build = new AlertDialog.Builder(this);
-		build.setTitle("系统提示").setMessage(
-				"是否开始下一趟计时？ \n选择【否】则返回调整成绩或者运动员数目,或者结束本轮计时\n选择【是】则直接开始下一趟计时");
-		build.setNegativeButton("否", new DialogInterface.OnClickListener() {
+		build.setTitle(getString(R.string.system_hint)).setMessage(
+				getString(R.string.goto_next_timer_or_adjust_score));
+		build.setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();
 			}
 		});
-		build.setPositiveButton("是", new DialogInterface.OnClickListener() {
+		build.setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();
@@ -425,6 +424,7 @@ public class MatchScoreActivity extends Activity implements
 		sp.setDistance(plan.getDistance());
 		sp.setPool(plan.getPool());
 		sp.setExtra(plan.getExtra());
+		sp.setStrokeNumber(plan.getStrokeNumber());
 
 		List<SmallScore> smallScores = new ArrayList<SmallScore>();
 		List<Score> scoresResult = mDbManager.getScoreByDate(date);
@@ -438,10 +438,11 @@ public class MatchScoreActivity extends Activity implements
 			smallScores.add(smScore);
 		}
 		List<Integer> aidList = mDbManager.getAthlteAidInScoreByDate(date);
-		User user = mDbManager.getUser(userId);
+		User user = mDbManager.getUserByUid(userId);
 		Map<String, Object> scoreMap = new HashMap<String, Object>();
 		scoreMap.put("score", smallScores);
 		scoreMap.put("plan", sp);
+		scoreMap.put("stroke", plan.getStrokeNumber());
 		scoreMap.put("uid", user.getUid());
 		scoreMap.put("athlete_id", aidList);
 		scoreMap.put("type", 1);
@@ -461,14 +462,14 @@ public class MatchScoreActivity extends Activity implements
 							int planId = (Integer) obj.get("plan_id");
 							if (resCode == 1) {
 								CommonUtils.showToast(MatchScoreActivity.this,
-										mToast, "成功同步至服务器!");
+										mToast, getString(R.string.synchronized_success));
 								ContentValues values = new ContentValues();
 								values.put("pid", planId);
 								Plan.updateAll(Plan.class, values,
 										String.valueOf(plan.getId()));
 							} else {
 								CommonUtils.showToast(MatchScoreActivity.this,
-										mToast, "同步失敗！");
+										mToast, getString(R.string.synchronized_failed));
 							}
 
 						} catch (JSONException e) {
@@ -516,7 +517,7 @@ public class MatchScoreActivity extends Activity implements
 		// TODO Auto-generated method stub
 		TextView copyView = (TextView) getLayoutInflater().inflate(
 				android.R.layout.simple_list_item_1, null);
-		copyView.setText("复制添加该项");
+		copyView.setText(getString(R.string.copy_add));
 		copyView.setTextColor(getResources().getColor(R.color.white));
 		final PopupWindow pop = new PopupWindow(copyView,
 				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);

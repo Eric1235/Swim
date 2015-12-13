@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/common_bg" >
 
     <RelativeLayout
         android:id="@+id/dash_area"
@@ -104,30 +105,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/gray_3"
         android:orientation="horizontal"
         android:padding="5dp" >
 
         <Button
+            style="@style/custom_btn"
             android:id="@+id/bt_dash_reset"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.0"
-            android:background="@drawable/bg_register"
             android:padding="10dp"
             android:text="重置计时"
-            android:textSize="18sp" />
+             />
 
         <Button
+            style="@style/custom_btn"
             android:id="@+id/bt_dash_modify"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_weight="1.0"
-            android:background="@drawable/bg_login"
             android:padding="10dp"
             android:text="匹配调整"
-            android:textSize="18sp" />
+             />
     </LinearLayout>
 
 </RelativeLayout>

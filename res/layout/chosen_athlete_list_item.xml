@@ -8,13 +8,13 @@
     android:paddingTop="3dp" >
 
     <TextView
+        style="@style/custom_normal_textview"
         android:id="@+id/tv_chosen_ath_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="50dp"
         android:text="小明"
-        android:textColor="@color/black_black"
-        android:textSize="24sp" />
+         />
 
 </RelativeLayout>

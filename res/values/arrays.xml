@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="strokeintarray">
+        <item >1</item>
+        <item >2</item>
+        <item >3</item>
+        <item >4</item>
+        <item >5</item>
+    </integer-array>
+    <string-array name="strokestrarray">
+        <item >蛙泳</item>
+        <item >仰泳</item>
+        <item >蝶泳</item>
+        <item >自由泳</item>
+        <item >混合泳</item>
+    </string-array>
+    
+    <string-array name="swim_length">
+        <item >25</item>
+        <item >50</item>
+        <item >75</item>
+        <item >100</item>
+        <item >125</item>
+        <item >150</item>
+        <item >175</item>
+        <item >200</item>
+        <item >225</item>
+        <item >250</item>
+        <item >275</item>
+        <item >300</item>
+    </string-array>
+    
+        <string-array name="swim_length_meter">
+        <item >25米</item>
+        <item >50米</item>
+        <item >75米</item>
+        <item >100米</item>
+        <item >125米</item>
+        <item >150米</item>
+        <item >175米</item>
+        <item >200米</item>
+        <item >225米</item>
+        <item >250米</item>
+        <item >275米</item>
+        <item >300米</item>
+    </string-array>
+    
+    <string-array name="pool_length">
+        <item >25米</item>
+        <item >50米</item>
+    </string-array>
+</resources>

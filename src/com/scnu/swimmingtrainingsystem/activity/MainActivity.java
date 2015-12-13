@@ -1,8 +1,10 @@
 package com.scnu.swimmingtrainingsystem.activity;
 
 import com.scnu.swimmingtrainingsystem.R;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap.Config;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.scnu.swimmingtrainingsystem.model.ViewBean;
+import com.scnu.swimmingtrainingsystem.util.AppConfig;
 import com.scnu.swimmingtrainingsystem.util.Constants;
 import com.scnu.swimmingtrainingsystem.view.SexangleImageViews;
 import com.scnu.swimmingtrainingsystem.view.SexangleImageViews.OnSexangleImageClickListener;
@@ -56,6 +59,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
+//		init();
 		try {
 			init();
 		} catch (Exception e) {
@@ -71,8 +75,8 @@ public class MainActivity extends Activity {
 		initView();
 		app = (MyApplication) getApplication();
 		app.addActivity(this);
-		@SuppressWarnings("unused")
-		long userID = (Long) app.getMap().get(Constants.CURRENT_USER_ID);
+//		@SuppressWarnings("unused")
+//		long userID = (Long) app.getMap().get(Constants.CURRENT_USER_ID);
 	}
 
 	/**
@@ -85,7 +89,7 @@ public class MainActivity extends Activity {
 			viewBean.setHome(i);
 			viewBean.setColor(i);
 			viewBean.setTextsize(22);
-			viewBean.setTexts(setName(i));
+			viewBean.setTexts(getString(AppConfig.getFunctionStrById(i)));
 			imageViews = new SexangleImageViews(this, viewBean);
 			imageViews.setId(ID + i);
 			imageViews.setOnSexangleImageClick(listener);
@@ -93,26 +97,6 @@ public class MainActivity extends Activity {
 		}
 	}
 
-	/**
-	 * 设置六边形对应名字
-	 * 
-	 * @param i
-	 * @return
-	 */
-	public String setName(int i) {
-		if (i == 0) {
-			return "运动员";
-		} else if (i == 1) {
-			return "计时器";
-		} else if (i == 2) {
-			return "小功能";
-		} else if (i == 3) {
-			return "成绩查询";
-		} else if (i == 4) {
-			return "设置";
-		}
-		return "";
-	}
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -120,7 +104,7 @@ public class MainActivity extends Activity {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 
 			if ((System.currentTimeMillis() - mExitTime) > 2000) {
-				Toast.makeText(this, "在按一次退出", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, getString(R.string.quit_app), Toast.LENGTH_SHORT).show();
 				mExitTime = System.currentTimeMillis();
 			} else {
 				app.exit();

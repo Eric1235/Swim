@@ -4,33 +4,31 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical" >
-
     <RelativeLayout
-        android:id="@+id/clockset_headbar"
+        android:id="@+id/modify_headbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#3D8BFF"
-        android:gravity="center_vertical" >
+        android:background="@color/title_bar_bg" >
 
         <TextView
+            style="@style/custom_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="使用说明"
-            android:textColor="#fff"
-            android:textSize="20sp" />
+            android:text="@string/user_tip"
+             />
 
         <ImageButton
-            android:id="@+id/plan_back"
-            android:layout_width="60dp"
+            android:id="@+id/btn_back"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:background="@color/transparent"
-            android:onClick="clcokset_back"
             android:src="@drawable/btn_back" />
     </RelativeLayout>
+
     <ExpandableListView
         android:id="@+id/tips_list"
         android:layout_width="match_parent"

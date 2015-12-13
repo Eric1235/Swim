@@ -78,7 +78,7 @@ public class AthleteActivity extends Activity {
 	// 当前用户对象
 	private User mUser;
 	// 当前用户对象id
-	private Long mUserId;
+	private int mUserId;
 	// 运动员名字编辑框
 	private EditText mAthleteName;
 	// 运动员年龄编辑框
@@ -87,6 +87,8 @@ public class AthleteActivity extends Activity {
 	private EditText mAthleteContact;
 	// 运动员备注编辑框
 	private EditText mOthers;
+	//运动员编号编辑框
+	private EditText mAthleteNumber;
 	// 运动员性别切换按钮
 	private Switch mGenderSwitch;
 	// 是否能连接服务器
@@ -100,13 +102,14 @@ public class AthleteActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_athlete);
-		try {
-			init();
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-			startActivity(new Intent(this, LoginActivity.class));
-		}
+		init();
+//		try {
+//			init();
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//			startActivity(new Intent(this, LoginActivity.class));
+//		}
 	}
 
 	/**
@@ -115,13 +118,18 @@ public class AthleteActivity extends Activity {
 	private void init() {
 		mApplication = (MyApplication) getApplication();
 		mDbManager = DBManager.getInstance();
-		mUserId = (Long) mApplication.getMap().get(Constants.CURRENT_USER_ID);
-		mUser = mDbManager.getUser(mUserId);
+		mUserId =  (Integer) mApplication.getMap().get(Constants.CURRENT_USER_ID);
+		Log.d("lixinkun", "uid=" + mUserId);
+		mUser = mDbManager.getUserByUid(mUserId);
+		Log.d("lixinkun", "muser ="+mUser.toString());
 		mListView = (ListView) findViewById(R.id.lv);
+		
 		mAthletes = mDbManager.getAthletes(mUserId);
+		Log.d("lixinkun", "userid = " +mUserId);
 		mAthleteListAdapter = new AthleteListAdapter(this, mApplication,
 				mAthletes, mUserId);
 		mListView.setAdapter(mAthleteListAdapter);
+	
 		mQueue = Volley.newRequestQueue(this);
 		// 根据是否能够连接服务器来操作，如果能够连接服务器，则使用服务返回的数据，否则将数据保存到本地使用
 		isConnect = (Boolean) mApplication.getMap().get(
@@ -138,7 +146,7 @@ public class AthleteActivity extends Activity {
 			CommonUtils.saveIsThisUserFirstLogin(this, false);
 			if (loadingDialog == null) {
 				loadingDialog = LoadingDialog.createDialog(this);
-				loadingDialog.setMessage(getResources().getString(R.string.synchronizing));
+				loadingDialog.setMessage("正在同步...");
 				loadingDialog.setCanceledOnTouchOutside(false);
 			}
 			loadingDialog.show();
@@ -181,12 +189,14 @@ public class AthleteActivity extends Activity {
 						String phone = mAthleteContact.getText().toString()
 								.trim();
 						String other = mOthers.getText().toString().trim();
+						
+						String number = mAthleteNumber.getText().toString().trim();
 
 						boolean isCheck = mGenderSwitch.isChecked();
 
-						String gender = getResources().getString(R.string.male);
+						String gender = getString(R.string.male);
 						if (!isCheck) {
-							gender = getResources().getString(R.string.female);
+							gender = getString(R.string.female);
 						}
 						boolean isExit = mDbManager.isAthleteNameExsit(mUserId,
 								name);
@@ -202,7 +212,7 @@ public class AthleteActivity extends Activity {
 								age = Integer.parseInt(ageString);
 							}
 
-							addAthlete(name, age, gender, phone, other);
+							addAthlete(name, age, gender, phone, other,number);
 							addDialog.dismiss();
 						}
 					}
@@ -213,6 +223,7 @@ public class AthleteActivity extends Activity {
 		mAthleteContact = (EditText) window.findViewById(R.id.add_et_contact);
 		mOthers = (EditText) window.findViewById(R.id.add_et_extra);
 		mGenderSwitch = (Switch) window.findViewById(R.id.toggle_gender);
+		mAthleteNumber = (EditText) window.findViewById(R.id.add_et_number);
 
 	}
 
@@ -231,7 +242,7 @@ public class AthleteActivity extends Activity {
 	 *            运动员其他信息
 	 */
 	public void addAthlete(String name, int age, String gender, String contact,
-			String others) {
+			String others,String number) {
 
 		Athlete a = new Athlete();
 		a.setName(name);
@@ -239,11 +250,12 @@ public class AthleteActivity extends Activity {
 		a.setGender(gender);
 		a.setPhone(contact);
 		a.setExtras(others);
+		a.setNumber(number);
 
 		if (isConnect) {
 			if (loadingDialog == null) {
 				loadingDialog = LoadingDialog.createDialog(this);
-				loadingDialog.setMessage(getResources().getString(R.string.synchronizing));
+				loadingDialog.setMessage("正在同步...");
 				loadingDialog.setCanceledOnTouchOutside(false);
 			}
 			loadingDialog.show();
@@ -254,6 +266,7 @@ public class AthleteActivity extends Activity {
 			CommonUtils.showToast(AthleteActivity.this, mToast,
 					Constants.ADD_SUCCESS_STRING);
 			mAthletes = mDbManager.getAthletes(mUserId);
+//			Log.d("lixinkun", "athletesize="+mAthletes.size()+"");
 			mAthleteListAdapter.setDatas(mAthletes);
 			mAthleteListAdapter.notifyDataSetChanged();
 		}
@@ -336,6 +349,7 @@ public class AthleteActivity extends Activity {
 						loadingDialog.dismiss();
 						try {
 							JSONObject jsonObject = new JSONObject(response);
+//							Log.d("lixinkun", "athletelist resp=" + response);
 							int resCode = (Integer) jsonObject.get("resCode");
 							if (resCode == 1) {
 
@@ -348,20 +362,28 @@ public class AthleteActivity extends Activity {
 											.getObject(athleteArray.get(i)
 													.toString(),
 													TempAthlete.class);
+//									Log.d("lixinkun", "tempathlete="+ tempAthlete);
 									athlete.setAid(tempAthlete.getAid());
 									athlete.setName(tempAthlete.getName());
 									athlete.setAge(tempAthlete.getAge());
 									athlete.setGender(tempAthlete.getGender());
 									athlete.setPhone(tempAthlete.getPhone());
 									athlete.setExtras(tempAthlete.getExtras());
+									athlete.setNumber(tempAthlete.getNumber());
 									athlete.setUser(mUser);
+//									if(athlete.save()){
+//										Log.d("lixinkun", "athlelte saved");
+//									}
 									athlete.save();
+									
 								}
+//								Log.d("lixinkun", "userid = "+ mUserId);
 								mAthletes = mDbManager.getAthletes(mUserId);
+//								Log.d("lixinkun", mAthletes.get(0).toString());
 								mAthleteListAdapter.setDatas(mAthletes);
 								mAthleteListAdapter.notifyDataSetChanged();
 								CommonUtils.showToast(AthleteActivity.this,
-										mToast, getResources().getString(R.string.synchronized_success));
+										mToast, "同步成功！");
 							} else {
 								CommonUtils.showToast(AthleteActivity.this,
 										mToast, UNKNOW_ERROR);
@@ -400,7 +422,7 @@ public class AthleteActivity extends Activity {
 			protected Map<String, String> getParams() throws AuthFailureError {
 				// 设置请求参数
 				Map<String, String> map = new HashMap<String, String>();
-				map.put("getAthleteFirst", mUser.getUid() + "");
+				map.put("getAthleteFirst", String.valueOf(mUser.getUid()));
 				return map;
 			}
 		};
@@ -422,6 +444,11 @@ public class AthleteActivity extends Activity {
 		 * 运动员名字
 		 */
 		private String name;
+		
+		/**
+		 * 运动员编号
+		 */
+		private String number;
 		/**
 		 * 运动员年龄
 		 */
@@ -495,12 +522,22 @@ public class AthleteActivity extends Activity {
 			this.extras = extras;
 		}
 
+		public String getNumber() {
+			return number;
+		}
+
+		public void setNumber(String number) {
+			this.number = number;
+		}
+
 		@Override
 		public String toString() {
 			return "TempAthlete [id=" + id + ", aid=" + aid + ", name=" + name
-					+ ", age=" + age + ", gender=" + gender + ", phone="
-					+ phone + ", extras=" + extras + "]";
+					+ ", number=" + number + ", age=" + age + ", gender="
+					+ gender + ", phone=" + phone + ", extras=" + extras + "]";
 		}
+
+		
 
 	}
 

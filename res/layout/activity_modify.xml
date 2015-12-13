@@ -2,23 +2,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E0E0E0" >
+     >
 
     <RelativeLayout
         android:id="@+id/modify_headbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
-        android:background="#3D8BFF" >
+        android:background="@color/title_bar_bg" >
 
         <TextView
+            style="@style/custom_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="修改密码"
-            android:textColor="#fff"
-            android:textSize="20sp" />
+            android:text="@string/modify_pwd" />
 
         <ImageButton
             android:id="@+id/modify_back"
@@ -35,15 +34,17 @@
         android:id="@+id/modify_ll1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_below="@id/modify_headbar"
         android:layout_marginTop="30dp"
         android:orientation="horizontal"
-        android:padding="10dp" >
+        >
 
         <TextView
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="原密码  "
+            android:text="@string/old_pwd"
             android:textSize="16sp" />
 
         <EditText
@@ -51,6 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_edit"
+            android:inputType="textPassword"
             android:padding="8dp" />
     </LinearLayout>
 
@@ -58,15 +60,17 @@
         android:id="@+id/modify_ll2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_below="@id/modify_ll1"
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
-        android:padding="10dp" >
+         >
 
         <TextView
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="新密码"
+            android:text="@string/new_pwd"
             android:textSize="16sp" />
 
         <EditText
@@ -82,15 +86,17 @@
         android:id="@+id/modify_ll3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_below="@id/modify_ll2"
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
-        android:padding="10dp" >
+         >
 
         <TextView
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="确认新密码"
+            android:text="@string/confirm_pwd"
             android:textSize="16sp" />
 
         <EditText
@@ -103,19 +109,16 @@
     </LinearLayout>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_below="@+id/modify_ll3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:background="@drawable/bg_login"
-        android:gravity="center"
         android:onClick="modify"
-        android:paddingBottom="10dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="10dp"
-        android:text="确认修改 "
-        android:textColor="#fff" />
+        style="@style/custom_btn"
+        android:text="@string/modify"
+        />
 
 </RelativeLayout>

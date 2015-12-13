@@ -34,12 +34,11 @@ import com.scnu.swimmingtrainingsystem.model.User;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
-
 /**
- * 注册Activity
- * 
- * @author LittleByte
- * 
+ * 登录
+ * @author lixinkun
+ *
+ * 2015年12月3日
  */
 public class RegistAcyivity extends Activity {
 	private MyApplication app;
@@ -70,7 +69,7 @@ public class RegistAcyivity extends Activity {
 
 		SharedPreferences hostSp = getSharedPreferences(Constants.LOGININFO,
 				Context.MODE_PRIVATE);
-		// 保存服务器ip和端口地址到sp
+		
 		CommonUtils.HOSTURL = hostSp.getString("hostInfo", "");
 
 	}
@@ -80,8 +79,7 @@ public class RegistAcyivity extends Activity {
 	}
 
 	/**
-	 * 注册响应
-	 * 
+	 * 快速注册
 	 * @param v
 	 */
 	public void quickRegist(View v) {
@@ -91,19 +89,19 @@ public class RegistAcyivity extends Activity {
 		final String Email = email.getText().toString().trim();
 		final String cellphone = phone.getText().toString().trim();
 		if (TextUtils.isEmpty(user)) {
-			CommonUtils.showToast(this, toast, "用户名不能为空");
+			CommonUtils.showToast(this, toast,getString(R.string.username_not_null));
 		} else if (TextUtils.isEmpty(pass)) {
-			CommonUtils.showToast(this, toast, "密码不能为空");
+			CommonUtils.showToast(this, toast, getString(R.string.pwd_not_null));
 		} else if (TextUtils.isEmpty(pass1) || !pass.equals(pass1)) {
-			CommonUtils.showToast(this, toast, "两次输入密码不一致");
+			CommonUtils.showToast(this, toast, getString(R.string.con_pwd_not_equal_pwd));
 		} else if (!TextUtils.isEmpty(Email)
 				&& !CommonUtils.isEmail(email.getText().toString().trim())) {
-			CommonUtils.showToast(this, toast, "邮箱格式错误");
+			CommonUtils.showToast(this, toast, getString(R.string.email_not_right));
 		} else if (!TextUtils.isEmpty(cellphone)
 				&& !CommonUtils.isMobileNO(phone.getText().toString().trim())) {
-			CommonUtils.showToast(this, toast, "手机号码格式错误");
+			CommonUtils.showToast(this, toast, getString(R.string.phone_num_not_right));
 		} else {
-			// 如果处在联网状态，则发送至服务器
+			//发送注册请求
 			boolean isConnect = (Boolean) app.getMap().get(
 					Constants.IS_CONNECT_SERVER);
 			if (isConnect) {
@@ -112,25 +110,25 @@ public class RegistAcyivity extends Activity {
 				newUser.setPassword(pass);
 				newUser.setEmail(Email);
 				newUser.setPhone(cellphone);
-				// 发送至服务器
+				
 				registRequest(newUser);
 			} else {
 				CommonUtils.showToast(RegistAcyivity.this, toast,
-						"无法连接服务器！请直接使用默认账号登陆试用");
+						getString(R.string.cannot_connect_to_server));
 			}
 		}
 
 	}
 
 	/**
-	 * 注册请求
+	 * 封装注册网络请求
 	 * 
 	 * @param jsonString
 	 */
 	private void registRequest(final User user) {
 		if (loadingDialog == null) {
 			loadingDialog = LoadingDialog.createDialog(this);
-			loadingDialog.setMessage("正在注册...");
+			loadingDialog.setMessage(getString(R.string.register_loading));
 			loadingDialog.setCanceledOnTouchOutside(false);
 		}
 		loadingDialog.show();
@@ -150,7 +148,7 @@ public class RegistAcyivity extends Activity {
 							int resCode = (Integer) obj.get("resCode");
 							if (resCode == 1) {
 								CommonUtils.showToast(RegistAcyivity.this,
-										toast, "注册成功");
+										toast, getString(R.string.register_succeed));
 								String uid = obj.get("uid").toString();
 								user.setUid(Integer.parseInt(uid));
 								user.save();
@@ -159,10 +157,10 @@ public class RegistAcyivity extends Activity {
 								finish();
 							} else if (resCode == 2) {
 								CommonUtils.showToast(RegistAcyivity.this,
-										toast, "用户名已经存在！");
+										toast, getString(R.string.user_donot_exists));
 							} else {
 								CommonUtils.showToast(RegistAcyivity.this,
-										toast, "服务器错误！");
+										toast, getString(R.string.unkonwn_error));
 							}
 
 						} catch (JSONException e) {
@@ -178,14 +176,14 @@ public class RegistAcyivity extends Activity {
 						// TODO Auto-generated method stub
 						loadingDialog.dismiss();
 						CommonUtils.showToast(RegistAcyivity.this, toast,
-								"无法连接服务器！请使用默认账号试用");
+								getString(R.string.server_or_network_error));
 						app.getMap().put(Constants.IS_CONNECT_SERVER, false);
 					}
 				}) {
 
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
-				// 设置请求参数
+				
 				Map<String, String> map = new HashMap<String, String>();
 				map.put("registJson", jsonInfo);
 				return map;

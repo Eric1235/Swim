@@ -33,7 +33,7 @@
             android:background="@drawable/bg_query_score_pressed"
             android:padding="7dp"
             android:text="请选择日期进行查询"
-            android:textColor="@color/huise"
+            android:textColor="@color/black"
             android:textSize="18sp" />
     </LinearLayout>
 

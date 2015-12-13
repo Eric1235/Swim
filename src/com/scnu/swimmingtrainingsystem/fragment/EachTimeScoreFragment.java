@@ -69,7 +69,7 @@ public class EachTimeScoreFragment extends Fragment {
 			if (dragDatas.size() > 1) {
 				dragAdapter.remove(dragAdapter.getItem(which));
 			} else {
-				CommonUtils.showToast(getActivity(), mToast, "至少要保留一个运动员");
+				CommonUtils.showToast(getActivity(), mToast, getString(R.string.leave_at_least_one_athlete));
 			}
 			dragAdapter.notifyDataSetChanged();
 		}
@@ -92,7 +92,7 @@ public class EachTimeScoreFragment extends Fragment {
 			if (scores.size() > 1) {
 				scores.remove(which);
 			} else {
-				CommonUtils.showToast(getActivity(), mToast, "至少要保留一个成绩");
+				CommonUtils.showToast(getActivity(), mToast, getString(R.string.leave_at_least_one_score));
 			}
 			scoreListAdapter.notifyDataSetChanged();
 		}
@@ -112,8 +112,7 @@ public class EachTimeScoreFragment extends Fragment {
 		// TODO Auto-generated method stub
 		if (view == null) {
 			view = inflater.inflate(R.layout.fragment_modify_scores, null);
-			String[] autoStrings = new String[] { "25", "50", "75", "100",
-					"125", "150", "175", "200", "225", "250", "275", "300" };
+			String[] autoStrings = getResources().getStringArray(R.array.swim_length);
 			ArrayAdapter<String> tipsAdapter = new ArrayAdapter<String>(
 					getActivity(), android.R.layout.simple_dropdown_item_1line,
 					autoStrings);
@@ -257,7 +256,7 @@ public class EachTimeScoreFragment extends Fragment {
 		// TODO Auto-generated method stub
 		TextView copyView = (TextView) getActivity().getLayoutInflater()
 				.inflate(android.R.layout.simple_list_item_1, null);
-		copyView.setText("复制添加该项");
+		copyView.setText(getString(R.string.copy_add));
 		copyView.setTextColor(getResources().getColor(R.color.white));
 		final PopupWindow pop = new PopupWindow(copyView,
 				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);

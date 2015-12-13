@@ -2,61 +2,66 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightgray" >
+    android:background="@color/common_bg" >
 
     <com.scnu.swimmingtrainingsystem.view.EditTextWithDel
         android:id="@+id/tv_user"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="80dp"
-        android:drawableLeft="@drawable/user"
-        android:drawablePadding="20dp"
+        android:padding="10dp"
+        android:background="@drawable/bg_edit"
         android:singleLine="true"
-        android:hint="请输入用户名" />
+        android:hint="@string/input_user_name"
+        android:textColorHint="@color/light_gray" />
 
     <com.scnu.swimmingtrainingsystem.view.EditTextWithDel
         android:id="@+id/tv_password"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@id/tv_user"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="10dp"
-        android:drawableLeft="@drawable/password"
-        android:drawablePadding="20dp"
-        android:hint="请输入密码"
-         android:singleLine="true"
+        android:padding="10dp"
+        android:background="@drawable/bg_edit"
+        android:hint="@string/input_pwd"
+        android:textColorHint="@color/light_gray" 
+        android:singleLine="true"
         android:inputType="textPassword" />
-
-    <Button
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="16dp"
+        android:layout_centerVertical="true">
+     <Button
+        style="@style/custom_btn"
         android:id="@+id/register"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tv_password"
+        android:layout_weight="1"
+        android:layout_marginRight="4dp"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="30dp"
-        android:background="@drawable/bg_register"
         android:onClick="onRegister"
-        android:padding="10dp"
-        android:text="快速注册"
-        android:textColor="#fff"
-        android:textSize="17sp" />
+        android:text="@string/quick_regist" />
 
     <Button
+        style="@style/custom_btn"
         android:id="@+id/login"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="4dp"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/tv_password"
         android:layout_centerVertical="true"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/bg_login"
         android:onClick="onLogin"
-        android:padding="10dp"
         android:text="立即登录"
-        android:textColor="#fff"
-        android:textSize="17sp" />
+        />
+    </LinearLayout>
+
+   
 
     <TextView
         android:id="@+id/forget_password"
@@ -65,8 +70,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/tv_password"
         android:layout_marginBottom="20dp"
-        android:text="忘记密码？"
-        android:textColor="#7D7D7D" />
+        android:text="@string/forget_pwd"
+        android:textColor="@color/light_gray" />
 
     <TextView
         android:id="@+id/setting_host"
@@ -75,7 +80,7 @@
         android:layout_alignBaseline="@+id/forget_password"
         android:layout_alignBottom="@+id/forget_password"
         android:layout_alignLeft="@+id/tv_password"
-        android:text="设置服务器地址和端口"
-        android:textColor="#7D7D7D" />
+        android:text="@string/set_ip_and_port"
+        android:textColor="@color/light_gray" />
 
 </RelativeLayout>

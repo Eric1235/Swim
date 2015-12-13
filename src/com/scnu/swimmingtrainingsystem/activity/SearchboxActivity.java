@@ -62,7 +62,7 @@ public class SearchboxActivity extends Activity implements IXListViewListener {
 	private Toast mToast;
 
 	private ArrayAdapter<String> mAdapter;
-	private Long userid;
+	private int userid;
 	private boolean isConnected;
 	// 默认本地搜索
 	private boolean searchType = false;
@@ -93,7 +93,7 @@ public class SearchboxActivity extends Activity implements IXListViewListener {
 		myApplication = (MyApplication) getApplication();
 		mDbManager = DBManager.getInstance();
 		mQueue = Volley.newRequestQueue(this);
-		userid = (Long) myApplication.getMap().get(Constants.CURRENT_USER_ID);
+		userid = (Integer) myApplication.getMap().get(Constants.CURRENT_USER_ID);
 
 		isConnected = (Boolean) myApplication.getMap().get(
 				Constants.IS_CONNECT_SERVER);
@@ -233,7 +233,7 @@ public class SearchboxActivity extends Activity implements IXListViewListener {
 	 */
 	protected void getScoreDateListReqeust() {
 
-		User user = mDbManager.getUser(userid);
+		User user = mDbManager.getUserByUid(userid);
 		Map<String, Object> jsonMap = new HashMap<String, Object>();
 		jsonMap.put("curPage", currentDateCount / 20 + 1);
 		jsonMap.put("uid", user.getUid());

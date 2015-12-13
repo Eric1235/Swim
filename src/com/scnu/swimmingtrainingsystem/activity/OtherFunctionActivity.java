@@ -46,6 +46,7 @@ public class OtherFunctionActivity extends FragmentActivity implements
 	private int offset; // 间隔
 	private int cursorWidth; // 游标的长度
 	private ImageView cursor = null;
+	private ImageButton btnBack;
 	private Animation animation = null;
 	private MyFrageStatePagerAdapter adapter;
 	/**
@@ -83,7 +84,7 @@ public class OtherFunctionActivity extends FragmentActivity implements
 		// TODO Auto-generated method stub
 		MyApplication app=(MyApplication) getApplication();
 		@SuppressWarnings("unused")
-		Long userId = (Long) app.getMap().get(Constants.CURRENT_USER_ID);
+		int userId = (Integer) app.getMap().get(Constants.CURRENT_USER_ID);
 		viewpager = (ViewPager) findViewById(R.id.vp_fuction);
 		tvDash = (TextView) findViewById(R.id.tvTag1);
 		tvDash.setOnClickListener(this);
@@ -91,8 +92,7 @@ public class OtherFunctionActivity extends FragmentActivity implements
 		tvSprint.setOnClickListener(this);
 		tvDash.setSelected(true);
 		tvSprint.setSelected(false);
-		
-		ImageButton btnBack = (ImageButton) findViewById(R.id.plan_back);
+		btnBack = (ImageButton) findViewById(R.id.btn_back);
 		btnBack.setOnClickListener(this);
 	}
 
@@ -154,9 +154,8 @@ public class OtherFunctionActivity extends FragmentActivity implements
 		case R.id.tvTag2:
 			viewpager.setCurrentItem(1);
 			break;
-		case R.id.plan_back:
+		case R.id.btn_back:
 			finish();
-			break;
 		default:
 			break;
 		}
@@ -185,7 +184,7 @@ public class OtherFunctionActivity extends FragmentActivity implements
 		}
 		animation.setFillAfter(true);
 		animation.setDuration(300);
-		cursor.startAnimation(animation);
+//		cursor.startAnimation(animation);
 	}
 
 	class MyFrageStatePagerAdapter extends FragmentStatePagerAdapter {

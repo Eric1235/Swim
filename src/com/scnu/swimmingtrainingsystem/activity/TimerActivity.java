@@ -105,7 +105,7 @@ public class TimerActivity extends Activity {
 		app = (MyApplication) getApplication();
 		// 如果app中的全局变量被系统强制回收，通过以下改行代码会触发异常，直接将应用界面重启至登陆页面
 		@SuppressWarnings("unused")
-		long userID = (Long) app.getMap().get(Constants.CURRENT_USER_ID);
+		int userID = (Integer) app.getMap().get(Constants.CURRENT_USER_ID);
 		time_title = (TextView) findViewById(R.id.time_title);
 		tvTime = (TextView) findViewById(R.id.duocitvTime);
 		tvTip = (TextView) findViewById(R.id.textwujici);
@@ -120,7 +120,7 @@ public class TimerActivity extends Activity {
 		clockView = (RelativeLayout) findViewById(R.id.clcokview);
 
 		int swimTime = ((Integer) app.getMap().get(Constants.CURRENT_SWIM_TIME)) + 1;
-		time_title.setText("第" + swimTime + "次计时");
+		time_title.setText(String.format(getString(R.string.No_timer),swimTime));
 		app.getMap().put(Constants.CURRENT_SWIM_TIME, swimTime);
 		athleteNumber = ((List<String>) app.getMap().get(
 				Constants.DRAG_NAME_LIST)).size();
@@ -154,13 +154,13 @@ public class TimerActivity extends Activity {
 						setlistview();
 						if (athletes == (athleteNumber + 1)) {
 							CommonUtils.showToast(TimerActivity.this, toast,
-									"成绩全部记录完成！");
+									getString(R.string.score_record_done));
 						}
 					}
 				} else {
 					stopTimer();
 					CommonUtils.showToast(TimerActivity.this, toast,
-							"请不要保存太多不必要的成绩！");
+							getString(R.string.dont_save_more_score));
 				}
 			}
 		});
@@ -170,7 +170,7 @@ public class TimerActivity extends Activity {
 	@SuppressLint("HandlerLeak")
 	private void setupData() {
 		scoreList.setAdapter(null);
-		tvTime.setText("0:00'00''00");
+		tvTime.setText(getString(R.string.time_reset));
 		handler = new Handler() {
 			@Override
 			public void handleMessage(Message msg) {
@@ -218,10 +218,10 @@ public class TimerActivity extends Activity {
 			if (i == 1) {
 				// 第一名
 				map.put("score_between", "");
-				map.put("athlete_ranking", "第1名");
+				map.put("athlete_ranking", getString(R.string.No_1));
 			} else {
 				map.put("score_between", timesub.get(i - 2));
-				map.put("athlete_ranking", "第" + i + "名");
+				map.put("athlete_ranking", String.valueOf(i));
 			}
 			listItem.add(map);
 		}
@@ -333,7 +333,7 @@ public class TimerActivity extends Activity {
 			startActivity(intent);
 			finish();
 		} else {
-			CommonUtils.showToast(this, toast, "请开始计时并记录至少一次成绩！");
+			CommonUtils.showToast(this, toast, getString(R.string.leave_at_least_one_score));
 		}
 	}
 

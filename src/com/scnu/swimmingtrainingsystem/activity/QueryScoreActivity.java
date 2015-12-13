@@ -73,7 +73,7 @@ public class QueryScoreActivity extends Activity {
 	private TextView details;
 	private TextView dateTextView;
 	private DBManager dbManager;
-	private long userid;
+	private int userid;
 	private LoadingDialog mLoadingDialog;
 	private Toast mToast;
 	private User mUser;
@@ -102,8 +102,8 @@ public class QueryScoreActivity extends Activity {
 		MyApplication mApplication = (MyApplication) getApplication();
 		dbManager = DBManager.getInstance();
 		mQueue = Volley.newRequestQueue(this);
-		userid = (Long) mApplication.getMap().get(Constants.CURRENT_USER_ID);
-		mUser = dbManager.getUser(userid);
+		userid = (Integer) mApplication.getMap().get(Constants.CURRENT_USER_ID);
+		mUser = dbManager.getUserByUid(userid);
 		containLayout = (LinearLayout) findViewById(R.id.ll_query_score);
 		details = (TextView) findViewById(R.id.show_details);
 		dateTextView = (TextView) findViewById(R.id.text_category);
@@ -593,7 +593,7 @@ public class QueryScoreActivity extends Activity {
 				if (isConnect) {
 					getScoresRequest(dateString);
 				} else {
-					CommonUtils.showToast(this, mToast, "无法连接服务器！");
+					CommonUtils.showToast(this, mToast, getString(R.string.cannot_connect_to_server));
 				}
 			} else {
 				new QueryScoreTask().execute(dateString);

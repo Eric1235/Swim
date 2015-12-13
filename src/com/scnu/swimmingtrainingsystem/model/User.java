@@ -86,8 +86,12 @@ public class User extends DataSupport {
 		this.phone = phone;
 	}
 
+	/**
+	 * 激进查询，返回运动员列表
+	 * @return
+	 */
 	public List<Athlete> getAthletes() {
-		return athletes;
+		return DataSupport.where("user_id=?",String.valueOf(id)).find(Athlete.class);
 	}
 
 	public void setAthletes(List<Athlete> athletes) {

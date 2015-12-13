@@ -130,9 +130,9 @@ public class FrequenceFragment extends Fragment implements OnClickListener {
 	}
 
 	private void resetData() {
-		tvTime.setText("点击表盘开始计时，再次点击记录成绩");
+		tvTime.setText(getString(R.string.click_clock_and_record_score));
 		tvTime.setTextSize(14);
-		tvTime.setTextColor(getResources().getColor(R.color.gray_1));
+		tvTime.setTextColor(getResources().getColor(R.color.gray));
 		handler = new Handler() {
 			@Override
 			public void handleMessage(Message msg) {
@@ -219,7 +219,7 @@ public class FrequenceFragment extends Fragment implements OnClickListener {
 	}
 
 	private void resetTimer() {
-		tvResult.setText("0.00次/分钟");
+		tvResult.setText(getString(R.string.default_time_per_min));
 		clickCount = 0;
 		predegree = 0;
 		secondpredegree = 0;

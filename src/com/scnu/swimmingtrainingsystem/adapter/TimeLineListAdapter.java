@@ -51,7 +51,7 @@ public class TimeLineListAdapter extends BaseAdapter {
 			viewHolder.tv_between_time = (TextView) convertView
 					.findViewById(R.id.tv_between_time);
 			viewHolder.tv_ranking = (TextView) convertView
-					.findViewById(R.id.tv_ranking);
+					.findViewById(R.id.image);
 			viewHolder.tv_score = (TextView) convertView
 					.findViewById(R.id.tv_score);
 			convertView.setTag(viewHolder);
@@ -60,7 +60,7 @@ public class TimeLineListAdapter extends BaseAdapter {
 		}
 		if (position == 0) {
 			viewHolder.tv_between_time.setText("");
-			viewHolder.tv_ranking.setText("第1名");
+			viewHolder.tv_ranking.setText("1");
 			viewHolder.tv_score
 					.setText(list.get(position).get("athlete_score"));
 		} else {

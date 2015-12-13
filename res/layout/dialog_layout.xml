@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@drawable/bg_effect_dialog"
+        android:background="@color/color_dialog_bg"
         android:clickable="false"
         android:orientation="vertical"
         android:visibility="visible" >
@@ -91,22 +91,26 @@
         <LinearLayout
             android:id="@+id/dialog_foot"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp" >
 
             <Button
                 android:id="@+id/button1"
-                style="@style/dialog_btn"
+                style="@style/custom_btn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"
                 android:text="OK" />
 
             <Button
                 android:id="@+id/button2"
-                style="@style/dialog_btn"
+                style="@style/custom_btn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
                 android:text="Cancle" />
         </LinearLayout>
     </LinearLayout>

@@ -8,16 +8,15 @@
         android:id="@+id/match_score_headbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#3D8BFF" >
+        android:background="@color/title_bar_bg" >
 
         <TextView
+            style="@style/custom_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="成绩运动员匹配"
-            android:textColor="#fff"
-            android:textSize="20sp" />
+            android:text="@string/athlete_score_match" />
 
         <ImageButton
             android:id="@+id/match_back"
@@ -47,10 +46,12 @@
         android:layout_height="wrap_content"
         android:focusable="true"
         android:focusableInTouchMode="true"
+        android:layout_margin="16dp"
         android:orientation="horizontal"
-        android:padding="5dp" >
+         >
 
         <TextView
+            style="@style/custom_normal_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="本次成绩在" />
@@ -61,10 +62,12 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:inputType="number"
+            android:background="@drawable/bg_edit"
             android:nextFocusLeft="@+id/match_done"
             android:nextFocusUp="@+id/match_back" />
 
         <TextView
+            style="@style/custom_normal_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -81,26 +84,27 @@
         android:id="@+id/ll_match_score"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_margin="16dp"
         android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp" >
+         >
 
         <Button
+            style="@style/custom_btn"
             android:id="@+id/match_done"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.0"
-            android:background="@drawable/startback"
+            android:layout_weight="1"
+            android:layout_marginBottom="8dp"
             android:onClick="matchDone"
             android:text="保存并开始下一趟计时" />
 
         <Button
+            style="@style/custom_btn"
             android:id="@+id/match_statistic"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.0"
-            android:background="@drawable/startback"
+            android:layout_marginTop="8dp"
             android:onClick="finishTiming"
             android:text="结束本轮计时并进入调整页面" />
     </LinearLayout>
