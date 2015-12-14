@@ -69,10 +69,8 @@
                 android:src="@drawable/togo" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="#c2c2c2" />
+        <include
+            layout="@layout/separator_line"/>
 
         <LinearLayout
             android:id="@+id/setting_change_password"
@@ -107,10 +105,8 @@
                 android:src="@drawable/togo" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="#c2c2c2" />
+        <include
+            layout="@layout/separator_line"/>
 
         <LinearLayout
             android:id="@+id/setting_exit"
@@ -143,6 +139,9 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/togo" />
         </LinearLayout>
+
+        <include
+            layout="@layout/separator_line"/>
         
     </LinearLayout>
 

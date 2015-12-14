@@ -23,4 +23,11 @@
         <attr name="innerPadding" format="dimension" />
         <attr name="isChecked" format="boolean" />
     </declare-styleable>
-</resources>
+
+    <declare-styleable name="RoundImageView">
+        <attr name="borderRadius" format="integer"/>
+        <attr name="type" format="string"/>
+        <attr name="src" format="reference"/>
+    </declare-styleable>
+
+</resources>

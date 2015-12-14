@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.Window;
 
 import com.scnu.swimmingtrainingsystem.R;
@@ -56,7 +57,7 @@ public class HomeActivity extends FragmentActivity implements OnClickListener,On
 		mIndicators.add(index);
 //		ChangeColorIconWithText consume = (ChangeColorIconWithText) findViewById(R.id.fragment_consume);
 //		mIndicators.add(consume);
-		ChangeColorIconWithText chart = (ChangeColorIconWithText) findViewById(R.id.fragment_chart);
+		ChangeColorIconWithText chart = (ChangeColorIconWithText) findViewById(R.id.fragment_timer);
 		mIndicators.add(chart);
 //		ChangeColorIconWithText all = (ChangeColorIconWithText) findViewById(R.id.fragment_all);
 //		mIndicators.add(all);
@@ -116,7 +117,7 @@ public class HomeActivity extends FragmentActivity implements OnClickListener,On
 			break;
 
 
-		case R.id.fragment_chart:
+		case R.id.fragment_timer:
 			mIndicators.get(1).setIconAlpha(1.0f);
 			mViewPager.setCurrentItem(1,false);
 			break;
@@ -152,7 +153,17 @@ public class HomeActivity extends FragmentActivity implements OnClickListener,On
 			// TODO Auto-generated method stub
 			return mIndicators.size();
 		}
-		
+
+		@Override
+		public Object instantiateItem(ViewGroup container, int position) {
+			return super.instantiateItem(container, position);
+		}
+
+		@Override
+		public void destroyItem(ViewGroup container, int position, Object object) {
+			super.destroyItem(container, position, object);
+		}
+
 		@Override
 		public Fragment getItem(int position) {
 			// TODO Auto-generated method stub

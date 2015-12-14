@@ -25,10 +25,10 @@
      	   	app:icon="@drawable/ic_menu_emoticons"
             app:text="@string/fragment_index"
             app:text_size="12sp"
-            app:color="#ff45c01a"/>  
+            app:color="@color/blue"/>
 
         <com.scnu.swimmingtrainingsystem.view.ChangeColorIconWithText 
-     	   	android:id="@+id/fragment_chart"
+     	   	android:id="@+id/fragment_timer"
      	   	android:layout_height="match_parent"
      	   	android:layout_weight="1"
      	   	android:layout_width="0dp"
@@ -36,7 +36,7 @@
      	   	app:icon="@drawable/ic_menu_friendslist"
             app:text="@string/fragment_timer"
             app:text_size="12sp"
-            app:color="#ff45c01a"/>
+            app:color="@color/blue"/>
 
         <com.scnu.swimmingtrainingsystem.view.ChangeColorIconWithText
      	   	android:id="@+id/fragment_more"
@@ -47,7 +47,7 @@
      	   	app:icon="@drawable/ic_menu_start_conversation"
             app:text="@string/fragment_more"
             app:text_size="12sp"
-            app:color="#ff45c01a"/> 
+            app:color="@color/blue"/>
 	</LinearLayout>
 
 </LinearLayout>

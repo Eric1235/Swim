@@ -1,11 +1,5 @@
 package com.scnu.swimmingtrainingsystem.activity;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -15,7 +9,6 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -34,6 +27,12 @@ import com.scnu.swimmingtrainingsystem.model.User;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 /**
  * 登录
  * @author lixinkun
@@ -48,6 +47,7 @@ public class RegistAcyivity extends Activity {
 	private EditText password1;
 	private EditText email;
 	private EditText phone;
+	private EditText invitationCode;
 	private RequestQueue mQueue;
 	private Toast toast;
 	private LoadingDialog loadingDialog;
@@ -65,6 +65,7 @@ public class RegistAcyivity extends Activity {
 		password1 = (EditText) findViewById(R.id.et_password1);
 		email = (EditText) findViewById(R.id.et_email);
 		phone = (EditText) findViewById(R.id.et_phone);
+		invitationCode = (EditText) findViewById(R.id.et_inviteCode);
 		mQueue = Volley.newRequestQueue(this);
 
 		SharedPreferences hostSp = getSharedPreferences(Constants.LOGININFO,
@@ -88,6 +89,7 @@ public class RegistAcyivity extends Activity {
 		final String pass1 = password1.getText().toString().trim();
 		final String Email = email.getText().toString().trim();
 		final String cellphone = phone.getText().toString().trim();
+		final String invitation = invitationCode.getText().toString().trim();
 		if (TextUtils.isEmpty(user)) {
 			CommonUtils.showToast(this, toast,getString(R.string.username_not_null));
 		} else if (TextUtils.isEmpty(pass)) {
@@ -123,7 +125,7 @@ public class RegistAcyivity extends Activity {
 	/**
 	 * 封装注册网络请求
 	 * 
-	 * @param jsonString
+	 * @param
 	 */
 	private void registRequest(final User user) {
 		if (loadingDialog == null) {
@@ -186,6 +188,7 @@ public class RegistAcyivity extends Activity {
 				
 				Map<String, String> map = new HashMap<String, String>();
 				map.put("registJson", jsonInfo);
+				map.put("invitation_code",invitationCode.getText().toString().trim());
 				return map;
 			}
 

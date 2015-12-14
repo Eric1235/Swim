@@ -70,12 +70,14 @@
     <color name="color_toast">@color/blue</color>
     <color name="color_train">@color/light_blue</color>
     <color name="common_bg">@color/white</color>
+    <color name="dark_blue">#056dd6</color>
     <color name="dark_gray">#ff585858</color>
     <color name="dimgray">#696969</color>
     <color name="gray">#898484</color>
     <color name="gray_2">#ffd3d3d3</color>
     <color name="light_blue">#A033CCFF</color>
     <color name="light_gray">#ff9b9b9b</color>
+    <color name="light_gray2">#eaeaea</color>
     <color name="light_green">#A0AEEEEE</color>
     <color name="line_color">@color/light_gray</color>
     <color name="middle_blue">#A03cc0f4</color>
@@ -86,6 +88,7 @@
     <color name="white">#ffffff</color>
     <declare-styleable name="ChangeColorIconWithText"><attr name="icon"/><attr name="color"/><attr name="text"/><attr name="text_size"/></declare-styleable>
     <declare-styleable name="DragSortListView"><attr format="dimension" name="collapsed_height"/><attr format="float" name="drag_scroll_start"/><attr format="float" name="max_drag_scroll_speed"/><attr format="color" name="float_background_color"/><attr name="remove_mode"><enum name="clickRemove" value="0"/><enum name="flingRemove" value="1"/></attr><attr format="boolean" name="track_drag_sort"/><attr format="float" name="float_alpha"/><attr format="float" name="slide_shuffle_speed"/><attr format="integer" name="remove_animation_duration"/><attr format="integer" name="drop_animation_duration"/><attr format="boolean" name="drag_enabled"/><attr format="boolean" name="sort_enabled"/><attr format="boolean" name="remove_enabled"/><attr name="drag_start_mode"><enum name="onDown" value="0"/><enum name="onMove" value="1"/><enum name="onLongPress" value="2"/></attr><attr format="integer" name="drag_handle_id"/><attr format="integer" name="fling_handle_id"/><attr format="integer" name="click_remove_id"/><attr format="boolean" name="use_default_controller"/></declare-styleable>
+    <declare-styleable name="RoundImageView"><attr format="integer" name="borderRadius"/><attr format="string" name="type"/><attr format="reference" name="src"/></declare-styleable>
     <declare-styleable name="Switch"><attr format="string" name="textLeft"/><attr format="string" name="textRight"/><attr format="dimension" name="switchMinWidth"/><attr format="dimension" name="switchPadding"/><attr format="color" name="colorUnChecked"/><attr format="color" name="colorChecked"/><attr format="reference" name="backgroundDrawable"/><attr format="dimension" name="switchDrawable"/><attr format="dimension" name="innerPadding"/><attr format="boolean" name="isChecked"/></declare-styleable>
     <declare-styleable name="sexangleImageView"><attr format="integer" name="backcolor"/><attr format="dimension" name="textSize"/><attr format="boolean" name="big"/><attr format="integer" name="home"/><attr format="string" name="texts"/></declare-styleable>
     <!-- From: file:/Users/lixinkun/git/SwimmingTrainingSystem/res/values/dimens.xml -->
@@ -140,11 +143,9 @@
     <string name="first_round">第一趟</string>
     <string name="five_meter">5米</string>
     <string name="forget_pwd">忘记密码</string>
-    <string name="fragment_all">记录</string>
-    <string name="fragment_athlete">运动员</string>
-    <string name="fragment_chart">图表</string>
-    <string name="fragment_consume">消费</string>
+    <string name="fragment_index">首页</string>
     <string name="fragment_more">更多</string>
+    <string name="fragment_timer">计时</string>
     <string name="goto_next_timer_or_adjust_score">"是否开始下一趟计时？ \n选择【否】
         则返回调整成绩或者运动员数目,或者结束本轮计时\n选择【是】则直接开始下一趟计时</string>
     <string name="input_extra">请输入备注</string>
@@ -167,6 +168,7 @@
     <string name="manage_athlete">运动员管理</string>
     <string name="match_done">匹配完成!</string>
     <string name="match_score_athlete">运动员成绩匹配</string>
+    <string name="mine">我的</string>
     <string name="modify">修改</string>
     <string name="modify_pwd">修改密码</string>
     <string name="modify_succeed">修改成功</string>
