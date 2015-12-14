@@ -1,25 +1,5 @@
 package com.scnu.swimmingtrainingsystem.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
-
-
-
-
-
-
-
-import com.scnu.swimmingtrainingsystem.R;
-import com.scnu.swimmingtrainingsystem.fragment.AthleteFragment;
-import com.scnu.swimmingtrainingsystem.fragment.MineFragment;
-import com.scnu.swimmingtrainingsystem.fragment.OtherFunctionFragment;
-import com.scnu.swimmingtrainingsystem.fragment.QueryScoreFragment;
-import com.scnu.swimmingtrainingsystem.fragment.TimerSettingFragment;
-import com.scnu.swimmingtrainingsystem.view.ChangeColorIconWithText;
-import com.scnu.swimmingtrainingsystem.view.NoScrollViewPager;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -29,6 +9,16 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+
+import com.scnu.swimmingtrainingsystem.R;
+import com.scnu.swimmingtrainingsystem.fragment.IndexFragment;
+import com.scnu.swimmingtrainingsystem.fragment.MineFragment;
+import com.scnu.swimmingtrainingsystem.fragment.TimerFragment;
+import com.scnu.swimmingtrainingsystem.view.ChangeColorIconWithText;
+import com.scnu.swimmingtrainingsystem.view.NoScrollViewPager;
+
+import java.util.ArrayList;
+import java.util.List;
 /**
  * 
  * @author lixinkun
@@ -64,19 +54,19 @@ public class HomeActivity extends FragmentActivity implements OnClickListener,On
 		mViewPager.setNoScroll(true);
 		ChangeColorIconWithText index = (ChangeColorIconWithText) findViewById(R.id.fragment_index);
 		mIndicators.add(index);
-		ChangeColorIconWithText consume = (ChangeColorIconWithText) findViewById(R.id.fragment_consume);
-		mIndicators.add(consume);
+//		ChangeColorIconWithText consume = (ChangeColorIconWithText) findViewById(R.id.fragment_consume);
+//		mIndicators.add(consume);
 		ChangeColorIconWithText chart = (ChangeColorIconWithText) findViewById(R.id.fragment_chart);
 		mIndicators.add(chart);
-		ChangeColorIconWithText all = (ChangeColorIconWithText) findViewById(R.id.fragment_all);
-		mIndicators.add(all);
+//		ChangeColorIconWithText all = (ChangeColorIconWithText) findViewById(R.id.fragment_all);
+//		mIndicators.add(all);
 		ChangeColorIconWithText more = (ChangeColorIconWithText) findViewById(R.id.fragment_more);
 		mIndicators.add(more);
 		
 		index.setOnClickListener(this);
-		consume.setOnClickListener(this);
+//		consume.setOnClickListener(this);
 		chart.setOnClickListener(this);
-		all.setOnClickListener(this);
+//		all.setOnClickListener(this);
 		more.setOnClickListener(this);
 		
 		index.setIconAlpha(1.0f);
@@ -85,7 +75,7 @@ public class HomeActivity extends FragmentActivity implements OnClickListener,On
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		
+		clickTab(v);
 	}
 
 
@@ -124,24 +114,18 @@ public class HomeActivity extends FragmentActivity implements OnClickListener,On
 			mIndicators.get(0).setIconAlpha(1.0f);
 			mViewPager.setCurrentItem(0,false);
 			break;
-		case R.id.fragment_consume:
+
+
+		case R.id.fragment_chart:
 			mIndicators.get(1).setIconAlpha(1.0f);
 			mViewPager.setCurrentItem(1,false);
 			break;
 
-		case R.id.fragment_chart:
-			mIndicators.get(2).setIconAlpha(1.0f);
-			mViewPager.setCurrentItem(2,false);
-			break;
 
-		case R.id.fragment_all:
-			mIndicators.get(3).setIconAlpha(1.0f);
-			mViewPager.setCurrentItem(3,false);
-			break;
 
 		case R.id.fragment_more:
-			mIndicators.get(4).setIconAlpha(1.0f);
-			mViewPager.setCurrentItem(4,false);
+			mIndicators.get(2).setIconAlpha(1.0f);
+			mViewPager.setCurrentItem(2,false);
 			break;
 
 
@@ -174,18 +158,12 @@ public class HomeActivity extends FragmentActivity implements OnClickListener,On
 			// TODO Auto-generated method stub
 			switch(position){
 			case 0:
-				mFragment = new AthleteFragment();
+				mFragment = new IndexFragment();
 				break;
 			case 1:
-				mFragment = new TimerSettingFragment();
+				mFragment = new TimerFragment();
 				break;
 			case 2:
-				mFragment = new QueryScoreFragment();
-				break;
-			case 3:
-				mFragment = new OtherFunctionFragment();
-				break;
-			case 4:
 				mFragment = new MineFragment();
 				break;
 			default:

@@ -23,19 +23,10 @@
      	   	android:layout_width="0dp"
      	   	android:padding="5dp"
      	   	app:icon="@drawable/ic_menu_emoticons"
-            app:text="@string/fragment_athlete"
+            app:text="@string/fragment_index"
             app:text_size="12sp"
             app:color="#ff45c01a"/>  
-        <com.scnu.swimmingtrainingsystem.view.ChangeColorIconWithText 
-     	   	android:id="@+id/fragment_consume"
-     	   	android:layout_height="match_parent"
-     	   	android:layout_weight="1"
-     	   	android:layout_width="0dp"
-     	   	android:padding="5dp"
-     	   	app:icon="@drawable/ic_menu_allfriends"
-            app:text="@string/fragment_consume"
-            app:text_size="12sp"
-            app:color="#ff45c01a"/>
+
         <com.scnu.swimmingtrainingsystem.view.ChangeColorIconWithText 
      	   	android:id="@+id/fragment_chart"
      	   	android:layout_height="match_parent"
@@ -43,19 +34,10 @@
      	   	android:layout_width="0dp"
      	   	android:padding="5dp"
      	   	app:icon="@drawable/ic_menu_friendslist"
-            app:text="@string/fragment_chart"
+            app:text="@string/fragment_timer"
             app:text_size="12sp"
             app:color="#ff45c01a"/>
-        <com.scnu.swimmingtrainingsystem.view.ChangeColorIconWithText 
-     	   	android:id="@+id/fragment_all"
-     	   	android:layout_height="match_parent"
-     	   	android:layout_weight="1"
-     	   	android:layout_width="0dp"
-     	   	android:padding="5dp"
-     	   	app:icon="@drawable/ic_menu_emoticons"
-            app:text="@string/fragment_all"
-            app:text_size="12sp"
-            app:color="#ff45c01a"/>
+
         <com.scnu.swimmingtrainingsystem.view.ChangeColorIconWithText
      	   	android:id="@+id/fragment_more"
      	   	android:layout_height="match_parent"

@@ -78,6 +78,7 @@
     <color name="light_gray">#ff9b9b9b</color>
     <color name="light_green">#A0AEEEEE</color>
     <color name="line_color">@color/light_gray</color>
+    <color name="middle_blue">#A03cc0f4</color>
     <color name="popup_char_color">#99ff00ff</color>
     <color name="promotion_bg">#ffd5e6f8</color>
     <color name="title_bar_bg">@color/blue</color>

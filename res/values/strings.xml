@@ -170,10 +170,8 @@
     <string name="time_reset">00:00:00</string>
     
     <!-- homeactivity -->
-    <string name="fragment_athlete">运动员</string>
-    <string name="fragment_consume">消费</string>
-    <string name="fragment_chart">图表</string>
-    <string name="fragment_all">记录</string>
+    <string name="fragment_index">首页</string>
+    <string name="fragment_timer">计时</string>
     <string name="fragment_more">更多</string>
     
     <!-- settingactivity -->

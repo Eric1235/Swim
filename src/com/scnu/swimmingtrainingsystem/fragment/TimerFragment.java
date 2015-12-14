@@ -8,6 +8,6 @@ import android.support.v4.app.Fragment;
  *
  * 2015年12月10日
  */
-public class AthleteFragment extends Fragment{
+public class TimerFragment extends Fragment{
 
 }

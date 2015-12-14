@@ -12,6 +12,8 @@ apply plugin: 'com.android.application'
 dependencies {
     compile fileTree(include: '*.jar', dir: 'libs')
     compile project(':DragListview_library')
+    compile files('libs/listanim.jar')
+    compile files('libs/EventBus2.4.jar')
 }
 
 android {

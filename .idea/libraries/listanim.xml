@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="listanim">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/listanim.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
