@@ -77,12 +77,13 @@
     <color name="gray_2">#ffd3d3d3</color>
     <color name="light_blue">#A033CCFF</color>
     <color name="light_gray">#ff9b9b9b</color>
-    <color name="light_gray2">#eaeaea</color>
+    <color name="light_gray2">#f7f7f7</color>
     <color name="light_green">#A0AEEEEE</color>
     <color name="line_color">@color/light_gray</color>
     <color name="middle_blue">#A03cc0f4</color>
     <color name="popup_char_color">#99ff00ff</color>
     <color name="promotion_bg">#ffd5e6f8</color>
+    <color name="tab_bg">@color/light_gray2</color>
     <color name="title_bar_bg">@color/blue</color>
     <color name="transparent">#00000000</color>
     <color name="white">#ffffff</color>
@@ -101,6 +102,7 @@
     <string name="No_1">1</string>
     <string name="No_n">%d</string>
     <string name="No_timer">第 %s 几次计时</string>
+    <string name="about_us">关于我们</string>
     <string name="action_settings">Settings</string>
     <string name="add_athlete_before_timer">请添加运动员后再开始计时</string>
     <string name="add_athlete_title_string">添加运动员</string>
@@ -164,6 +166,7 @@
     <string name="login_success">登录成功</string>
     <string name="login_success_and_jump">登陆成功，立即跳转</string>
     <string name="logining">正在登录……</string>
+    <string name="logout">退出登录</string>
     <string name="male">男</string>
     <string name="manage_athlete">运动员管理</string>
     <string name="match_done">匹配完成!</string>
@@ -197,6 +200,7 @@
     <string name="pwd_not_null">用户密码不能为空</string>
     <string name="pwd_wrong">密码错误!</string>
     <string name="queryscore">成绩查询</string>
+    <string name="question_help">问题帮助</string>
     <string name="quick_regist">快速注册</string>
     <string name="quit_and_dont_save_score">是否放弃保存本轮成绩</string>
     <string name="quit_app">再按一次退出程序</string>

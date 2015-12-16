@@ -150,12 +150,12 @@ ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:86:9-8
 		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:88:13-49
 	android:name
 		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:87:13-87
-activity#com.scnu.swimmingtrainingsystem.activity.UseTipsActiviy
+activity#com.scnu.swimmingtrainingsystem.activity.QuestionHelpActivity
 ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:90:9-93:20
 	android:screenOrientation
 		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:92:13-49
 	android:name
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:91:13-83
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:91:13-58
 activity#com.scnu.swimmingtrainingsystem.activity.EachTimeScoreActivity
 ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:94:9-98:20
 	android:screenOrientation

@@ -890,8 +890,8 @@ com.scnu.swimmingtrainingsystem.activity.TimerSettingActivity: TimerSettingActiv
 com.scnu.swimmingtrainingsystem.activity.TimerSettingActivity: void chooseAthlete(android.view.View)
 com.scnu.swimmingtrainingsystem.activity.TimerSettingActivity: void startTiming(android.view.View)
 com.scnu.swimmingtrainingsystem.activity.TimerSettingActivity: void clcokset_back(android.view.View)
-com.scnu.swimmingtrainingsystem.activity.UseTipsActiviy
-com.scnu.swimmingtrainingsystem.activity.UseTipsActiviy: UseTipsActiviy()
+com.scnu.swimmingtrainingsystem.activity.QuestionHelpActivity
+com.scnu.swimmingtrainingsystem.activity.QuestionHelpActivity: UseTipsActiviy()
 com.scnu.swimmingtrainingsystem.activity.WlecomeActivity
 com.scnu.swimmingtrainingsystem.activity.WlecomeActivity: WlecomeActivity()
 com.scnu.swimmingtrainingsystem.effect.BaseEffects: void reset(android.view.View)

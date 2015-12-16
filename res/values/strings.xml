@@ -209,8 +209,13 @@
     
     
     <!-- springfragment -->
-    <string name="time">"%1$01d:%2$02d'%3$02d''%4$02d"</string>
+    <string name="time">"%1$01d:%2$02d'%3$02d''%4$02d"</string>logout
 
     <!-- minefragment -->
     <string name="mine">我的</string>
+    <string name="question_help">问题帮助</string>
+    <string name="about_us">关于我们</string>
+    <string name="logout">退出登录</string>
+
+    <!-- indexfragment-->
 </resources>

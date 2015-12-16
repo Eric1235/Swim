@@ -88,7 +88,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.scnu.swimmingtrainingsystem.activity.UseTipsActiviy"
+            android:name="com.scnu.swimmingtrainingsystem.activity.QuestionHelpActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity

@@ -1,6 +1,5 @@
 package com.scnu.swimmingtrainingsystem.activity;
 
-import com.scnu.swimmingtrainingsystem.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -10,6 +9,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 
+import com.scnu.swimmingtrainingsystem.R;
 import com.scnu.swimmingtrainingsystem.util.Constants;
 
 /**
@@ -75,7 +75,7 @@ public class SettingActivity extends Activity {
 
 		switch (v.getId()) {
 		case R.id.setting_illustration:
-			Intent intent = new Intent(this, UseTipsActiviy.class);
+			Intent intent = new Intent(this, QuestionHelpActivity.class);
 			startActivity(intent);
 			break;
 		case R.id.setting_change_password:

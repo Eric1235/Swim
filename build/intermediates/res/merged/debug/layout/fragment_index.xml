@@ -32,7 +32,7 @@
         layout="@layout/separator_line_big"/>
 
     <LinearLayout
-        android:id="@+id/question_help"
+        android:id="@+id/manage_athlete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_setting_selector"
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="1.0"
-            android:text="运动员管理"
+            android:text="@string/manage_athlete"
             android:textSize="18sp" />
 
         <ImageView
@@ -66,7 +66,7 @@
         layout="@layout/separator_line"/>
 
     <LinearLayout
-        android:id="@+id/about_us"
+        android:id="@+id/query_score"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_setting_selector"
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="1.0"
-            android:text="成绩查询"
+            android:text="@string/queryscore"
             android:textSize="18sp" />
 
         <ImageView
@@ -101,7 +101,7 @@
         layout="@layout/separator_line"/>
 
     <LinearLayout
-        android:id="@+id/setting_change_password"
+        android:id="@+id/other_function"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_setting_selector"
@@ -123,7 +123,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="1.0"
-            android:text="小功能"
+            android:text="@string/other_function"
             android:textSize="18sp" />
 
         <ImageView

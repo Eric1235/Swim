@@ -5416,13 +5416,13 @@ com.scnu.swimmingtrainingsystem.activity.TimerSettingActivity$3 -> com.scnu.swim
     com.scnu.swimmingtrainingsystem.activity.TimerSettingActivity this$0 -> a
     com.scnu.swimmingtrainingsystem.effect.NiftyDialogBuilder val$selectDialog -> b
     void onClick(android.view.View) -> onClick
-com.scnu.swimmingtrainingsystem.activity.UseTipsActiviy -> com.scnu.swimmingtrainingsystem.activity.UseTipsActiviy:
+com.scnu.swimmingtrainingsystem.activity.QuestionHelpActivity -> com.scnu.swimmingtrainingsystem.activity.QuestionHelpActivity:
     com.scnu.swimmingtrainingsystem.activity.MyApplication application -> a
     android.widget.ExpandableListView expandableListView -> b
     void onCreate(android.os.Bundle) -> onCreate
     void init() -> a
-com.scnu.swimmingtrainingsystem.activity.UseTipsActiviy$1 -> com.scnu.swimmingtrainingsystem.activity.cu:
-    com.scnu.swimmingtrainingsystem.activity.UseTipsActiviy this$0 -> a
+com.scnu.swimmingtrainingsystem.activity.QuestionHelpActivity$1 -> com.scnu.swimmingtrainingsystem.activity.cu:
+    com.scnu.swimmingtrainingsystem.activity.QuestionHelpActivity this$0 -> a
     android.widget.TextView getTextView() -> a
     int getGroupCount() -> getGroupCount
     int getChildrenCount(int) -> getChildrenCount
