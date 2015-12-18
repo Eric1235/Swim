@@ -18,8 +18,8 @@
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
             android:text="运动员ID"
-            android:textColor="#9C9C9C"
-            android:textSize="20sp" />
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
         <View
             android:layout_width="0.5dp"
@@ -36,8 +36,8 @@
             android:paddingTop="4dp"
             android:singleLine="true"
             android:text="姓名"
-            android:textColor="#77000000"
-            android:textSize="20sp" />
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
         <View
             android:layout_width="0.5dp"

@@ -189,6 +189,7 @@
 
         <Button
             style="@style/custom_btn"
+            android:id="@+id/btn_start_timer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

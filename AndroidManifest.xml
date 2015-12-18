@@ -108,6 +108,10 @@
             android:name="com.scnu.swimmingtrainingsystem.activity.MatchSprintScoreActivity"
             android:screenOrientation="portrait" >
         </activity>
+        <activity android:name=".activity.AboutUsActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
     </application>
 
 </manifest>

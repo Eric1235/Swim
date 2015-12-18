@@ -5,23 +5,24 @@
      >
 
     <TextView
+        style="@style/custom_normal_textview"
         android:id="@+id/ranking"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="match_parent"
         android:layout_marginLeft="8dp"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:text="第1名"
-        android:textSize="20sp"
         android:textStyle="italic" />
 
     <TextView
+        style="@style/custom_normal_textview"
         android:id="@+id/match_score"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="match_parent"
         android:layout_marginLeft="70dp"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:text="00分00秒000"
-        android:textSize="20sp" />
+         />
 
 
 </RelativeLayout>

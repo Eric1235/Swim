@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.scnu.swimmingtrainingsystem.R;
+import com.scnu.swimmingtrainingsystem.activity.MyApplication;
 import com.scnu.swimmingtrainingsystem.util.AppController;
 import com.scnu.swimmingtrainingsystem.util.Constants;
 
@@ -110,6 +111,8 @@ public class MineFragment extends Fragment implements View.OnClickListener{
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        MyApplication app = (MyApplication) getActivity().getApplication();
+                        AppController.reset(app);
                         AppController.gotoLogin(getActivity());
                     }
                 });

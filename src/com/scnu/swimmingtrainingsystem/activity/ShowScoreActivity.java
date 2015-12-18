@@ -1,10 +1,5 @@
 package com.scnu.swimmingtrainingsystem.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.litepal.crud.DataSupport;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -25,6 +20,11 @@ import com.scnu.swimmingtrainingsystem.model.ScoreSum;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
+
+import org.litepal.crud.DataSupport;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 计时并且调整完毕后展示成绩的Activity
@@ -74,7 +74,7 @@ public class ShowScoreActivity extends Activity {
 		Long planid = (Long) mApplication.getMap().get(Constants.PLAN_ID);
 		Plan plan = DataSupport.find(Plan.class, planid);
 		mPlanName.setText(plan.getPool() + "  总距离：" + plan.getDistance()
-				+ "米    共" + (times - 1) + "趟");
+				+ "米    共" + (times - 2) + "趟");
 
 		adapter = new ShowScoreListAdapter(this, list, mScoreSum, 0);
 		mExpandableListView.setAdapter(adapter);

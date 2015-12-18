@@ -2,18 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/lixinkun/git/SwimmingTrainingSystem/libs/nineoldandroids-2.4.0.jar"
+        jar="/Users/lixinkun/git/SwimmingTrainingSystem/libs/volley.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="59f19e43354d32de831379c23ce03bb259a4c2b7">
-        <dex dex="/Users/lixinkun/git/SwimmingTrainingSystem/build/intermediates/pre-dexed/debug/nineoldandroids-2.4.0-3282a8eecf4b06f96ee6d13387096da84690f988.jar" />
-    </item>
-    <item
-        jar="/Users/lixinkun/git/SwimmingTrainingSystem/libs/gson-1.7.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="7291c9de7f574b15502f73f0ac2ae6d3af36c751">
-        <dex dex="/Users/lixinkun/git/SwimmingTrainingSystem/build/intermediates/pre-dexed/debug/gson-1.7.1-dce9b954b5ab5ad72333c2a42d7d2292f1ae849a.jar" />
+        sha1="4a94601db9bdfb7dc60efabb3dea91a0675f591d">
+        <dex dex="/Users/lixinkun/git/SwimmingTrainingSystem/build/intermediates/pre-dexed/debug/volley-742f61aaf5dacd62556f1d314cac75bcf295ea1e.jar" />
     </item>
     <item
         jar="/Users/lixinkun/git/SwimmingTrainingSystem/libs/EventBus2.4.jar"
@@ -30,18 +23,18 @@
         <dex dex="/Users/lixinkun/git/SwimmingTrainingSystem/build/intermediates/pre-dexed/debug/android-support-v4-a40c43fecbf87e259a8425ea774d3e8cd5676802.jar" />
     </item>
     <item
-        jar="/Users/lixinkun/git/SwimmingTrainingSystem/libs/listanim.jar"
+        jar="/Users/lixinkun/git/SwimmingTrainingSystem/libs/nineoldandroids-2.4.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="ad3bb13b342b10543f0302926df16dc0d4cecd8e">
-        <dex dex="/Users/lixinkun/git/SwimmingTrainingSystem/build/intermediates/pre-dexed/debug/listanim-3e9dc4a48ee2b4993d873abddeb54fe275cc0029.jar" />
+        sha1="59f19e43354d32de831379c23ce03bb259a4c2b7">
+        <dex dex="/Users/lixinkun/git/SwimmingTrainingSystem/build/intermediates/pre-dexed/debug/nineoldandroids-2.4.0-3282a8eecf4b06f96ee6d13387096da84690f988.jar" />
     </item>
     <item
-        jar="/Users/lixinkun/git/SwimmingTrainingSystem/libs/volley.jar"
+        jar="/Users/lixinkun/git/SwimmingTrainingSystem/libs/gson-1.7.1.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="4a94601db9bdfb7dc60efabb3dea91a0675f591d">
-        <dex dex="/Users/lixinkun/git/SwimmingTrainingSystem/build/intermediates/pre-dexed/debug/volley-742f61aaf5dacd62556f1d314cac75bcf295ea1e.jar" />
+        sha1="7291c9de7f574b15502f73f0ac2ae6d3af36c751">
+        <dex dex="/Users/lixinkun/git/SwimmingTrainingSystem/build/intermediates/pre-dexed/debug/gson-1.7.1-dce9b954b5ab5ad72333c2a42d7d2292f1ae849a.jar" />
     </item>
     <item
         jar="/Users/lixinkun/git/SwimmingTrainingSystem/libs/mpchartlib.jar"
@@ -61,8 +54,15 @@
         jar="/Users/lixinkun/git/SwimmingTrainingSystem/build/intermediates/exploded-aar/SwimmingTrainingSystem/DragListview_library/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="e53e0d734ea8f16b45752050d299c9688d2bee46">
+        sha1="93c934ba17f3e7b38768b30378d60f1fe6d0bb70">
         <dex dex="/Users/lixinkun/git/SwimmingTrainingSystem/build/intermediates/pre-dexed/debug/classes-e969f84e718dfd3374ef90b84258d0dfb8cd1fd7.jar" />
+    </item>
+    <item
+        jar="/Users/lixinkun/git/SwimmingTrainingSystem/libs/listanim.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ad3bb13b342b10543f0302926df16dc0d4cecd8e">
+        <dex dex="/Users/lixinkun/git/SwimmingTrainingSystem/build/intermediates/pre-dexed/debug/listanim-3e9dc4a48ee2b4993d873abddeb54fe275cc0029.jar" />
     </item>
 
 </items>

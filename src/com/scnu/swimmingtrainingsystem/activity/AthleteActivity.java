@@ -1,14 +1,5 @@
 package com.scnu.swimmingtrainingsystem.activity;
 
-import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -40,13 +31,25 @@ import com.scnu.swimmingtrainingsystem.adapter.AthleteListAdapter;
 import com.scnu.swimmingtrainingsystem.db.DBManager;
 import com.scnu.swimmingtrainingsystem.effect.Effectstype;
 import com.scnu.swimmingtrainingsystem.effect.NiftyDialogBuilder;
+import com.scnu.swimmingtrainingsystem.event.FirstLoginSucceedEvent;
+import com.scnu.swimmingtrainingsystem.event.LoginSucceedEvent;
 import com.scnu.swimmingtrainingsystem.http.JsonTools;
 import com.scnu.swimmingtrainingsystem.model.Athlete;
 import com.scnu.swimmingtrainingsystem.model.User;
-import com.scnu.swimmingtrainingsystem.util.Constants;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
+import com.scnu.swimmingtrainingsystem.util.Constants;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
 import com.scnu.swimmingtrainingsystem.view.Switch;
+import com.ypy.eventbus.EventBus;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 运动员管理Activity
@@ -102,14 +105,17 @@ public class AthleteActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_athlete);
-		init();
-//		try {
-//			init();
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			e.printStackTrace();
-//			startActivity(new Intent(this, LoginActivity.class));
-//		}
+
+//		init();
+		try {
+			init();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			startActivity(new Intent(this, LoginActivity.class));
+		}
+
+		EventBus.getDefault().register(this);
 	}
 
 	/**
@@ -119,13 +125,13 @@ public class AthleteActivity extends Activity {
 		mApplication = (MyApplication) getApplication();
 		mDbManager = DBManager.getInstance();
 		mUserId =  (Integer) mApplication.getMap().get(Constants.CURRENT_USER_ID);
-		Log.d("lixinkun", "uid=" + mUserId);
+//		Log.d("lixinkun", "uid=" + mUserId);
 		mUser = mDbManager.getUserByUid(mUserId);
-		Log.d("lixinkun", "muser ="+mUser.toString());
+//		Log.d("lixinkun", "muser ="+mUser.toString());
 		mListView = (ListView) findViewById(R.id.lv);
 		
 		mAthletes = mDbManager.getAthletes(mUserId);
-		Log.d("lixinkun", "userid = " +mUserId);
+//		Log.d("lixinkun", "userid = " +mUserId);
 		mAthleteListAdapter = new AthleteListAdapter(this, mApplication,
 				mAthletes, mUserId);
 		mListView.setAdapter(mAthleteListAdapter);
@@ -146,12 +152,26 @@ public class AthleteActivity extends Activity {
 			CommonUtils.saveIsThisUserFirstLogin(this, false);
 			if (loadingDialog == null) {
 				loadingDialog = LoadingDialog.createDialog(this);
-				loadingDialog.setMessage("正在同步...");
+				loadingDialog.setMessage(getString(R.string.synchronizing));
 				loadingDialog.setCanceledOnTouchOutside(false);
 			}
 			loadingDialog.show();
 			getAthleteRequest();
 		}
+	}
+
+	public void onEventMainThread(FirstLoginSucceedEvent event){
+		if(event != null){
+			Log.d("lixinkun", "receive first login succeed msg");
+		}
+
+	}
+
+	public void onEventMainThread(LoginSucceedEvent event){
+		if(event != null){
+			Log.d("lixinkun", "receive first login succeed msg");
+		}
+
 	}
 
 	/**
@@ -255,7 +275,7 @@ public class AthleteActivity extends Activity {
 		if (isConnect) {
 			if (loadingDialog == null) {
 				loadingDialog = LoadingDialog.createDialog(this);
-				loadingDialog.setMessage("正在同步...");
+				loadingDialog.setMessage(getString(R.string.synchronizing));
 				loadingDialog.setCanceledOnTouchOutside(false);
 			}
 			loadingDialog.show();
@@ -276,7 +296,7 @@ public class AthleteActivity extends Activity {
 	/**
 	 * 将需要保存的对象转换成json字符串，提交到服务器
 	 * 
-	 * @param obj
+	 * @param
 	 */
 	public void addAthleteRequest(final Athlete a) {
 		Map<String, Object> jsonMap = new HashMap<String, Object>();
@@ -562,4 +582,9 @@ public class AthleteActivity extends Activity {
 		return false;
 	}
 
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		EventBus.getDefault().unregister(this);
+	}
 }

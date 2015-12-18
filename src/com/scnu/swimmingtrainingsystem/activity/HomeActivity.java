@@ -6,15 +6,19 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Toast;
 
 import com.scnu.swimmingtrainingsystem.R;
 import com.scnu.swimmingtrainingsystem.fragment.IndexFragment;
 import com.scnu.swimmingtrainingsystem.fragment.MineFragment;
 import com.scnu.swimmingtrainingsystem.fragment.TimerFragment;
+import com.scnu.swimmingtrainingsystem.util.CommonUtils;
+import com.scnu.swimmingtrainingsystem.util.Constants;
 import com.scnu.swimmingtrainingsystem.view.ChangeColorIconWithText;
 import com.scnu.swimmingtrainingsystem.view.NoScrollViewPager;
 
@@ -27,6 +31,11 @@ import java.util.List;
  * 2015年12月10日
  */
 public class HomeActivity extends FragmentActivity implements OnClickListener,OnPageChangeListener{
+
+	// 退出程序
+	private long mExitTime;
+	private MyApplication app;
+	private Toast toast;
 	
 	private NoScrollViewPager mViewPager;
 	private Fragment mFragment;
@@ -39,8 +48,7 @@ public class HomeActivity extends FragmentActivity implements OnClickListener,On
 		super.onCreate(arg0);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_home);
-		
-
+		app = (MyApplication)getApplication();
 		initViews();
 		
 		mViewPager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
@@ -183,6 +191,41 @@ public class HomeActivity extends FragmentActivity implements OnClickListener,On
 			return mFragment;
 		}
 	}
-	
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+
+			if ((System.currentTimeMillis() - mExitTime) > 2000) {
+				CommonUtils.showToast(this,toast,getString(R.string.quit_app));
+//				Toast.makeText(this, getString(R.string.quit_app), Toast.LENGTH_SHORT).show();
+				mExitTime = System.currentTimeMillis();
+			} else {
+				app.exit();
+			}
+
+			return true;
+		}
+		// 拦截MENU按钮点击事件，让他无任何操作
+		if (keyCode == KeyEvent.KEYCODE_MENU) {
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		app.getMap().put(Constants.CURRENT_SWIM_TIME, 0);
+		app.getMap().put(Constants.PLAN_ID, 0);
+		app.getMap().put(Constants.TEST_DATE, "");
+		app.getMap().put(Constants.DRAG_NAME_LIST, null);
+		app.getMap().put(Constants.CURRENT_USER_ID, "");
+		app.getMap().put(Constants.IS_CONNECT_SERVER, true);
+		app.getMap().put(Constants.COMPLETE_NUMBER, 0);
+		app.getMap().put(Constants.INTERVAL, 0);
+	}
 
 }

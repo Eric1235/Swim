@@ -27,11 +27,14 @@ import com.scnu.swimmingtrainingsystem.R;
 import com.scnu.swimmingtrainingsystem.db.DBManager;
 import com.scnu.swimmingtrainingsystem.effect.Effectstype;
 import com.scnu.swimmingtrainingsystem.effect.NiftyDialogBuilder;
+import com.scnu.swimmingtrainingsystem.event.FirstLoginSucceedEvent;
+import com.scnu.swimmingtrainingsystem.event.LoginSucceedEvent;
 import com.scnu.swimmingtrainingsystem.http.JsonTools;
 import com.scnu.swimmingtrainingsystem.model.User;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
+import com.ypy.eventbus.EventBus;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -70,6 +73,7 @@ public class LoginActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_login);
+//		EventBus.getDefault().register(this);
 		intiView();
 		initData();
 	}
@@ -137,6 +141,8 @@ public class LoginActivity extends Activity {
 			}
 		});
 	}
+
+
 
 	/**
 	 * 跳转注册页面
@@ -230,6 +236,9 @@ public class LoginActivity extends Activity {
 									// 覆盖前一个用户选择的运动员
 									CommonUtils.saveSelectedAthlete(
 											LoginActivity.this, "");
+
+									EventBus.getDefault().post(new FirstLoginSucceedEvent("first login"));
+
 								} else {
 									// 如果该用户信息已存在本地数据库，则取出当前id作为全局变量
 //									Log.d("lixinkun", "user not first login");
@@ -238,6 +247,8 @@ public class LoginActivity extends Activity {
 //									Log.d("lixinkun","logineduid = " + logineduid);
 									app.getMap().put(Constants.CURRENT_USER_ID,
 											logineduid);
+
+									EventBus.getDefault().post(new LoginSucceedEvent("login"));
 								}
 								
 								gotoMainActivity();
@@ -475,4 +486,10 @@ public class LoginActivity extends Activity {
 		overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
 	}
 
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+//		EventBus.getDefault().unregister(this);
+	}
 }

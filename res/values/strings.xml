@@ -40,6 +40,7 @@
     <string name="name_cannot_be_repete_string">存在运动员名字重复，请更改</string>
     
     <!--  登录activity -->
+    <string name="login_hint">用户登录</string>
     <string name="login_now">立即登录</string>
     <string name="forget_pwd">忘记密码</string>
     <string name="set_ip_and_port">设置服务器地址和端口</string>

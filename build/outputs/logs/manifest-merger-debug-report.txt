@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:2:1-113:12
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:2:1-117:12
 	package
 		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:3:5-46
 	android:versionName
@@ -27,7 +27,7 @@ ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:12:5-6
 	android:name
 		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:12:22-64
 application
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:14:5-111:19
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:14:5-115:19
 	android:label
 		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:18:9-41
 	android:allowBackup
@@ -182,3 +182,9 @@ ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:107:9-
 		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:109:13-49
 	android:name
 		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:108:13-93
+activity#com.scnu.swimmingtrainingsystem.activity.AboutUsActivity
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:111:9-114:20
+	android:screenOrientation
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:112:13-49
+	android:name
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:111:19-59

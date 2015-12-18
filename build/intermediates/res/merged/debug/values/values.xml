@@ -67,7 +67,7 @@
     <color name="button_text_color">@color/black</color>
     <color name="color_dialog_bg">@color/light_green</color>
     <color name="color_text">@color/black</color>
-    <color name="color_toast">@color/blue</color>
+    <color name="color_toast">@color/light_blue</color>
     <color name="color_train">@color/light_blue</color>
     <color name="common_bg">@color/white</color>
     <color name="dark_blue">#056dd6</color>
@@ -160,6 +160,7 @@
     <string name="leave_at_least_one_athlete">至少保留一个运动员</string>
     <string name="leave_at_least_one_score">至少保留一个成绩</string>
     <string name="login_again">重新登陆</string>
+    <string name="login_hint">用户登录</string>
     <string name="login_now">立即登录</string>
     <string name="login_pwd">登录密码</string>
     <string name="login_pwd_hint">请输入登录密码</string>
