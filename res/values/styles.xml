@@ -2,13 +2,18 @@
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
+
+
     -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
+
+
         -->
     </style>
 
@@ -59,17 +64,6 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
- <!--    <style name="dialog_btn">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:minHeight">36dp</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:layout_marginBottom">10dp</item>
-        <item name="android:background">@drawable/dialogbtn_selector</item>
-        <item name="android:textColor">#ffffff</item>
-        <item name="android:gravity">center</item>
-    </style> -->
-
     <style name="dialog_tran" parent="android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowNoTitle">true</item>
@@ -118,7 +112,11 @@
     </style>
     
     <style name="custom_radio_btn" parent="@android:style/Widget.CompoundButton">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@drawable/pager_title_selector</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/radio</item>
     </style>
 
 </resources>

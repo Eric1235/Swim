@@ -2,15 +2,27 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:background="@color/common_bg" >
+    <RelativeLayout
+        android:id="@+id/more_headbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/title_bar_bg"
+        android:gravity="center_vertical" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
-        android:textSize="22sp"
-        android:text="@string/login_hint"/>
+        <TextView
+            style="@style/custom_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/login_hint"
+            />
+
+    </RelativeLayout>
+
 
     <com.scnu.swimmingtrainingsystem.view.EditTextWithDel
         android:id="@+id/tv_user"
@@ -18,7 +30,7 @@
         android:layout_height="50dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:padding="10dp"
         android:background="@drawable/bg_edit"
         android:singleLine="true"
@@ -32,18 +44,19 @@
         android:layout_below="@id/tv_user"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:padding="10dp"
         android:background="@drawable/bg_edit"
         android:hint="@string/input_pwd"
         android:textColorHint="@color/light_gray" 
         android:singleLine="true"
         android:inputType="textPassword" />
-    <LinearLayout 
+    <LinearLayout
+        android:id="@+id/btn_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_password"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:orientation="horizontal" >
@@ -77,9 +90,9 @@
         android:id="@+id/forget_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@id/btn_layout"
+        android:layout_marginTop="10dp"
         android:layout_alignRight="@+id/tv_password"
-        android:layout_marginBottom="20dp"
         android:text="@string/forget_pwd"
         android:textColor="@color/light_gray" />
 
@@ -88,7 +101,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/forget_password"
-        android:layout_alignBottom="@+id/forget_password"
         android:layout_alignLeft="@+id/tv_password"
         android:text="@string/set_ip_and_port"
         android:textColor="@color/light_gray" />

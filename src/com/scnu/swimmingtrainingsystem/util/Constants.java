@@ -8,6 +8,14 @@ package com.scnu.swimmingtrainingsystem.util;
 public class Constants {
 
 	/**
+	 * 记录登录后的用户id
+	 */
+	public static final String USER_ID = "uid";
+
+
+	public static final String LOGIN_SUCCEED = "loginsucceed";
+
+	/**
 	 * 超时时间设置
 	 */
 	public static final int SOCKET_TIMEOUT = 10000;

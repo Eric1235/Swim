@@ -1,11 +1,5 @@
 package com.scnu.swimmingtrainingsystem.activity;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -39,6 +33,13 @@ import com.scnu.swimmingtrainingsystem.model.Plan;
 import com.scnu.swimmingtrainingsystem.model.User;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
+import com.scnu.swimmingtrainingsystem.util.SpUtil;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
 
 /**
  * 开始计时前设定的Activity，即选择运动员以及其他添加其他信息并开始计时
@@ -108,6 +109,7 @@ public class TimerSettingActivity extends Activity {
 	private void initView() {
 		// TODO Auto-generated method stub
 		app = (MyApplication) getApplication();
+		app.addActivity(this);
 		dbManager = DBManager.getInstance();
 		chosenListView = (ListView) findViewById(R.id.list_choosed);
 		poolSpinner = (Spinner) findViewById(R.id.pool_length);
@@ -142,7 +144,8 @@ public class TimerSettingActivity extends Activity {
 		SparseBooleanArray configArray = JsonTools.getObject(mapConfigString,
 				SparseBooleanArray.class);
 		app.getMap().put(Constants.CURRENT_SWIM_TIME, 0);
-		userid = (Integer) app.getMap().get(Constants.CURRENT_USER_ID);
+//		userid = (Integer) app.getMap().get(Constants.CURRENT_USER_ID);
+		userid = SpUtil.getUID(this);
 		athletes = dbManager.getAthletes(userid);
 		for (Athlete ath : athletes) {
 			athleteNames.add(ath.getName());
@@ -271,11 +274,11 @@ public class TimerSettingActivity extends Activity {
 			CommonUtils.showToast(this, toast, getString(R.string.add_athlete_before_timer));
 		} else {
 			// 保存这一次的配置到sp
-			CommonUtils.saveSelectedPool(this,
+			SpUtil.saveSelectedPool(this,
 					poolSpinner.getSelectedItemPosition());
-			CommonUtils.saveSelectedStroke(this, strokeSpinner.getSelectedItemPosition());
-			CommonUtils.saveDistance(this, totalDistance, intervalDistance);
-			CommonUtils.saveSelectedAthlete(this,
+			SpUtil.saveSelectedStroke(this, strokeSpinner.getSelectedItemPosition());
+			SpUtil.saveDistance(this, totalDistance, intervalDistance);
+			SpUtil.saveSelectedAthlete(this,
 					JsonTools.creatJsonString(map));
 
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

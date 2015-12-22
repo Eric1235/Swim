@@ -17,14 +17,14 @@ import android.widget.CompoundButton;
 import com.scnu.swimmingtrainingsystem.R;
 
 /**
- * The switch has two states similar to a checkbox or toggle button. But unlike the two, you see the other state which is currently not selected. The switch flips from the left to the right side,
- * selecting either the right or the left side.
+ * The switch has two states similar to a checkbox or toggle button. But unlike the two, you see the other state which is currently not selected. The switch flips from the left to the togo side,
+ * selecting either the togo or the left side.
  * 
  * 
  */
 public class Switch extends CompoundButton
 {
-	// left and right text
+	// left and togo text
 	private CharSequence textLeft;
 	private CharSequence textRight;
 
@@ -34,7 +34,7 @@ public class Switch extends CompoundButton
 	// the switch
 	private Drawable drawableSwitch;
 
-	// helper for left and right text
+	// helper for left and togo text
 	private Layout layoutLeft;
 	private Layout layoutRight;
 
@@ -45,7 +45,7 @@ public class Switch extends CompoundButton
 	private int width;
 	private int height;
 
-	// the padding left+right inside of the switch
+	// the padding left+togo inside of the switch
 	private int innerPadding;
 
 	// the space between the text to the left of the switch and the switch
@@ -144,9 +144,9 @@ public class Switch extends CompoundButton
 	}
 
 	/**
-	 * Returns the text on the right.
+	 * Returns the text on the togo.
 	 * 
-	 * @return the text on the right. <code>null</code> shouldn't be possible, due to the button throwing an error if the texts are <code>null</code>
+	 * @return the text on the togo. <code>null</code> shouldn't be possible, due to the button throwing an error if the texts are <code>null</code>
 	 */
 	public CharSequence getTextRight()
 	{
@@ -154,16 +154,16 @@ public class Switch extends CompoundButton
 	}
 
 	/**
-	 * Sets the text displayed on the right side
+	 * Sets the text displayed on the togo side
 	 * 
 	 * @param textRight
-	 *            The right text. Not <code>null</code>
+	 *            The togo text. Not <code>null</code>
 	 */
 	public void setTextRight(CharSequence textRight)
 	{
 
 		if (textRight == null)
-			throw new IllegalArgumentException("The text for the right side must not be null!");
+			throw new IllegalArgumentException("The text for the togo side must not be null!");
 
 		this.textRight = textRight;
 		this.requestLayout();
@@ -205,7 +205,7 @@ public class Switch extends CompoundButton
 	{
 		super.onDraw(canvas);
 
-		// calculate the left and right values
+		// calculate the left and togo values
 		int right = this.getWidth() - this.getPaddingRight();
 		int left = right - this.width;
 
@@ -230,7 +230,7 @@ public class Switch extends CompoundButton
 		this.layoutLeft.draw(canvas);
 		canvas.restore();
 
-		// draw right text
+		// draw togo text
 		this.getPaint().setColor(!this.isChecked() ? this.textColorChecked : this.textColorUnChecked);
 		canvas.translate(left + (this.width / 2 - this.layoutRight.getWidth()) / 2 + this.width / 2, (this.height - this.layoutRight.getHeight()) / 2);
 		this.layoutRight.draw(canvas);

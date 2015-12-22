@@ -31,43 +31,30 @@
             android:src="@drawable/btn_back" />
     </RelativeLayout>
 
-    <LinearLayout
+    <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="32dp"
-         >
-
-        <TextView
-            android:id="@+id/tvTag1"
+        android:layout_height="48dp"
+        android:orientation="horizontal">
+        <RadioButton
+            style="@style/custom_radio_btn"
+            android:id="@+id/rb1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/three_time"
-            android:textColor="@drawable/pager_title_selector"
-            android:textSize="16sp" />
-
+            android:text="@string/three_time"/>
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="@color/light_gray" />
-
-        <TextView
-            android:id="@+id/tvTag2"
+        <RadioButton
+            style="@style/custom_radio_btn"
+            android:id="@+id/rb2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/dash_timer"
-            android:textColor="@drawable/pager_title_selector"
-            android:textSize="16sp" />
-    </LinearLayout>
+            android:text="@string/dash_timer"/>
+    </RadioGroup>
 
-    <ImageView
-        android:id="@+id/ivCursor"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="matrix"
-        android:src="@drawable/cursor" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_fuction"

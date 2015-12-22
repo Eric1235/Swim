@@ -8,6 +8,7 @@
         android:id="@+id/dash_area"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:padding="2dp" >
 
         <ImageView
@@ -81,12 +82,14 @@
         </LinearLayout>
     </RelativeLayout>
 
-    <View
+
+    <include
         android:id="@+id/dash_line"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
         android:layout_below="@id/dash_area"
-        android:background="#a2a2a2" />
+        layout="@layout/separator_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="20dp"></include>
 
     <ListView
         android:id="@+id/sprint_score_list"
@@ -96,8 +99,8 @@
         android:layout_below="@id/dash_line"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
-        android:background="#00000000"
-        android:divider="#00000000" >
+        android:background="@color/white"
+        android:divider="@color/light_gray2" >
     </ListView>
 
     <LinearLayout
@@ -106,7 +109,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:padding="5dp" >
+        android:layout_marginBottom="16dp" >
 
         <Button
             style="@style/custom_btn"
@@ -114,7 +117,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.0"
-            android:padding="10dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="8dp"
             android:text="重置计时"
              />
 
@@ -123,9 +127,9 @@
             android:id="@+id/bt_dash_modify"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
             android:layout_weight="1.0"
-            android:padding="10dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="8dp"
             android:text="匹配调整"
              />
     </LinearLayout>

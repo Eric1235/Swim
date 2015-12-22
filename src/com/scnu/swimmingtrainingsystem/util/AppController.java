@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import com.scnu.swimmingtrainingsystem.activity.AboutUsActivity;
 import com.scnu.swimmingtrainingsystem.activity.AthleteActivity;
+import com.scnu.swimmingtrainingsystem.activity.HomeActivity;
 import com.scnu.swimmingtrainingsystem.activity.LoginActivity;
 import com.scnu.swimmingtrainingsystem.activity.ModifyPassActivity;
 import com.scnu.swimmingtrainingsystem.activity.MyApplication;
@@ -69,6 +70,11 @@ public class AppController {
         context.startActivity(i);
     }
 
+    public static void gotoHomeActivity(Context context){
+        Intent i = new Intent(context, HomeActivity.class);
+        context.startActivity(i);
+    }
+
     /**
      * 重置app
      * @param app
@@ -82,6 +88,18 @@ public class AppController {
         app.getMap().put(Constants.IS_CONNECT_SERVER, true);
         app.getMap().put(Constants.COMPLETE_NUMBER, 0);
         app.getMap().put(Constants.INTERVAL, 0);
+    }
+
+    //登出的时候初始化数据
+    public static void logout(Context context){
+        SpUtil.SaveLoginInfo(context,false);
+        SpUtil.saveLoginSucceed(context, false);
+        SpUtil.saveSelectedPool(context, 0);
+        SpUtil.saveSelectedStroke(context, 0);
+        SpUtil.saveUID(context, 0);
+        SpUtil.saveUserId(context, 0);
+        SpUtil.saveDistance(context, "", "");
+//        SpUtil.SaveLoginInfo(context, "", "");
     }
 
 }

@@ -60,6 +60,7 @@ public class RegistAcyivity extends Activity {
 		setContentView(R.layout.activity_regist);
 
 		app = (MyApplication) getApplication();
+		app.addActivity(this);
 		username = (EditText) findViewById(R.id.et_userID);
 		password = (EditText) findViewById(R.id.et_password);
 		password1 = (EditText) findViewById(R.id.et_password1);

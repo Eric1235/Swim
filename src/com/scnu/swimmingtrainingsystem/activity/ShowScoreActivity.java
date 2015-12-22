@@ -65,6 +65,7 @@ public class ShowScoreActivity extends Activity {
 	 */
 	private void init() {
 		mApplication = (MyApplication) getApplication();
+		mApplication.addActivity(this);
 		mDbManager = DBManager.getInstance();
 		mExpandableListView = (ExpandableListView) findViewById(R.id.show_list);
 		mPlanName = (TextView) findViewById(R.id.show_the_plan);

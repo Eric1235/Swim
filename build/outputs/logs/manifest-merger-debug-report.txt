@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:2:1-117:12
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:2:1-118:12
 	package
 		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:3:5-46
 	android:versionName
@@ -27,7 +27,7 @@ ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:12:5-6
 	android:name
 		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:12:22-64
 application
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:14:5-115:19
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:14:5-116:19
 	android:label
 		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:18:9-41
 	android:allowBackup
@@ -39,7 +39,7 @@ ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:14:5-1
 	android:name
 		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:15:9-78
 activity#com.scnu.swimmingtrainingsystem.activity.WlecomeActivity
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:20:9-30:20
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:20:9-31:20
 	android:screenOrientation
 		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:23:13-49
 	android:label
@@ -59,132 +59,132 @@ ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:28:17-
 	android:name
 		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:28:27-74
 activity#com.scnu.swimmingtrainingsystem.activity.MainActivity
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:31:9-35:20
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:32:9-36:20
 	android:screenOrientation
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:34:13-49
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:35:13-49
 	android:launchMode
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:33:13-44
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:34:13-44
 	android:name
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:32:13-81
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:33:13-81
 activity#com.scnu.swimmingtrainingsystem.activity.HomeActivity
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:36:9-40:20
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:37:9-41:20
 	android:screenOrientation
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:39:13-49
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:40:13-49
 	android:launchMode
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:38:13-44
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:39:13-44
 	android:name
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:37:13-81
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:38:13-81
 activity#com.scnu.swimmingtrainingsystem.activity.LoginActivity
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:41:9-45:20
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:42:9-46:20
 	android:screenOrientation
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:44:13-49
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:45:13-49
 	android:launchMode
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:43:13-44
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:44:13-44
 	android:name
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:42:13-82
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:43:13-82
 activity#com.scnu.swimmingtrainingsystem.activity.RegistAcyivity
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:46:9-49:20
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:47:9-50:20
 	android:screenOrientation
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:48:13-49
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:49:13-49
 	android:name
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:47:13-83
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:48:13-83
 activity#com.scnu.swimmingtrainingsystem.activity.TimerSettingActivity
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:50:9-54:20
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:51:9-55:20
 	android:screenOrientation
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:52:13-49
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:53:13-49
 	android:windowSoftInputMode
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:53:13-73
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:54:13-73
 	android:name
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:51:13-89
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:52:13-89
 activity#com.scnu.swimmingtrainingsystem.activity.OtherFunctionActivity
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:55:9-58:20
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:56:9-59:20
 	android:screenOrientation
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:57:13-49
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:58:13-49
 	android:name
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:56:13-90
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:57:13-90
 activity#com.scnu.swimmingtrainingsystem.activity.AthleteActivity
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:59:9-63:20
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:60:9-64:20
 	android:screenOrientation
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:61:13-49
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:62:13-49
 	android:theme
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:62:13-83
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:63:13-83
 	android:name
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:60:13-84
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:61:13-84
 activity#com.scnu.swimmingtrainingsystem.activity.TimerActivity
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:64:9-68:20
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:65:9-69:20
 	android:screenOrientation
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:66:13-49
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:67:13-49
 	android:theme
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:67:13-60
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:68:13-60
 	android:name
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:65:13-82
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:66:13-82
 activity#com.scnu.swimmingtrainingsystem.activity.QueryScoreActivity
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:69:9-72:20
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:70:9-73:20
 	android:screenOrientation
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:71:13-49
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:72:13-49
 	android:name
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:70:13-87
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:71:13-87
 activity#com.scnu.swimmingtrainingsystem.activity.SettingActivity
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:73:9-76:20
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:74:9-77:20
 	android:screenOrientation
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:75:13-49
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:76:13-49
 	android:name
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:74:13-84
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:75:13-84
 activity#com.scnu.swimmingtrainingsystem.activity.MatchScoreActivity
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:77:9-81:20
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:78:9-82:20
 	android:screenOrientation
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:79:13-49
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:80:13-49
 	android:windowSoftInputMode
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:80:13-73
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:81:13-73
 	android:name
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:78:13-87
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:79:13-87
 activity#com.scnu.swimmingtrainingsystem.activity.ShowScoreActivity
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:82:9-85:20
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:83:9-86:20
 	android:screenOrientation
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:84:13-49
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:85:13-49
 	android:name
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:83:13-86
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:84:13-86
 activity#com.scnu.swimmingtrainingsystem.activity.ModifyPassActivity
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:86:9-89:20
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:87:9-90:20
 	android:screenOrientation
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:88:13-49
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:89:13-49
 	android:name
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:87:13-87
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:88:13-87
 activity#com.scnu.swimmingtrainingsystem.activity.QuestionHelpActivity
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:90:9-93:20
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:91:9-94:20
 	android:screenOrientation
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:92:13-49
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:93:13-49
 	android:name
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:91:13-58
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:92:13-58
 activity#com.scnu.swimmingtrainingsystem.activity.EachTimeScoreActivity
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:94:9-98:20
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:95:9-99:20
 	android:screenOrientation
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:96:13-49
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:97:13-49
 	android:windowSoftInputMode
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:97:13-73
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:98:13-73
 	android:name
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:95:13-90
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:96:13-90
 activity#com.scnu.swimmingtrainingsystem.activity.SearchboxActivity
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:99:9-102:20
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:100:9-103:20
 	android:screenOrientation
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:101:13-49
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:102:13-49
 	android:name
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:100:13-86
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:101:13-86
 activity#com.scnu.swimmingtrainingsystem.activity.RetrievePasswordActivity
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:103:9-106:20
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:104:9-107:20
 	android:screenOrientation
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:105:13-49
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:106:13-49
 	android:name
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:104:13-93
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:105:13-93
 activity#com.scnu.swimmingtrainingsystem.activity.MatchSprintScoreActivity
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:107:9-110:20
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:108:9-111:20
 	android:screenOrientation
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:109:13-49
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:110:13-49
 	android:name
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:108:13-93
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:109:13-93
 activity#com.scnu.swimmingtrainingsystem.activity.AboutUsActivity
-ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:111:9-114:20
+ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:112:9-115:20
 	android:screenOrientation
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:112:13-49
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:113:13-49
 	android:name
-		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:111:19-59
+		ADDED from /Users/lixinkun/git/SwimmingTrainingSystem/AndroidManifest.xml:112:19-59

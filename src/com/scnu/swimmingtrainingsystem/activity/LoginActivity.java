@@ -27,12 +27,12 @@ import com.scnu.swimmingtrainingsystem.R;
 import com.scnu.swimmingtrainingsystem.db.DBManager;
 import com.scnu.swimmingtrainingsystem.effect.Effectstype;
 import com.scnu.swimmingtrainingsystem.effect.NiftyDialogBuilder;
-import com.scnu.swimmingtrainingsystem.event.FirstLoginSucceedEvent;
 import com.scnu.swimmingtrainingsystem.event.LoginSucceedEvent;
 import com.scnu.swimmingtrainingsystem.http.JsonTools;
 import com.scnu.swimmingtrainingsystem.model.User;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
+import com.scnu.swimmingtrainingsystem.util.SpUtil;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
 import com.ypy.eventbus.EventBus;
 
@@ -73,7 +73,6 @@ public class LoginActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_login);
-//		EventBus.getDefault().register(this);
 		intiView();
 		initData();
 	}
@@ -102,7 +101,7 @@ public class LoginActivity extends Activity {
 			defaulrUser.setPassword(DEFAULT_PASSWORD);
 			defaulrUser.save();
 			showSettingDialog();
-			CommonUtils.SaveLoginInfo(this, false);
+			SpUtil.SaveLoginInfo(this, false);
 		}
 
 		// 从SharedPreferences读取服务器地址信息
@@ -111,7 +110,6 @@ public class LoginActivity extends Activity {
 		CommonUtils.HOSTURL = hostSp
 				.getString("hostInfo",
 						"http://104.160.34.110:8080/SWIMYUE33/httpPost.action?action_flag=");
-		testRequest();
 	}
 
 	/**
@@ -169,10 +167,7 @@ public class LoginActivity extends Activity {
 				CommonUtils.showToast(this, toast, getString(R.string.nameorpwd_cannot_be_empty));
 			} else {
 				// 保存登录信息
-				CommonUtils.SaveLoginInfo(this, loginString, passwordString);
-				boolean tryConnect = (Boolean) app.getMap().get(
-						Constants.IS_CONNECT_SERVER);
-				if (tryConnect) {
+				SpUtil.SaveLoginInfo(this, loginString, passwordString);
 					if (loadingDialog == null) {
 						loadingDialog = LoadingDialog.createDialog(this);
 						loadingDialog.setMessage(getString(R.string.logining));
@@ -181,7 +176,6 @@ public class LoginActivity extends Activity {
 					loadingDialog.show();
 					// 尝试连接服务器，如果连接成功则直接登录
 					loginRequest(loginString, passwordString);
-				}
 			}
 		}
 
@@ -208,49 +202,42 @@ public class LoginActivity extends Activity {
 						try {
 							JSONObject obj = new JSONObject(response);
 							int resCode = (Integer) obj.get("resCode");
-//							Log.d("lixinkun", response);
 							if (resCode == 1) {
 								CommonUtils.showToast(LoginActivity.this,
 										toast, getString(R.string.login_success));
 								String userJson = obj.get("user").toString();
-//								Log.d("lixinkun", "userJson = " + userJson);
 								User user = JsonTools.getObject(userJson,
 										User.class);
-								
 								int uid = (Integer) obj.get("uid");
 								user.setUid(uid);
-//								Log.d("lixinkun", ""
-//										+ "user = " + user.toString());
 								//判断当前用户是否存在与数据库
 							
 								if (dbManager.getUserByUid(uid) == null) {
-//									Log.d("lixinkun", "user first login");
 									user.save();
-									app.getMap().put(Constants.CURRENT_USER_ID,
-											user.getUid());
-//									Log.d("lixinkun","uid = " + user.getUid());
+//									app.getMap().put(Constants.CURRENT_USER_ID,
+//											user.getUid());
+									SpUtil.saveUserId(LoginActivity.this, user.getUid());
+									SpUtil.saveUID(LoginActivity.this,user.getUid());
 									// 用户第一次登陆
-									CommonUtils.saveIsThisUserFirstLogin(
+									SpUtil.saveIsThisUserFirstLogin(
 											LoginActivity.this, true);
 
 									// 覆盖前一个用户选择的运动员
-									CommonUtils.saveSelectedAthlete(
+									SpUtil.saveSelectedAthlete(
 											LoginActivity.this, "");
 
-									EventBus.getDefault().post(new FirstLoginSucceedEvent("first login"));
 
 								} else {
 									// 如果该用户信息已存在本地数据库，则取出当前id作为全局变量
-//									Log.d("lixinkun", "user not first login");
 									int logineduid = dbManager.getUserByUid(uid).getUid();
 									
-//									Log.d("lixinkun","logineduid = " + logineduid);
-									app.getMap().put(Constants.CURRENT_USER_ID,
-											logineduid);
-
+//									app.getMap().put(Constants.CURRENT_USER_ID,
+//											logineduid);
+									SpUtil.saveUserId(LoginActivity.this, logineduid);
+									SpUtil.saveUID(LoginActivity.this,logineduid);
 									EventBus.getDefault().post(new LoginSucceedEvent("login"));
 								}
-								
+								SpUtil.saveLoginSucceed(LoginActivity.this,true);
 								gotoMainActivity();
 								
 								
@@ -348,7 +335,7 @@ public class LoginActivity extends Activity {
 					String hostUrl = "http://104.160.34.110:8080/SWIMYUE33/httpPost.action?action_flag=";
 					// 保存服务器ip和端口地址到sp
 					CommonUtils.HOSTURL = hostUrl;
-					CommonUtils.SaveLoginInfo(LoginActivity.this, hostUrl,
+					SpUtil.SaveLoginInfo(LoginActivity.this, hostUrl,
 							hostIp, hostPort);
 					CommonUtils.showToast(LoginActivity.this, toast, getString(R.string.setting_success));
 					settingDialog.dismiss();
@@ -381,7 +368,7 @@ public class LoginActivity extends Activity {
 						etLogin.setText("defaultUser");
 						etPassword.setText("123456asdjkl");
 						// 保存登录信息
-						CommonUtils.SaveLoginInfo(LoginActivity.this,
+						SpUtil.SaveLoginInfo(LoginActivity.this,
 								"defaultUser", "123456asdjkl");
 						userDialog.dismiss();
 						offlineLogin();
@@ -490,6 +477,5 @@ public class LoginActivity extends Activity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-//		EventBus.getDefault().unregister(this);
 	}
 }

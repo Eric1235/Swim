@@ -38,6 +38,7 @@ import com.scnu.swimmingtrainingsystem.model.Athlete;
 import com.scnu.swimmingtrainingsystem.model.User;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
+import com.scnu.swimmingtrainingsystem.util.SpUtil;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
 import com.scnu.swimmingtrainingsystem.view.Switch;
 import com.ypy.eventbus.EventBus;
@@ -106,7 +107,6 @@ public class AthleteActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_athlete);
 
-//		init();
 		try {
 			init();
 		} catch (Exception e) {
@@ -124,7 +124,8 @@ public class AthleteActivity extends Activity {
 	private void init() {
 		mApplication = (MyApplication) getApplication();
 		mDbManager = DBManager.getInstance();
-		mUserId =  (Integer) mApplication.getMap().get(Constants.CURRENT_USER_ID);
+//		mUserId =  (Integer) mApplication.getMap().get(Constants.CURRENT_USER_ID);
+		mUserId = SpUtil.getUID(AthleteActivity.this);
 //		Log.d("lixinkun", "uid=" + mUserId);
 		mUser = mDbManager.getUserByUid(mUserId);
 //		Log.d("lixinkun", "muser ="+mUser.toString());
@@ -148,8 +149,8 @@ public class AthleteActivity extends Activity {
 
 		// 如果新用户第一次打开应用并且可以连接服务器，就会尝试从服务器获取运动员信息
 		if (isConnect && isFirst && userFirstLogin) {
-			CommonUtils.initAthletes(this, false);
-			CommonUtils.saveIsThisUserFirstLogin(this, false);
+			SpUtil.initAthletes(this, false);
+			SpUtil.saveIsThisUserFirstLogin(this, false);
 			if (loadingDialog == null) {
 				loadingDialog = LoadingDialog.createDialog(this);
 				loadingDialog.setMessage(getString(R.string.synchronizing));

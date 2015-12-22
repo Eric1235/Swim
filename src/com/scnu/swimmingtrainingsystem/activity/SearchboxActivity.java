@@ -1,15 +1,5 @@
 package com.scnu.swimmingtrainingsystem.activity;
 
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -42,8 +32,19 @@ import com.scnu.swimmingtrainingsystem.http.JsonTools;
 import com.scnu.swimmingtrainingsystem.model.User;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
+import com.scnu.swimmingtrainingsystem.util.SpUtil;
 import com.scnu.swimmingtrainingsystem.view.XListView;
 import com.scnu.swimmingtrainingsystem.view.XListView.IXListViewListener;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 获取查询日期页面
@@ -91,10 +92,12 @@ public class SearchboxActivity extends Activity implements IXListViewListener {
 	private void init() {
 		// TODO Auto-generated method stub
 		myApplication = (MyApplication) getApplication();
+		myApplication.addActivity(this);
 		mDbManager = DBManager.getInstance();
 		mQueue = Volley.newRequestQueue(this);
-		userid = (Integer) myApplication.getMap().get(Constants.CURRENT_USER_ID);
+//		userid = (Integer) myApplication.getMap().get(Constants.CURRENT_USER_ID);
 
+		userid = SpUtil.getUID(this);
 		isConnected = (Boolean) myApplication.getMap().get(
 				Constants.IS_CONNECT_SERVER);
 		currentDateCount = mDbManager.getScoreDateNumberbyUid(userid);
@@ -228,8 +231,8 @@ public class SearchboxActivity extends Activity implements IXListViewListener {
 	/**
 	 * 获取指定页数的日期数据集
 	 * 
-	 * @param curPage
-	 *            当前页
+	 * @param
+	 *
 	 */
 	protected void getScoreDateListReqeust() {
 

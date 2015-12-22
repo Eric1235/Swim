@@ -1,15 +1,5 @@
 package com.scnu.swimmingtrainingsystem.activity;
 
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.litepal.crud.DataSupport;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -55,7 +45,18 @@ import com.scnu.swimmingtrainingsystem.model.ScoreSum;
 import com.scnu.swimmingtrainingsystem.model.User;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
+import com.scnu.swimmingtrainingsystem.util.SpUtil;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.litepal.crud.DataSupport;
+
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 查询成绩展示界面
@@ -99,10 +100,12 @@ public class QueryScoreActivity extends Activity {
 	 * 初始化Activity
 	 */
 	private void init() {
-		MyApplication mApplication = (MyApplication) getApplication();
+		MyApplication app = (MyApplication) getApplication();
+		app.addActivity(this);
 		dbManager = DBManager.getInstance();
 		mQueue = Volley.newRequestQueue(this);
-		userid = (Integer) mApplication.getMap().get(Constants.CURRENT_USER_ID);
+//		userid = (Integer) mApplication.getMap().get(Constants.CURRENT_USER_ID);
+		userid = SpUtil.getUID(this);
 		mUser = dbManager.getUserByUid(userid);
 		containLayout = (LinearLayout) findViewById(R.id.ll_query_score);
 		details = (TextView) findViewById(R.id.show_details);
@@ -139,7 +142,7 @@ public class QueryScoreActivity extends Activity {
 			}
 		});
 		mExpandableListView = (ExpandableListView) findViewById(R.id.query_score_list);
-		isConnect = (Boolean) mApplication.getMap().get(
+		isConnect = (Boolean) app.getMap().get(
 				Constants.IS_CONNECT_SERVER);
 
 	}

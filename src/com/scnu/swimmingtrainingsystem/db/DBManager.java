@@ -2,7 +2,6 @@ package com.scnu.swimmingtrainingsystem.db;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.util.Log;
 
 import com.scnu.swimmingtrainingsystem.model.Athlete;
 import com.scnu.swimmingtrainingsystem.model.Plan;
@@ -111,10 +110,6 @@ public class DBManager {
 		if(users.size()>0){
 			user = users.get(0);
 		}
-//		User user = DataSupport.find(User.class, userId);
-		Log.d("lixnkun", "query user=" + user.toString());
-//		List<Athlete> athletes = DataSupport.where("user_id=?", String.valueOf(user.getId())).find(
-//				Athlete.class, true);
 		List<Athlete> athletes = user.getAthletes();
 		return athletes;
 	}

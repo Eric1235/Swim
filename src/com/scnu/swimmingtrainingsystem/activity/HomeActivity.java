@@ -49,6 +49,7 @@ public class HomeActivity extends FragmentActivity implements OnClickListener,On
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_home);
 		app = (MyApplication)getApplication();
+		app.addActivity(this);
 		initViews();
 		
 		mViewPager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
@@ -199,7 +200,6 @@ public class HomeActivity extends FragmentActivity implements OnClickListener,On
 
 			if ((System.currentTimeMillis() - mExitTime) > 2000) {
 				CommonUtils.showToast(this,toast,getString(R.string.quit_app));
-//				Toast.makeText(this, getString(R.string.quit_app), Toast.LENGTH_SHORT).show();
 				mExitTime = System.currentTimeMillis();
 			} else {
 				app.exit();

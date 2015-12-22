@@ -315,7 +315,7 @@ public class EachTimeScoreActivity extends FragmentActivity {
 	/**
 	 * 创建保存本轮计时成绩的请求
 	 * 
-	 * @param jsonString
+	 * @param
 	 *            本轮所有成绩的json字符串
 	 */
 	private void addScoreRequest() {

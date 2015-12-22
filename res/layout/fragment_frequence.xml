@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+     >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-    	android:layout_height="match_parent"
-    	android:background="@color/common_bg"
-    	android:orientation="vertical" >
+
     <include
         android:id="@+id/frequence_area"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         layout="@layout/layout_timer" />
 
-    <View
+    <include
+        layout="@layout/separator_line"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#a2a2a2" />
+        android:layout_height="1px"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/frequence_area"
+        ></include>
 
     <TextView
+        android:id="@+id/tv_threetime_result_title"
         style="@style/custom_normal_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/frequence_area"
+        android:layout_marginTop="30dp"
         android:padding="10dp"
         android:text="@string/three_time_result"
          />
@@ -32,6 +34,7 @@
         android:id="@+id/tv_frequen_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tv_threetime_result_title"
         android:gravity="center"
         android:padding="10dp"
         android:text="0.00次/分钟"
@@ -43,10 +46,11 @@
         android:id="@+id/bt_frequen_reset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/reset"
          />
-    </LinearLayout>
 
-</ScrollView>
+</RelativeLayout>

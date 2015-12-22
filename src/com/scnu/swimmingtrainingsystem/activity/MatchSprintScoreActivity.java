@@ -1,15 +1,5 @@
 package com.scnu.swimmingtrainingsystem.activity;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -20,16 +10,16 @@ import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.LinearLayout.LayoutParams;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.Spinner;
@@ -59,7 +49,18 @@ import com.scnu.swimmingtrainingsystem.model.Score;
 import com.scnu.swimmingtrainingsystem.model.User;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
+import com.scnu.swimmingtrainingsystem.util.SpUtil;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @SuppressLint("SimpleDateFormat")
 public class MatchSprintScoreActivity extends Activity {
@@ -154,6 +155,7 @@ public class MatchSprintScoreActivity extends Activity {
 	private void init() {
 		// TODO Auto-generated method stub
 		app = (MyApplication) getApplication();
+		app.addActivity(this);
 		mDbManager = DBManager.getInstance();
 		isConnected = (Boolean) app.getMap().get(Constants.IS_CONNECT_SERVER);
 		mQueue = Volley.newRequestQueue(this);
@@ -167,8 +169,9 @@ public class MatchSprintScoreActivity extends Activity {
 				android.R.layout.simple_spinner_dropdown_item, dashDistanceList);
 		distanceSpinner.setAdapter(spinerAdapter);
 		distanceSpinner.setSelection(2);
-		userId = (Integer) app.getMap().get(Constants.CURRENT_USER_ID);
+//		userId = (Integer) app.getMap().get(Constants.CURRENT_USER_ID);
 		scores = getIntent().getStringArrayListExtra("SCORES");
+		userId = SpUtil.getUID(MatchSprintScoreActivity.this);
 		originScores.addAll(scores);
 		List<Athlete> athletes = mDbManager.getAthletes(userId);
 		for (int i = 0; i < athletes.size(); i++) {

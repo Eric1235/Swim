@@ -49,6 +49,7 @@ public class QuestionHelpActivity extends Activity {
 
 	private void init() {
 		application=(MyApplication) getApplication();
+		application.addActivity(this);
 		@SuppressWarnings("unused")
 		int userID = (Integer) application.getMap().get(Constants.CURRENT_USER_ID);
 		btnBack = (ImageButton) findViewById(R.id.btn_back);
@@ -122,7 +123,7 @@ public class QuestionHelpActivity extends Activity {
 			public View getGroupView(int groupPosition, boolean isExpanded,
 					View convertView, ViewGroup parent) {
 				LinearLayout ll = new LinearLayout(QuestionHelpActivity.this);
-				ll.setOrientation(0);
+				ll.setOrientation(LinearLayout.HORIZONTAL);
 				TextView textView = getTextView();
 				textView.setTextColor(Color.BLACK);
 				textView.setText(getGroup(groupPosition).toString());

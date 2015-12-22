@@ -38,13 +38,16 @@
     <string name="add_athlete_title_string">添加运动员</string>
     <string name="name_cannot_be_empty_string">运动员名字不能为空</string>
     <string name="name_cannot_be_repete_string">存在运动员名字重复，请更改</string>
+
+    <!-- welcomeactivity -->
+    <string name="app_version">游泳系统 v2.0 \n By华南师范大学 2014-2015</string>
     
     <!--  登录activity -->
     <string name="login_hint">用户登录</string>
     <string name="login_now">立即登录</string>
     <string name="forget_pwd">忘记密码</string>
     <string name="set_ip_and_port">设置服务器地址和端口</string>
-    
+    <string name="sending_request">正在发送请求…………</string>
     <string name="input_user_name">请输入用户名</string>
     <string name="input_pwd">请输入密码</string>
     <string name="nameorpwd_cannot_be_empty">用户名或密码不能为空</string>
@@ -185,6 +188,8 @@
     <string name="old_pwd">原密码</string>
     <string name="new_pwd">新密码</string>
     <string name="modify">修改</string>
+    <string name="send_succ_check_email">发送成功，请查看邮箱</string>
+    <string name="user_not_exist">用户不存在</string>
     
     <!-- 找回密码 -->
     <string name="find_pwd">找回密码</string>
@@ -219,4 +224,5 @@
     <string name="logout">退出登录</string>
 
     <!-- indexfragment-->
+
 </resources>

@@ -3,7 +3,6 @@ package com.scnu.swimmingtrainingsystem.fragment;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,7 @@ import com.scnu.swimmingtrainingsystem.util.Constants;
  *
  * 2015年12月10日
  */
-public class MineFragment extends Fragment implements View.OnClickListener{
+public class MineFragment extends BaseFragment implements View.OnClickListener{
 
     private View v;
     private LinearLayout gotoAboutUs;
@@ -113,6 +112,8 @@ public class MineFragment extends Fragment implements View.OnClickListener{
                     public void onClick(DialogInterface dialog, int which) {
                         MyApplication app = (MyApplication) getActivity().getApplication();
                         AppController.reset(app);
+                        //恢复数据
+                        AppController.logout(getActivity());
                         AppController.gotoLogin(getActivity());
                     }
                 });

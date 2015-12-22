@@ -1,13 +1,15 @@
 package com.scnu.swimmingtrainingsystem.activity;
 
-import com.scnu.swimmingtrainingsystem.R;
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
+
+import com.scnu.swimmingtrainingsystem.R;
+import com.scnu.swimmingtrainingsystem.util.AppController;
+import com.scnu.swimmingtrainingsystem.util.SpUtil;
 
 /**
  * 欢迎导航Activity
@@ -15,6 +17,7 @@ import android.view.animation.Animation.AnimationListener;
  *
  */
 public class WlecomeActivity extends Activity {
+	private MyApplication app;
 	private AlphaAnimation start_anima;
 	private View view;
 	
@@ -24,6 +27,8 @@ public class WlecomeActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		view = View.inflate(this, R.layout.activity_wlecome, null);
 		setContentView(view);
+		app = (MyApplication) getApplication();
+		app.addActivity(this);
 		initView();
 		initData();
 	}
@@ -63,7 +68,12 @@ public class WlecomeActivity extends Activity {
 	 * 跳转至登录页面
 	 */
 	private void redirectTo() {
-		startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-		finish();
+		boolean isLogin = SpUtil.getIsLogin(WlecomeActivity.this);
+		if(isLogin){
+			AppController.gotoHomeActivity(WlecomeActivity.this);
+		}else{
+			AppController.gotoLogin(WlecomeActivity.this);
+			finish();
+		}
 	}
 }

@@ -1,7 +1,6 @@
 package com.scnu.swimmingtrainingsystem.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +15,7 @@ import com.scnu.swimmingtrainingsystem.util.AppController;
  *
  * 2015年12月10日
  */
-public class IndexFragment extends Fragment implements View.OnClickListener{
+public class IndexFragment extends BaseFragment implements View.OnClickListener{
 
     private LinearLayout gotoManageAthlete;
     private LinearLayout gotoQueryScore;

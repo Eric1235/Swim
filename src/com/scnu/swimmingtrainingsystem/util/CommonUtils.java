@@ -1,18 +1,16 @@
 package com.scnu.swimmingtrainingsystem.util;
 
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
 
 import com.scnu.swimmingtrainingsystem.R;
+
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 其他工具类
@@ -25,150 +23,7 @@ public class CommonUtils {
 
 	public static String HOSTURL = "";
 
-	/**
-	 * 是否第一次启动
-	 * 
-	 * @param context
-	 * @param isFirst
-	 */
-	@SuppressWarnings("static-access")
-	public static void SaveLoginInfo(Context context, boolean isFirst) {
-		SharedPreferences sp = context.getSharedPreferences(
-				Constants.LOGININFO, context.MODE_PRIVATE);
-		Editor editor = sp.edit();
-		editor.putBoolean("isFirst", isFirst);
-		editor.commit();
-	}
 
-	/**
-	 * 保存登录信息到SharedPreferences
-	 * 
-	 * @param context
-	 * @param username
-	 * @param password
-	 */
-	public static void SaveLoginInfo(Context context, String username,
-			String password) {
-		SharedPreferences sp = context.getSharedPreferences(
-				Constants.LOGININFO, Context.MODE_PRIVATE);
-		Editor editor = sp.edit();
-		editor.putString("username", username);
-		editor.putString("password", password);
-		editor.commit();
-	}
-
-	public static void SaveLoginInfo(Context context, String host, String ip,
-			String port) {
-		SharedPreferences sp = context.getSharedPreferences(
-				Constants.LOGININFO, Context.MODE_PRIVATE);
-		Editor editor = sp.edit();
-		editor.putString("hostInfo", host);
-		editor.putString("ip", ip);
-		editor.putString("port", port);
-		editor.commit();
-	}
-
-	public static void saveIsThisUserFirstLogin(Context context, boolean first) {
-		SharedPreferences sp = context.getSharedPreferences(
-				Constants.LOGININFO, Context.MODE_PRIVATE);
-		Editor editor = sp.edit();
-		editor.putBoolean(Constants.IS_THIS_USER_FIRST_LOGIN, first);
-		editor.commit();
-	}
-
-	/**
-	 * 记录选择的泳池大小
-	 * 
-	 * @param context
-	 * @param position
-	 */
-	public static void saveSelectedPool(Context context, int position) {
-		SharedPreferences sp = context.getSharedPreferences(
-				Constants.LOGININFO, Context.MODE_PRIVATE);
-		Editor editor = sp.edit();
-		editor.putInt(Constants.SELECTED_POOL, position);
-		editor.commit();
-	}
-	
-	public static void saveSelectedStroke(Context context,int position){
-		SharedPreferences sp = context.getSharedPreferences(Constants.LOGININFO, Context.MODE_PRIVATE);
-		Editor editor = sp.edit();
-		editor.putInt(Constants.SELECTED_STROKE, position);
-		editor.commit();
-	}
-
-	/**
-	 * 记录预计的游泳总距离
-	 * 
-	 * @param context
-	 * @param distance
-	 */
-	public static void saveDistance(Context context, String distance,
-			String interval) {
-		SharedPreferences sp = context.getSharedPreferences(
-				Constants.LOGININFO, Context.MODE_PRIVATE);
-		Editor editor = sp.edit();
-		editor.putString(Constants.SWIM_DISTANCE, distance);
-		editor.putString(Constants.INTERVAL, interval);
-		editor.commit();
-	}
-
-	/**
-	 * 保存当前成绩状态，留到统计时进行调整
-	 * 
-	 * @param context
-	 * @param i
-	 *            第几趟
-	 * @param crrentDistance
-	 * @param scoreString
-	 * @param athleteString
-	 */
-	public static void saveCurrentScoreAndAthlete(Context context, int i,
-			int crrentDistance, String scoreString, String athleteString) {
-		SharedPreferences sp = context.getSharedPreferences(
-				Constants.LOGININFO, Context.MODE_PRIVATE);
-		Editor editor = sp.edit();
-		editor.putInt(Constants.CURRENT_DISTANCE + i, crrentDistance);
-		editor.putString(Constants.SCORESJSON + i, scoreString);
-		editor.putString(Constants.ATHLETEJSON + i, athleteString);
-		editor.commit();
-	}
-
-	public static void saveSelectedAthlete(Context context, String mapJson) {
-		SharedPreferences sp = context.getSharedPreferences(
-				Constants.LOGININFO, Context.MODE_PRIVATE);
-		Editor editor = sp.edit();
-		editor.putString("mapConfig", mapJson);
-		editor.commit();
-	}
-
-	/**
-	 * 记录是否第一次打开应用的运动员Activity
-	 * 
-	 * @param context
-	 * @param isFirst
-	 */
-	public static void initAthletes(Context context, boolean isFirst) {
-		SharedPreferences sp = context.getSharedPreferences(
-				Constants.LOGININFO, Context.MODE_PRIVATE);
-		Editor editor = sp.edit();
-		editor.putBoolean(Constants.FISRTOPENATHLETE, isFirst);
-		editor.commit();
-	}
-
-	/**
-	 * 记录是否第一次打开应用的运动员Activity
-	 * 
-	 * @param context
-	 * @param isFirst
-	 */
-	public static void initPlans(Context context, boolean isFirst) {
-		SharedPreferences sp = context.getSharedPreferences(
-				Constants.LOGININFO, Context.MODE_PRIVATE);
-		Editor editor = sp.edit();
-		editor.putBoolean(Constants.FISRTOPENPLAN, isFirst);
-		editor.commit();
-	}
 
 	/**
 	 * 将一个运动员的多次成绩综合统计

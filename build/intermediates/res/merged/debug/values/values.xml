@@ -63,21 +63,21 @@
     <eat-comment/>
     <color name="aliceblue">#696969</color>
     <color name="black">#ff000000</color>
-    <color name="blue">#3399FF</color>
+    <color name="blue">#22addf</color>
     <color name="button_text_color">@color/black</color>
     <color name="color_dialog_bg">@color/light_green</color>
     <color name="color_text">@color/black</color>
     <color name="color_toast">@color/light_blue</color>
     <color name="color_train">@color/light_blue</color>
     <color name="common_bg">@color/white</color>
-    <color name="dark_blue">#056dd6</color>
+    <color name="dark_blue">#2687e9</color>
     <color name="dark_gray">#ff585858</color>
     <color name="dimgray">#696969</color>
     <color name="gray">#898484</color>
     <color name="gray_2">#ffd3d3d3</color>
     <color name="light_blue">#A033CCFF</color>
-    <color name="light_gray">#ff9b9b9b</color>
-    <color name="light_gray2">#f7f7f7</color>
+    <color name="light_gray">#dbe6dd</color>
+    <color name="light_gray2">#e7e0e0</color>
     <color name="light_green">#A0AEEEEE</color>
     <color name="line_color">@color/light_gray</color>
     <color name="middle_blue">#A03cc0f4</color>
@@ -108,6 +108,7 @@
     <string name="add_athlete_title_string">添加运动员</string>
     <string name="adjust_finish_goto_statistics">调整完毕，进入统计页面</string>
     <string name="app_name">游泳计时器</string>
+    <string name="app_version">游泳系统 v2.0 \n By华南师范大学 2014-2015</string>
     <string name="athlete">运动员</string>
     <string name="athlete_id">编号</string>
     <string name="athlete_score_match">运动员成绩匹配</string>
@@ -217,6 +218,8 @@
     <string name="score_record_done">全部成绩记录完成</string>
     <string name="score_saved_goto_to_home">成绩已经保存，是否返回主界面？</string>
     <string name="send_email">发送邮件</string>
+    <string name="send_succ_check_email">发送成功，请查看邮箱</string>
+    <string name="sending_request">正在发送请求…………</string>
     <string name="server_error">服务器错误!</string>
     <string name="server_ip_port_setting">服务器IP与端口设置</string>
     <string name="server_or_network_error">服务器或网络错误</string>
@@ -252,6 +255,7 @@
     <string name="user_exists">用户已经存在</string>
     <string name="user_name">用户名</string>
     <string name="user_name_hint">请填写用户名</string>
+    <string name="user_not_exist">用户不存在</string>
     <string name="user_tip">使用说明</string>
     <string name="username_not_null">用户名不能为空</string>
     <string name="xlistview_footer_hint_normal">查看更多</string>
@@ -320,7 +324,11 @@
         <item name="android:textColor">@color/black</item>
     </style>
     <style name="custom_radio_btn" parent="@android:style/Widget.CompoundButton">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@drawable/pager_title_selector</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/radio</item>
     </style>
     <style name="custom_textview" parent="@android:style/Widget.TextView">
         <item name="android:textSize">20sp</item>

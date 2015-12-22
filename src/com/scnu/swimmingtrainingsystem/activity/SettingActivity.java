@@ -11,6 +11,7 @@ import android.view.Window;
 
 import com.scnu.swimmingtrainingsystem.R;
 import com.scnu.swimmingtrainingsystem.util.Constants;
+import com.scnu.swimmingtrainingsystem.util.SpUtil;
 
 /**
  * 设置Activity
@@ -29,9 +30,10 @@ public class SettingActivity extends Activity {
 		setContentView(R.layout.activity_setting);
 		try {
 			app = (MyApplication) getApplication();
+			app.addActivity(this);
 			//这里是为了应对可能出现的application里面的全局变量被系统回收导致的错误
 			@SuppressWarnings("unused")
-			int mUserId = (Integer) app.getMap().get(Constants.CURRENT_USER_ID);
+			int mUserId = SpUtil.getUID(this);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

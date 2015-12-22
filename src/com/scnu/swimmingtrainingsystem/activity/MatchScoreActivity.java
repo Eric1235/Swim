@@ -1,14 +1,5 @@
 package com.scnu.swimmingtrainingsystem.activity;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.litepal.crud.DataSupport;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentValues;
@@ -59,7 +50,17 @@ import com.scnu.swimmingtrainingsystem.model.SmallScore;
 import com.scnu.swimmingtrainingsystem.model.User;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
+import com.scnu.swimmingtrainingsystem.util.SpUtil;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.litepal.crud.DataSupport;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class MatchScoreActivity extends Activity implements
 		OnItemLongClickListener {
@@ -153,6 +154,7 @@ public class MatchScoreActivity extends Activity implements
 	private void init() {
 		// TODO Auto-generated method stub
 		app = (MyApplication) getApplication();
+		app.addActivity(this);
 		mDbManager = DBManager.getInstance();
 		isConnected = (Boolean) app.getMap().get(Constants.IS_CONNECT_SERVER);
 		mQueue = Volley.newRequestQueue(this);
@@ -170,7 +172,8 @@ public class MatchScoreActivity extends Activity implements
 		nameListView.setDragScrollProfile(ssProfile);
 
 		scoreListView.setRemoveListener(onRemove2);
-		userId = (Integer) app.getMap().get(Constants.CURRENT_USER_ID);
+//		userId = (Integer) app.getMap().get(Constants.CURRENT_USER_ID);
+		userId = SpUtil.getUID(MatchScoreActivity.this);
 		Long planId = (Long) app.getMap().get(Constants.PLAN_ID);
 		plan = DataSupport.find(Plan.class, planId);
 		// 设置数据源
@@ -306,7 +309,7 @@ public class MatchScoreActivity extends Activity implements
 			// 如果这是第一趟并且成绩数目与运动员数目不相等,则先保存到sp中，统计再做调整
 			String scoresString = JsonTools.creatJsonString(scores);
 			String athleteJson = JsonTools.creatJsonString(dragDatas);
-			CommonUtils.saveCurrentScoreAndAthlete(this, nowCurrent,
+			SpUtil.saveCurrentScoreAndAthlete(this, nowCurrent,
 					crrentDistance, scoresString, athleteJson);
 			startActivity(i);
 			finish();
@@ -360,7 +363,7 @@ public class MatchScoreActivity extends Activity implements
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();
 				// 暂时保存到SharePreferences
-				CommonUtils.saveCurrentScoreAndAthlete(context, i,
+				SpUtil.saveCurrentScoreAndAthlete(context, i,
 						crrentDistance, scoreString, athleteString);
 				Intent intent = new Intent(MatchScoreActivity.this,
 						TimerActivity.class);

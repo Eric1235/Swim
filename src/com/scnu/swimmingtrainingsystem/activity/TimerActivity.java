@@ -1,11 +1,5 @@
 package com.scnu.swimmingtrainingsystem.activity;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -26,8 +20,15 @@ import android.widget.Toast;
 
 import com.scnu.swimmingtrainingsystem.R;
 import com.scnu.swimmingtrainingsystem.adapter.TimeLineListAdapter;
-import com.scnu.swimmingtrainingsystem.util.Constants;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
+import com.scnu.swimmingtrainingsystem.util.Constants;
+import com.scnu.swimmingtrainingsystem.util.SpUtil;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * 计时秒表界面
@@ -89,23 +90,27 @@ public class TimerActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_timer);
-		try {
-			setupView();
-			setupData();
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-			startActivity(new Intent(this, LoginActivity.class));
-		}
+		setupView();
+		setupData();
+//		try {
+//			setupView();
+//			setupData();
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//			startActivity(new Intent(this, LoginActivity.class));
+//		}
 	}
 
 	@SuppressWarnings("unchecked")
 	private void setupView() {
 		// TODO Auto-generated method stub
 		app = (MyApplication) getApplication();
+		app.addActivity(this);
 		// 如果app中的全局变量被系统强制回收，通过以下改行代码会触发异常，直接将应用界面重启至登陆页面
 		@SuppressWarnings("unused")
-		int userID = (Integer) app.getMap().get(Constants.CURRENT_USER_ID);
+//		int userID = (Integer) app.getMap().get(Constants.CURRENT_USER_ID);
+        int userID = SpUtil.getUID(this);
 		time_title = (TextView) findViewById(R.id.time_title);
 		tvTime = (TextView) findViewById(R.id.duocitvTime);
 		tvTip = (TextView) findViewById(R.id.textwujici);

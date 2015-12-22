@@ -31,6 +31,7 @@ import com.scnu.swimmingtrainingsystem.util.Constants;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
 
 public class RetrievePasswordActivity extends Activity {
+	private MyApplication app;
 	private RequestQueue mQueue;
 	private EditText emailEditText;
 	private Toast mToast;
@@ -42,6 +43,8 @@ public class RetrievePasswordActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_retrieve_password);
+		app = (MyApplication) getApplication();
+		app.addActivity(this);
 		mQueue = Volley.newRequestQueue(this);
 		emailEditText = (EditText) findViewById(R.id.edt_email);
 	}
@@ -55,7 +58,7 @@ public class RetrievePasswordActivity extends Activity {
 		String emailAdress = emailEditText.getText().toString().trim();
 		if (loadingDialog == null) {
 			loadingDialog = LoadingDialog.createDialog(this);
-			loadingDialog.setMessage("正在发送请求...");
+			loadingDialog.setMessage(getString(R.string.sending_request));
 			loadingDialog.setCanceledOnTouchOutside(false);
 		}
 		loadingDialog.show();
@@ -84,15 +87,15 @@ public class RetrievePasswordActivity extends Activity {
 							if (resCode == 1) {
 								CommonUtils.showToast(
 										RetrievePasswordActivity.this, mToast,
-										"发送成功，请稍后查看邮箱");
+										getString(R.string.send_succ_check_email));
 							} else if (resCode == 0) {
 								CommonUtils.showToast(
 										RetrievePasswordActivity.this, mToast,
-										"该用户还未注册");
+										getString(R.string.user_not_exist));
 							} else {
 								CommonUtils.showToast(
 										RetrievePasswordActivity.this, mToast,
-										"服务器错误！");
+										getString(R.string.server_error));
 							}
 
 						} catch (JSONException e) {
@@ -118,7 +121,7 @@ public class RetrievePasswordActivity extends Activity {
 						// Log.e(TAG, error.getMessage());
 						loadingDialog.dismiss();
 						CommonUtils.showToast(RetrievePasswordActivity.this,
-								mToast, "无法连接服务器！");
+								mToast, getString(R.string.cannot_connect_to_server));
 					}
 				}) {
 

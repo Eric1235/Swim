@@ -1,10 +1,7 @@
 package com.scnu.swimmingtrainingsystem.fragment;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
@@ -35,6 +32,7 @@ import com.scnu.swimmingtrainingsystem.model.Plan;
 import com.scnu.swimmingtrainingsystem.model.User;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
+import com.scnu.swimmingtrainingsystem.util.SpUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -48,7 +46,7 @@ import java.util.List;
  *
  * 2015年12月10日
  */
-public class TimerFragment extends Fragment implements View.OnClickListener{
+public class TimerFragment extends BaseFragment implements View.OnClickListener{
 
     private View v;
     private MyApplication app;
@@ -156,20 +154,53 @@ public class TimerFragment extends Fragment implements View.OnClickListener{
         intervalsAdapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_dropdown_item_1line,autoIntervals);
 
+        String swimDistance = SpUtil.getDistance(getActivity());
+        String swimInterval = SpUtil.getSwimInterval(getActivity());
+        actInterval.setText(swimInterval);
+        acTextView.setText(swimDistance);
+
+//        sp = getActivity().getSharedPreferences(Constants.LOGININFO,
+//                Context.MODE_PRIVATE);
+        int selectedPositoin = SpUtil.getSelectedPosition(getActivity());
+
+        app.getMap().put(Constants.CURRENT_SWIM_TIME, 0);
+//        userid = (Integer) app.getMap().get(Constants.CURRENT_USER_ID);
+        userid = SpUtil.getUID(getActivity());
 
 
-        SharedPreferences sp = getActivity().getSharedPreferences(Constants.LOGININFO,
-                Context.MODE_PRIVATE);
-        int selectedPositoin = sp.getInt(Constants.SELECTED_POOL, 1);
-        String swimDistance = sp.getString(Constants.SWIM_DISTANCE, "");
-        String swimInterval = sp.getString(Constants.INTERVAL, "");
+        List<String> poolLength = new ArrayList<String>();
+        List<String> stroke = new ArrayList<String>();
+        String[] strokes = getResources().getStringArray(R.array.strokestrarray);
+        String[] poolLengths = getResources().getStringArray(R.array.pool_length);
+        Collections.addAll(poolLength, poolLengths);
+        Collections.addAll(stroke,strokes);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item, stroke);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item, poolLength);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        poolSpinner.setAdapter(adapter1);
+        poolSpinner.setSelection(selectedPositoin);
+        strokeSpinner.setAdapter(adapter2);
+        strokeSpinner.setSelection(selectedPositoin);
 
-        String mapConfigString = sp.getString("mapConfig", "");
+        showChosenAthleteAdapter = new ShowChosenAthleteAdapter(
+                getActivity(), chosenAthletes);
+        chosenListView.setAdapter(showChosenAthleteAdapter);
+
+
+    }
+
+    /**
+     * 更新运动员列表
+     */
+    private void upDateAthleteList(){
+        athletes = dbManager.getAthletes(userid);
+        String mapConfigString = SpUtil.getMapConfig(getActivity());
         SparseBooleanArray configArray = JsonTools.getObject(mapConfigString,
                 SparseBooleanArray.class);
-        app.getMap().put(Constants.CURRENT_SWIM_TIME, 0);
-        userid = (Integer) app.getMap().get(Constants.CURRENT_USER_ID);
-        athletes = dbManager.getAthletes(userid);
+        athleteNames.clear();
         for (Athlete ath : athletes) {
             athleteNames.add(ath.getName());
         }
@@ -189,35 +220,13 @@ public class TimerFragment extends Fragment implements View.OnClickListener{
             }
 
         }
-        actInterval.setText(swimInterval);
-        acTextView.setText(swimDistance);
-        List<String> poolLength = new ArrayList<String>();
-        List<String> stroke = new ArrayList<String>();
-        String[] strokes = getResources().getStringArray(R.array.strokestrarray);
-        String[] poolLengths = getResources().getStringArray(R.array.pool_length);
-        Collections.addAll(poolLength, poolLengths);
-        Collections.addAll(stroke,strokes);
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_spinner_item, stroke);
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_spinner_item, poolLength);
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        poolSpinner.setAdapter(adapter1);
-        poolSpinner.setSelection(selectedPositoin);
-        strokeSpinner.setAdapter(adapter2);
-        strokeSpinner.setSelection(selectedPositoin);
-        showChosenAthleteAdapter = new ShowChosenAthleteAdapter(
-                getActivity(), chosenAthletes);
-        chosenListView.setAdapter(showChosenAthleteAdapter);
-
-
     }
 
     /**
      * 选择运动员
      */
     private void chooseAthlete(){
+        upDateAthleteList();
         final NiftyDialogBuilder selectDialog = NiftyDialogBuilder
                 .getInstance(getActivity());
         Effectstype effect = Effectstype.Fall;
@@ -292,11 +301,11 @@ public class TimerFragment extends Fragment implements View.OnClickListener{
             CommonUtils.showToast(getActivity(), toast, getString(R.string.add_athlete_before_timer));
         } else {
             // 保存这一次的配置到sp
-            CommonUtils.saveSelectedPool(getActivity(),
+            SpUtil.saveSelectedPool(getActivity(),
                     poolSpinner.getSelectedItemPosition());
-            CommonUtils.saveSelectedStroke(getActivity(), strokeSpinner.getSelectedItemPosition());
-            CommonUtils.saveDistance(getActivity(), totalDistance, intervalDistance);
-            CommonUtils.saveSelectedAthlete(getActivity(),
+            SpUtil.saveSelectedStroke(getActivity(), strokeSpinner.getSelectedItemPosition());
+            SpUtil.saveDistance(getActivity(), totalDistance, intervalDistance);
+            SpUtil.saveSelectedAthlete(getActivity(),
                     JsonTools.creatJsonString(map));
 
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -338,7 +347,13 @@ public class TimerFragment extends Fragment implements View.OnClickListener{
         app.getMap().put(Constants.PLAN_ID, plan.getId());
     }
 
-
+    /**
+     * fragment重新显示的时候，做更新操作
+     */
+    @Override
+    public void onReShow() {
+//        upDateAthleteList();
+    }
 
     @Override
     public void onResume() {
