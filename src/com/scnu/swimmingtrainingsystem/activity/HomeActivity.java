@@ -225,7 +225,7 @@ public class HomeActivity extends FragmentActivity implements OnClickListener,On
 		app.getMap().put(Constants.CURRENT_USER_ID, "");
 		app.getMap().put(Constants.IS_CONNECT_SERVER, true);
 		app.getMap().put(Constants.COMPLETE_NUMBER, 0);
-		app.getMap().put(Constants.INTERVAL, 0);
+		app.getMap().put(Constants.INTERVAL, "");
 	}
 
 }

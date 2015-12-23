@@ -1,12 +1,5 @@
 package com.scnu.swimmingtrainingsystem.adapter;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -44,6 +37,13 @@ import com.scnu.swimmingtrainingsystem.util.Constants;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
 import com.scnu.swimmingtrainingsystem.view.Switch;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * 运动员列表数据适配器
  * 
@@ -62,13 +62,13 @@ public class AthleteListAdapter extends BaseAdapter {
 	private EditText athleteContact;
 	private EditText others;
 	private DBManager dbManager;
-	private long userID;
+	private int userID;
 	protected Toast toast;
 	protected MyApplication app;
 	private LoadingDialog loadingDialog;
 	
 	public AthleteListAdapter(Context context, MyApplication app,
-			List<Athlete> athletes, long userID) {
+			List<Athlete> athletes, int userID) {
 		this.context = context;
 		this.athletes = athletes;
 		this.userID = userID;
@@ -322,12 +322,12 @@ public class AthleteListAdapter extends BaseAdapter {
 	/**
 	 * 修改运动员信息请求
 	 * 
-	 * @param obj
+	 * @param
 	 */
 	public void modifyAthRequest(List<Athlete> athletes, int position,
 			String ath_name, String ath_age, String ath_gender,
 			String ath_phone, String ath_extras) {
-		User user = dbManager.getUser(userID);
+		User user = dbManager.getUserByUid(userID);
 		Athlete obj = athletes.get(position);
 		Map<String, Object> jsonMap = new HashMap<String, Object>();
 		jsonMap.put("uid", user.getUid());

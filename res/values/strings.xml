@@ -166,7 +166,7 @@
     <string name="add_athlete_before_timer">请添加运动员后再开始计时</string>
     
     <!-- timeractivity -->
-    <string name="No_timer">第 %s 几次计时</string>
+    <string name="No_timer">第 %s 次计时</string>
     <string name="No_1">1</string>
     <string name="No_n">%d</string>
     <string name="score_record_done">全部成绩记录完成</string>

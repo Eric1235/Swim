@@ -101,7 +101,7 @@
     <string name="NO">第</string>
     <string name="No_1">1</string>
     <string name="No_n">%d</string>
-    <string name="No_timer">第 %s 几次计时</string>
+    <string name="No_timer">第 %s 次计时</string>
     <string name="about_us">关于我们</string>
     <string name="action_settings">Settings</string>
     <string name="add_athlete_before_timer">请添加运动员后再开始计时</string>

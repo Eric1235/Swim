@@ -285,7 +285,7 @@ public class MatchSprintScoreActivity extends Activity {
 				String distance = distanceSpinner.getSelectedItem().toString()
 						.replace("米", "");
 				List<Integer> athIds = new ArrayList<Integer>();
-				User user = mDbManager.getUser(userId);
+				User user = mDbManager.getUserByUid(userId);
 				SimpleDateFormat sdf = new SimpleDateFormat(
 						"yyyy-MM-dd HH:mm:ss");
 				String date = sdf.format(new Date());

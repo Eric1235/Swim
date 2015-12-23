@@ -1,14 +1,5 @@
 package com.scnu.swimmingtrainingsystem.activity;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.litepal.crud.DataSupport;
-
 import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
@@ -24,9 +15,9 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -55,7 +46,17 @@ import com.scnu.swimmingtrainingsystem.model.User;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
 import com.scnu.swimmingtrainingsystem.util.ScreenUtils;
+import com.scnu.swimmingtrainingsystem.util.SpUtil;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.litepal.crud.DataSupport;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class EachTimeScoreActivity extends FragmentActivity {
 	private MyApplication myApplication;
@@ -69,7 +70,7 @@ public class EachTimeScoreActivity extends FragmentActivity {
 	private Toast mToast;
 	private String date;
 	private Plan plan;
-	private Long userID;
+	private int userID;
 	private RequestQueue mQueue;
 	private LoadingDialog loadingDialog;
 
@@ -79,23 +80,27 @@ public class EachTimeScoreActivity extends FragmentActivity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_modify_each_score);
-		try {
-			init();
-			InitViewPager();
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-			startActivity(new Intent(this, LoginActivity.class));
-		}
+		init();
+		InitViewPager();
+//		try {
+//			init();
+//			InitViewPager();
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//			startActivity(new Intent(this, LoginActivity.class));
+//		}
 
 	}
 
 	private void init() {
 		myApplication = (MyApplication) getApplication();
+		myApplication.addActivity(this);
 		mDbManager = DBManager.getInstance();
 		mQueue = Volley.newRequestQueue(this);
 		date = (String) myApplication.getMap().get(Constants.TEST_DATE);
-		userID = (Long) myApplication.getMap().get(Constants.CURRENT_USER_ID);
+//		userID = (Long) myApplication.getMap().get(Constants.CURRENT_USER_ID);
+		userID = SpUtil.getUID(EachTimeScoreActivity.this);
 		Long planId = (Long) myApplication.getMap().get(Constants.PLAN_ID);
 		plan = DataSupport.find(Plan.class, planId);
 		scrollView = (HorizontalScrollView) findViewById(R.id.horizontalScrollView_home);
@@ -214,14 +219,14 @@ public class EachTimeScoreActivity extends FragmentActivity {
 
 	private void createDialog() {
 		AlertDialog.Builder build = new AlertDialog.Builder(this);
-		build.setTitle("系统提示").setMessage("是否放弃保存本轮成绩");
-		build.setNegativeButton("否", new DialogInterface.OnClickListener() {
+		build.setTitle(getString(R.string.system_hint)).setMessage("是否放弃保存本轮成绩");
+		build.setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();
 			}
 		});
-		build.setPositiveButton("是", new DialogInterface.OnClickListener() {
+		build.setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();
@@ -290,7 +295,7 @@ public class EachTimeScoreActivity extends FragmentActivity {
 	 */
 	@SuppressWarnings("unchecked")
 	private void saveScore(int i, Map<String, Object> result) {
-		User user = mDbManager.getUser(userID);
+		User user = mDbManager.getUserByUid(userID);
 		String curDistance = (String) result.get("distance");
 		int distance = Integer.parseInt(curDistance);
 		List<String> scoresList = (List<String>) result.get("scores");
@@ -316,7 +321,7 @@ public class EachTimeScoreActivity extends FragmentActivity {
 	 * 创建保存本轮计时成绩的请求
 	 * 
 	 * @param
-	 *            本轮所有成绩的json字符串
+	 *
 	 */
 	private void addScoreRequest() {
 
@@ -336,8 +341,11 @@ public class EachTimeScoreActivity extends FragmentActivity {
 			smScore.setTimes(s.getTimes());
 			smallScores.add(smScore);
 		}
+		/**
+		 * 为什么当初不存唯一标识
+		 */
 		List<Integer> aidList = mDbManager.getAthlteAidInScoreByDate(date);
-		User user = mDbManager.getUser(userID);
+		User user = mDbManager.getUserByUid(userID);
 		Map<String, Object> scoreMap = new HashMap<String, Object>();
 		scoreMap.put("score", smallScores);
 		scoreMap.put("plan", sp);

@@ -2,7 +2,6 @@ package com.scnu.swimmingtrainingsystem.activity;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -51,13 +50,14 @@ public class ShowScoreActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_showscore);
-		try {
-			init();
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-			startActivity(new Intent(this, LoginActivity.class));
-		}
+		init();
+//		try {
+//			init();
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//			startActivity(new Intent(this, LoginActivity.class));
+//		}
 	}
 
 	/**

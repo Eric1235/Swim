@@ -1,8 +1,8 @@
 package com.scnu.swimmingtrainingsystem.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +19,6 @@ import android.widget.Toast;
 
 import com.scnu.swimmingtrainingsystem.R;
 import com.scnu.swimmingtrainingsystem.activity.MyApplication;
-import com.scnu.swimmingtrainingsystem.activity.TimerActivity;
 import com.scnu.swimmingtrainingsystem.adapter.ChooseAthleteAdapter;
 import com.scnu.swimmingtrainingsystem.adapter.ShowChosenAthleteAdapter;
 import com.scnu.swimmingtrainingsystem.db.DBManager;
@@ -30,6 +29,7 @@ import com.scnu.swimmingtrainingsystem.model.AdapterHolder;
 import com.scnu.swimmingtrainingsystem.model.Athlete;
 import com.scnu.swimmingtrainingsystem.model.Plan;
 import com.scnu.swimmingtrainingsystem.model.User;
+import com.scnu.swimmingtrainingsystem.util.AppController;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
 import com.scnu.swimmingtrainingsystem.util.SpUtil;
@@ -129,16 +129,6 @@ public class TimerFragment extends BaseFragment implements View.OnClickListener{
             btnChooseAthlete.setOnClickListener(this);
             btnStartTimer.setOnClickListener(this);
 
-            initData();
-            acTextView.setAdapter(tipsAdapter);
-            acTextView.setDropDownHeight(350);
-            acTextView.setThreshold(1);
-
-            actInterval.setAdapter(intervalsAdapter);
-            actInterval.setDropDownHeight(300);
-            actInterval.setThreshold(1);
-
-
         }
         return v;
     }
@@ -159,13 +149,21 @@ public class TimerFragment extends BaseFragment implements View.OnClickListener{
         actInterval.setText(swimInterval);
         acTextView.setText(swimDistance);
 
-//        sp = getActivity().getSharedPreferences(Constants.LOGININFO,
-//                Context.MODE_PRIVATE);
         int selectedPositoin = SpUtil.getSelectedPosition(getActivity());
 
+        /**
+         * 设置游泳趟数为0
+         */
         app.getMap().put(Constants.CURRENT_SWIM_TIME, 0);
-//        userid = (Integer) app.getMap().get(Constants.CURRENT_USER_ID);
         userid = SpUtil.getUID(getActivity());
+
+        acTextView.setAdapter(tipsAdapter);
+        acTextView.setDropDownHeight(350);
+        acTextView.setThreshold(1);
+
+        actInterval.setAdapter(intervalsAdapter);
+        actInterval.setDropDownHeight(300);
+        actInterval.setThreshold(1);
 
 
         List<String> poolLength = new ArrayList<String>();
@@ -185,11 +183,11 @@ public class TimerFragment extends BaseFragment implements View.OnClickListener{
         strokeSpinner.setAdapter(adapter2);
         strokeSpinner.setSelection(selectedPositoin);
 
+
+
         showChosenAthleteAdapter = new ShowChosenAthleteAdapter(
                 getActivity(), chosenAthletes);
         chosenListView.setAdapter(showChosenAthleteAdapter);
-
-
     }
 
     /**
@@ -312,8 +310,10 @@ public class TimerFragment extends BaseFragment implements View.OnClickListener{
             String date = sdf.format(new Date());
             // 保存计时日期
             app.getMap().put(Constants.TEST_DATE, date);
+            //保存计时间隔
             app.getMap().put(Constants.INTERVAL, intervalDistance);
             List<String> athleteNames = new ArrayList<String>();
+            //获取选中的运动员名字
             List<Athlete> chosenPersons = dbManager
                     .getAthleteByNames(chosenAthletes);
             for (Athlete ath : chosenPersons) {
@@ -327,15 +327,14 @@ public class TimerFragment extends BaseFragment implements View.OnClickListener{
             String extra = remarksEditText.getText().toString();
             // 将配置保存到数据库计划表中
             savePlan(poolString, strokeNumber, totalDistance, extra, chosenPersons);
-            Intent i = new Intent(getActivity(), TimerActivity.class);
-            startActivity(i);
+            AppController.gotoTimerActivity(getActivity());
         }
     }
 
     private void savePlan(String pool,int stroke, String distance, String extra,
                           List<Athlete> athlete) {
         // TODO Auto-generated method stub
-        User user = dbManager.getUser(userid);
+        User user = dbManager.getUserByUid(userid);
         Plan plan = new Plan();
         plan.setPool(pool);
         plan.setStrokeNumber(stroke);
@@ -344,6 +343,7 @@ public class TimerFragment extends BaseFragment implements View.OnClickListener{
         plan.setUser(user);
         plan.setAthlete(athlete);
         plan.save();
+        //存储计划id
         app.getMap().put(Constants.PLAN_ID, plan.getId());
     }
 
@@ -353,21 +353,26 @@ public class TimerFragment extends BaseFragment implements View.OnClickListener{
     @Override
     public void onReShow() {
 //        upDateAthleteList();
+        Log.d("lixinkun","timerfragment onReshow called");
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        Log.d("lixinkun", "timerfragment onResume called");
+        initData();
     }
 
     @Override
     public void onStop() {
         super.onStop();
+        Log.d("lixinkun", "timerfragment onStop called");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
+        Log.d("lixinkun", "timerfragment onDestroy called");
     }
 
     @Override

@@ -318,7 +318,7 @@ public class TimerSettingActivity extends Activity {
 	private void savePlan(String pool,int stroke, String distance, String extra,
 			List<Athlete> athlete) {
 		// TODO Auto-generated method stub
-		User user = dbManager.getUser(userid);
+		User user = dbManager.getUserByUid(userid);
 		Plan plan = new Plan();
 		plan.setPool(pool);
 		plan.setStrokeNumber(stroke);

@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import com.scnu.swimmingtrainingsystem.activity.AboutUsActivity;
 import com.scnu.swimmingtrainingsystem.activity.AthleteActivity;
+import com.scnu.swimmingtrainingsystem.activity.EachTimeScoreActivity;
 import com.scnu.swimmingtrainingsystem.activity.HomeActivity;
 import com.scnu.swimmingtrainingsystem.activity.LoginActivity;
 import com.scnu.swimmingtrainingsystem.activity.ModifyPassActivity;
@@ -12,6 +13,8 @@ import com.scnu.swimmingtrainingsystem.activity.MyApplication;
 import com.scnu.swimmingtrainingsystem.activity.OtherFunctionActivity;
 import com.scnu.swimmingtrainingsystem.activity.QueryScoreActivity;
 import com.scnu.swimmingtrainingsystem.activity.QuestionHelpActivity;
+import com.scnu.swimmingtrainingsystem.activity.ShowScoreActivity;
+import com.scnu.swimmingtrainingsystem.activity.TimerActivity;
 
 /**
  * Created by lixinkun on 15/12/14.
@@ -74,6 +77,24 @@ public class AppController {
         Intent i = new Intent(context, HomeActivity.class);
         context.startActivity(i);
     }
+
+    public static void gotoShowScoreActivity(Context context){
+        Intent intent = new Intent(context,
+                ShowScoreActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void gotoTimerActivity(Context context){
+        Intent i = new Intent(context, TimerActivity.class);
+        context.startActivity(i);
+    }
+
+    public static void gotoEachTimeScoreActivity(Context context){
+        Intent i = new Intent(context, EachTimeScoreActivity.class);
+        context.startActivity(i);
+    }
+
+
 
     /**
      * 重置app

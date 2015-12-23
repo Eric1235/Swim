@@ -48,6 +48,7 @@ import com.scnu.swimmingtrainingsystem.model.Score;
 import com.scnu.swimmingtrainingsystem.model.SmallPlan;
 import com.scnu.swimmingtrainingsystem.model.SmallScore;
 import com.scnu.swimmingtrainingsystem.model.User;
+import com.scnu.swimmingtrainingsystem.util.AppController;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
 import com.scnu.swimmingtrainingsystem.util.SpUtil;
@@ -141,13 +142,14 @@ public class MatchScoreActivity extends Activity implements
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_matchscore);
-		try {
-			init();
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-			startActivity(new Intent(this, LoginActivity.class));
-		}
+		init();
+//		try {
+//			init();
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//			startActivity(new Intent(this, LoginActivity.class));
+//		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -242,7 +244,7 @@ public class MatchScoreActivity extends Activity implements
 	 * @param distance
 	 */
 	private void matchSuccess(String date, int nowCurrent, int distance) {
-		User user = mDbManager.getUser(userId);
+		User user = mDbManager.getUserByUid(userId);
 		List<Athlete> athletes = mDbManager.getAthleteByNames(dragDatas);
 		for (int i = 0; i < scores.size(); i++) {
 			Athlete a = athletes.get(i);
@@ -257,6 +259,7 @@ public class MatchScoreActivity extends Activity implements
 			s.setUser(user);
 			s.save();
 		}
+//		isConnected = NetworkUtil.isConnected(this);
 		if (isConnected) {
 			if (loadingDialog == null) {
 				loadingDialog = LoadingDialog.createDialog(this);
@@ -266,9 +269,10 @@ public class MatchScoreActivity extends Activity implements
 			loadingDialog.show();
 			addScoreRequest(date);
 		} else {
-			Intent intent = new Intent(MatchScoreActivity.this,
-					ShowScoreActivity.class);
-			startActivity(intent);
+//			Intent intent = new Intent(MatchScoreActivity.this,
+//					ShowScoreActivity.class);
+//			startActivity(intent);
+			AppController.gotoShowScoreActivity(this);
 			finish();
 		}
 
@@ -305,13 +309,14 @@ public class MatchScoreActivity extends Activity implements
 				matchSuccess(date, nowCurrent, crrentDistance);
 			}
 		} else {
-			Intent i = new Intent(this, EachTimeScoreActivity.class);
+//			Intent i = new Intent(this, EachTimeScoreActivity.class);
 			// 如果这是第一趟并且成绩数目与运动员数目不相等,则先保存到sp中，统计再做调整
 			String scoresString = JsonTools.creatJsonString(scores);
 			String athleteJson = JsonTools.creatJsonString(dragDatas);
 			SpUtil.saveCurrentScoreAndAthlete(this, nowCurrent,
 					crrentDistance, scoresString, athleteJson);
-			startActivity(i);
+			AppController.gotoEachTimeScoreActivity(MatchScoreActivity.this);
+//			startActivity(i);
 			finish();
 		}
 
@@ -365,9 +370,10 @@ public class MatchScoreActivity extends Activity implements
 				// 暂时保存到SharePreferences
 				SpUtil.saveCurrentScoreAndAthlete(context, i,
 						crrentDistance, scoreString, athleteString);
-				Intent intent = new Intent(MatchScoreActivity.this,
-						TimerActivity.class);
-				startActivity(intent);
+//				Intent intent = new Intent(MatchScoreActivity.this,
+//						TimerActivity.class);
+//				startActivity(intent);
+				AppController.gotoTimerActivity(MatchScoreActivity.this);
 				finish();
 			}
 		}).show();
@@ -456,7 +462,6 @@ public class MatchScoreActivity extends Activity implements
 					@Override
 					public void onResponse(String response) {
 						// TODO Auto-generated method stub
-						Log.i("addScores", response);
 						loadingDialog.dismiss();
 						JSONObject obj;
 						try {
@@ -479,9 +484,7 @@ public class MatchScoreActivity extends Activity implements
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-						Intent intent = new Intent(MatchScoreActivity.this,
-								ShowScoreActivity.class);
-						startActivity(intent);
+						AppController.gotoShowScoreActivity(MatchScoreActivity.this);
 						finish();
 					}
 				}, new ErrorListener() {
@@ -489,7 +492,7 @@ public class MatchScoreActivity extends Activity implements
 					@Override
 					public void onErrorResponse(VolleyError error) {
 						// TODO Auto-generated method stub
-						// Log.e("addScores", error.getMessage());
+						 Log.e("addScores", error.getMessage());
 					}
 				}) {
 
@@ -542,5 +545,15 @@ public class MatchScoreActivity extends Activity implements
 			}
 		});
 
+	}
+
+	@Override
+	protected void onRestart() {
+		super.onRestart();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
 	}
 }

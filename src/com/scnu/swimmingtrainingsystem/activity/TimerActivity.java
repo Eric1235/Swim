@@ -108,8 +108,7 @@ public class TimerActivity extends Activity {
 		app = (MyApplication) getApplication();
 		app.addActivity(this);
 		// 如果app中的全局变量被系统强制回收，通过以下改行代码会触发异常，直接将应用界面重启至登陆页面
-		@SuppressWarnings("unused")
-//		int userID = (Integer) app.getMap().get(Constants.CURRENT_USER_ID);
+
         int userID = SpUtil.getUID(this);
 		time_title = (TextView) findViewById(R.id.time_title);
 		tvTime = (TextView) findViewById(R.id.duocitvTime);

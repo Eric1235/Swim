@@ -50,8 +50,6 @@ public class QuestionHelpActivity extends Activity {
 	private void init() {
 		application=(MyApplication) getApplication();
 		application.addActivity(this);
-		@SuppressWarnings("unused")
-		int userID = (Integer) application.getMap().get(Constants.CURRENT_USER_ID);
 		btnBack = (ImageButton) findViewById(R.id.btn_back);
 		btnBack.setOnClickListener(new OnClickListener() {
 			

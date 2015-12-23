@@ -40,23 +40,6 @@ public class DBManager {
 	}
 
 	
-	/**
-	 * 根据id获取用户
-	 * 
-	 * @param id
-	 *            用户id
-	 * @return
-	 */
-	public User getUser(long id) {
-		
-		String userId = String.valueOf(id);
-		List<User> users = DataSupport.where("id=?",userId).find(User.class);
-		if(users.size()>0){
-			return users.get(0);
-		}
-		return null;
-	}
-	
 	public User getUserByUid(int uid){
 		String userId = String.valueOf(uid);
 		List<User> users = DataSupport.where("uid=?",userId).find(User.class);
