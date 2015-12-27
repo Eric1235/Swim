@@ -227,11 +227,6 @@ public class DBManager {
 		values.put("extras", extras);
 		DataSupport.update(Athlete.class, values, id);
 	}
-//
-//	public int deleteAthlete(List<Athlete> list, int position) {
-//		String userID = String.valueOf(list.get(position).getId());
-//		return DataSupport.deleteAll(Athlete.class, "id=?", userID);
-//	}
 
 	public int deleteAthlete(Athlete a){
 		String userID = String.valueOf(a.getId());

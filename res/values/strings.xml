@@ -132,8 +132,8 @@
     <string name="fill_in_scores_distance">请填写记录当前成绩的距离！</string>
     <string name="score_num_not_equalwith_athlete_num">成绩数目与运动员数目不相等,请删除部分数据!若误删数据，可以按右上角按钮进行恢复</string>
     <string name="copy_add">复制添加该项</string>
-    <string name="goto_next_timer_or_adjust_score">"是否开始下一趟计时？ \n选择【否】
-        则返回调整成绩或者运动员数目,或者结束本轮计时\n选择【是】则直接开始下一趟计时</string>
+    <string name="goto_next_timer_or_adjust_score">"是否开始下一趟计时？\n  选择【否】则返回调整成绩或者运动员数目,或者结束本轮计时\n  选择【是】则直接开始下一趟计时</string>
+    <string name="match_succeed">成绩匹配完成</string>
     <string name="five_meter">5米</string>
     <string name="ten_meter">10米</string>
     <string name="fif_meter">15米</string>

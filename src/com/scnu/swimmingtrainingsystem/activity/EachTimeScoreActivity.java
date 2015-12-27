@@ -3,14 +3,12 @@ package com.scnu.swimmingtrainingsystem.activity;
 import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -23,15 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request.Method;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.Response.Listener;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.scnu.swimmingtrainingsystem.R;
 import com.scnu.swimmingtrainingsystem.adapter.ViewPargerAdpt;
 import com.scnu.swimmingtrainingsystem.db.DBManager;
@@ -46,8 +36,10 @@ import com.scnu.swimmingtrainingsystem.model.User;
 import com.scnu.swimmingtrainingsystem.util.AppController;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
+import com.scnu.swimmingtrainingsystem.util.NetworkUtil;
 import com.scnu.swimmingtrainingsystem.util.ScreenUtils;
 import com.scnu.swimmingtrainingsystem.util.SpUtil;
+import com.scnu.swimmingtrainingsystem.util.VolleyUtil;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
 
 import org.json.JSONException;
@@ -82,7 +74,7 @@ public class EachTimeScoreActivity extends FragmentActivity implements View.OnCl
 	 */
 	private List<Athlete> athletes;
 
-	private RequestQueue mQueue;
+//	private RequestQueue mQueue;
 	private LoadingDialog loadingDialog;
 
 	@Override
@@ -108,7 +100,7 @@ public class EachTimeScoreActivity extends FragmentActivity implements View.OnCl
 		myApplication = (MyApplication) getApplication();
 		myApplication.addActivity(this);
 		mDbManager = DBManager.getInstance();
-		mQueue = Volley.newRequestQueue(this);
+//		mQueue = Volley.newRequestQueue(this);
 		date = (String) myApplication.getMap().get(Constants.TEST_DATE);
 //		userID = (Long) myApplication.getMap().get(Constants.CURRENT_USER_ID);
 		userID = SpUtil.getUID(EachTimeScoreActivity.this);
@@ -195,6 +187,7 @@ public class EachTimeScoreActivity extends FragmentActivity implements View.OnCl
 		viewPager.setAdapter(new ViewPargerAdpt(getSupportFragmentManager(),
 				fragmentsList));
 		viewPager.setCurrentItem(0);
+		layout.getChildAt(0).setBackgroundColor(getResources().getColor(R.color.light_blue));
 		viewPager.setOnPageChangeListener(new MyOnPageChangeListener());
 	}
 
@@ -207,7 +200,7 @@ public class EachTimeScoreActivity extends FragmentActivity implements View.OnCl
 
 				layout.getChildAt(i).setBackgroundColor(getResources().getColor(R.color.white));
 				if (arg0 == i) {
-					layout.getChildAt(i).setBackgroundColor(getResources().getColor(R.color.blue));
+					layout.getChildAt(i).setBackgroundColor(getResources().getColor(R.color.light_blue));
 				}
 			}
 			if (idex < arg0 && arg0 > 2) {
@@ -286,7 +279,7 @@ public class EachTimeScoreActivity extends FragmentActivity implements View.OnCl
 			aidList.addAll(aidsubList);
 			if (resCode == 1 && number != length) {
 				viewPager.setCurrentItem(position);
-				CommonUtils.showToast(this, mToast, "该趟成绩当前成绩距离为0！");
+				CommonUtils.showToast(this, mToast, getString(R.string.score_is_zero));
 				break;
 			} else if (resCode == 2 && number != length) {
 				viewPager.setCurrentItem(position);
@@ -299,10 +292,9 @@ public class EachTimeScoreActivity extends FragmentActivity implements View.OnCl
 			} else if (resCode == 0 && number == length) {
 				saveScore(i, result,aidsubList);
 				viewPager.setCurrentItem(length - 1);
-				CommonUtils.showToast(this, mToast, "匹配完成！");
+				CommonUtils.showToast(this, mToast, getString(R.string.match_done));
 
-				boolean isConnect = (Boolean) myApplication.getMap().get(
-						Constants.IS_CONNECT_SERVER);
+				boolean isConnect = NetworkUtil.isConnected(this);
 				if (isConnect) {
 					// 如果可以联通服务器则发送添加成绩请求
 					if (loadingDialog == null) {
@@ -311,14 +303,9 @@ public class EachTimeScoreActivity extends FragmentActivity implements View.OnCl
 						loadingDialog.setCanceledOnTouchOutside(false);
 					}
 					loadingDialog.show();
-//					List<Integer> adiList = (List<Integer>)result.get("athleteids");
-//					List<Integer> athleteids = (List<Integer>) result.get("athleteids");
 					addScoreRequest(aidList);
 				} else {
-//					Intent intent = new Intent(this, ShowScoreActivity.class);
-//					startActivity(intent);
-					AppController.gotoShowScoreActivity(this);
-					finish();
+					CommonUtils.showToast(this,mToast,getString(R.string.network_error));
 				}
 				break;
 			}
@@ -371,6 +358,152 @@ public class EachTimeScoreActivity extends FragmentActivity implements View.OnCl
 	 */
 	private void addScoreRequest(List<Integer> athleteidList) {
 
+//		SmallPlan sp = new SmallPlan();
+//		sp.setDistance(plan.getDistance());
+//		sp.setPool(plan.getPool());
+//		sp.setExtra(plan.getExtra());
+//		sp.setTime(plan.getTime());
+//		sp.setStrokeNumber(plan.getStrokeNumber());
+//
+//		List<SmallScore> smallScores = new ArrayList<SmallScore>();
+//		List<Score> scoresResult = mDbManager.getScoreByDate(date);
+//		/**
+//		 * 获取成绩和运动员id
+//		 */
+//		List<Integer> aidList = athleteidList;
+//		for (Score s : scoresResult) {
+////			aidList.add(s.getAthleteId());
+//			SmallScore smScore = new SmallScore();
+//			smScore.setScore(s.getScore());
+//			smScore.setDate(s.getDate());
+//			smScore.setDistance(s.getDistance());
+//			smScore.setType(s.getType());
+//			smScore.setTimes(s.getTimes());
+//			smallScores.add(smScore);
+//		}
+
+//		User user = mDbManager.getUserByUid(userID);
+//		Map<String, Object> scoreMap = new HashMap<String, Object>();
+//		scoreMap.put("score", smallScores);
+//		scoreMap.put("plan", sp);
+//		scoreMap.put("uid", user.getUid());
+//		scoreMap.put("athlete_id", aidList);
+//		scoreMap.put("type", 1);
+//		final String jsonString = JsonTools.creatJsonString(scoreMap);
+
+		Map<String,String> map = getDataMap(athleteidList);
+
+		VolleyUtil.ResponseListener listener = new VolleyUtil.ResponseListener() {
+			@Override
+			public void onSuccess(String string) {
+				loadingDialog.dismiss();
+				JSONObject obj;
+				try {
+					obj = new JSONObject(string);
+					int resCode = (Integer) obj.get("resCode");
+					int planId = (Integer) obj.get("plan_id");
+					if (resCode == 1) {
+						CommonUtils.showToast(
+								EachTimeScoreActivity.this, mToast,
+								getString(R.string.synchronized_success));
+						ContentValues values = new ContentValues();
+						values.put("pid", planId);
+						Plan.updateAll(Plan.class, values,
+								String.valueOf(plan.getId()));
+						AppController.gotoShowScoreActivity(EachTimeScoreActivity.this);
+						finish();
+					} else {
+						CommonUtils.showToast(
+								EachTimeScoreActivity.this, mToast,
+								getString(R.string.synchronized_failed));
+					}
+
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+			@Override
+			public void onError(String string) {
+				loadingDialog.dismiss();
+				CommonUtils.showToast(EachTimeScoreActivity.this,mToast,getString(R.string.server_or_network_error));
+			}
+		};
+
+		VolleyUtil.httpJson(Constants.ADD_SCORE,Method.POST,map,listener,myApplication);
+//
+//		StringRequest stringRequest = new StringRequest(Method.POST,
+//				Constants.ADD_SCORE, new Listener<String>() {
+//
+//					@Override
+//					public void onResponse(String response) {
+//						// TODO Auto-generated method stub
+//						Log.i("addScores", response);
+//						loadingDialog.dismiss();
+//						JSONObject obj;
+//						try {
+//							obj = new JSONObject(response);
+//							int resCode = (Integer) obj.get("resCode");
+//							int planId = (Integer) obj.get("plan_id");
+//							if (resCode == 1) {
+//								CommonUtils.showToast(
+//										EachTimeScoreActivity.this, mToast,
+//										getString(R.string.synchronized_success));
+//								ContentValues values = new ContentValues();
+//								values.put("pid", planId);
+//								Plan.updateAll(Plan.class, values,
+//										String.valueOf(plan.getId()));
+//								AppController.gotoShowScoreActivity(EachTimeScoreActivity.this);
+//								finish();
+//							} else {
+//								CommonUtils.showToast(
+//										EachTimeScoreActivity.this, mToast,
+//										getString(R.string.synchronized_failed));
+//							}
+//
+//						} catch (JSONException e) {
+//							// TODO Auto-generated catch block
+//							e.printStackTrace();
+//						}
+//						Intent intent = new Intent(EachTimeScoreActivity.this,
+//								ShowScoreActivity.class);
+//						startActivity(intent);
+//						finish();
+//					}
+//				}, new ErrorListener() {
+//
+//					@Override
+//					public void onErrorResponse(VolleyError error) {
+//						// TODO Auto-generated method stub
+//						// Log.e("addScores", error.getMessage());
+//					}
+//				}) {
+//
+//			@Override
+//			protected Map<String, String> getParams() throws AuthFailureError {
+//				// 设置请求参数
+//				Map<String, String> map = new HashMap<String, String>();
+//				map.put("scoresJson", jsonString);
+//				return map;
+//			}
+//		};
+//		stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+//				Constants.SOCKET_TIMEOUT,
+//				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+//				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+//		mQueue.add(stringRequest);
+
+	}
+
+	/**
+	 * 获取上传成绩的数据集
+	 * @param athleteidList
+	 * @return
+	 */
+	private Map<String,String> getDataMap(List<Integer> athleteidList){
+
+
 		SmallPlan sp = new SmallPlan();
 		sp.setDistance(plan.getDistance());
 		sp.setPool(plan.getPool());
@@ -385,7 +518,6 @@ public class EachTimeScoreActivity extends FragmentActivity implements View.OnCl
 		 */
 		List<Integer> aidList = athleteidList;
 		for (Score s : scoresResult) {
-//			aidList.add(s.getAthleteId());
 			SmallScore smScore = new SmallScore();
 			smScore.setScore(s.getScore());
 			smScore.setDate(s.getDate());
@@ -401,68 +533,15 @@ public class EachTimeScoreActivity extends FragmentActivity implements View.OnCl
 		scoreMap.put("score", smallScores);
 		scoreMap.put("plan", sp);
 		scoreMap.put("uid", user.getUid());
+		scoreMap.put("stroke", plan.getStrokeNumber());
 		scoreMap.put("athlete_id", aidList);
 		scoreMap.put("type", 1);
 		final String jsonString = JsonTools.creatJsonString(scoreMap);
-		StringRequest stringRequest = new StringRequest(Method.POST,
-				Constants.ADD_SCORE, new Listener<String>() {
 
-					@Override
-					public void onResponse(String response) {
-						// TODO Auto-generated method stub
-						Log.i("addScores", response);
-						loadingDialog.dismiss();
-						JSONObject obj;
-						try {
-							obj = new JSONObject(response);
-							int resCode = (Integer) obj.get("resCode");
-							int planId = (Integer) obj.get("plan_id");
-							if (resCode == 1) {
-								CommonUtils.showToast(
-										EachTimeScoreActivity.this, mToast,
-										getString(R.string.synchronized_success));
-								ContentValues values = new ContentValues();
-								values.put("pid", planId);
-								Plan.updateAll(Plan.class, values,
-										String.valueOf(plan.getId()));
-							} else {
-								CommonUtils.showToast(
-										EachTimeScoreActivity.this, mToast,
-										getString(R.string.synchronized_failed));
-							}
-
-						} catch (JSONException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						Intent intent = new Intent(EachTimeScoreActivity.this,
-								ShowScoreActivity.class);
-						startActivity(intent);
-						finish();
-					}
-				}, new ErrorListener() {
-
-					@Override
-					public void onErrorResponse(VolleyError error) {
-						// TODO Auto-generated method stub
-						// Log.e("addScores", error.getMessage());
-					}
-				}) {
-
-			@Override
-			protected Map<String, String> getParams() throws AuthFailureError {
-				// 设置请求参数
-				Map<String, String> map = new HashMap<String, String>();
-				map.put("scoresJson", jsonString);
-				return map;
-			}
-		};
-		stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-				Constants.SOCKET_TIMEOUT,
-				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-		mQueue.add(stringRequest);
-
+		// 设置请求参数
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("scoresJson", jsonString);
+		return map;
 	}
 
 	@Override

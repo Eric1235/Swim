@@ -259,7 +259,6 @@ public class LoginActivity extends Activity {
 			@Override
 			public void onError(String string) {
 				loadingDialog.dismiss();
-				app.getMap().put(Constants.IS_CONNECT_SERVER, false);
 				CommonUtils
 						.showToast(LoginActivity.this, toast, getString(R.string.network_error));
 			}
@@ -418,8 +417,7 @@ public class LoginActivity extends Activity {
 					CommonUtils.showToast(LoginActivity.this, toast,
 							getString(R.string.ip_and_port_notnull));
 				} else {
-					// String hostUrl = "http://" + hostIp + ":" + hostPort
-					// + "/SWIMYUE33/httpPost.action?action_flag=";
+
 					String hostUrl = "http://104.160.34.110:8080/SWIMYUE33/httpPost.action?action_flag=";
 					// 保存服务器ip和端口地址到sp
 					Constants.HOSTURL = hostUrl;

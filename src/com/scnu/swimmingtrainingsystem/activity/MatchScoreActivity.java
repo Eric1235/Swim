@@ -43,6 +43,7 @@ import com.scnu.swimmingtrainingsystem.model.User;
 import com.scnu.swimmingtrainingsystem.util.AppController;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
+import com.scnu.swimmingtrainingsystem.util.NetworkUtil;
 import com.scnu.swimmingtrainingsystem.util.SpUtil;
 import com.scnu.swimmingtrainingsystem.util.VolleyUtil;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
@@ -308,7 +309,7 @@ public class MatchScoreActivity extends Activity implements
 			s.setUser(user);
 			s.save();
 		}
-//		isConnected = NetworkUtil.isConnected(this);
+		isConnected = NetworkUtil.isConnected(this);
 		if (isConnected) {
 			if (loadingDialog == null) {
 				loadingDialog = LoadingDialog.createDialog(this);
@@ -319,8 +320,7 @@ public class MatchScoreActivity extends Activity implements
 			addScoreRequest(date);
 		} else {
 
-			AppController.gotoShowScoreActivity(this);
-			finish();
+
 		}
 
 	}
@@ -546,6 +546,8 @@ public class MatchScoreActivity extends Activity implements
 								values.put("pid", planId);
 								Plan.updateAll(Plan.class, values,
 										String.valueOf(plan.getId()));
+								AppController.gotoShowScoreActivity(MatchScoreActivity.this);
+								finish();
 							} else {
 								CommonUtils.showToast(MatchScoreActivity.this,
 										mToast, getString(R.string.synchronized_failed));
@@ -555,13 +557,12 @@ public class MatchScoreActivity extends Activity implements
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-						AppController.gotoShowScoreActivity(MatchScoreActivity.this);
-						finish();
+
 			}
 
 			@Override
 			public void onError(String string) {
-
+					CommonUtils.showToast(MatchScoreActivity.this,mToast,getString(R.string.server_or_network_error));
 			}
 		};
 		VolleyUtil.httpJson(Constants.ADD_SCORE, Request.Method.POST,map,responseListener,app);
@@ -620,7 +621,7 @@ public class MatchScoreActivity extends Activity implements
 	}
 
 
-	public Map<String,String> getDataMap(String date){
+	private Map<String,String> getDataMap(String date){
 		/**
 		 * 获取到训练计划
 		 */
