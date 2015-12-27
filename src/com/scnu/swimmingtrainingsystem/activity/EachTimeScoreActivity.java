@@ -5,7 +5,6 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -19,6 +18,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +43,7 @@ import com.scnu.swimmingtrainingsystem.model.Score;
 import com.scnu.swimmingtrainingsystem.model.SmallPlan;
 import com.scnu.swimmingtrainingsystem.model.SmallScore;
 import com.scnu.swimmingtrainingsystem.model.User;
+import com.scnu.swimmingtrainingsystem.util.AppController;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
 import com.scnu.swimmingtrainingsystem.util.ScreenUtils;
@@ -58,19 +59,29 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class EachTimeScoreActivity extends FragmentActivity {
+public class EachTimeScoreActivity extends FragmentActivity implements View.OnClickListener{
 	private MyApplication myApplication;
 	private DBManager mDbManager;
-	private HorizontalScrollView scrollView;
-	private LinearLayout layout;
-	private ViewPager viewPager;
+
 	private ArrayList<Fragment> fragmentsList;
 	private int idex = 0;
 	private ArrayList<String> list;
 	private Toast mToast;
+
 	private String date;
 	private Plan plan;
 	private int userID;
+
+	private HorizontalScrollView scrollView;
+	private LinearLayout layout;
+	private ViewPager viewPager;
+	private ImageButton btnBack;
+
+	/**
+	 * 运动员列表
+	 */
+	private List<Athlete> athletes;
+
 	private RequestQueue mQueue;
 	private LoadingDialog loadingDialog;
 
@@ -103,10 +114,16 @@ public class EachTimeScoreActivity extends FragmentActivity {
 		userID = SpUtil.getUID(EachTimeScoreActivity.this);
 		Long planId = (Long) myApplication.getMap().get(Constants.PLAN_ID);
 		plan = DataSupport.find(Plan.class, planId);
+
+
 		scrollView = (HorizontalScrollView) findViewById(R.id.horizontalScrollView_home);
 		layout = (LinearLayout) findViewById(R.id.ll_shouyebiaoqian);
 		viewPager = (ViewPager) findViewById(R.id.viewparger_home);
 		scrollView.setOverScrollMode(View.OVER_SCROLL_NEVER);
+
+		btnBack = (ImageButton) findViewById(R.id.modify_back);
+		btnBack.setOnClickListener(this);
+
 		list = new ArrayList<String>();
 		int swimTimes = (Integer) myApplication.getMap().get(
 				Constants.CURRENT_SWIM_TIME);
@@ -139,9 +156,13 @@ public class EachTimeScoreActivity extends FragmentActivity {
 					+ (i + 1), "");
 			String namesJsonString = sp.getString(Constants.ATHLETEJSON
 					+ (i + 1), "");
+			/**
+			 * 获取运动员id字符串，然后传入
+			 */
+			String athleteidJsonString = sp.getString(Constants.ATHLETEIDJSON + (i + 1),"");
 
 			EachTimeScoreFragment homeItemfragment = new EachTimeScoreFragment(
-					i, currentDistance, scoresJsonString, namesJsonString);
+					i, currentDistance, scoresJsonString, namesJsonString,athleteidJsonString);
 			fragmentsList.add(homeItemfragment);
 			LinearLayout linearLayout = new LinearLayout(this);
 			linearLayout.setGravity(Gravity.CENTER);
@@ -152,13 +173,13 @@ public class EachTimeScoreActivity extends FragmentActivity {
 			tv.setTextSize(18);
 			tv.setGravity(Gravity.CENTER);
 			tv.setPadding(20, 10, 20, 10);
-			tv.setTextColor(Color.parseColor("#bf242b2f"));
+			tv.setTextColor(getResources().getColor(R.color.black));
 			tv.setLayoutParams(new LinearLayout.LayoutParams(170,
 					ViewGroup.LayoutParams.WRAP_CONTENT));
 			tv.setSingleLine();
 			linearLayout.setId(i);
 			if (i == 0) {
-				linearLayout.setBackgroundColor(Color.parseColor("#f1f1f1"));
+				linearLayout.setBackgroundColor(getResources().getColor(R.color.white));
 			}
 			linearLayout.setOnClickListener(new OnClickListener() {
 
@@ -184,11 +205,9 @@ public class EachTimeScoreActivity extends FragmentActivity {
 			int width = ScreenUtils.getScreenWidth(EachTimeScoreActivity.this) / 4;
 			for (int i = 0; i < layout.getChildCount(); i++) {
 
-				layout.getChildAt(i).setBackgroundColor(
-						Color.parseColor("#ffffff"));
+				layout.getChildAt(i).setBackgroundColor(getResources().getColor(R.color.white));
 				if (arg0 == i) {
-					layout.getChildAt(i).setBackgroundColor(
-							Color.parseColor("#f1f1f1"));
+					layout.getChildAt(i).setBackgroundColor(getResources().getColor(R.color.blue));
 				}
 			}
 			if (idex < arg0 && arg0 > 2) {
@@ -217,9 +236,20 @@ public class EachTimeScoreActivity extends FragmentActivity {
 
 	}
 
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()){
+			case R.id.modify_back:
+				finish();
+				break;
+			default:
+				break;
+		}
+	}
+
 	private void createDialog() {
 		AlertDialog.Builder build = new AlertDialog.Builder(this);
-		build.setTitle(getString(R.string.system_hint)).setMessage("是否放弃保存本轮成绩");
+		build.setTitle(getString(R.string.system_hint)).setMessage(getString(R.string.quit_and_dont_save_score));
 		build.setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -240,28 +270,34 @@ public class EachTimeScoreActivity extends FragmentActivity {
 	public void finishModify(View v) throws JSONException {
 		int length = fragmentsList.size();
 		int i = 0;
+		List<Integer> aidList = new ArrayList<Integer>();
 		for (i = 0; i < length; i++) {
+			/**
+			 * 获取fragment处理后的数据
+			 */
 			Map<String, Object> result = ((EachTimeScoreFragment) fragmentsList
 					.get(i)).check();
 			int number = (Integer) myApplication.getMap().get(
 					Constants.COMPLETE_NUMBER);
-			System.out.println("number--->" + number);
+//			System.out.println("number--->" + number);
 			int resCode = (Integer) result.get("resCode");
 			int position = (Integer) result.get("position");
+			List<Integer> aidsubList = (List<Integer>)result.get("athleteids");
+			aidList.addAll(aidsubList);
 			if (resCode == 1 && number != length) {
 				viewPager.setCurrentItem(position);
 				CommonUtils.showToast(this, mToast, "该趟成绩当前成绩距离为0！");
 				break;
 			} else if (resCode == 2 && number != length) {
 				viewPager.setCurrentItem(position);
-				CommonUtils.showToast(this, mToast, "成绩与运动员人数不对应！");
+				CommonUtils.showToast(this, mToast, getString(R.string.score_num_not_match_athlete_num));
 				break;
 			} else if (resCode == 0 && number != length) {
 				// 以下只是保存length-1次
-				saveScore(i, result);
+				saveScore(i, result,aidsubList);
 				viewPager.setCurrentItem(position + 1);
 			} else if (resCode == 0 && number == length) {
-				saveScore(i, result);
+				saveScore(i, result,aidsubList);
 				viewPager.setCurrentItem(length - 1);
 				CommonUtils.showToast(this, mToast, "匹配完成！");
 
@@ -271,14 +307,17 @@ public class EachTimeScoreActivity extends FragmentActivity {
 					// 如果可以联通服务器则发送添加成绩请求
 					if (loadingDialog == null) {
 						loadingDialog = LoadingDialog.createDialog(this);
-						loadingDialog.setMessage("正在同步...");
+						loadingDialog.setMessage(getString(R.string.synchronizing));
 						loadingDialog.setCanceledOnTouchOutside(false);
 					}
 					loadingDialog.show();
-					addScoreRequest();
+//					List<Integer> adiList = (List<Integer>)result.get("athleteids");
+//					List<Integer> athleteids = (List<Integer>) result.get("athleteids");
+					addScoreRequest(aidList);
 				} else {
-					Intent intent = new Intent(this, ShowScoreActivity.class);
-					startActivity(intent);
+//					Intent intent = new Intent(this, ShowScoreActivity.class);
+//					startActivity(intent);
+					AppController.gotoShowScoreActivity(this);
 					finish();
 				}
 				break;
@@ -294,12 +333,15 @@ public class EachTimeScoreActivity extends FragmentActivity {
 	 * @param result
 	 */
 	@SuppressWarnings("unchecked")
-	private void saveScore(int i, Map<String, Object> result) {
+	private void saveScore(int i, Map<String, Object> result,List<Integer>athleteids) {
 		User user = mDbManager.getUserByUid(userID);
 		String curDistance = (String) result.get("distance");
 		int distance = Integer.parseInt(curDistance);
 		List<String> scoresList = (List<String>) result.get("scores");
 		List<String> namesList = (List<String>) result.get("names");
+		/**
+		 * 获取运动员id列表
+		 */
 		int scoresNumber = scoresList.size();
 		for (int l = 0; l < scoresNumber; l++) {
 			Score score = new Score();
@@ -309,8 +351,12 @@ public class EachTimeScoreActivity extends FragmentActivity {
 			score.setDistance(distance);
 			score.setP(plan);
 			score.setScore(scoresList.get(l));
-			Athlete athlete = mDbManager.getAthleteByName(userID,
-					namesList.get(l));
+			/**
+			 * 通过运动员id来获取运动员
+			 */
+//			Athlete athlete = mDbManager.getAthleteByName(userID,
+//					namesList.get(l));
+			Athlete athlete = mDbManager.getAthletesByAid(athleteids.get(l));
 			score.setAthlete(athlete);
 			score.setUser(user);
 			score.save();
@@ -318,21 +364,28 @@ public class EachTimeScoreActivity extends FragmentActivity {
 	}
 
 	/**
-	 * 创建保存本轮计时成绩的请求
+	 * 创建保存本轮计时成绩的请求,传入athleteids
 	 * 
 	 * @param
 	 *
 	 */
-	private void addScoreRequest() {
+	private void addScoreRequest(List<Integer> athleteidList) {
 
 		SmallPlan sp = new SmallPlan();
 		sp.setDistance(plan.getDistance());
 		sp.setPool(plan.getPool());
 		sp.setExtra(plan.getExtra());
+		sp.setTime(plan.getTime());
+		sp.setStrokeNumber(plan.getStrokeNumber());
 
 		List<SmallScore> smallScores = new ArrayList<SmallScore>();
 		List<Score> scoresResult = mDbManager.getScoreByDate(date);
+		/**
+		 * 获取成绩和运动员id
+		 */
+		List<Integer> aidList = athleteidList;
 		for (Score s : scoresResult) {
+//			aidList.add(s.getAthleteId());
 			SmallScore smScore = new SmallScore();
 			smScore.setScore(s.getScore());
 			smScore.setDate(s.getDate());
@@ -341,10 +394,8 @@ public class EachTimeScoreActivity extends FragmentActivity {
 			smScore.setTimes(s.getTimes());
 			smallScores.add(smScore);
 		}
-		/**
-		 * 为什么当初不存唯一标识
-		 */
-		List<Integer> aidList = mDbManager.getAthlteAidInScoreByDate(date);
+
+
 		User user = mDbManager.getUserByUid(userID);
 		Map<String, Object> scoreMap = new HashMap<String, Object>();
 		scoreMap.put("score", smallScores);
@@ -354,7 +405,7 @@ public class EachTimeScoreActivity extends FragmentActivity {
 		scoreMap.put("type", 1);
 		final String jsonString = JsonTools.creatJsonString(scoreMap);
 		StringRequest stringRequest = new StringRequest(Method.POST,
-				CommonUtils.HOSTURL + "addScores", new Listener<String>() {
+				Constants.ADD_SCORE, new Listener<String>() {
 
 					@Override
 					public void onResponse(String response) {
@@ -369,7 +420,7 @@ public class EachTimeScoreActivity extends FragmentActivity {
 							if (resCode == 1) {
 								CommonUtils.showToast(
 										EachTimeScoreActivity.this, mToast,
-										"成功同步至服务器!");
+										getString(R.string.synchronized_success));
 								ContentValues values = new ContentValues();
 								values.put("pid", planId);
 								Plan.updateAll(Plan.class, values,
@@ -377,7 +428,7 @@ public class EachTimeScoreActivity extends FragmentActivity {
 							} else {
 								CommonUtils.showToast(
 										EachTimeScoreActivity.this, mToast,
-										"同步失敗！");
+										getString(R.string.synchronized_failed));
 							}
 
 						} catch (JSONException e) {
@@ -429,4 +480,6 @@ public class EachTimeScoreActivity extends FragmentActivity {
 		super.onDestroy();
 		myApplication.getMap().put(Constants.COMPLETE_NUMBER, 0);
 	}
+
+
 }

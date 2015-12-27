@@ -1,27 +1,19 @@
 package com.scnu.swimmingtrainingsystem.fragment;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.LinearLayout.LayoutParams;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -30,9 +22,20 @@ import android.widget.Toast;
 import com.mobeta.android.dslv.DragSortListView;
 import com.scnu.swimmingtrainingsystem.R;
 import com.scnu.swimmingtrainingsystem.activity.MyApplication;
+import com.scnu.swimmingtrainingsystem.adapter.DragAdapter;
 import com.scnu.swimmingtrainingsystem.adapter.ScoreListAdapter;
+import com.scnu.swimmingtrainingsystem.db.DBManager;
+import com.scnu.swimmingtrainingsystem.model.Athlete;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @SuppressLint("ValidFragment")
 public class EachTimeScoreFragment extends Fragment {
@@ -44,19 +47,24 @@ public class EachTimeScoreFragment extends Fragment {
 	private DragSortListView dsListView;
 	private ScoreListAdapter scoreListAdapter;
 	private List<String> scores = new ArrayList<String>();
-	private ArrayAdapter<String> dragAdapter;
-	private List<String> dragDatas = new ArrayList<String>();
+	private DragAdapter dragAdapter;
+	private List<Athlete> dragDatas = new ArrayList<Athlete>();
+	/**
+	 * 运动员id
+	 */
+	private List<Integer> athleteids = new ArrayList<Integer>();
 	private int position;
 	private int distance;
 	private String scoreString;
 	private String nameString;
+	private String athleteidJsonString;
 	private boolean firstMatch = true;
 	private Toast mToast;
 
 	private DragSortListView.DropListener onDrop = new DragSortListView.DropListener() {
 		@Override
 		public void drop(int from, int to) {
-			String item = dragAdapter.getItem(from);
+			Athlete item = dragAdapter.getItem(from);
 			dragAdapter.notifyDataSetChanged();
 			dragAdapter.remove(item);
 			dragAdapter.insert(item, to);
@@ -99,11 +107,12 @@ public class EachTimeScoreFragment extends Fragment {
 	};
 
 	public EachTimeScoreFragment(int position, int distance, String scoreJson,
-			String nameJson) {
+			String nameJson,String athleteidString) {
 		this.position = position;
 		this.distance = distance;
 		this.scoreString = scoreJson;
 		this.nameString = nameJson;
+		this.athleteidJsonString = athleteidString;
 	}
 
 	@Override
@@ -128,8 +137,8 @@ public class EachTimeScoreFragment extends Fragment {
 			scListView.setRemoveListener(onRemove2);
 			dsListView = (DragSortListView) view
 					.findViewById(R.id.matchName_list);
-			dsListView.setDropListener(onDrop);
-			dsListView.setRemoveListener(onRemove);
+//			dsListView.setDropListener(onDrop);
+//			dsListView.setRemoveListener(onRemove);
 			dsListView.setDragScrollProfile(ssProfile);
 			acTextView.setText(this.distance + "");
 
@@ -138,15 +147,21 @@ public class EachTimeScoreFragment extends Fragment {
 				for (int i = 0; i < jsonArray.length(); i++) {
 					scores.add(jsonArray.get(i).toString());
 				}
-				JSONArray jsonArray2 = new JSONArray(nameString);
-				for (int j = 0; j < jsonArray2.length(); j++) {
-					dragDatas.add(jsonArray2.get(j).toString());
+//				JSONArray jsonArray2 = new JSONArray(nameString);
+//				for (int j = 0; j < jsonArray2.length(); j++) {
+//					dragDatas.add(jsonArray2.get(j).toString());
+//				}
+				/**
+				 * 获取运动员id
+				 */
+				JSONArray jsonArray3 = new JSONArray(athleteidJsonString);
+				for(int k = 0 ; k < jsonArray3.length(); k++){
+					athleteids.add(Integer.parseInt(jsonArray3.get(k).toString()));
 				}
+				dragDatas = DBManager.getInstance().getAthleteByIDs(athleteids);
 				scoreListAdapter = new ScoreListAdapter(scListView,
 						getActivity(), scores);
-				dragAdapter = new ArrayAdapter<String>(getActivity(),
-						R.layout.drag_list_item, R.id.drag_list_item_text,
-						dragDatas);
+				dragAdapter = new DragAdapter(getActivity(),R.layout.drag_list_item,dragDatas);
 				scListView.setAdapter(scoreListAdapter);
 				dsListView.setAdapter(dragAdapter);
 			} catch (JSONException e) {
@@ -242,7 +257,12 @@ public class EachTimeScoreFragment extends Fragment {
 				map.put("position", position);
 				map.put("distance", acTextView.getText().toString());
 				map.put("scores", scores);
-				map.put("names", dragDatas);
+				map.put("names", CommonUtils.getAthleteNamesByAthletes(dragDatas));
+
+				/**
+				 * 增加多一个athleteid字段
+				 */
+				map.put("athleteids",CommonUtils.getAthleteIdsByAthletes(dragAdapter.getAthletes()));
 			} else {
 				map.put("resCode", -1);
 				map.put("position", position);
@@ -272,7 +292,7 @@ public class EachTimeScoreFragment extends Fragment {
 				// TODO Auto-generated method stub
 				scores.add(position, scores.get(position));
 				scoreListAdapter.notifyDataSetChanged();
-				dragDatas.add(position, "");
+				dragDatas.add(position, null);
 				dragAdapter.notifyDataSetChanged();
 				pop.dismiss();
 			}

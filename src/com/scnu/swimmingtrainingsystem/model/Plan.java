@@ -1,9 +1,9 @@
 package com.scnu.swimmingtrainingsystem.model;
 
+import org.litepal.crud.DataSupport;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import org.litepal.crud.DataSupport;
 
 /**
  * 计划实体类
@@ -15,6 +15,12 @@ import org.litepal.crud.DataSupport;
 public class Plan extends DataSupport {
 	private long id;
 	private int pid;
+
+	/**
+	 * 游泳的趟数
+	 */
+	private int time;
+
 	/**
 	 * 泳池大小
 	 */
@@ -124,14 +130,28 @@ public class Plan extends DataSupport {
 		this.strokeNumber = strokeNumber;
 	}
 
+
+	public int getTime() {
+		return time;
+	}
+
+	public void setTime(int time) {
+		this.time = time;
+	}
+
 	@Override
 	public String toString() {
-		return "Plan [id=" + id + ", pid=" + pid + ", pool=" + pool
-				+ ", distance=" + distance + ", stroke=" + strokeNumber + ", extra="
-				+ extra + ", user=" + user + ", athlete=" + athlete
-				+ ", scores=" + scores + "]";
+		return "Plan{" +
+				"id=" + id +
+				", pid=" + pid +
+				", time=" + time +
+				", pool='" + pool + '\'' +
+				", distance=" + distance +
+				", strokeNumber=" + strokeNumber +
+				", extra='" + extra + '\'' +
+				", user=" + user +
+				", athlete=" + athlete +
+				", scores=" + scores +
+				'}';
 	}
-	
-
-	
 }

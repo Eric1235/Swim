@@ -299,7 +299,7 @@ public class QueryScoreActivity extends Activity {
 		final String dateJson = JsonTools.creatJsonString(jsonMap);
 
 		StringRequest getScoreDateList = new StringRequest(Method.POST,
-				CommonUtils.HOSTURL + "getScores", new Listener<String>() {
+				Constants.GET_SCORE, new Listener<String>() {
 
 					@Override
 					public void onResponse(String response) {

@@ -1,26 +1,43 @@
 package com.scnu.swimmingtrainingsystem.activity;
 
+import android.app.Activity;
+
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.scnu.swimmingtrainingsystem.util.Constants;
+import com.scnu.swimmingtrainingsystem.util.VolleyUtil;
+
+import org.litepal.LitePalApplication;
+
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
-import org.litepal.LitePalApplication;
-
-import com.scnu.swimmingtrainingsystem.util.Constants;
-
-import android.app.Activity;
 
 public class MyApplication extends LitePalApplication {
 
 	private Map<String, Object> mMap;
 	private List<Activity> mList = new LinkedList<Activity>();
 
+	/**
+	 * Request的标记
+	 */
+	private static final String REQUEST_TAG = "volley_request";
+
+	/**
+	 * Volley请求队列
+	 */
+	private RequestQueue mRequestQueue;
+
 	@Override
 	public void onCreate() {
 		// TODO Auto-generated method stub
 		super.onCreate();
 		// 初始化全局变量
+
+		mRequestQueue = Volley.newRequestQueue(getApplicationContext());
 
 		mMap = new HashMap<String, Object>();
 
@@ -41,6 +58,26 @@ public class MyApplication extends LitePalApplication {
 		//保存每次计时时的间隔距离
 		mMap.put(Constants.INTERVAL, "");
 		
+	}
+
+	/**
+	 * 添加请求到volley队列
+	 * @param req
+	 */
+	@SuppressWarnings("rawtypes")
+	public void addToRequestQueue(StringRequest req) {
+		//设置请求超时时间，以及最大重连次数
+		req.setRetryPolicy(new DefaultRetryPolicy(VolleyUtil.TIMEOUT, DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+		req.setTag(REQUEST_TAG);
+		mRequestQueue.add(req);
+	}
+
+	/**
+	 * 取消所有volley队列中的请求
+	 */
+	public void cancelRequests() {
+		mRequestQueue.cancelAll(REQUEST_TAG);
 	}
 
 	/**

@@ -244,7 +244,7 @@ public class SearchboxActivity extends Activity implements IXListViewListener {
 		final String jsonString = JsonTools.creatJsonString(jsonMap);
 
 		StringRequest getScoreDateList = new StringRequest(Method.POST,
-				CommonUtils.HOSTURL + "getScoreDateList",
+				Constants.GET_SCORE_DATE_LIST,
 				new Listener<String>() {
 
 					@Override

@@ -3,7 +3,6 @@ package com.scnu.swimmingtrainingsystem.adapter;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,15 +14,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request.Method;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.Response.Listener;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.scnu.swimmingtrainingsystem.R;
 import com.scnu.swimmingtrainingsystem.activity.MyApplication;
 import com.scnu.swimmingtrainingsystem.db.DBManager;
@@ -34,6 +25,8 @@ import com.scnu.swimmingtrainingsystem.model.Athlete;
 import com.scnu.swimmingtrainingsystem.model.User;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
+import com.scnu.swimmingtrainingsystem.util.NetworkUtil;
+import com.scnu.swimmingtrainingsystem.util.VolleyUtil;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
 import com.scnu.swimmingtrainingsystem.view.Switch;
 
@@ -53,7 +46,7 @@ import java.util.Map;
 public class AthleteListAdapter extends BaseAdapter {
 
 	private Context context;
-	private RequestQueue mQueue;
+//	private RequestQueue mQueue;
 	private List<Athlete> athletes;
 	private boolean editable = false;
 	private EditText athleteName;
@@ -74,7 +67,7 @@ public class AthleteListAdapter extends BaseAdapter {
 		this.userID = userID;
 		this.app = app;
 		dbManager = DBManager.getInstance();
-		mQueue = Volley.newRequestQueue(context);
+//		mQueue = Volley.newRequestQueue(context);
 	}
 
 	@Override
@@ -131,13 +124,13 @@ public class AthleteListAdapter extends BaseAdapter {
 				.getInstance(context);
 		Effectstype effect = Effectstype.RotateLeft;
 		viewDialog
-				.withTitle("查看运动员信息")
+				.withTitle(context.getString(R.string.check_athlete_msg))
 				.withMessage(null)
 				.withIcon(
 						context.getResources().getDrawable(
 								R.drawable.ic_launcher))
 				.isCancelableOnTouchOutside(false).withDuration(500)
-				.withEffect(effect).withButton1Text("修改")
+				.withEffect(effect).withButton1Text(context.getString(R.string.modify_failed))
 				.withButton2Text(Constants.OK_STRING)
 				.setCustomView(R.layout.add_athlete_dialog, context)
 				.setButton1Click(new View.OnClickListener() {
@@ -164,7 +157,7 @@ public class AthleteListAdapter extends BaseAdapter {
 		athleteAge.setText(athletes.get(position).getAge() + "");
 
 		String gender = athletes.get(position).getGender();
-		if (gender.equals("男")) {
+		if (gender.equals(context.getString(R.string.male))) {
 			mGenderSwitch.setChecked(true);
 		} else {
 			mGenderSwitch.setChecked(false);
@@ -214,16 +207,14 @@ public class AthleteListAdapter extends BaseAdapter {
 			if (!mGenderSwitch.isChecked()) {
 				ath_gender = "女";
 			}
-			dbManager.updateAthlete(athletes, position, ath_name, ath_age,
-					ath_gender, ath_phone, ath_extras);
+
 			
 			// 如果处在联网状态，则发送至服务器
-			boolean isConnect = (Boolean) app.getMap().get(
-					Constants.IS_CONNECT_SERVER);
+			boolean isConnect = NetworkUtil.isConnected(context);
 			if (isConnect) {
 				if (loadingDialog == null) {
 					loadingDialog = LoadingDialog.createDialog(context);
-					loadingDialog.setMessage("正在同步至服务器...");
+					loadingDialog.setMessage(context.getString(R.string.synchronizing));
 					loadingDialog.setCanceledOnTouchOutside(false);
 				}
 				loadingDialog.show();
@@ -233,7 +224,7 @@ public class AthleteListAdapter extends BaseAdapter {
 			}else {
 				setDatas(dbManager.getAthletes(userID));
 				notifyDataSetChanged();
-				CommonUtils.showToast(context, toast, "修改成功");
+				CommonUtils.showToast(context, toast, context.getString(R.string.network_error));
 			}
 		}
 		viewDialog.dismiss();
@@ -273,36 +264,34 @@ public class AthleteListAdapter extends BaseAdapter {
 		 */
 		private void deleteAthlete() {
 			AlertDialog.Builder build = new AlertDialog.Builder(context);
-			build.setTitle("系统提示").setMessage(
+			build.setTitle(context.getString(R.string.system_hint)).setMessage(
 					"确定要删除[ " + athletes.get(position).getName() + " ]的信息吗？");
 			build.setPositiveButton(Constants.OK_STRING,
 					new DialogInterface.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
-							int result = dbManager.deleteAthlete(athletes,
-									position);
-							if (result != 0) {
+
+//							if (result != 0) {
 								// 如果处在联网状态，则发送至服务器
-								boolean isConnect = (Boolean) app.getMap().get(
-										Constants.IS_CONNECT_SERVER);
+								boolean isConnect = NetworkUtil.isConnected(context);
 								if (isConnect) {
 									if (loadingDialog == null) {
 										loadingDialog = LoadingDialog.createDialog(context);
-										loadingDialog.setMessage("正在同步至服务器...");
+										loadingDialog.setMessage(context.getString(R.string.synchronizing));
 										loadingDialog.setCanceledOnTouchOutside(false);
 									}
 									loadingDialog.show();
 									// 同步服务器
 									deleteAthRequest(athletes.get(position));
 								} else {
-									setDatas(dbManager.getAthletes(userID));
-									notifyDataSetChanged();
+//									setDatas(dbManager.getAthletes(userID));
+//									notifyDataSetChanged();
 									CommonUtils.showToast(context, toast,
-											"删除成功");
+											context.getString(R.string.network_error));
 								}
 
 							}
-						}
+//						}
 					});
 			build.setNegativeButton(Constants.CANCLE_STRING,
 					new DialogInterface.OnClickListener() {
@@ -314,6 +303,8 @@ public class AthleteListAdapter extends BaseAdapter {
 		}
 	}
 
+
+
 	public void setDatas(List<Athlete> athletes) {
 		this.athletes.clear();
 		this.athletes.addAll(athletes);
@@ -324,9 +315,10 @@ public class AthleteListAdapter extends BaseAdapter {
 	 * 
 	 * @param
 	 */
-	public void modifyAthRequest(List<Athlete> athletes, int position,
-			String ath_name, String ath_age, String ath_gender,
-			String ath_phone, String ath_extras) {
+	public void modifyAthRequest(final List<Athlete> athletes, final int position,
+			final String ath_name, final String ath_age, final String ath_gender,
+			final String ath_phone, final String ath_extras) {
+
 		User user = dbManager.getUserByUid(userID);
 		Athlete obj = athletes.get(position);
 		Map<String, Object> jsonMap = new HashMap<String, Object>();
@@ -338,55 +330,99 @@ public class AthleteListAdapter extends BaseAdapter {
 		jsonMap.put("athlete_phone", ath_phone);
 		jsonMap.put("athlete_extra", ath_extras);
 		final String athleteJson = JsonTools.creatJsonString(jsonMap);
-		StringRequest stringRequest = new StringRequest(Method.POST,
-				CommonUtils.HOSTURL + "modifyAthlete", new Listener<String>() {
 
-					@Override
-					public void onResponse(String response) {
-						// TODO Auto-generated method stub
-						Log.i("ModifyAthlete", response);
-						loadingDialog.dismiss();
-						JSONObject obj;
-						try {
-							obj = new JSONObject(response);
-							int resCode = (Integer) obj.get("resCode");
-							if (resCode == 1) {
-								setDatas(dbManager.getAthletes(userID));
-								notifyDataSetChanged();
-								CommonUtils.showToast(context, toast, "修改成功");
-							} else {
-								CommonUtils.showToast(context, toast, "修改失败");
-							}
-						} catch (JSONException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
+		Map<String,String> map = getModifyAthleteDataMap(athleteJson);
 
+		VolleyUtil.ResponseListener listener = new VolleyUtil.ResponseListener() {
+			@Override
+			public void onSuccess(String string) {
+				loadingDialog.dismiss();
+				JSONObject obj;
+				try {
+					obj = new JSONObject(string);
+					int resCode = (Integer) obj.get("resCode");
+					if (resCode == 1) {
+						dbManager.updateAthlete(athletes, position, ath_name, ath_age,
+								ath_gender, ath_phone, ath_extras);
+						setDatas(dbManager.getAthletes(userID));
+						notifyDataSetChanged();
+						CommonUtils.showToast(context, toast, context.getString(R.string.modify_succeed));
+					} else {
+						CommonUtils.showToast(context, toast, context.getString(R.string.modify_failed));
 					}
-				}, new ErrorListener() {
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
-					@Override
-					public void onErrorResponse(VolleyError error) {
-						// TODO Auto-generated method stub
-						Log.e("ModifyAthlete", error.getMessage());
-						loadingDialog.dismiss();
-					}
-				}) {
+			}
 
 			@Override
-			protected Map<String, String> getParams() throws AuthFailureError {
-				// 设置请求参数
-				Map<String, String> map = new HashMap<String, String>();
-				map.put("modifyAthleteJson", athleteJson);
-				return map;
+			public void onError(String string) {
+				loadingDialog.dismiss();
+				CommonUtils.showToast(context,toast,context.getString(R.string.server_or_network_error));
 			}
 		};
-		stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-				Constants.SOCKET_TIMEOUT,
-				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-		mQueue.add(stringRequest);
+
+		VolleyUtil.httpJson(Constants.MODIFY_ATHLETE_URL,Method.POST,map,listener,app);
+
+
+//		StringRequest stringRequest = new StringRequest(Method.POST,
+//				CommonUtils.HOSTURL + "modifyAthlete", new Listener<String>() {
+//
+//					@Override
+//					public void onResponse(String response) {
+//						// TODO Auto-generated method stub
+//						Log.i("ModifyAthlete", response);
+//						loadingDialog.dismiss();
+//						JSONObject obj;
+//						try {
+//							obj = new JSONObject(response);
+//							int resCode = (Integer) obj.get("resCode");
+//							if (resCode == 1) {
+//								setDatas(dbManager.getAthletes(userID));
+//								notifyDataSetChanged();
+//								CommonUtils.showToast(context, toast, context.getString(R.string.modify_succeed));
+//							} else {
+//								CommonUtils.showToast(context, toast, context.getString(R.string.modify_failed));
+//							}
+//						} catch (JSONException e) {
+//							// TODO Auto-generated catch block
+//							e.printStackTrace();
+//						}
+//
+//					}
+//				}, new ErrorListener() {
+//
+//					@Override
+//					public void onErrorResponse(VolleyError error) {
+//						// TODO Auto-generated method stub
+//						Log.e("ModifyAthlete", error.getMessage());
+//						loadingDialog.dismiss();
+//					}
+//				}) {
+//
+//			@Override
+//			protected Map<String, String> getParams() throws AuthFailureError {
+//				// 设置请求参数
+//				Map<String, String> map = new HashMap<String, String>();
+//				map.put("modifyAthleteJson", athleteJson);
+//				return map;
+//			}
+//		};
+//		stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+//				Constants.SOCKET_TIMEOUT,
+//				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+//				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+//		mQueue.add(stringRequest);
 	}
+
+	private Map<String,String> getModifyAthleteDataMap(String athleteJson){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("modifyAthleteJson", athleteJson);
+		return map;
+	}
+
 
 	/**
 	 * 删除运动员信息请求
@@ -395,52 +431,105 @@ public class AthleteListAdapter extends BaseAdapter {
 	 *            运动员对象
 	 */
 	public void deleteAthRequest(final Athlete a) {
-		StringRequest stringRequest2 = new StringRequest(Method.POST,
-				CommonUtils.HOSTURL + "deleteAthlete", new Listener<String>() {
 
-					@Override
-					public void onResponse(String response) {
-						// TODO Auto-generated method stub
-						Log.i("AthleteListAdapter", response);
-						loadingDialog.dismiss();
-						JSONObject obj;
-						try {
-							obj = new JSONObject(response);
-							int resCode = (Integer) obj.get("resCode");
-							if (resCode == 1) {
-								setDatas(dbManager.getAthletes(userID));
-								notifyDataSetChanged();
-								CommonUtils.showToast(context, toast, "删除成功");
-							} else {
-								CommonUtils.showToast(context, toast, "删除失败");
-							}
-						} catch (JSONException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					}
-				}, new ErrorListener() {
+		Map<String,String> map = getDeleteAthleteDataMap(a.getAid());
 
-					@Override
-					public void onErrorResponse(VolleyError error) {
-						// TODO Auto-generated method stub
-						Log.e("AthleteListAdapter", error.getMessage());
-						loadingDialog.dismiss();
+		VolleyUtil.ResponseListener listener = new VolleyUtil.ResponseListener() {
+			@Override
+			public void onSuccess(String string) {
+				loadingDialog.dismiss();
+				JSONObject obj;
+				try {
+					obj = new JSONObject(string);
+					int resCode = (Integer) obj.get("resCode");
+					if (resCode == 1) {
+//								int result = dbManager.deleteAthlete(athletes,
+//										position);
+						int result = dbManager.deleteAthlete(a);
+						setDatas(dbManager.getAthletes(userID));
+						notifyDataSetChanged();
+						CommonUtils.showToast(context, toast, context.getString(R.string.delete_succeed));
+					} else {
+						CommonUtils.showToast(context, toast, context.getString(R.string.delete_failed));
 					}
-				}) {
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			};
 
 			@Override
-			protected Map<String, String> getParams() throws AuthFailureError {
-				// 设置请求参数
-				Map<String, String> map = new HashMap<String, String>();
-				map.put("athlete_id", a.getAid() + "");
-				return map;
+			public void onError(String string) {
+				loadingDialog.dismiss();
+				CommonUtils.showToast(context, toast, context.getString(R.string.server_or_network_error));
 			}
 		};
-		stringRequest2.setRetryPolicy(new DefaultRetryPolicy(
-				Constants.SOCKET_TIMEOUT,
-				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-		mQueue.add(stringRequest2);
+
+		VolleyUtil.httpJson(Constants.DELETE_ATHLETE_URL,Method.POST,map,listener,app);
+
+//		StringRequest stringRequest2 = new StringRequest(Method.POST,
+//				CommonUtils.HOSTURL + "deleteAthlete", new Listener<String>() {
+//
+//					@Override
+//					public void onResponse(String response) {
+//						// TODO Auto-generated method stub
+//						Log.i("AthleteListAdapter", response);
+//						loadingDialog.dismiss();
+//						JSONObject obj;
+//						try {
+//							obj = new JSONObject(response);
+//							int resCode = (Integer) obj.get("resCode");
+//							if (resCode == 1) {
+////								int result = dbManager.deleteAthlete(athletes,
+////										position);
+//								int result = dbManager.deleteAthlete(a);
+//								setDatas(dbManager.getAthletes(userID));
+//								notifyDataSetChanged();
+//								CommonUtils.showToast(context, toast, "删除成功");
+//							} else {
+//								CommonUtils.showToast(context, toast, "删除失败");
+//							}
+//						} catch (JSONException e) {
+//							// TODO Auto-generated catch block
+//							e.printStackTrace();
+//						}
+//					}
+//				}, new ErrorListener() {
+//
+//					@Override
+//					public void onErrorResponse(VolleyError error) {
+//						// TODO Auto-generated method stub
+//						Log.e("AthleteListAdapter", error.getMessage());
+//						loadingDialog.dismiss();
+//					}
+//				}) {
+//
+//			@Override
+//			protected Map<String, String> getParams() throws AuthFailureError {
+//				// 设置请求参数
+//				Map<String, String> map = new HashMap<String, String>();
+//				map.put("athlete_id", String.valueOf(a.getAid()));
+//				return map;
+//			}
+//		};
+//		stringRequest2.setRetryPolicy(new DefaultRetryPolicy(
+//				Constants.SOCKET_TIMEOUT,
+//				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+//				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+//		mQueue.add(stringRequest2);
 	}
+
+	/**
+	 * 获取删除运动员的数据集
+	 * @param aid
+	 * @return
+	 */
+	private Map<String,String> getDeleteAthleteDataMap(int aid){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("athlete_id", String.valueOf(aid));
+		return map;
+	}
+
+
 }

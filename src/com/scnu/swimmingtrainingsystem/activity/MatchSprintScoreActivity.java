@@ -15,7 +15,6 @@ import android.view.Window;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
@@ -40,10 +39,7 @@ import com.scnu.swimmingtrainingsystem.R;
 import com.scnu.swimmingtrainingsystem.adapter.ChooseAthleteAdapter;
 import com.scnu.swimmingtrainingsystem.adapter.ScoreListAdapter;
 import com.scnu.swimmingtrainingsystem.db.DBManager;
-import com.scnu.swimmingtrainingsystem.effect.Effectstype;
-import com.scnu.swimmingtrainingsystem.effect.NiftyDialogBuilder;
 import com.scnu.swimmingtrainingsystem.http.JsonTools;
-import com.scnu.swimmingtrainingsystem.model.AdapterHolder;
 import com.scnu.swimmingtrainingsystem.model.Athlete;
 import com.scnu.swimmingtrainingsystem.model.Score;
 import com.scnu.swimmingtrainingsystem.model.User;
@@ -212,67 +208,67 @@ public class MatchSprintScoreActivity extends Activity {
 			}
 		});
 
-		chooseAthlete(chooseButton);
+//		chooseAthlete(chooseButton);
 
 	}
 
-	public void chooseAthlete(View v) {
-		final NiftyDialogBuilder selectDialog = NiftyDialogBuilder
-				.getInstance(this);
-		Effectstype effect = Effectstype.Fall;
-		selectDialog.setCustomView(R.layout.dialog_choose_athlete, this);
-		Window window = selectDialog.getWindow();
-		athleteListView = (ListView) window.findViewById(R.id.choose_list);
-		allAthleteAdapter = new ChooseAthleteAdapter(this, athleteNames, map);
-		athleteListView.setAdapter(allAthleteAdapter);
-		athleteListView.setOnItemClickListener(new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
-				AdapterHolder holder = (AdapterHolder) arg1.getTag();
-				// 改变CheckBox的状态
-				holder.cb.toggle();
-				if (holder.cb.isChecked()) {
-					if (!dragDatas.contains(allAthleteAdapter
-							.getChooseAthlete().get(arg2)))
-						// 如果checkbox已选并且chosenAthleteList中无该项
-						dragDatas.add(allAthleteAdapter.getChooseAthlete().get(
-								arg2));
-				} else {
-					// 如果checkbox不选择并且chosenAthleteList中有该项
-					if (dragDatas.contains(allAthleteAdapter.getChooseAthlete()
-							.get(arg2)))
-						dragDatas.remove(allAthleteAdapter.getChooseAthlete()
-								.get(arg2));
-				}
-				// 将CheckBox的选中状况记录下来
-				map.put(arg2, holder.cb.isChecked());
-			}
-		});
-		selectDialog.withTitle(getString(R.string.choose_athlete)).withMessage(null)
-				.withIcon(getResources().getDrawable(R.drawable.ic_launcher))
-				.isCancelableOnTouchOutside(false).withDuration(500)
-				.withEffect(effect).withButton1Text(getString(R.string.back))
-				.withButton2Text(Constants.OK_STRING)
-				.setButton1Click(new View.OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						selectDialog.dismiss();
-					}
-				}).setButton2Click(new View.OnClickListener() {
-
-					@Override
-					public void onClick(View v) {
-						// TODO Auto-generated method stub
-						dragAdapter.notifyDataSetChanged();
-						selectDialog.dismiss();
-					}
-
-				}).show();
-
-		allAthleteAdapter.notifyDataSetChanged();
-	}
+//	public void chooseAthlete(View v) {
+//		final NiftyDialogBuilder selectDialog = NiftyDialogBuilder
+//				.getInstance(this);
+//		Effectstype effect = Effectstype.Fall;
+//		selectDialog.setCustomView(R.layout.dialog_choose_athlete, this);
+//		Window window = selectDialog.getWindow();
+//		athleteListView = (ListView) window.findViewById(R.id.choose_list);
+//		allAthleteAdapter = new ChooseAthleteAdapter(this, athleteNames, map);
+//		athleteListView.setAdapter(allAthleteAdapter);
+//		athleteListView.setOnItemClickListener(new OnItemClickListener() {
+//
+//			@Override
+//			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+//					long arg3) {
+//				AdapterHolder holder = (AdapterHolder) arg1.getTag();
+//				// 改变CheckBox的状态
+//				holder.cb.toggle();
+//				if (holder.cb.isChecked()) {
+//					if (!dragDatas.contains(allAthleteAdapter
+//							.getChooseAthlete().get(arg2)))
+//						// 如果checkbox已选并且chosenAthleteList中无该项
+//						dragDatas.add(allAthleteAdapter.getChooseAthlete().get(
+//								arg2));
+//				} else {
+//					// 如果checkbox不选择并且chosenAthleteList中有该项
+//					if (dragDatas.contains(allAthleteAdapter.getChooseAthlete()
+//							.get(arg2)))
+//						dragDatas.remove(allAthleteAdapter.getChooseAthlete()
+//								.get(arg2));
+//				}
+//				// 将CheckBox的选中状况记录下来
+//				map.put(arg2, holder.cb.isChecked());
+//			}
+//		});
+//		selectDialog.withTitle(getString(R.string.choose_athlete)).withMessage(null)
+//				.withIcon(getResources().getDrawable(R.drawable.ic_launcher))
+//				.isCancelableOnTouchOutside(false).withDuration(500)
+//				.withEffect(effect).withButton1Text(getString(R.string.back))
+//				.withButton2Text(Constants.OK_STRING)
+//				.setButton1Click(new View.OnClickListener() {
+//					@Override
+//					public void onClick(View v) {
+//						selectDialog.dismiss();
+//					}
+//				}).setButton2Click(new View.OnClickListener() {
+//
+//					@Override
+//					public void onClick(View v) {
+//						// TODO Auto-generated method stub
+//						dragAdapter.notifyDataSetChanged();
+//						selectDialog.dismiss();
+//					}
+//
+//				}).show();
+//
+//		allAthleteAdapter.notifyDataSetChanged();
+//	}
 
 	public void saveScores(View v) {
 		if (!isSave) {
@@ -337,7 +333,7 @@ public class MatchSprintScoreActivity extends Activity {
 		scoreMap.put("type", 3);
 		final String jsonString = JsonTools.creatJsonString(scoreMap);
 		StringRequest stringRequest = new StringRequest(Method.POST,
-				CommonUtils.HOSTURL + "addScores", new Listener<String>() {
+				Constants.ADD_SCORE, new Listener<String>() {
 
 					@Override
 					public void onResponse(String response) {

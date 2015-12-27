@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.scnu.swimmingtrainingsystem.R;
+import com.scnu.swimmingtrainingsystem.model.Athlete;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -21,9 +23,32 @@ import java.util.regex.Pattern;
 @SuppressLint("DefaultLocale")
 public class CommonUtils {
 
-	public static String HOSTURL = "";
 
+	/**
+	 * 获取运动员的id
+	 * @param lists
+	 * @return
+	 */
+	public static List<Integer> getAthleteIdsByAthletes(List<Athlete> lists){
+		List<Integer> ids = new ArrayList<Integer>();
+		for(Athlete a : lists){
+			ids.add(a.getAid());
+		}
+		return ids;
+	}
 
+	/**
+	 * 获取运动员的名字
+	 * @param lists
+	 * @return
+	 */
+	public static List<String> getAthleteNamesByAthletes(List<Athlete> lists){
+		List<String> names = new ArrayList<String>();
+		for(Athlete a : lists){
+			names.add(a.getName());
+		}
+		return  names;
+	}
 
 	/**
 	 * 将一个运动员的多次成绩综合统计
@@ -134,6 +159,29 @@ public class CommonUtils {
 			return true;
 		}
 		lastClickTime = time;
+		return false;
+	}
+
+	public static void removeAthleteFromList(List<Athlete> list,Athlete a){
+		int aid = a.getAid();
+		int size = list.size();
+		for(int i = 0 ; i < size ; i++){
+			if(list.get(i).getAid() == aid){
+				list.remove(i);
+				break;
+			}
+		}
+
+	}
+
+	public static boolean ListContainsAthlete(List<Athlete> list,Athlete a){
+		int aid = a.getAid();
+		int size = list.size();
+		for(int i = 0 ; i < size ; i++){
+			if(list.get(i).getAid() == aid){
+				return true;
+			}
+		}
 		return false;
 	}
 

@@ -7,6 +7,7 @@
     <string name="submit_succeed">提交成功</string>
     <string name="submit_failed">提交失败</string>
     <string name="modify_succeed">修改成功</string>
+    <string name="modify_failed">修改失败</string>
     <string name="synchronized_success">同步成功</string>
     <string name="synchronized_failed">同步失败</string>
     <string name="network_error">当前网络不给力</string>
@@ -35,7 +36,10 @@
     <string name="male">男</string>
     <string name="female">女</string>
     <string name="unknow_error">未知错误</string>
+    <string name="check_athlete_msg">查看运动员信息</string>
     <string name="add_athlete_title_string">添加运动员</string>
+    <string name="delete_succeed">删除成功</string>
+    <string name="delete_failed">删除失败</string>
     <string name="name_cannot_be_empty_string">运动员名字不能为空</string>
     <string name="name_cannot_be_repete_string">存在运动员名字重复，请更改</string>
 
@@ -112,6 +116,7 @@
     <!-- mainactivity -->
     <string name="athlete">运动员</string>
     <string name="timer">计时器</string>
+    <string name="choosed_athlete">已经选择的运动员</string>
     <string name="otherfunctions">小功能</string>
     <string name="queryscore">成绩查询</string>
     <string name="setting">设置</string>
@@ -125,7 +130,7 @@
     <string name="leave_at_least_one_score">至少保留一个成绩</string>
     <string name="adjust_finish_goto_statistics">调整完毕，进入统计页面</string>
     <string name="fill_in_scores_distance">请填写记录当前成绩的距离！</string>
-    <string name="score_num_not_equalwith_athlete_num">成绩数目与运动员数目不相等,请删除部分数据!</string>
+    <string name="score_num_not_equalwith_athlete_num">成绩数目与运动员数目不相等,请删除部分数据!若误删数据，可以按右上角按钮进行恢复</string>
     <string name="copy_add">复制添加该项</string>
     <string name="goto_next_timer_or_adjust_score">"是否开始下一趟计时？ \n选择【否】
         则返回调整成绩或者运动员数目,或者结束本轮计时\n选择【是】则直接开始下一趟计时</string>
@@ -212,6 +217,9 @@
     
     <string name="click_clock_and_record_score">点击表盘开始计时，再次点击记录成绩</string>
     <string name="default_time_per_min">0.00次/分钟</string>
+
+    <!-- modifyEachTimeScoreActivityt -->
+    <string name="modify_score">调整多趟成绩</string>
     
     
     <!-- springfragment -->

@@ -1,7 +1,5 @@
 package com.scnu.swimmingtrainingsystem.adapter;
 
-import java.util.List;
-
 import android.content.Context;
 import android.util.SparseBooleanArray;
 import android.view.View;
@@ -12,6 +10,9 @@ import android.widget.TextView;
 
 import com.scnu.swimmingtrainingsystem.R;
 import com.scnu.swimmingtrainingsystem.model.AdapterHolder;
+import com.scnu.swimmingtrainingsystem.model.Athlete;
+
+import java.util.List;
 
 /**
  * 选择运动员数据适配器
@@ -21,10 +22,10 @@ import com.scnu.swimmingtrainingsystem.model.AdapterHolder;
  */
 public class ChooseAthleteAdapter extends BaseAdapter {
 	private Context context;
-	private List<String> list;
+	private List<Athlete> list;
 	private SparseBooleanArray map;
 
-	public ChooseAthleteAdapter(Context context, List<String> list,
+	public ChooseAthleteAdapter(Context context, List<Athlete> list,
 			SparseBooleanArray map) {
 		this.context = context;
 		this.list = list;
@@ -64,14 +65,14 @@ public class ChooseAthleteAdapter extends BaseAdapter {
 			holder = (AdapterHolder) convertView.getTag();
 		}
 
-		holder.tv.setText(list.get(position));
+		holder.tv.setText(list.get(position).getName());
 
 		// 根据Map来设置checkbox的选中状况
 		holder.cb.setChecked(this.map.get(position));
 		return convertView;
 	}
 
-	public List<String> getChooseAthlete() {
+	public List<Athlete> getChooseAthlete() {
 		return list;
 	}
 }

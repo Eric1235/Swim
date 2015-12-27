@@ -136,7 +136,7 @@ public class ModifyPassActivity extends Activity {
 	public void modifyRequest(final String oldPassword,
 			final String newPassword, final String comfPassword) {
 		StringRequest stringRequest = new StringRequest(Method.POST,
-				CommonUtils.HOSTURL + "modifyPass", new Listener<String>() {
+				Constants.MODIFY_PASSWORD, new Listener<String>() {
 
 					@Override
 					public void onResponse(String response) {

@@ -120,6 +120,15 @@ public class Score extends DataSupport {
 		this.user = user;
 	}
 
+	/**
+	 * 获取运动员的id
+	 * @return
+	 */
+	public int getAthleteId(){
+
+		return getAthlete().getAid();
+	}
+
 	@Override
 	public String toString() {
 		return "Score [id=" + id + ", times=" + times + ", score=" + score

@@ -11,8 +11,6 @@ import android.util.SparseBooleanArray;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
@@ -24,10 +22,7 @@ import com.scnu.swimmingtrainingsystem.R;
 import com.scnu.swimmingtrainingsystem.adapter.ChooseAthleteAdapter;
 import com.scnu.swimmingtrainingsystem.adapter.ShowChosenAthleteAdapter;
 import com.scnu.swimmingtrainingsystem.db.DBManager;
-import com.scnu.swimmingtrainingsystem.effect.Effectstype;
-import com.scnu.swimmingtrainingsystem.effect.NiftyDialogBuilder;
 import com.scnu.swimmingtrainingsystem.http.JsonTools;
-import com.scnu.swimmingtrainingsystem.model.AdapterHolder;
 import com.scnu.swimmingtrainingsystem.model.Athlete;
 import com.scnu.swimmingtrainingsystem.model.Plan;
 import com.scnu.swimmingtrainingsystem.model.User;
@@ -184,75 +179,75 @@ public class TimerSettingActivity extends Activity {
 		poolSpinner.setSelection(selectedPositoin);
 		strokeSpinner.setAdapter(adapter2);
 		strokeSpinner.setSelection(selectedPositoin);
-		showChosenAthleteAdapter = new ShowChosenAthleteAdapter(
-				TimerSettingActivity.this, chosenAthletes);
+//		showChosenAthleteAdapter = new ShowChosenAthleteAdapter(
+//				TimerSettingActivity.this, chosenAthletes);
 		chosenListView.setAdapter(showChosenAthleteAdapter);
 	}
 
-	/**
-	 * 选择运动员
-	 * 
-	 * @param v
-	 */
-	public void chooseAthlete(View v) {
-		final NiftyDialogBuilder selectDialog = NiftyDialogBuilder
-				.getInstance(this);
-		Effectstype effect = Effectstype.Fall;
-		selectDialog.setCustomView(R.layout.dialog_choose_athlete, this);
-		Window window = selectDialog.getWindow();
-		athleteListView = (ListView) window.findViewById(R.id.choose_list);
-		allAthleteAdapter = new ChooseAthleteAdapter(this, athleteNames, map);
-		athleteListView.setAdapter(allAthleteAdapter);
-		athleteListView.setOnItemClickListener(new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
-				AdapterHolder holder = (AdapterHolder) arg1.getTag();
-				// 改变CheckBox的状态
-				holder.cb.toggle();
-				if (holder.cb.isChecked()) {
-					if (!chosenAthletes.contains(allAthleteAdapter
-							.getChooseAthlete().get(arg2)))
-						// 如果checkbox已选并且chosenAthleteList中无该项
-						chosenAthletes.add(allAthleteAdapter.getChooseAthlete()
-								.get(arg2));
-				} else {
-					// 如果checkbox不选择并且chosenAthleteList中有该项
-					if (chosenAthletes.contains(allAthleteAdapter
-							.getChooseAthlete().get(arg2)))
-						chosenAthletes.remove(allAthleteAdapter
-								.getChooseAthlete().get(arg2));
-				}
-				// 将CheckBox的选中状况记录下来
-				map.put(arg2, holder.cb.isChecked());
-			}
-		});
-		selectDialog.withTitle(getString(R.string.choose_athlete)).withMessage(null)
-				.withIcon(getResources().getDrawable(R.drawable.ic_launcher))
-				.isCancelableOnTouchOutside(false).withDuration(500)
-				.withEffect(effect).withButton1Text(getString(R.string.back))
-				.withButton2Text(Constants.OK_STRING)
-				.setButton1Click(new View.OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						selectDialog.dismiss();
-					}
-				}).setButton2Click(new View.OnClickListener() {
-
-					@Override
-					public void onClick(View v) {
-						// TODO Auto-generated method stub
-						showChosenAthleteAdapter = new ShowChosenAthleteAdapter(
-								TimerSettingActivity.this, chosenAthletes);
-						chosenListView.setAdapter(showChosenAthleteAdapter);
-						selectDialog.dismiss();
-					}
-
-				}).show();
-
-		allAthleteAdapter.notifyDataSetChanged();
-	}
+//	/**
+//	 * 选择运动员
+//	 *
+//	 * @param v
+//	 */
+//	public void chooseAthlete(View v) {
+//		final NiftyDialogBuilder selectDialog = NiftyDialogBuilder
+//				.getInstance(this);
+//		Effectstype effect = Effectstype.Fall;
+//		selectDialog.setCustomView(R.layout.dialog_choose_athlete, this);
+//		Window window = selectDialog.getWindow();
+//		athleteListView = (ListView) window.findViewById(R.id.choose_list);
+//		allAthleteAdapter = new ChooseAthleteAdapter(this, athleteNames, map);
+//		athleteListView.setAdapter(allAthleteAdapter);
+//		athleteListView.setOnItemClickListener(new OnItemClickListener() {
+//
+//			@Override
+//			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+//					long arg3) {
+//				AdapterHolder holder = (AdapterHolder) arg1.getTag();
+//				// 改变CheckBox的状态
+//				holder.cb.toggle();
+//				if (holder.cb.isChecked()) {
+//					if (!chosenAthletes.contains(allAthleteAdapter
+//							.getChooseAthlete().get(arg2)))
+//						// 如果checkbox已选并且chosenAthleteList中无该项
+//						chosenAthletes.add(allAthleteAdapter.getChooseAthlete()
+//								.get(arg2));
+//				} else {
+//					// 如果checkbox不选择并且chosenAthleteList中有该项
+//					if (chosenAthletes.contains(allAthleteAdapter
+//							.getChooseAthlete().get(arg2)))
+//						chosenAthletes.remove(allAthleteAdapter
+//								.getChooseAthlete().get(arg2));
+//				}
+//				// 将CheckBox的选中状况记录下来
+//				map.put(arg2, holder.cb.isChecked());
+//			}
+//		});
+//		selectDialog.withTitle(getString(R.string.choose_athlete)).withMessage(null)
+//				.withIcon(getResources().getDrawable(R.drawable.ic_launcher))
+//				.isCancelableOnTouchOutside(false).withDuration(500)
+//				.withEffect(effect).withButton1Text(getString(R.string.back))
+//				.withButton2Text(Constants.OK_STRING)
+//				.setButton1Click(new View.OnClickListener() {
+//					@Override
+//					public void onClick(View v) {
+//						selectDialog.dismiss();
+//					}
+//				}).setButton2Click(new View.OnClickListener() {
+//
+//					@Override
+//					public void onClick(View v) {
+//						// TODO Auto-generated method stub
+//						showChosenAthleteAdapter = new ShowChosenAthleteAdapter(
+//								TimerSettingActivity.this, chosenAthletes);
+//						chosenListView.setAdapter(showChosenAthleteAdapter);
+//						selectDialog.dismiss();
+//					}
+//
+//				}).show();
+//
+//		allAthleteAdapter.notifyDataSetChanged();
+//	}
 
 	/**
 	 * 开始计时,有分泳道计时和手动匹配计时
@@ -287,22 +282,22 @@ public class TimerSettingActivity extends Activity {
 			app.getMap().put(Constants.TEST_DATE, date);
 			app.getMap().put(Constants.INTERVAL, intervalDistance);
 			List<String> athleteNames = new ArrayList<String>();
-			List<Athlete> chosenPersons = dbManager
-					.getAthleteByNames(chosenAthletes);
-			for (Athlete ath : chosenPersons) {
-				athleteNames.add(ath.getName());
-			}
-			// 报存显示在成绩运动员匹配页面的运动员名字
-			app.getMap().put(Constants.DRAG_NAME_LIST, athleteNames);
-
-			String poolString = (String) poolSpinner.getSelectedItem();
-			int strokeNumber = strokeSpinner.getSelectedItemPosition();
-			String extra = remarksEditText.getText().toString();
-			// 将配置保存到数据库计划表中
-			savePlan(poolString, strokeNumber,totalDistance, extra, chosenPersons);
-			Intent i = new Intent(this, TimerActivity.class);
-			startActivity(i);
-			finish();
+////			List<Athlete> chosenPersons = dbManager
+////					.getAthleteByNames(chosenAthletes);
+//			for (Athlete ath : chosenPersons) {
+//				athleteNames.add(ath.getName());
+//			}
+//			// 报存显示在成绩运动员匹配页面的运动员名字
+//			app.getMap().put(Constants.DRAG_NAME_LIST, athleteNames);
+//
+//			String poolString = (String) poolSpinner.getSelectedItem();
+//			int strokeNumber = strokeSpinner.getSelectedItemPosition();
+//			String extra = remarksEditText.getText().toString();
+//			// 将配置保存到数据库计划表中
+//			savePlan(poolString, strokeNumber,totalDistance, extra, chosenPersons);
+//			Intent i = new Intent(this, TimerActivity.class);
+//			startActivity(i);
+//			finish();
 		}
 
 	}

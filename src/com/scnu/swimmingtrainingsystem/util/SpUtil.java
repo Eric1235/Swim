@@ -104,6 +104,20 @@ public class SpUtil {
         editor.commit();
     }
 
+    public static String getLoginedUserName(Context context){
+        SharedPreferences sp = context.getSharedPreferences(
+                Constants.LOGININFO, Context.MODE_PRIVATE);
+        String name = sp.getString("username", null);
+        return name;
+    }
+
+    public static String getLoginedPassword(Context context){
+        SharedPreferences sp = context.getSharedPreferences(
+                Constants.LOGININFO, Context.MODE_PRIVATE);
+        String password = sp.getString("password", null);
+        return password;
+    }
+
     public static void SaveLoginInfo(Context context, String host, String ip,
                                      String port) {
         SharedPreferences sp = context.getSharedPreferences(
@@ -168,7 +182,7 @@ public class SpUtil {
      */
     public static String getSwimInterval(Context context){
         SharedPreferences sp = context.getSharedPreferences(Constants.LOGININFO, Context.MODE_PRIVATE);
-        String interval = sp.getString(Constants.INTERVAL, "0");
+        String interval = sp.getString(Constants.INTERVAL, "");
         return interval;
     }
 
@@ -196,7 +210,7 @@ public class SpUtil {
     public static String getDistance(Context context){
         SharedPreferences sp = context.getSharedPreferences(
                 Constants.LOGININFO, Context.MODE_PRIVATE);
-        String distance = sp.getString(Constants.SWIM_DISTANCE, "0");
+        String distance = sp.getString(Constants.SWIM_DISTANCE, "");
         return distance;
     }
 
@@ -211,13 +225,14 @@ public class SpUtil {
      * @param athleteString
      */
     public static void saveCurrentScoreAndAthlete(Context context, int i,
-                                                  int crrentDistance, String scoreString, String athleteString) {
+                                                  int crrentDistance, String scoreString, String athleteString,String athleteIDString) {
         SharedPreferences sp = context.getSharedPreferences(
                 Constants.LOGININFO, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.putInt(Constants.CURRENT_DISTANCE + i, crrentDistance);
         editor.putString(Constants.SCORESJSON + i, scoreString);
         editor.putString(Constants.ATHLETEJSON + i, athleteString);
+        editor.putString(Constants.ATHLETEIDJSON + i,athleteIDString);
         editor.commit();
     }
 

@@ -4,8 +4,67 @@ package com.scnu.swimmingtrainingsystem.util;
  * 保存系统所需常量类
  * 
  * @author LittleByte
+ * 修改：李新坤
  */
 public class Constants {
+
+	public static String HOSTURL = "http://104.160.34.110:8080/SWIMYUE33/httpPost.action?action_flag=";
+
+	/**
+	 * 登录app
+	 */
+	public static String LOGIN_URL = HOSTURL + "login";
+
+	/**
+	 * 	注册
+	 */
+	public static String REGIST = HOSTURL + "regist";
+
+	/**
+	 * 添加运动员
+	 */
+	public static String ADD_ATHLETE_URL = HOSTURL + "addAthlete";
+
+	/**
+	 * 获取运动员列表
+	 */
+	public static String GET_ATHLETE_LIST = HOSTURL + "getAthletes";
+
+	/**
+	 * 修改运动员
+	 */
+	public static String MODIFY_ATHLETE_URL = HOSTURL + "modifyAthlete";
+
+	/**
+	 * 删除运动员
+	 */
+	public static String DELETE_ATHLETE_URL = HOSTURL + "deleteAthlete";
+
+	/**
+	 * 添加成绩
+	 */
+	public static String ADD_SCORE = HOSTURL + "addScores";
+
+	/**
+	 * 获取成绩
+	 */
+	public static String GET_SCORE = HOSTURL + "getScores";
+
+	/**
+	 * 修改密码
+	 */
+	public static String MODIFY_PASSWORD = HOSTURL + "modifyPass";
+
+	/**
+	 * 获取密码
+	 */
+	public static String GET_PASSWORD = HOSTURL + "getPassword";
+
+	/**
+	 * 获取全部成绩
+	 */
+	public static String GET_SCORE_DATE_LIST = HOSTURL + "getScoreDateList";
+
 
 	/**
 	 * 记录登录后的用户id
@@ -18,7 +77,7 @@ public class Constants {
 	/**
 	 * 超时时间设置
 	 */
-	public static final int SOCKET_TIMEOUT = 10000;
+	public static final int SOCKET_TIMEOUT = 5000;
 
 	/**
 	 * 成绩类型 1:普通成绩
@@ -57,6 +116,11 @@ public class Constants {
 	 * 保存手动匹配计时按名次排行的运动员名字,方便除第一趟计时外不用再次拖动运动员进行排行
 	 */
 	public static final String DRAG_NAME_LIST = "dragList";
+
+	/**
+	 * 保存排行的运动员id
+	 */
+	public static final String DRAG_NAME_LIST_IDS = "DRAG_NAME_IDS";
 
 	/**
 	 * 保存当前登录的用户id
@@ -117,6 +181,9 @@ public class Constants {
 	public static final String SCORESJSON = "scoresJson";
 
 	public static final String ATHLETEJSON = "athleteJson";
+
+	public static final String ATHLETEIDJSON = "ATHLETEIDJSON";
+
 	/**
 	 * 使用说明标题
 	 */

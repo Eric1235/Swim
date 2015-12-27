@@ -8,7 +8,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,17 +27,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.Request.Method;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.Response.Listener;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.android.volley.Request;
 import com.mobeta.android.dslv.DragSortListView;
 import com.scnu.swimmingtrainingsystem.R;
+import com.scnu.swimmingtrainingsystem.adapter.DragAdapter;
 import com.scnu.swimmingtrainingsystem.adapter.ScoreListAdapter;
 import com.scnu.swimmingtrainingsystem.db.DBManager;
 import com.scnu.swimmingtrainingsystem.http.JsonTools;
@@ -52,6 +44,7 @@ import com.scnu.swimmingtrainingsystem.util.AppController;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
 import com.scnu.swimmingtrainingsystem.util.SpUtil;
+import com.scnu.swimmingtrainingsystem.util.VolleyUtil;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
 
 import org.json.JSONException;
@@ -67,37 +60,167 @@ public class MatchScoreActivity extends Activity implements
 		OnItemLongClickListener {
 
 	private MyApplication app;
+
+//	/**
+//	 * 回调监听器
+//	 */
+//	private VolleyUtil.ResponseListener reponseListener;
+
+	private ArrayList<String> scores = new ArrayList<String>();
+	/**
+	 * 拖拽运动员的适配器
+	 */
+	private DragAdapter dragAdapter;
+	private List<ListView> viewList;
+	private List<String> dragDatas1;
+	private List<Athlete> dragDatas;
+	private boolean isConnected;
+	private int userId;
+	private Plan plan;
+	private ArrayList<String> originScores = new ArrayList<String>();
+	//	private ArrayList<String> originNames = new ArrayList<String>();
+	private ArrayList<Athlete> originNames = new ArrayList<Athlete>();
+
+	private List<Integer> dragAthleteIDs;
+
+	private AutoCompleteTextView acTextView;
+	private DBManager mDbManager;
+
 	private Button btNextTiming, btStatistics;
 	private DragSortListView scoreListView;
 	private DragSortListView nameListView;
 	private ScoreListAdapter adapter;
-	private ArrayList<String> scores = new ArrayList<String>();
-	private ArrayAdapter<String> dragAdapter;
-	private List<ListView> viewList;
-	private List<String> dragDatas;
-	private AutoCompleteTextView acTextView;
-	private DBManager mDbManager;
-	private boolean isConnected;
-	private int userId;
-	private Plan plan;
+
 	private LoadingDialog loadingDialog;
-	private RequestQueue mQueue;
+//	private RequestQueue mQueue;
 	private Toast mToast;
 	private LinearLayout mLayout;
 	private RelativeLayout mLayout2;
-	private ArrayList<String> originScores = new ArrayList<String>();
-	private ArrayList<String> originNames = new ArrayList<String>();
+
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_matchscore);
+		init();
+//		try {
+//			init();
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//			startActivity(new Intent(this, LoginActivity.class));
+//		}
+	}
+
+	@SuppressWarnings("unchecked")
+	private void init() {
+		// TODO Auto-generated method stub
+		app = (MyApplication) getApplication();
+		app.addActivity(this);
+		mDbManager = DBManager.getInstance();
+		isConnected = (Boolean) app.getMap().get(Constants.IS_CONNECT_SERVER);
+//		mQueue = Volley.newRequestQueue(this);
+		/**
+		 * 接收传过来的成绩，数组
+		 */
+		Intent result = getIntent();
+		scores = result.getStringArrayListExtra("SCORES");
+		originScores.addAll(scores);
+
+		userId = SpUtil.getUID(MatchScoreActivity.this);
+		Long planId = (Long) app.getMap().get(Constants.PLAN_ID);
+		plan = DataSupport.find(Plan.class, planId);
+
+		mLayout = (LinearLayout) findViewById(R.id.ll_pop);
+		mLayout2 = (RelativeLayout) findViewById(R.id.match_score_headbar);
+		btNextTiming = (Button) findViewById(R.id.match_done);
+		btStatistics = (Button) findViewById(R.id.match_statistic);
+		scoreListView = (DragSortListView) findViewById(R.id.matchscore_list);
+		nameListView = (DragSortListView) findViewById(R.id.matchName_list);
+		acTextView = (AutoCompleteTextView) findViewById(R.id.match_act_current_distance);
+
+		nameListView.setDropListener(onDrop);
+		/**
+		 * 设置运动员名字不能删除
+		 */
+//		nameListView.setRemoveListener(onRemove);
+		nameListView.setDragScrollProfile(ssProfile);
+
+		scoreListView.setRemoveListener(onRemove2);
+
+		// 设置数据源
+		String[] autoStrings = getResources().getStringArray(R.array.swim_length);
+
+		ArrayAdapter<String> tipsAdapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_dropdown_item_1line, autoStrings);
+		// 设置AutoCompleteTextView的Adapter
+		acTextView.setAdapter(tipsAdapter);
+		acTextView.setDropDownHeight(350);
+		acTextView.setThreshold(1);
+
+		int numberth = (Integer) app.getMap().get(Constants.CURRENT_SWIM_TIME);
+		String intervalString = (String) app.getMap().get(Constants.INTERVAL);
+		int intervalDistance = Integer
+				.parseInt(intervalString.replace("米", ""));
+		acTextView.setText(intervalDistance * numberth + "");
+		int totalDistance = plan.getDistance();
+		if (totalDistance <= intervalDistance * numberth) {
+			btNextTiming.setVisibility(View.GONE);
+			btStatistics.setText(getString(R.string.adjust_finish_goto_statistics));
+		}
+
+		/**
+		 * 获取选择的运动员id
+		 */
+		dragAthleteIDs = (List<Integer>) app.getMap().get(Constants.DRAG_NAME_LIST_IDS);
+//		dragDatas = (List<String>) app.getMap().get(Constants.DRAG_NAME_LIST);
+		/**
+		 * 通过数据库查询得到运动员
+		 */
+		dragDatas = DBManager.getInstance().getAthleteByIDs(dragAthleteIDs);
+		/**
+		 * 备份数据
+		 */
+		originNames.addAll(dragDatas);
+		viewList = new ArrayList<ListView>();
+		viewList.add(scoreListView);
+		viewList.add(nameListView);
+		MyScrollListener mListener = new MyScrollListener();
+		/**
+		 * 设置成绩不能上下移动
+		 */
+//		scoreListView.setOnScrollListener(mListener);
+		nameListView.setOnScrollListener(mListener);
+		adapter = new ScoreListAdapter(scoreListView, this, scores);
+
+		/**
+		 * 运动员名单适配器
+		 */
+		dragAdapter = new DragAdapter(this, R.layout.drag_list_item, dragDatas);
+		scoreListView.setAdapter(adapter);
+		nameListView.setAdapter(dragAdapter);
+		scoreListView.setOnItemLongClickListener(this);
+	}
+
 	private DragSortListView.DropListener onDrop = new DragSortListView.DropListener() {
 		@Override
 		public void drop(int from, int to) {
-			String item = dragAdapter.getItem(from);
+			if(from != to){
+				Athlete item = (Athlete)dragAdapter.getItem(from);
 
-			dragAdapter.notifyDataSetChanged();
-			dragAdapter.remove(item);
-			dragAdapter.insert(item, to);
+				dragAdapter.notifyDataSetChanged();
+				dragAdapter.remove(item);
+				dragAdapter.insert(item, to);
+			}
+
 		}
 	};
 
+	/**
+	 * 运动员名字删除监听器
+	 */
 	private DragSortListView.RemoveListener onRemove = new DragSortListView.RemoveListener() {
 		@Override
 		public void remove(int which) {
@@ -123,6 +246,9 @@ public class MatchScoreActivity extends Activity implements
 		}
 	};
 
+	/**
+	 * 成绩删除监听器
+	 */
 	private DragSortListView.RemoveListener onRemove2 = new DragSortListView.RemoveListener() {
 		@Override
 		public void remove(int which) {
@@ -135,85 +261,6 @@ public class MatchScoreActivity extends Activity implements
 			adapter.notifyDataSetChanged();
 		}
 	};
-
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_matchscore);
-		init();
-//		try {
-//			init();
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			e.printStackTrace();
-//			startActivity(new Intent(this, LoginActivity.class));
-//		}
-	}
-
-	@SuppressWarnings("unchecked")
-	private void init() {
-		// TODO Auto-generated method stub
-		app = (MyApplication) getApplication();
-		app.addActivity(this);
-		mDbManager = DBManager.getInstance();
-		isConnected = (Boolean) app.getMap().get(Constants.IS_CONNECT_SERVER);
-		mQueue = Volley.newRequestQueue(this);
-		Intent result = getIntent();
-		scores = result.getStringArrayListExtra("SCORES");
-		originScores.addAll(scores);
-		mLayout = (LinearLayout) findViewById(R.id.ll_pop);
-		mLayout2 = (RelativeLayout) findViewById(R.id.match_score_headbar);
-		btNextTiming = (Button) findViewById(R.id.match_done);
-		btStatistics = (Button) findViewById(R.id.match_statistic);
-		scoreListView = (DragSortListView) findViewById(R.id.matchscore_list);
-		nameListView = (DragSortListView) findViewById(R.id.matchName_list);
-		nameListView.setDropListener(onDrop);
-		nameListView.setRemoveListener(onRemove);
-		nameListView.setDragScrollProfile(ssProfile);
-
-		scoreListView.setRemoveListener(onRemove2);
-//		userId = (Integer) app.getMap().get(Constants.CURRENT_USER_ID);
-		userId = SpUtil.getUID(MatchScoreActivity.this);
-		Long planId = (Long) app.getMap().get(Constants.PLAN_ID);
-		plan = DataSupport.find(Plan.class, planId);
-		// 设置数据源
-		String[] autoStrings = getResources().getStringArray(R.array.swim_length);
-		acTextView = (AutoCompleteTextView) findViewById(R.id.match_act_current_distance);
-		ArrayAdapter<String> tipsAdapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_dropdown_item_1line, autoStrings);
-		// 设置AutoCompleteTextView的Adapter
-		acTextView.setAdapter(tipsAdapter);
-		acTextView.setDropDownHeight(350);
-		acTextView.setThreshold(1);
-		int numberth = (Integer) app.getMap().get(Constants.CURRENT_SWIM_TIME);
-		String intervalString = (String) app.getMap().get(Constants.INTERVAL);
-		int intervalDistance = Integer
-				.parseInt(intervalString.replace("米", ""));
-		acTextView.setText(intervalDistance * numberth + "");
-		int totalDistance = plan.getDistance();
-		if (totalDistance <= intervalDistance * numberth) {
-			btNextTiming.setVisibility(View.GONE);
-			btStatistics.setText(getString(R.string.adjust_finish_goto_statistics));
-		}
-
-		dragDatas = (List<String>) app.getMap().get(Constants.DRAG_NAME_LIST);
-		originNames.addAll(dragDatas);
-		viewList = new ArrayList<ListView>();
-		viewList.add(scoreListView);
-		viewList.add(nameListView);
-		MyScrollListener mListener = new MyScrollListener();
-		scoreListView.setOnScrollListener(mListener);
-		nameListView.setOnScrollListener(mListener);
-		adapter = new ScoreListAdapter(scoreListView, this, scores);
-
-		dragAdapter = new ArrayAdapter<String>(this, R.layout.drag_list_item,
-				R.id.drag_list_item_text, dragDatas);
-		scoreListView.setAdapter(adapter);
-		nameListView.setAdapter(dragAdapter);
-		scoreListView.setOnItemLongClickListener(this);
-	}
 
 	/**
 	 * 匹配完毕，可以进入下一趟计时或者进入本轮总计
@@ -232,8 +279,9 @@ public class MatchScoreActivity extends Activity implements
 		// 暂时保存到SharePreferences
 		String scoresString = JsonTools.creatJsonString(scores);
 		String athleteJson = JsonTools.creatJsonString(dragDatas);
+		String athleteidJson = JsonTools.creatJsonString(CommonUtils.getAthleteIdsByAthletes(dragAdapter.getAthletes()));
 		createDialog(this, nowCurrent, crrentDistance, scoresString,
-				athleteJson);
+				athleteJson,athleteidJson);
 	}
 
 	/**
@@ -245,7 +293,8 @@ public class MatchScoreActivity extends Activity implements
 	 */
 	private void matchSuccess(String date, int nowCurrent, int distance) {
 		User user = mDbManager.getUserByUid(userId);
-		List<Athlete> athletes = mDbManager.getAthleteByNames(dragDatas);
+//		List<Athlete> athletes = mDbManager.getAthleteByNames(dragDatas);
+		List<Athlete> athletes = dragDatas;
 		for (int i = 0; i < scores.size(); i++) {
 			Athlete a = athletes.get(i);
 			Score s = new Score();
@@ -269,9 +318,7 @@ public class MatchScoreActivity extends Activity implements
 			loadingDialog.show();
 			addScoreRequest(date);
 		} else {
-//			Intent intent = new Intent(MatchScoreActivity.this,
-//					ShowScoreActivity.class);
-//			startActivity(intent);
+
 			AppController.gotoShowScoreActivity(this);
 			finish();
 		}
@@ -309,12 +356,20 @@ public class MatchScoreActivity extends Activity implements
 				matchSuccess(date, nowCurrent, crrentDistance);
 			}
 		} else {
+			/**
+			 * 进入统计activity
+			 */
 //			Intent i = new Intent(this, EachTimeScoreActivity.class);
 			// 如果这是第一趟并且成绩数目与运动员数目不相等,则先保存到sp中，统计再做调整
+			/**
+			 * 通过适配器获取到string
+			 */
 			String scoresString = JsonTools.creatJsonString(scores);
-			String athleteJson = JsonTools.creatJsonString(dragDatas);
+			dragDatas1 = CommonUtils.getAthleteNamesByAthletes(dragAdapter.getAthletes());
+			String athleteJson = JsonTools.creatJsonString(dragDatas1);
+			String athleteidJson = JsonTools.creatJsonString(CommonUtils.getAthleteIdsByAthletes(dragAdapter.getAthletes()));
 			SpUtil.saveCurrentScoreAndAthlete(this, nowCurrent,
-					crrentDistance, scoresString, athleteJson);
+					crrentDistance, scoresString, athleteJson,athleteidJson);
 			AppController.gotoEachTimeScoreActivity(MatchScoreActivity.this);
 //			startActivity(i);
 			finish();
@@ -338,6 +393,7 @@ public class MatchScoreActivity extends Activity implements
 		scores.addAll(originScores);
 		adapter.notifyDataSetChanged();
 		dragDatas.clear();
+		dragDatas1.clear();
 		dragDatas.addAll(originNames);
 		dragAdapter.notifyDataSetChanged();
 	}
@@ -353,7 +409,7 @@ public class MatchScoreActivity extends Activity implements
 	 */
 	private void createDialog(final Context context, final int i,
 			final int crrentDistance, final String scoreString,
-			final String athleteString) {
+			final String athleteString,final String athleteidString) {
 		AlertDialog.Builder build = new AlertDialog.Builder(this);
 		build.setTitle(getString(R.string.system_hint)).setMessage(
 				getString(R.string.goto_next_timer_or_adjust_score));
@@ -369,7 +425,7 @@ public class MatchScoreActivity extends Activity implements
 				dialog.dismiss();
 				// 暂时保存到SharePreferences
 				SpUtil.saveCurrentScoreAndAthlete(context, i,
-						crrentDistance, scoreString, athleteString);
+						crrentDistance, scoreString, athleteString,athleteidString);
 //				Intent intent = new Intent(MatchScoreActivity.this,
 //						TimerActivity.class);
 //				startActivity(intent);
@@ -428,44 +484,59 @@ public class MatchScoreActivity extends Activity implements
 		return super.onKeyDown(keyCode, event);
 	}
 
+	/**
+	 * 发送成绩，找出需要的数据，哪个是空的
+	 * @param date
+	 */
 	private void addScoreRequest(String date) {
-		SmallPlan sp = new SmallPlan();
-		sp.setDistance(plan.getDistance());
-		sp.setPool(plan.getPool());
-		sp.setExtra(plan.getExtra());
-		sp.setStrokeNumber(plan.getStrokeNumber());
-
-		List<SmallScore> smallScores = new ArrayList<SmallScore>();
-		List<Score> scoresResult = mDbManager.getScoreByDate(date);
-		for (Score s : scoresResult) {
-			SmallScore smScore = new SmallScore();
-			smScore.setScore(s.getScore());
-			smScore.setDate(s.getDate());
-			smScore.setDistance(s.getDistance());
-			smScore.setType(s.getType());
-			smScore.setTimes(s.getTimes());
-			smallScores.add(smScore);
-		}
-		List<Integer> aidList = mDbManager.getAthlteAidInScoreByDate(date);
-		User user = mDbManager.getUserByUid(userId);
-		Map<String, Object> scoreMap = new HashMap<String, Object>();
-		scoreMap.put("score", smallScores);
-		scoreMap.put("plan", sp);
-		scoreMap.put("stroke", plan.getStrokeNumber());
-		scoreMap.put("uid", user.getUid());
-		scoreMap.put("athlete_id", aidList);
-		scoreMap.put("type", 1);
-		final String jsonString = JsonTools.creatJsonString(scoreMap);
-		StringRequest stringRequest = new StringRequest(Method.POST,
-				CommonUtils.HOSTURL + "addScores", new Listener<String>() {
-
-					@Override
-					public void onResponse(String response) {
-						// TODO Auto-generated method stub
-						loadingDialog.dismiss();
+//		/**
+//		 * 获取到训练计划
+//		 */
+//		SmallPlan sp = new SmallPlan();
+//		sp.setDistance(plan.getDistance());
+//		sp.setPool(plan.getPool());
+//		sp.setExtra(plan.getExtra());
+//		//新增游泳圈数字段
+//		sp.setTime(plan.getTime());
+//		sp.setStrokeNumber(plan.getStrokeNumber());
+//
+//		List<SmallScore> smallScores = new ArrayList<SmallScore>();
+//		List<Score> scoresResult = mDbManager.getScoreByDate(date);
+//		for (Score s : scoresResult) {
+//			SmallScore smScore = new SmallScore();
+//			smScore.setScore(s.getScore());
+//			smScore.setDate(s.getDate());
+//			smScore.setDistance(s.getDistance());
+//			smScore.setType(s.getType());
+//			smScore.setTimes(s.getTimes());
+//			smallScores.add(smScore);
+//		}
+//		/**
+//		 * 获取运动员id
+//		 */
+//		List<Integer> aidList = CommonUtils.getAthleteIdsByAthletes(dragAdapter.getAthletes());
+//		User user = mDbManager.getUserByUid(userId);
+//		Map<String, Object> scoreMap = new HashMap<String, Object>();
+//		scoreMap.put("score", smallScores);
+//		scoreMap.put("plan", sp);
+//		scoreMap.put("stroke", plan.getStrokeNumber());
+//		scoreMap.put("uid", user.getUid());
+//		scoreMap.put("athlete_id", aidList);
+//		scoreMap.put("type", 1);
+//		final String jsonString = JsonTools.creatJsonString(scoreMap);
+//		Map<String, String> map = new HashMap<String, String>();
+//		map.put("scoresJson", jsonString);
+		/**
+		 * 获取上传的map
+		 */
+		Map<String,String> map = getDataMap(date);
+		VolleyUtil.ResponseListener responseListener = new VolleyUtil.ResponseListener() {
+			@Override
+			public void onSuccess(String string) {
+				loadingDialog.dismiss();
 						JSONObject obj;
 						try {
-							obj = new JSONObject(response);
+							obj = new JSONObject(string);
 							int resCode = (Integer) obj.get("resCode");
 							int planId = (Integer) obj.get("plan_id");
 							if (resCode == 1) {
@@ -486,29 +557,109 @@ public class MatchScoreActivity extends Activity implements
 						}
 						AppController.gotoShowScoreActivity(MatchScoreActivity.this);
 						finish();
-					}
-				}, new ErrorListener() {
-
-					@Override
-					public void onErrorResponse(VolleyError error) {
-						// TODO Auto-generated method stub
-						 Log.e("addScores", error.getMessage());
-					}
-				}) {
+			}
 
 			@Override
-			protected Map<String, String> getParams() throws AuthFailureError {
-				// 设置请求参数
-				Map<String, String> map = new HashMap<String, String>();
-				map.put("scoresJson", jsonString);
-				return map;
+			public void onError(String string) {
+
 			}
 		};
-		stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-				Constants.SOCKET_TIMEOUT,
-				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-		mQueue.add(stringRequest);
+		VolleyUtil.httpJson(Constants.ADD_SCORE, Request.Method.POST,map,responseListener,app);
+//		StringRequest stringRequest = new StringRequest(Method.POST,
+//				CommonUtils.HOSTURL + "addScores", new Listener<String>() {
+//
+//					@Override
+//					public void onResponse(String response) {
+//						// TODO Auto-generated method stub
+//						loadingDialog.dismiss();
+//						JSONObject obj;
+//						try {
+//							obj = new JSONObject(response);
+//							int resCode = (Integer) obj.get("resCode");
+//							int planId = (Integer) obj.get("plan_id");
+//							if (resCode == 1) {
+//								CommonUtils.showToast(MatchScoreActivity.this,
+//										mToast, getString(R.string.synchronized_success));
+//								ContentValues values = new ContentValues();
+//								values.put("pid", planId);
+//								Plan.updateAll(Plan.class, values,
+//										String.valueOf(plan.getId()));
+//							} else {
+//								CommonUtils.showToast(MatchScoreActivity.this,
+//										mToast, getString(R.string.synchronized_failed));
+//							}
+//
+//						} catch (JSONException e) {
+//							// TODO Auto-generated catch block
+//							e.printStackTrace();
+//						}
+//						AppController.gotoShowScoreActivity(MatchScoreActivity.this);
+//						finish();
+//					}
+//				}, new ErrorListener() {
+//
+//					@Override
+//					public void onErrorResponse(VolleyError error) {
+//						// TODO Auto-generated method stub
+//					}
+//				}) {
+//
+//			@Override
+//			protected Map<String, String> getParams() throws AuthFailureError {
+//				// 设置请求参数
+//				Map<String, String> map = new HashMap<String, String>();
+//				map.put("scoresJson", jsonString);
+//				return map;
+//			}
+//		};
+//		stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+//				Constants.SOCKET_TIMEOUT,
+//				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+//				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+//		mQueue.add(stringRequest);
+	}
+
+
+	public Map<String,String> getDataMap(String date){
+		/**
+		 * 获取到训练计划
+		 */
+		SmallPlan sp = new SmallPlan();
+		sp.setDistance(plan.getDistance());
+		sp.setPool(plan.getPool());
+		sp.setExtra(plan.getExtra());
+		//新增游泳圈数字段
+		sp.setTime(plan.getTime());
+		sp.setStrokeNumber(plan.getStrokeNumber());
+
+		List<SmallScore> smallScores = new ArrayList<SmallScore>();
+		List<Score> scoresResult = mDbManager.getScoreByDate(date);
+		for (Score s : scoresResult) {
+			SmallScore smScore = new SmallScore();
+			smScore.setScore(s.getScore());
+			smScore.setDate(s.getDate());
+			smScore.setDistance(s.getDistance());
+			smScore.setType(s.getType());
+			smScore.setTimes(s.getTimes());
+			smallScores.add(smScore);
+		}
+		/**
+		 * 获取运动员id
+		 */
+		List<Integer> aidList = CommonUtils.getAthleteIdsByAthletes(dragAdapter.getAthletes());
+		User user = mDbManager.getUserByUid(userId);
+		Map<String, Object> scoreMap = new HashMap<String, Object>();
+		scoreMap.put("score", smallScores);
+		scoreMap.put("plan", sp);
+		scoreMap.put("stroke", plan.getStrokeNumber());
+		scoreMap.put("uid", user.getUid());
+		scoreMap.put("athlete_id", aidList);
+		scoreMap.put("type", 1);
+		final String jsonString = JsonTools.creatJsonString(scoreMap);
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("scoresJson", jsonString);
+
+		return map;
 	}
 
 	@Override
@@ -539,7 +690,7 @@ public class MatchScoreActivity extends Activity implements
 				// TODO Auto-generated method stub
 				scores.add(position, scores.get(position));
 				adapter.notifyDataSetChanged();
-				dragDatas.add(position, "");
+				dragDatas.add(position, null);
 				dragAdapter.notifyDataSetChanged();
 				pop.dismiss();
 			}
@@ -555,5 +706,14 @@ public class MatchScoreActivity extends Activity implements
 	@Override
 	protected void onResume() {
 		super.onResume();
+	}
+
+	/**
+	 * 进行数据的销毁
+	 */
+	@Override
+	protected void onDestroy() {
+//		Log.d("lixinkun","matchscoreactivity Destroy called");
+		super.onDestroy();
 	}
 }

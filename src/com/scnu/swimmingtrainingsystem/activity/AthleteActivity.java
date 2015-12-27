@@ -2,11 +2,9 @@ package com.scnu.swimmingtrainingsystem.activity;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -14,40 +12,27 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.NetworkResponse;
 import com.android.volley.Request.Method;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.Response.Listener;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.HttpHeaderParser;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.scnu.swimmingtrainingsystem.R;
 import com.scnu.swimmingtrainingsystem.adapter.AthleteListAdapter;
 import com.scnu.swimmingtrainingsystem.db.DBManager;
 import com.scnu.swimmingtrainingsystem.effect.Effectstype;
 import com.scnu.swimmingtrainingsystem.effect.NiftyDialogBuilder;
-import com.scnu.swimmingtrainingsystem.event.FirstLoginSucceedEvent;
-import com.scnu.swimmingtrainingsystem.event.LoginSucceedEvent;
 import com.scnu.swimmingtrainingsystem.http.JsonTools;
 import com.scnu.swimmingtrainingsystem.model.Athlete;
 import com.scnu.swimmingtrainingsystem.model.User;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
+import com.scnu.swimmingtrainingsystem.util.NetworkUtil;
 import com.scnu.swimmingtrainingsystem.util.SpUtil;
+import com.scnu.swimmingtrainingsystem.util.VolleyUtil;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
 import com.scnu.swimmingtrainingsystem.view.Switch;
-import com.ypy.eventbus.EventBus;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -63,8 +48,6 @@ public class AthleteActivity extends Activity {
 	private static final String ADD_ATHLETE_TITLE_STRING = "添加运动员";
 	private static final String NAME_CANNOT_BE_EMPTY_STRING = "运动员名字不能为空";
 	private static final String NAME_CANNOT_BE_REPEATE_STRING = "存在运动员名字重复，请更改";
-	private static final String ADDATHLETE = "addAthlete";
-	private static final String GETATHLETES = "getAthletes";
 
 	// 该对象保存全局变量
 	private MyApplication mApplication;
@@ -76,7 +59,7 @@ public class AthleteActivity extends Activity {
 	// 运动员信息数据集
 	private List<Athlete> mAthletes;
 	// Volley请求队列
-	private RequestQueue mQueue;
+//	private RequestQueue mQueue;
 	// 数据库管理类
 	private DBManager mDbManager;
 	// 当前用户对象
@@ -95,6 +78,9 @@ public class AthleteActivity extends Activity {
 	private EditText mAthleteNumber;
 	// 运动员性别切换按钮
 	private Switch mGenderSwitch;
+
+	private Toast toast;
+
 	// 是否能连接服务器
 	private Boolean isConnect;
 	private LoadingDialog loadingDialog;
@@ -107,15 +93,15 @@ public class AthleteActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_athlete);
 
-		try {
-			init();
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-			startActivity(new Intent(this, LoginActivity.class));
-		}
+		init();
+//		try {
+//			init();
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//			startActivity(new Intent(this, LoginActivity.class));
+//		}
 
-		EventBus.getDefault().register(this);
 	}
 
 	/**
@@ -123,6 +109,7 @@ public class AthleteActivity extends Activity {
 	 */
 	private void init() {
 		mApplication = (MyApplication) getApplication();
+		mApplication.addActivity(this);
 		mDbManager = DBManager.getInstance();
 //		mUserId =  (Integer) mApplication.getMap().get(Constants.CURRENT_USER_ID);
 		mUserId = SpUtil.getUID(AthleteActivity.this);
@@ -137,10 +124,10 @@ public class AthleteActivity extends Activity {
 				mAthletes, mUserId);
 		mListView.setAdapter(mAthleteListAdapter);
 	
-		mQueue = Volley.newRequestQueue(this);
-		// 根据是否能够连接服务器来操作，如果能够连接服务器，则使用服务返回的数据，否则将数据保存到本地使用
-		isConnect = (Boolean) mApplication.getMap().get(
-				Constants.IS_CONNECT_SERVER);
+//		mQueue = Volley.newRequestQueue(this);
+//		// 根据是否能够连接服务器来操作，如果能够连接服务器，则使用服务返回的数据，否则将数据保存到本地使用
+//		isConnect = (Boolean) mApplication.getMap().get(
+//				Constants.IS_CONNECT_SERVER);
 		SharedPreferences sp = getSharedPreferences(Constants.LOGININFO,
 				Context.MODE_PRIVATE);
 		boolean isFirst = sp.getBoolean(Constants.FISRTOPENATHLETE, true);
@@ -148,7 +135,7 @@ public class AthleteActivity extends Activity {
 				Constants.IS_THIS_USER_FIRST_LOGIN, false);
 
 		// 如果新用户第一次打开应用并且可以连接服务器，就会尝试从服务器获取运动员信息
-		if (isConnect && isFirst && userFirstLogin) {
+		if (isFirst && userFirstLogin) {
 			SpUtil.initAthletes(this, false);
 			SpUtil.saveIsThisUserFirstLogin(this, false);
 			if (loadingDialog == null) {
@@ -161,19 +148,6 @@ public class AthleteActivity extends Activity {
 		}
 	}
 
-	public void onEventMainThread(FirstLoginSucceedEvent event){
-		if(event != null){
-			Log.d("lixinkun", "receive first login succeed msg");
-		}
-
-	}
-
-	public void onEventMainThread(LoginSucceedEvent event){
-		if(event != null){
-			Log.d("lixinkun", "receive first login succeed msg");
-		}
-
-	}
 
 	/**
 	 * 弹出对话框并添加一个运动员信息
@@ -265,14 +239,15 @@ public class AthleteActivity extends Activity {
 	public void addAthlete(String name, int age, String gender, String contact,
 			String others,String number) {
 
-		Athlete a = new Athlete();
-		a.setName(name);
-		a.setAge(age);
-		a.setGender(gender);
-		a.setPhone(contact);
-		a.setExtras(others);
-		a.setNumber(number);
+//		Athlete a = new Athlete();
+//		a.setName(name);
+//		a.setAge(age);
+//		a.setGender(gender);
+//		a.setPhone(contact);
+//		a.setExtras(others);
+//		a.setNumber(number);
 
+		isConnect = NetworkUtil.isConnected(this);
 		if (isConnect) {
 			if (loadingDialog == null) {
 				loadingDialog = LoadingDialog.createDialog(this);
@@ -280,16 +255,16 @@ public class AthleteActivity extends Activity {
 				loadingDialog.setCanceledOnTouchOutside(false);
 			}
 			loadingDialog.show();
-			addAthleteRequest(a);
+			addAthleteRequest(name,age,gender,contact,others,number);
 		} else {
-			a.setUser(mUser);
-			a.save();
+//			a.setUser(mUser);
+//			a.save();
 			CommonUtils.showToast(AthleteActivity.this, mToast,
-					Constants.ADD_SUCCESS_STRING);
-			mAthletes = mDbManager.getAthletes(mUserId);
-//			Log.d("lixinkun", "athletesize="+mAthletes.size()+"");
-			mAthleteListAdapter.setDatas(mAthletes);
-			mAthleteListAdapter.notifyDataSetChanged();
+					getString(R.string.network_error));
+//			mAthletes = mDbManager.getAthletes(mUserId);
+////			Log.d("lixinkun", "athletesize="+mAthletes.size()+"");
+//			mAthleteListAdapter.setDatas(mAthletes);
+//			mAthleteListAdapter.notifyDataSetChanged();
 		}
 
 	}
@@ -299,160 +274,201 @@ public class AthleteActivity extends Activity {
 	 * 
 	 * @param
 	 */
-	public void addAthleteRequest(final Athlete a) {
+	public void addAthleteRequest(String name, int age, String gender, String contact,
+								  String others,String number) {
+		final Athlete a = new Athlete();
+		a.setName(name);
+		a.setAge(age);
+		a.setGender(gender);
+		a.setPhone(contact);
+		a.setExtras(others);
+		a.setNumber(number);
+
 		Map<String, Object> jsonMap = new HashMap<String, Object>();
 		jsonMap.put("athlete", a);
 		jsonMap.put("uid", mUser.getUid());
 		final String athleteJson = JsonTools.creatJsonString(jsonMap);
-		StringRequest request = new StringRequest(Method.POST,
-				CommonUtils.HOSTURL + ADDATHLETE, new Listener<String>() {
 
-					@Override
-					public void onResponse(String response) {
-						// TODO Auto-generated method stub
-						loadingDialog.dismiss();
-						try {
-							JSONObject obj = new JSONObject(response);
-							int resCode = (Integer) obj.get("resCode");
-							if (resCode == 1) {
-								CommonUtils.showToast(AthleteActivity.this,
-										mToast, Constants.ADD_SUCCESS_STRING);
-								int aid = (Integer) obj.get("athlete_id");
-								a.setAid(aid);
-								a.setUser(mUser);
-								a.save();
-								mAthletes = mDbManager.getAthletes(mUserId);
-								mAthleteListAdapter.setDatas(mAthletes);
-								mAthleteListAdapter.notifyDataSetChanged();
-							}
-
-						} catch (JSONException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-
+		Map<String,String> map = getAddAthleteDataMap(athleteJson);
+		VolleyUtil.ResponseListener listener = new VolleyUtil.ResponseListener() {
+			@Override
+			public void onSuccess(String string) {
+				loadingDialog.dismiss();
+				try {
+					JSONObject obj = new JSONObject(string);
+					int resCode = (Integer) obj.get("resCode");
+					if (resCode == 1) {
+						CommonUtils.showToast(AthleteActivity.this,
+								mToast, Constants.ADD_SUCCESS_STRING);
+						int aid = (Integer) obj.get("athlete_id");
+						a.setAid(aid);
+						a.setUser(mUser);
+						a.save();
+						mAthletes = mDbManager.getAthletes(mUserId);
+						mAthleteListAdapter.setDatas(mAthletes);
+						mAthleteListAdapter.notifyDataSetChanged();
 					}
-				}, new ErrorListener() {
 
-					@Override
-					public void onErrorResponse(VolleyError error) {
-						// TODO Auto-generated method stub
-						Log.e(Constants.TAG, error.getMessage());
-						loadingDialog.dismiss();
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
-					}
-				}) {
+			}
 
 			@Override
-			protected Map<String, String> getParams() throws AuthFailureError {
-				// 设置请求参数
-				Map<String, String> map = new HashMap<String, String>();
-				map.put("athleteJson", athleteJson);
-				return map;
+			public void onError(String string) {
+				loadingDialog.dismiss();
+				CommonUtils.showToast(AthleteActivity.this,toast,getString(R.string.server_or_network_error));
 			}
 		};
-		request.setRetryPolicy(new DefaultRetryPolicy(Constants.SOCKET_TIMEOUT,
-				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-		mQueue.add(request);
+
+		VolleyUtil.httpJson(Constants.ADD_ATHLETE_URL,Method.POST,map,listener,mApplication);
+
+//		StringRequest request = new StringRequest(Method.POST,
+//				CommonUtils.HOSTURL + ADDATHLETE, new Listener<String>() {
+//
+//					@Override
+//					public void onResponse(String response) {
+//						// TODO Auto-generated method stub
+//						loadingDialog.dismiss();
+//						try {
+//							JSONObject obj = new JSONObject(response);
+//							int resCode = (Integer) obj.get("resCode");
+//							if (resCode == 1) {
+//								CommonUtils.showToast(AthleteActivity.this,
+//										mToast, Constants.ADD_SUCCESS_STRING);
+//								int aid = (Integer) obj.get("athlete_id");
+//								a.setAid(aid);
+//								a.setUser(mUser);
+//								a.save();
+//								mAthletes = mDbManager.getAthletes(mUserId);
+//								mAthleteListAdapter.setDatas(mAthletes);
+//								mAthleteListAdapter.notifyDataSetChanged();
+//							}
+//
+//						} catch (JSONException e) {
+//							// TODO Auto-generated catch block
+//							e.printStackTrace();
+//						}
+//
+//					}
+//				}, new ErrorListener() {
+//
+//					@Override
+//					public void onErrorResponse(VolleyError error) {
+//						// TODO Auto-generated method stub
+////						Log.e(Constants.TAG, error.getMessage());
+//						loadingDialog.dismiss();
+//
+//					}
+//				}) {
+//
+//			@Override
+//			protected Map<String, String> getParams() throws AuthFailureError {
+//				// 设置请求参数
+//				Map<String, String> map = new HashMap<String, String>();
+//				map.put("athleteJson", athleteJson);
+//				return map;
+//			}
+//		};
+//		request.setRetryPolicy(new DefaultRetryPolicy(Constants.SOCKET_TIMEOUT,
+//				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+//				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+//		mQueue.add(request);
 	}
+
+	/**
+	 * 获取增加运动员数据集
+	 * @param athleteJson
+	 * @return
+	 */
+	private Map<String,String> getAddAthleteDataMap(String athleteJson){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("athleteJson", athleteJson);
+		return map;
+	}
+
 
 	/**
 	 * 获取服务器上的运动员信息
 	 */
 	private void getAthleteRequest() {
-		StringRequest getrequest = new StringRequest(Method.POST,
-				CommonUtils.HOSTURL + GETATHLETES, new Listener<String>() {
 
-					@Override
-					public void onResponse(String response) {
-						// TODO Auto-generated method stub
-						loadingDialog.dismiss();
-						try {
-							JSONObject jsonObject = new JSONObject(response);
+
+		Map<String,String> map = getDataMap(mUser);
+		VolleyUtil.ResponseListener listener = new VolleyUtil.ResponseListener() {
+			@Override
+			public void onSuccess(String string) {
+				loadingDialog.dismiss();
+				try {
+					JSONObject jsonObject = new JSONObject(string);
 //							Log.d("lixinkun", "athletelist resp=" + response);
-							int resCode = (Integer) jsonObject.get("resCode");
-							if (resCode == 1) {
+					int resCode = (Integer) jsonObject.get("resCode");
+					if (resCode == 1) {
 
-								JSONArray athleteArray = jsonObject
-										.getJSONArray("athleteList");
-								int athletesNumber = athleteArray.length();
-								for (int i = 0; i < athletesNumber; i++) {
-									Athlete athlete = new Athlete();
-									TempAthlete tempAthlete = JsonTools
-											.getObject(athleteArray.get(i)
+						JSONArray athleteArray = jsonObject
+								.getJSONArray("athleteList");
+						int athletesNumber = athleteArray.length();
+						for (int i = 0; i < athletesNumber; i++) {
+							Athlete athlete = new Athlete();
+							TempAthlete tempAthlete = JsonTools
+									.getObject(athleteArray.get(i)
 													.toString(),
-													TempAthlete.class);
+											TempAthlete.class);
 //									Log.d("lixinkun", "tempathlete="+ tempAthlete);
-									athlete.setAid(tempAthlete.getAid());
-									athlete.setName(tempAthlete.getName());
-									athlete.setAge(tempAthlete.getAge());
-									athlete.setGender(tempAthlete.getGender());
-									athlete.setPhone(tempAthlete.getPhone());
-									athlete.setExtras(tempAthlete.getExtras());
-									athlete.setNumber(tempAthlete.getNumber());
-									athlete.setUser(mUser);
+							athlete.setAid(tempAthlete.getAid());
+							athlete.setName(tempAthlete.getName());
+							athlete.setAge(tempAthlete.getAge());
+							athlete.setGender(tempAthlete.getGender());
+							athlete.setPhone(tempAthlete.getPhone());
+							athlete.setExtras(tempAthlete.getExtras());
+							athlete.setNumber(tempAthlete.getNumber());
+							athlete.setUser(mUser);
 //									if(athlete.save()){
 //										Log.d("lixinkun", "athlelte saved");
 //									}
-									athlete.save();
-									
-								}
-//								Log.d("lixinkun", "userid = "+ mUserId);
-								mAthletes = mDbManager.getAthletes(mUserId);
-//								Log.d("lixinkun", mAthletes.get(0).toString());
-								mAthleteListAdapter.setDatas(mAthletes);
-								mAthleteListAdapter.notifyDataSetChanged();
-								CommonUtils.showToast(AthleteActivity.this,
-										mToast, "同步成功！");
-							} else {
-								CommonUtils.showToast(AthleteActivity.this,
-										mToast, UNKNOW_ERROR);
-							}
+							athlete.save();
 
-						} catch (JSONException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
 						}
+//								Log.d("lixinkun", "userid = "+ mUserId);
+						mAthletes = mDbManager.getAthletes(mUserId);
+//								Log.d("lixinkun", mAthletes.get(0).toString());
+						mAthleteListAdapter.setDatas(mAthletes);
+						mAthleteListAdapter.notifyDataSetChanged();
+						CommonUtils.showToast(AthleteActivity.this,
+								mToast, getString(R.string.synchronized_success));
+					} else {
+						CommonUtils.showToast(AthleteActivity.this,
+								mToast, UNKNOW_ERROR);
 					}
-				}, new ErrorListener() {
 
-					@Override
-					public void onErrorResponse(VolleyError error) {
-						// TODO Auto-generated method stub
-						loadingDialog.dismiss();
-						// Log.e(Constants.TAG, error.getMessage());
-					}
-				}) {
-
-			@Override
-			protected Response<String> parseNetworkResponse(
-					NetworkResponse response) {
-				String str = null;
-				try {
-					str = new String(response.data, "utf-8");
-				} catch (UnsupportedEncodingException e) {
+				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				return Response.success(str,
-						HttpHeaderParser.parseCacheHeaders(response));
 			}
 
 			@Override
-			protected Map<String, String> getParams() throws AuthFailureError {
-				// 设置请求参数
-				Map<String, String> map = new HashMap<String, String>();
-				map.put("getAthleteFirst", String.valueOf(mUser.getUid()));
-				return map;
+			public void onError(String string) {
+				loadingDialog.dismiss();
 			}
 		};
-		getrequest.setRetryPolicy(new DefaultRetryPolicy(
-				Constants.SOCKET_TIMEOUT,
-				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-		mQueue.add(getrequest);
+		VolleyUtil.httpJson(Constants.GET_ATHLETE_LIST,Method.POST,map,listener,mApplication);
+
 	}
+
+	/**
+	 * 获取请求参数
+	 * @param mUser
+	 * @return
+	 */
+	private Map<String,String> getDataMap(User mUser){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("getAthleteFirst", String.valueOf(mUser.getUid()));
+		return map;
+	}
+
 
 	class TempAthlete {
 		/**
@@ -586,6 +602,5 @@ public class AthleteActivity extends Activity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		EventBus.getDefault().unregister(this);
 	}
 }

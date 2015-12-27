@@ -2,7 +2,6 @@ package com.scnu.swimmingtrainingsystem.fragment;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -85,12 +84,11 @@ public class TimerFragment extends BaseFragment implements View.OnClickListener{
      * 全部运动员
      */
     private List<Athlete> athletes;
-    private List<String> athleteNames = new ArrayList<String>();
 
     /**
      * 已选中的运动员
      */
-    private List<String> chosenAthletes = new ArrayList<String>();
+    private List<Athlete> chosenAthletes = new ArrayList<Athlete>();
 
     private SparseBooleanArray map = new SparseBooleanArray();
 
@@ -152,9 +150,15 @@ public class TimerFragment extends BaseFragment implements View.OnClickListener{
         int selectedPositoin = SpUtil.getSelectedPosition(getActivity());
 
         /**
-         * 设置游泳趟数为0
+         * 初始化app里面的全局数据,一共6个
          */
         app.getMap().put(Constants.CURRENT_SWIM_TIME, 0);
+        app.getMap().put(Constants.DRAG_NAME_LIST_IDS,null);
+        app.getMap().put(Constants.DRAG_NAME_LIST,null);
+        app.getMap().put(Constants.TEST_DATE,"");
+        app.getMap().put(Constants.INTERVAL,null);
+        app.getMap().put(Constants.PLAN_ID,null);
+
         userid = SpUtil.getUID(getActivity());
 
         acTextView.setAdapter(tipsAdapter);
@@ -184,7 +188,6 @@ public class TimerFragment extends BaseFragment implements View.OnClickListener{
         strokeSpinner.setSelection(selectedPositoin);
 
 
-
         showChosenAthleteAdapter = new ShowChosenAthleteAdapter(
                 getActivity(), chosenAthletes);
         chosenListView.setAdapter(showChosenAthleteAdapter);
@@ -195,29 +198,6 @@ public class TimerFragment extends BaseFragment implements View.OnClickListener{
      */
     private void upDateAthleteList(){
         athletes = dbManager.getAthletes(userid);
-        String mapConfigString = SpUtil.getMapConfig(getActivity());
-        SparseBooleanArray configArray = JsonTools.getObject(mapConfigString,
-                SparseBooleanArray.class);
-        athleteNames.clear();
-        for (Athlete ath : athletes) {
-            athleteNames.add(ath.getName());
-        }
-        // 初始化map数据，即将全部运动员设为不选中状态
-        for (int i = 0; i < athletes.size(); i++) {
-            if (configArray != null && configArray.size() != 0) {
-                if (i < configArray.size()) {
-                    map.put(i, configArray.get(i));
-                    if (configArray.get(i)) {
-                        chosenAthletes.add(athleteNames.get(i));
-                    }
-                } else {
-                    map.put(i, false);
-                }
-            } else {
-                map.put(i, false);
-            }
-
-        }
     }
 
     /**
@@ -231,31 +211,31 @@ public class TimerFragment extends BaseFragment implements View.OnClickListener{
         selectDialog.setCustomView(R.layout.dialog_choose_athlete, getActivity());
         Window window = selectDialog.getWindow();
         athleteListView = (ListView) window.findViewById(R.id.choose_list);
-        allAthleteAdapter = new ChooseAthleteAdapter(getActivity(), athleteNames, map);
+
+        allAthleteAdapter = new ChooseAthleteAdapter(getActivity(), athletes, map);
         athleteListView.setAdapter(allAthleteAdapter);
         athleteListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+            public void onItemClick(AdapterView<?> arg0, View arg1, int position,
                                     long arg3) {
                 AdapterHolder holder = (AdapterHolder) arg1.getTag();
                 // 改变CheckBox的状态
                 holder.cb.toggle();
+                Athlete a = (Athlete) allAthleteAdapter.getItem(position);
                 if (holder.cb.isChecked()) {
-                    if (!chosenAthletes.contains(allAthleteAdapter
-                            .getChooseAthlete().get(arg2)))
-                        // 如果checkbox已选并且chosenAthleteList中无该项
-                        chosenAthletes.add(allAthleteAdapter.getChooseAthlete()
-                                .get(arg2));
+                    if(!CommonUtils.ListContainsAthlete(chosenAthletes,a)){
+                        chosenAthletes.add(a);
+                    }
+
                 } else {
-                    // 如果checkbox不选择并且chosenAthleteList中有该项
-                    if (chosenAthletes.contains(allAthleteAdapter
-                            .getChooseAthlete().get(arg2)))
-                        chosenAthletes.remove(allAthleteAdapter
-                                .getChooseAthlete().get(arg2));
+                    if(CommonUtils.ListContainsAthlete(chosenAthletes,a)){
+                        CommonUtils.removeAthleteFromList(chosenAthletes,a);
+                    }
+
                 }
                 // 将CheckBox的选中状况记录下来
-                map.put(arg2, holder.cb.isChecked());
+                map.put(position, holder.cb.isChecked());
             }
         });
         selectDialog.withTitle(getString(R.string.choose_athlete)).withMessage(null)
@@ -281,9 +261,13 @@ public class TimerFragment extends BaseFragment implements View.OnClickListener{
 
         }).show();
 
-        allAthleteAdapter.notifyDataSetChanged();
+//        allAthleteAdapter.notifyDataSetChanged();
+//        showChosenAthleteAdapter.notifyDataSetChanged();
     }
 
+    /**
+     * 开始计时
+     */
     private void startTiming(){
         String totalDistance = acTextView.getText().toString().trim();
         String intervalDistance = actInterval.getText().toString().trim();
@@ -313,20 +297,27 @@ public class TimerFragment extends BaseFragment implements View.OnClickListener{
             //保存计时间隔
             app.getMap().put(Constants.INTERVAL, intervalDistance);
             List<String> athleteNames = new ArrayList<String>();
+
+            List<Integer> athleteIds = new ArrayList<Integer>();
             //获取选中的运动员名字
-            List<Athlete> chosenPersons = dbManager
-                    .getAthleteByNames(chosenAthletes);
-            for (Athlete ath : chosenPersons) {
+//            List<Athlete> chosenPersons = dbManager
+//                    .getAthleteByNames(chosenAthletes);
+            for (Athlete ath : chosenAthletes) {
                 athleteNames.add(ath.getName());
+                athleteIds.add(ath.getAid());
             }
             // 报存显示在成绩运动员匹配页面的运动员名字
             app.getMap().put(Constants.DRAG_NAME_LIST, athleteNames);
+            /**
+             * 顺便保存id吧
+             */
+            app.getMap().put(Constants.DRAG_NAME_LIST_IDS,athleteIds);
 
             String poolString = (String) poolSpinner.getSelectedItem();
             int strokeNumber = strokeSpinner.getSelectedItemPosition();
             String extra = remarksEditText.getText().toString();
             // 将配置保存到数据库计划表中
-            savePlan(poolString, strokeNumber, totalDistance, extra, chosenPersons);
+            savePlan(poolString, strokeNumber, totalDistance, extra, chosenAthletes);
             AppController.gotoTimerActivity(getActivity());
         }
     }
@@ -335,6 +326,7 @@ public class TimerFragment extends BaseFragment implements View.OnClickListener{
                           List<Athlete> athlete) {
         // TODO Auto-generated method stub
         User user = dbManager.getUserByUid(userid);
+        int time = (Integer.parseInt(distance))/(Integer.parseInt(pool));
         Plan plan = new Plan();
         plan.setPool(pool);
         plan.setStrokeNumber(stroke);
@@ -342,6 +334,7 @@ public class TimerFragment extends BaseFragment implements View.OnClickListener{
         plan.setExtra(extra);
         plan.setUser(user);
         plan.setAthlete(athlete);
+        plan.setTime(time);
         plan.save();
         //存储计划id
         app.getMap().put(Constants.PLAN_ID, plan.getId());
@@ -353,26 +346,25 @@ public class TimerFragment extends BaseFragment implements View.OnClickListener{
     @Override
     public void onReShow() {
 //        upDateAthleteList();
-        Log.d("lixinkun","timerfragment onReshow called");
     }
 
+    /**
+     * 在这里进行数据刷新
+     */
     @Override
     public void onResume() {
         super.onResume();
-        Log.d("lixinkun", "timerfragment onResume called");
         initData();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        Log.d("lixinkun", "timerfragment onStop called");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d("lixinkun", "timerfragment onDestroy called");
     }
 
     @Override

@@ -14,27 +14,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request.Method;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.Response.Listener;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.scnu.swimmingtrainingsystem.R;
 import com.scnu.swimmingtrainingsystem.db.DBManager;
 import com.scnu.swimmingtrainingsystem.effect.Effectstype;
 import com.scnu.swimmingtrainingsystem.effect.NiftyDialogBuilder;
-import com.scnu.swimmingtrainingsystem.event.LoginSucceedEvent;
 import com.scnu.swimmingtrainingsystem.http.JsonTools;
 import com.scnu.swimmingtrainingsystem.model.User;
 import com.scnu.swimmingtrainingsystem.util.CommonUtils;
 import com.scnu.swimmingtrainingsystem.util.Constants;
+import com.scnu.swimmingtrainingsystem.util.NetworkUtil;
 import com.scnu.swimmingtrainingsystem.util.SpUtil;
+import com.scnu.swimmingtrainingsystem.util.VolleyUtil;
 import com.scnu.swimmingtrainingsystem.view.LoadingDialog;
-import com.ypy.eventbus.EventBus;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -63,7 +55,7 @@ public class LoginActivity extends Activity {
 	private TextView sethost;
 	private TextView forgot;
 	private Toast toast;
-	private RequestQueue mQueue;
+//	private RequestQueue mQueue;
 	private LoadingDialog loadingDialog;
 	private Effectstype effect;
 
@@ -87,29 +79,31 @@ public class LoginActivity extends Activity {
 		// 检查是否有保存的用户名和密码，如果有就回显
 		SharedPreferences sp = getSharedPreferences(Constants.LOGININFO,
 				Context.MODE_PRIVATE);
-		String username = sp.getString("username", DEFAULT_USERNAME);
+//		String username = sp.getString("username", DEFAULT_USERNAME);
+		String username = SpUtil.getLoginedUserName(this);
 		etLogin.setText(username);
-		String passwrod = sp.getString("password", DEFAULT_PASSWORD);
+//		String passwrod = sp.getString("password", DEFAULT_PASSWORD);
+		String passwrod = SpUtil.getLoginedPassword(this);
 		etPassword.setText(passwrod);
-		mQueue = Volley.newRequestQueue(this);
-		boolean isFirst = sp.getBoolean("isFirst", true);
-	
-		if (isFirst) {
-			User defaulrUser = new User();
-			defaulrUser.setId(1L);
-			defaulrUser.setUsername(DEFAULT_USERNAME);
-			defaulrUser.setPassword(DEFAULT_PASSWORD);
-			defaulrUser.save();
-			showSettingDialog();
-			SpUtil.SaveLoginInfo(this, false);
-		}
+//		mQueue = Volley.newRequestQueue(this);
+//		boolean isFirst = sp.getBoolean("isFirst", true);
+//
+//		if (isFirst) {
+//			User defaulrUser = new User();
+//			defaulrUser.setId(1L);
+//			defaulrUser.setUsername(DEFAULT_USERNAME);
+//			defaulrUser.setPassword(DEFAULT_PASSWORD);
+//			defaulrUser.save();
+//			showSettingDialog();
+//			SpUtil.SaveLoginInfo(this, false);
+//		}
 
 		// 从SharedPreferences读取服务器地址信息
-		SharedPreferences hostSp = getSharedPreferences(Constants.LOGININFO,
-				Context.MODE_PRIVATE);
-		CommonUtils.HOSTURL = hostSp
-				.getString("hostInfo",
-						"http://104.160.34.110:8080/SWIMYUE33/httpPost.action?action_flag=");
+//		SharedPreferences hostSp = getSharedPreferences(Constants.LOGININFO,
+//				Context.MODE_PRIVATE);
+//		CommonUtils.HOSTURL = hostSp
+//				.getString("hostInfo",
+//						"http://104.160.34.110:8080/SWIMYUE33/httpPost.action?action_flag=");
 	}
 
 	/**
@@ -166,8 +160,9 @@ public class LoginActivity extends Activity {
 					|| TextUtils.isEmpty(passwordString)) {
 				CommonUtils.showToast(this, toast, getString(R.string.nameorpwd_cannot_be_empty));
 			} else {
-				// 保存登录信息
-				SpUtil.SaveLoginInfo(this, loginString, passwordString);
+				if(NetworkUtil.isConnected(LoginActivity.this)){
+					// 保存登录信息
+					SpUtil.SaveLoginInfo(this, loginString, passwordString);
 					if (loadingDialog == null) {
 						loadingDialog = LoadingDialog.createDialog(this);
 						loadingDialog.setMessage(getString(R.string.logining));
@@ -176,6 +171,10 @@ public class LoginActivity extends Activity {
 					loadingDialog.show();
 					// 尝试连接服务器，如果连接成功则直接登录
 					loginRequest(loginString, passwordString);
+				}else{
+					CommonUtils.showToast(this,toast,getString(R.string.network_error));
+				}
+
 			}
 		}
 
@@ -183,110 +182,199 @@ public class LoginActivity extends Activity {
 
 	/**
 	 * 提交登录请求
-	 * 
-	 * @param s1
-	 *            用户名
-	 * @param s2
-	 *            密码
+	 * @param userName
+	 * @param password
 	 */
-	public void loginRequest(final String s1, final String s2) {
+	public void loginRequest(final String userName, final String password) {
 
-		StringRequest loginRequest = new StringRequest(Method.POST,
-				CommonUtils.HOSTURL + "login", new Listener<String>() {
+		Map<String,String> map= getDataMap(userName,password);
 
-					@Override
-					public void onResponse(String response) {
-						// TODO Auto-generated method stub
-//						Log.i(Constants.TAG, response);
-						loadingDialog.dismiss();
-						try {
-							JSONObject obj = new JSONObject(response);
-							int resCode = (Integer) obj.get("resCode");
-							if (resCode == 1) {
-								CommonUtils.showToast(LoginActivity.this,
-										toast, getString(R.string.login_success));
-								String userJson = obj.get("user").toString();
-								User user = JsonTools.getObject(userJson,
-										User.class);
-								int uid = (Integer) obj.get("uid");
-								user.setUid(uid);
-								//判断当前用户是否存在与数据库
-							
-								if (dbManager.getUserByUid(uid) == null) {
-									user.save();
-//									app.getMap().put(Constants.CURRENT_USER_ID,
-//											user.getUid());
-									SpUtil.saveUserId(LoginActivity.this, user.getUid());
-									SpUtil.saveUID(LoginActivity.this,user.getUid());
-									// 用户第一次登陆
-									SpUtil.saveIsThisUserFirstLogin(
-											LoginActivity.this, true);
+		/**
+		 * 回调监听器
+		 */
+		VolleyUtil.ResponseListener listener = new VolleyUtil.ResponseListener() {
+			@Override
+			public void onSuccess(String string) {
+				loadingDialog.dismiss();
+				try {
+					JSONObject obj = new JSONObject(string);
+					int resCode = (Integer) obj.get("resCode");
+					if (resCode == 1) {
+						CommonUtils.showToast(LoginActivity.this,
+								toast, getString(R.string.login_success));
+						String userJson = obj.get("user").toString();
+						User user = JsonTools.getObject(userJson,
+								User.class);
+						int uid = (Integer) obj.get("uid");
+						user.setUid(uid);
+						//判断当前用户是否存在与数据库
 
-									// 覆盖前一个用户选择的运动员
-									SpUtil.saveSelectedAthlete(
-											LoginActivity.this, "");
+						if (dbManager.getUserByUid(uid) == null) {
+							user.save();
+							SpUtil.saveUserId(LoginActivity.this, user.getUid());
+							SpUtil.saveUID(LoginActivity.this,user.getUid());
+							// 用户第一次登陆
+							SpUtil.saveIsThisUserFirstLogin(
+									LoginActivity.this, true);
+
+							// 覆盖前一个用户选择的运动员
+							SpUtil.saveSelectedAthlete(
+									LoginActivity.this, "");
 
 
-								} else {
-									// 如果该用户信息已存在本地数据库，则取出当前id作为全局变量
-									int logineduid = dbManager.getUserByUid(uid).getUid();
-									
+						} else {
+							// 如果该用户信息已存在本地数据库，则取出当前id作为全局变量
+							int logineduid = dbManager.getUserByUid(uid).getUid();
+
 //									app.getMap().put(Constants.CURRENT_USER_ID,
 //											logineduid);
-									SpUtil.saveUserId(LoginActivity.this, logineduid);
-									SpUtil.saveUID(LoginActivity.this,logineduid);
-									EventBus.getDefault().post(new LoginSucceedEvent("login"));
-								}
-								SpUtil.saveLoginSucceed(LoginActivity.this,true);
-								gotoMainActivity();
-								
-								
-							} else if (resCode == 2) {
-								CommonUtils.showToast(LoginActivity.this,
-										toast, getString(R.string.user_donot_exists));
-							} else if (resCode == 3) {
-								CommonUtils.showToast(LoginActivity.this,
-										toast, getString(R.string.pwd_wrong));
-							} else {
-								CommonUtils.showToast(LoginActivity.this,
-										toast, getString(R.string.server_error));
-							}
-
-						} catch (JSONException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
+							SpUtil.saveUserId(LoginActivity.this, logineduid);
+							SpUtil.saveUID(LoginActivity.this, logineduid);
+							SpUtil.saveIsThisUserFirstLogin(
+									LoginActivity.this, false);
 						}
+						SpUtil.saveLoginSucceed(LoginActivity.this,true);
+						gotoMainActivity();
 
+
+					} else if (resCode == 2) {
+						CommonUtils.showToast(LoginActivity.this,
+								toast, getString(R.string.user_donot_exists));
+					} else if (resCode == 3) {
+						CommonUtils.showToast(LoginActivity.this,
+								toast, getString(R.string.pwd_wrong));
+					} else {
+						CommonUtils.showToast(LoginActivity.this,
+								toast, getString(R.string.server_error));
 					}
-				}, new ErrorListener() {
 
-					@Override
-					public void onErrorResponse(VolleyError error) {
-						// TODO Auto-generated method stub
-						// Log.e(TAG, error.getMessage());
-						loadingDialog.dismiss();
-						app.getMap().put(Constants.IS_CONNECT_SERVER, false);
-						CommonUtils
-						.showToast(LoginActivity.this, toast, getString(R.string.network_error));
-//						showUserSelectDialog();
-					}
-				}) {
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
-			@Override
-			protected Map<String, String> getParams() throws AuthFailureError {
-				// 设置请求参数
-				Map<String, String> map = new HashMap<String, String>();
-				map.put("userName", s1);
-				map.put("password", s2);
-				return map;
+
 			}
 
+			@Override
+			public void onError(String string) {
+				loadingDialog.dismiss();
+				app.getMap().put(Constants.IS_CONNECT_SERVER, false);
+				CommonUtils
+						.showToast(LoginActivity.this, toast, getString(R.string.network_error));
+			}
 		};
-		loginRequest.setRetryPolicy(new DefaultRetryPolicy(
-				Constants.SOCKET_TIMEOUT,
-				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-		mQueue.add(loginRequest);
+		VolleyUtil.httpJson(Constants.LOGIN_URL,Method.POST,map,listener,app);
+
+//		StringRequest loginRequest = new StringRequest(Method.POST,
+//				CommonUtils.HOSTURL + "login", new Listener<String>() {
+//
+//					@Override
+//					public void onResponse(String response) {
+//						// TODO Auto-generated method stub
+////						Log.i(Constants.TAG, response);
+//						loadingDialog.dismiss();
+//						try {
+//							JSONObject obj = new JSONObject(response);
+//							int resCode = (Integer) obj.get("resCode");
+//							if (resCode == 1) {
+//								CommonUtils.showToast(LoginActivity.this,
+//										toast, getString(R.string.login_success));
+//								String userJson = obj.get("user").toString();
+//								User user = JsonTools.getObject(userJson,
+//										User.class);
+//								int uid = (Integer) obj.get("uid");
+//								user.setUid(uid);
+//								//判断当前用户是否存在与数据库
+//
+//								if (dbManager.getUserByUid(uid) == null) {
+//									user.save();
+////									app.getMap().put(Constants.CURRENT_USER_ID,
+////											user.getUid());
+//									SpUtil.saveUserId(LoginActivity.this, user.getUid());
+//									SpUtil.saveUID(LoginActivity.this,user.getUid());
+//									// 用户第一次登陆
+//									SpUtil.saveIsThisUserFirstLogin(
+//											LoginActivity.this, true);
+//
+//									// 覆盖前一个用户选择的运动员
+//									SpUtil.saveSelectedAthlete(
+//											LoginActivity.this, "");
+//
+//
+//								} else {
+//									// 如果该用户信息已存在本地数据库，则取出当前id作为全局变量
+//									int logineduid = dbManager.getUserByUid(uid).getUid();
+//
+////									app.getMap().put(Constants.CURRENT_USER_ID,
+////											logineduid);
+//									SpUtil.saveUserId(LoginActivity.this, logineduid);
+//									SpUtil.saveUID(LoginActivity.this,logineduid);
+//									EventBus.getDefault().post(new LoginSucceedEvent("login"));
+//								}
+//								SpUtil.saveLoginSucceed(LoginActivity.this,true);
+//								gotoMainActivity();
+//
+//
+//							} else if (resCode == 2) {
+//								CommonUtils.showToast(LoginActivity.this,
+//										toast, getString(R.string.user_donot_exists));
+//							} else if (resCode == 3) {
+//								CommonUtils.showToast(LoginActivity.this,
+//										toast, getString(R.string.pwd_wrong));
+//							} else {
+//								CommonUtils.showToast(LoginActivity.this,
+//										toast, getString(R.string.server_error));
+//							}
+//
+//						} catch (JSONException e) {
+//							// TODO Auto-generated catch block
+//							e.printStackTrace();
+//						}
+//
+//					}
+//				}, new ErrorListener() {
+//
+//					@Override
+//					public void onErrorResponse(VolleyError error) {
+//						// TODO Auto-generated method stub
+////						 Log.e("lixinkun", error.getMessage());
+//						loadingDialog.dismiss();
+//						app.getMap().put(Constants.IS_CONNECT_SERVER, false);
+//						CommonUtils
+//						.showToast(LoginActivity.this, toast, getString(R.string.network_error));
+////						showUserSelectDialog();
+//					}
+//				}) {
+//
+//			@Override
+//			protected Map<String, String> getParams() throws AuthFailureError {
+//				// 设置请求参数
+//				Map<String, String> map = new HashMap<String, String>();
+//				map.put("userName", s1);
+//				map.put("password", s2);
+//				return map;
+//			}
+//
+//		};
+//		loginRequest.setRetryPolicy(new DefaultRetryPolicy(
+//				Constants.SOCKET_TIMEOUT,
+//				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+//				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+//		mQueue.add(loginRequest);
+	}
+
+	/**
+	 * 组装登录数据集合
+	 * @param userName
+	 * @param password
+	 * @return
+	 */
+	private Map<String,String> getDataMap(String userName,String password){
+		Map<String,String> map = new HashMap<String, String>();
+		map.put("userName", userName);
+		map.put("password", password);
+		return map;
 	}
 
 	/**
@@ -334,7 +422,7 @@ public class LoginActivity extends Activity {
 					// + "/SWIMYUE33/httpPost.action?action_flag=";
 					String hostUrl = "http://104.160.34.110:8080/SWIMYUE33/httpPost.action?action_flag=";
 					// 保存服务器ip和端口地址到sp
-					CommonUtils.HOSTURL = hostUrl;
+					Constants.HOSTURL = hostUrl;
 					SpUtil.SaveLoginInfo(LoginActivity.this, hostUrl,
 							hostIp, hostPort);
 					CommonUtils.showToast(LoginActivity.this, toast, getString(R.string.setting_success));
@@ -413,25 +501,25 @@ public class LoginActivity extends Activity {
 	 */
 	public void testRequest() {
 
-		StringRequest testRequest = new StringRequest(Method.POST,
-				CommonUtils.HOSTURL + "connectionTest", new Listener<String>() {
-
-					@Override
-					public void onResponse(String response) {
-					}
-				}, new ErrorListener() {
-
-					@Override
-					public void onErrorResponse(VolleyError error) {
-					}
-				}) {
-
-		};
-		testRequest.setRetryPolicy(new DefaultRetryPolicy(
-				Constants.SOCKET_TIMEOUT,
-				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-		mQueue.add(testRequest);
+//		StringRequest testRequest = new StringRequest(Method.POST,
+//				CommonUtils.HOSTURL + "connectionTest", new Listener<String>() {
+//
+//					@Override
+//					public void onResponse(String response) {
+//					}
+//				}, new ErrorListener() {
+//
+//					@Override
+//					public void onErrorResponse(VolleyError error) {
+//					}
+//				}) {
+//
+//		};
+//		testRequest.setRetryPolicy(new DefaultRetryPolicy(
+//				Constants.SOCKET_TIMEOUT,
+//				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+//				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+//		mQueue.add(testRequest);
 	}
 	
 	/**
@@ -451,7 +539,7 @@ public class LoginActivity extends Activity {
 						R.anim.push_left_out);
 			}
 		};
-		handler.postDelayed(updateThread,800);
+		handler.postDelayed(updateThread, 800);
 	}
 	
 	/**
@@ -470,7 +558,8 @@ public class LoginActivity extends Activity {
 	private void gotoRegister(){
 		Intent i = new Intent(this, RegistAcyivity.class);
 		startActivity(i);
-		overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
+		overridePendingTransition(R.anim.push_right_in,
+				R.anim.push_left_out);
 	}
 
 

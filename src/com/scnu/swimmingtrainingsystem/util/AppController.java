@@ -13,6 +13,7 @@ import com.scnu.swimmingtrainingsystem.activity.MyApplication;
 import com.scnu.swimmingtrainingsystem.activity.OtherFunctionActivity;
 import com.scnu.swimmingtrainingsystem.activity.QueryScoreActivity;
 import com.scnu.swimmingtrainingsystem.activity.QuestionHelpActivity;
+import com.scnu.swimmingtrainingsystem.activity.RegistAcyivity;
 import com.scnu.swimmingtrainingsystem.activity.ShowScoreActivity;
 import com.scnu.swimmingtrainingsystem.activity.TimerActivity;
 
@@ -93,6 +94,12 @@ public class AppController {
         Intent i = new Intent(context, EachTimeScoreActivity.class);
         context.startActivity(i);
     }
+
+    public static void gotoRegister(Context context){
+        Intent i = new Intent(context, RegistAcyivity.class);
+        context.startActivity(i);
+    }
+
 
 
 

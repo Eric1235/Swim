@@ -22,7 +22,7 @@
     <!-- 别名引用 -->
     <color name="common_bg">@color/white</color>
     <color name="title_bar_bg">@color/blue</color>
-    <color name="button_text_color">@color/black</color>
+    <color name="button_text_color">@color/white</color>
     <color name="color_toast">@color/light_blue</color>
 	<color name="color_train">@color/light_blue</color>
 	<color name="color_dialog_bg">@color/light_green</color>

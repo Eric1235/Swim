@@ -144,18 +144,33 @@ public class DBManager {
 		return null;
 	}
 
+//	/**
+//	 * 根据名字数据获取对应的运动员对象
+//	 *
+//	 * @param names
+//	 *            运动员名字
+//	 * @return 运动员对象列表
+//	 */
+//	public List<Athlete> getAthleteByNames(List<String> names) {
+//		List<Athlete> lists = new ArrayList<Athlete>();
+//		for (String name : names) {
+//			Athlete athlete = DataSupport.where("name=?", name)
+//					.find(Athlete.class).get(0);
+//			lists.add(athlete);
+//		}
+//		return lists;
+//	}
+
 	/**
-	 * 根据名字数据获取对应的运动员对象
-	 * 
-	 * @param names
-	 *            运动员名字
-	 * @return 运动员对象列表
+	 * 通过运动员id来获取运动员列表
+	 * @param ids
+	 * @return
 	 */
-	public List<Athlete> getAthleteByNames(List<String> names) {
+	public List<Athlete> getAthleteByIDs(List<Integer> ids){
 		List<Athlete> lists = new ArrayList<Athlete>();
-		for (String name : names) {
-			Athlete athlete = DataSupport.where("name=?", name)
-					.find(Athlete.class).get(0);
+		for(int id:ids){
+			String idstr = String.valueOf(id);
+			Athlete athlete = DataSupport.where("aid=?",idstr).find(Athlete.class).get(0);
 			lists.add(athlete);
 		}
 		return lists;
@@ -212,9 +227,14 @@ public class DBManager {
 		values.put("extras", extras);
 		DataSupport.update(Athlete.class, values, id);
 	}
+//
+//	public int deleteAthlete(List<Athlete> list, int position) {
+//		String userID = String.valueOf(list.get(position).getId());
+//		return DataSupport.deleteAll(Athlete.class, "id=?", userID);
+//	}
 
-	public int deleteAthlete(List<Athlete> list, int position) {
-		String userID = String.valueOf(list.get(position).getId());
+	public int deleteAthlete(Athlete a){
+		String userID = String.valueOf(a.getId());
 		return DataSupport.deleteAll(Athlete.class, "id=?", userID);
 	}
 

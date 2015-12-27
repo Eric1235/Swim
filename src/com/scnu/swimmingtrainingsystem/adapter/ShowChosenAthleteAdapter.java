@@ -1,7 +1,5 @@
 package com.scnu.swimmingtrainingsystem.adapter;
 
-import java.util.List;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,18 +8,21 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.scnu.swimmingtrainingsystem.R;
+import com.scnu.swimmingtrainingsystem.model.Athlete;
+
+import java.util.List;
 
 /**
  * 被选中的运动员数据适配器
  * 
  * @author LittleByte
- * 
+ * 修改：lixinkun
  */
 public class ShowChosenAthleteAdapter extends BaseAdapter {
 	private Context context;
-	private List<String> list;
+	private List<Athlete> list;
 
-	public ShowChosenAthleteAdapter(Context context, List<String> list) {
+	public ShowChosenAthleteAdapter(Context context, List<Athlete> list) {
 		this.context = context;
 		this.list = list;
 
@@ -42,7 +43,7 @@ public class ShowChosenAthleteAdapter extends BaseAdapter {
 	@Override
 	public long getItemId(int position) {
 		// TODO Auto-generated method stub
-		return 0;
+		return position;
 	}
 
 	@Override
@@ -58,7 +59,7 @@ public class ShowChosenAthleteAdapter extends BaseAdapter {
 		} else {
 			viewHolder = (ViewHolder) view.getTag();
 		}
-		viewHolder.tvTitle.setText(this.list.get(position));
+		viewHolder.tvTitle.setText(this.list.get(position).getName());
 		return view;
 	}
 
