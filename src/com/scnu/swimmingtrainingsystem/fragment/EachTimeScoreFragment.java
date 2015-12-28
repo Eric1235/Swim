@@ -61,51 +61,6 @@ public class EachTimeScoreFragment extends Fragment {
 	private boolean firstMatch = true;
 	private Toast mToast;
 
-	private DragSortListView.DropListener onDrop = new DragSortListView.DropListener() {
-		@Override
-		public void drop(int from, int to) {
-			Athlete item = dragAdapter.getItem(from);
-			dragAdapter.notifyDataSetChanged();
-			dragAdapter.remove(item);
-			dragAdapter.insert(item, to);
-		}
-	};
-
-	private DragSortListView.RemoveListener onRemove = new DragSortListView.RemoveListener() {
-		@Override
-		public void remove(int which) {
-			if (dragDatas.size() > 1) {
-				dragAdapter.remove(dragAdapter.getItem(which));
-			} else {
-				CommonUtils.showToast(getActivity(), mToast, getString(R.string.leave_at_least_one_athlete));
-			}
-			dragAdapter.notifyDataSetChanged();
-		}
-	};
-
-	private DragSortListView.DragScrollProfile ssProfile = new DragSortListView.DragScrollProfile() {
-		@Override
-		public float getSpeed(float w, long t) {
-			if (w > 0.8f) {
-				// Traverse all views in a millisecond
-				return ((float) dragAdapter.getCount()) / 0.001f;
-			} else {
-				return 10.0f * w;
-			}
-		}
-	};
-	private DragSortListView.RemoveListener onRemove2 = new DragSortListView.RemoveListener() {
-		@Override
-		public void remove(int which) {
-			if (scores.size() > 1) {
-				scores.remove(which);
-			} else {
-				CommonUtils.showToast(getActivity(), mToast, getString(R.string.leave_at_least_one_score));
-			}
-			scoreListAdapter.notifyDataSetChanged();
-		}
-	};
-
 	public EachTimeScoreFragment(int position, int distance, String scoreJson,
 			String nameJson,String athleteidString) {
 		this.position = position;
@@ -137,7 +92,7 @@ public class EachTimeScoreFragment extends Fragment {
 			scListView.setRemoveListener(onRemove2);
 			dsListView = (DragSortListView) view
 					.findViewById(R.id.matchName_list);
-//			dsListView.setDropListener(onDrop);
+			dsListView.setDropListener(onDrop);
 //			dsListView.setRemoveListener(onRemove);
 			dsListView.setDragScrollProfile(ssProfile);
 			acTextView.setText(this.distance + "");
@@ -194,6 +149,51 @@ public class EachTimeScoreFragment extends Fragment {
 
 		return view;
 	}
+
+	private DragSortListView.DropListener onDrop = new DragSortListView.DropListener() {
+		@Override
+		public void drop(int from, int to) {
+			Athlete item = dragAdapter.getItem(from);
+			dragAdapter.notifyDataSetChanged();
+			dragAdapter.remove(item);
+			dragAdapter.insert(item, to);
+		}
+	};
+
+	private DragSortListView.RemoveListener onRemove = new DragSortListView.RemoveListener() {
+		@Override
+		public void remove(int which) {
+			if (dragDatas.size() > 1) {
+				dragAdapter.remove(dragAdapter.getItem(which));
+			} else {
+				CommonUtils.showToast(getActivity(), mToast, getString(R.string.leave_at_least_one_athlete));
+			}
+			dragAdapter.notifyDataSetChanged();
+		}
+	};
+
+	private DragSortListView.DragScrollProfile ssProfile = new DragSortListView.DragScrollProfile() {
+		@Override
+		public float getSpeed(float w, long t) {
+			if (w > 0.8f) {
+				// Traverse all views in a millisecond
+				return ((float) dragAdapter.getCount()) / 0.001f;
+			} else {
+				return 10.0f * w;
+			}
+		}
+	};
+	private DragSortListView.RemoveListener onRemove2 = new DragSortListView.RemoveListener() {
+		@Override
+		public void remove(int which) {
+			if (scores.size() > 1) {
+				scores.remove(which);
+			} else {
+				CommonUtils.showToast(getActivity(), mToast, getString(R.string.leave_at_least_one_score));
+			}
+			scoreListAdapter.notifyDataSetChanged();
+		}
+	};
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {

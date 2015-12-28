@@ -94,13 +94,14 @@
                 android:layout_height="wrap_content"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
+                android:layout_marginTop="5dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal" >
 
                 <AutoCompleteTextView
                     android:id="@+id/act_interval"
                     android:layout_width="80dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
                     android:ems="5"
                     android:hint="@string/time_interval"
                     android:inputType="number"
@@ -123,7 +124,7 @@
                     <AutoCompleteTextView
                         android:id="@+id/tv_distance"
                         android:layout_width="100dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="30dp"
                         android:layout_marginLeft="10dp"
                         android:ems="5"
                         android:hint="@string/swim_total_length"
@@ -147,11 +148,12 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
                 <com.scnu.swimmingtrainingsystem.view.EditTextWithDel
                     android:id="@+id/et_remarks"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/bg_edit"
                     android:hint="@string/input_extra"
@@ -159,42 +161,52 @@
             </LinearLayout>
         </LinearLayout>
 
-        <Button
-            style="@style/custom_btn"
-            android:id="@+id/bt_choose_athlete"
+        <TextView
+            android:id="@+id/tv_choosed_athlete_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/choose_plan_ll1"
             android:layout_centerHorizontal="true"
-            android:onClick="chooseAthlete"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:text="@string/choose_athlete" />
+            android:textSize="18dp"
+            android:text="@string/choosed_athlete"
+            android:textColor="@color/black"
+            />
+
 
         <ListView
             android:id="@+id/list_choosed"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/bt_choose_athlete"
+            android:layout_below="@id/tv_choosed_athlete_title"
             android:cacheColorHint="#fff" >
         </ListView>
+
+
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="8dp" >
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp">
+        <Button
+            style="@style/custom_btn"
+            android:id="@+id/bt_choose_athlete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="chooseAthlete"
+            android:text="@string/choose_athlete" />
 
         <Button
             style="@style/custom_btn"
             android:id="@+id/btn_start_timer"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginTop="16dp"
             android:onClick="startTiming"
-            android:padding="6dp"
             android:text="@string/start_timer" />
     </LinearLayout>
 

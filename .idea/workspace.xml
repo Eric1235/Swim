@@ -39,38 +39,100 @@
           <theme>@style/AppBaseTheme</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/res/layout/warp_main_right.xml">
+        <config>
+          <theme>@style/AppBaseTheme</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="lixinkun" />
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="DEBUG" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4999da4-2bcc-4a85-b57d-ec8972f3bd4c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/DragListview_library/build/intermediates/manifest/tmp/manifestMerger2536077861721776229.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DragListview_library/build/intermediates/manifest/tmp/manifestMerger3455749652814847131.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/AthleteActivity$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/AthleteActivity$6.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/AthleteActivity$7.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/AthleteActivity$8.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity$6.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$10.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$11.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$12.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$13.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$9.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$10.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$9.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$14.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$15.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$16.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/RegistAcyivity$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/RegistAcyivity$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/RetrievePasswordActivity$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/RetrievePasswordActivity$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/TimerSettingActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/TimerSettingActivity$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/TimerSettingActivity$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$6.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$7.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$8.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/util/AppConfig.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/util/AppConfig.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/util/AppController.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/util/AppController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/AthleteActivity$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/AthleteActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/AthleteActivity$2.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/AthleteActivity$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/AthleteActivity$3.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/AthleteActivity$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/AthleteActivity$4.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/AthleteActivity$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/AthleteActivity$TempAthlete.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/AthleteActivity$TempAthlete.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/AthleteActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/AthleteActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$2.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$3.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$6.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$4.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$4.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$OnClick$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$OnClick$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$OnClick$2.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$OnClick$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$OnClick.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$OnClick.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$ViewHolder.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter$ViewHolder.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/ChooseAthleteAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/ChooseAthleteAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/util/CommonUtils.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/util/CommonUtils.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/util/Constants.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/util/Constants.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/db/DBManager$ScoreComparable.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/db/DBManager$ScoreComparable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/db/DBManager.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/db/DBManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/DatePickerFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/DatePickerFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DragListview_library/build/outputs/aar/DragListview_library-debug.aar" afterPath="$PROJECT_DIR$/DragListview_library/build/outputs/aar/DragListview_library-debug.aar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DragListview_library/build/outputs/aar/DragListview_library-release.aar" afterPath="$PROJECT_DIR$/DragListview_library/build/outputs/aar/DragListview_library-release.aar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity$2.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity$3.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity$4.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity$5.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity$6.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity$6.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity$MyOnPageChangeListener.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity$MyOnPageChangeListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment$2.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment$3.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment$4.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment$5.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment$6.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment$MyScrollListener.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment$MyScrollListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/EventBus2.4-1c85fe0a62c20fa853e22f35c710b20eb7a31362.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/EventBus2.4-1c85fe0a62c20fa853e22f35c710b20eb7a31362.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/FrequenceFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/FrequenceFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/HomeActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/HomeActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$2.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$3.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$4.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$5.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$6.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$7.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$8.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/LoginActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MainActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MainActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$10.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$10.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$2.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$3.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$4.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$4.class" />
@@ -78,17 +140,54 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$6.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$6.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$7.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$7.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$8.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$9.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$9.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$MyScrollListener.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity$MyScrollListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$10.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$10.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$11.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$11.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$12.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$12.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$13.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$13.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$2.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$3.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$4.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$5.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$6.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$7.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$8.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$9.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$9.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$MyScrollListener.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity$MyScrollListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/util/NetworkUtil.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/util/NetworkUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/QuestionHelpActivity$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/QuestionHelpActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/QuestionHelpActivity$2.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/QuestionHelpActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/QuestionHelpActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/QuestionHelpActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/ShowScoreActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/ShowScoreActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/MineFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/MineFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/ModifyPassActivity$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/ModifyPassActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/ModifyPassActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/ModifyPassActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MyApplication.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/MyApplication.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/model/Plan.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/model/Plan.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/QueryScoreActivity$NameScoreListAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/QueryScoreActivity$NameScoreListAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/QueryScoreActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/QueryScoreActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/R$id.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/R$layout.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/R$menu.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/R$menu.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/R$string.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/R$style.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/R$style.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/R$styleable.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/R$styleable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/R.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/R.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/RegistAcyivity$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/RegistAcyivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/RegistAcyivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/RegistAcyivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/RetrievePasswordActivity$1$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/RetrievePasswordActivity$1$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/RetrievePasswordActivity$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/RetrievePasswordActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/RetrievePasswordActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/RetrievePasswordActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/model/Score.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/model/Score.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/ScoreListAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/ScoreListAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/SearchboxActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/SearchboxActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/SettingActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/SettingActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/ShowChosenAthleteAdapter$ViewHolder.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/ShowChosenAthleteAdapter$ViewHolder.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/ShowChosenAthleteAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/ShowChosenAthleteAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/ShowScoreActivity$ShowScoreListAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/ShowScoreActivity$ShowScoreListAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/model/SmallPlan.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/model/SmallPlan.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/util/SpUtil.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/util/SpUtil.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/outputs/apk/SwimmingTrainingSystem-debug-unaligned.apk" afterPath="$PROJECT_DIR$/build/outputs/apk/SwimmingTrainingSystem-debug-unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/outputs/apk/SwimmingTrainingSystem-debug.apk" afterPath="$PROJECT_DIR$/build/outputs/apk/SwimmingTrainingSystem-debug.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/TimeLineListAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/adapter/TimeLineListAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/TimerActivity$1$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/TimerActivity$1$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/TimerActivity$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/TimerActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/TimerActivity$2.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/TimerActivity$2.class" />
@@ -98,6 +197,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/TimerFragment$3.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/TimerFragment$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/TimerFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/fragment/TimerFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/TimerSettingActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/activity/TimerSettingActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/view/XListView.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/view/XListView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/view/XListViewFooter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/view/XListViewFooter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/view/XListViewHeader.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/scnu/swimmingtrainingsystem/view/XListViewHeader.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/android-support-v4-a40c43fecbf87e259a8425ea774d3e8cd5676802.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/android-support-v4-a40c43fecbf87e259a8425ea774d3e8cd5676802.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/classes-e969f84e718dfd3374ef90b84258d0dfb8cd1fd7.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/classes-e969f84e718dfd3374ef90b84258d0dfb8cd1fd7.jar" />
@@ -117,23 +219,23 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/volley-742f61aaf5dacd62556f1d314cac75bcf295ea1e.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/volley-742f61aaf5dacd62556f1d314cac75bcf295ea1e.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/AppController.java" afterPath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/AppController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter.java" afterPath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/db/DBManager.java" afterPath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/db/DBManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity.java" afterPath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/HomeActivity.java" afterPath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/HomeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity.java" afterPath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity.java" afterPath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/NetworkUtil.java" afterPath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/NetworkUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/QuestionHelpActivity.java" afterPath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/QuestionHelpActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/ShowScoreActivity.java" afterPath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/ShowScoreActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/TimerActivity.java" afterPath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/TimerActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/TimerFragment.java" afterPath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/TimerFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/TimerSettingActivity.java" afterPath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/TimerSettingActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment.java" afterPath="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/com/scnu/swimmingtrainingsystem/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/scnu/swimmingtrainingsystem/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/build/intermediates/symbols/debug/R.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_matchscore.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_matchscore.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_modify_each_score.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_modify_each_score.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/chosen_athlete_list_item.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/chosen_athlete_list_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/drag_list_item.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/drag_list_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_timer.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_timer.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/build/outputs/logs/manifest-merger-debug-report.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/matchscore_list_item.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/matchscore_list_item.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeResourcesdebug/merger.xml" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeResourcesdebug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/values/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/warp_main_left.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/warp_main_left.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/warp_main_right.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/warp_main_right.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SwimmingTrainingSystem.iws" />
@@ -174,101 +276,22 @@
   <component name="FavoritesManager">
     <favorites_list name="SwimmingTrainingSystem" />
   </component>
+  <component name="FileColors">
+    <fileColor scope="Problems" color="Orange" />
+    <fileColor scope="Changed Files" color="Rose" />
+  </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MatchScoreActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity.java">
+      <file leaf-file-name="EachTimeScoreFragment.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.333334">
-              <caret line="556" column="8" selection-start-line="556" selection-start-column="8" selection-end-line="556" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.5866261">
+              <caret line="264" column="79" selection-start-line="264" selection-start-column="79" selection-end-line="264" selection-end-column="79" />
               <folding>
-                <element signature="e#18240#18241#0" expanded="true" />
-                <element signature="e#18264#18265#0" expanded="true" />
-                <element signature="e#18305#18306#0" expanded="true" />
-                <element signature="e#18328#18329#0" expanded="true" />
+                <element signature="e#5867#5913#0" expanded="true" />
+                <element signature="e#6540#6584#0" expanded="true" />
+                <element signature="e#9049#9077#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TimerFragment.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/TimerFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2967626">
-              <caret line="375" column="5" selection-start-line="375" selection-start-column="5" selection-end-line="375" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HomeActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/HomeActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="226" column="54" selection-start-line="226" selection-start-column="54" selection-end-line="226" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TimerSettingActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/TimerSettingActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="320" column="43" selection-start-line="320" selection-start-column="43" selection-end-line="320" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TimerActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/TimerActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="80" column="30" selection-start-line="80" selection-start-column="30" selection-end-line="80" selection-end-column="30" />
-              <folding>
-                <element signature="e#2006#2014#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EachTimeScoreActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="347" column="44" selection-start-line="347" selection-start-column="44" selection-end-line="347" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MatchSprintScoreActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="287" column="52" selection-start-line="287" selection-start-column="52" selection-end-line="287" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AthleteListAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="324" column="13" selection-start-line="324" selection-start-column="13" selection-end-line="324" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/AppController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -1795,57 +1818,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/res/layout/timeline_item.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_showscore.xml" />
-        <option value="$PROJECT_DIR$/res/layout/matchscore_list_item.xml" />
-        <option value="$PROJECT_DIR$/res/layout/drag_list_item.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_athlete.xml" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/event/FirstLoginSucceedEvent.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/event/LoginSucceedEvent.java" />
-        <option value="$PROJECT_DIR$/settings.gradle" />
-        <option value="$PROJECT_DIR$/res/layout/activity_regist.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_wlecome.xml" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/CommonUtils.java" />
-        <option value="$PROJECT_DIR$/res/layout/activity_login.xml" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/AthleteActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/Constants.java" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_about_us.xml" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/BaseFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/SpUtil.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/AboutUsActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/ModifyPassActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/QueryScoreActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/RegistAcyivity.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/RetrievePasswordActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/SearchboxActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/SettingActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/WlecomeActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/IndexFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/MineFragment.java" />
-        <option value="$PROJECT_DIR$/res/drawable/pager_title_selector.xml" />
         <option value="$PROJECT_DIR$/res/drawable/radio.xml" />
         <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/OtherFunctionActivity.java" />
         <option value="$PROJECT_DIR$/res/layout/activity_other_function.xml" />
         <option value="$PROJECT_DIR$/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/res/layout/fragment_sprint.xml" />
         <option value="$PROJECT_DIR$/res/layout/fragment_frequence.xml" />
-        <option value="$PROJECT_DIR$/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/NetworkUtil.java" />
         <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/QuestionHelpActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/TimerActivity.java" />
-        <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/ShowScoreActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/db/DBManager.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/TimerSettingActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/AppController.java" />
         <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/HomeActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/adapter/ShowChosenAthleteAdapter.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/TimerSettingActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/adapter/DragAdapter.java" />
+        <option value="$PROJECT_DIR$/res/layout/activity_modify_each_score.xml" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/model/Score.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/model/Plan.java" />
+        <option value="$PROJECT_DIR$/res/values/arrays.xml" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/model/SmallPlan.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/model/SmallScore.java" />
+        <option value="$PROJECT_DIR$/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_matchscore.xml" />
+        <option value="$PROJECT_DIR$/res/layout/warp_main_left.xml" />
+        <option value="$PROJECT_DIR$/res/layout/warp_main_right.xml" />
+        <option value="$PROJECT_DIR$/res/layout/matchscore_list_item.xml" />
+        <option value="$PROJECT_DIR$/res/layout/drag_list_item.xml" />
+        <option value="$PROJECT_DIR$/res/layout/chosen_athlete_list_item.xml" />
+        <option value="$PROJECT_DIR$/res/layout/fragment_timer.xml" />
         <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/TimerFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/adapter/ChooseAthleteAdapter.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/VolleyUtil.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/MyApplication.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/TimerActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/AppController.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/SpUtil.java" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/CommonUtils.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/AthleteActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/ModifyPassActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/QueryScoreActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/RetrievePasswordActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/SearchboxActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/RegistAcyivity.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/Constants.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/db/DBManager.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment.java" />
       </list>
     </option>
   </component>
@@ -1863,10 +1886,9 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="24" />
     <option name="y" value="23" />
-    <option name="width" value="1758" />
-    <option name="height" value="992" />
+    <option name="width" value="1280" />
+    <option name="height" value="712" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1891,6 +1913,19 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane />
+      </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SwimmingTrainingSystem" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1949,28 +1984,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SwimmingTrainingSystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SwimmingTrainingSystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swimmingtrainingsystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="fragment" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1985,42 +1998,39 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swimmingtrainingsystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="activity" />
+              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-        </subPane>
-      </pane>
-      <pane id="AndroidView">
-        <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="SwimmingTrainingSystem" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SwimmingTrainingSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane">
-        <subPane />
-      </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="android.project.structure.last.selected" value="SwimmingTrainingSystem" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.file-colors" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
@@ -2048,11 +2058,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util" />
       <recent name="$PROJECT_DIR$/res/drawable-xhdpi" />
       <recent name="$PROJECT_DIR$/res/layout" />
       <recent name="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/view" />
       <recent name="$PROJECT_DIR$/libs" />
-      <recent name="$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.SwimmingTrainingSystem">
@@ -2297,36 +2307,36 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="24" y="23" width="1758" height="992" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="23" width="1280" height="712" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25570777" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25503355" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15426105" sideWeight="0.50621116" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33333334" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3557047" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32990867" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16666667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23505655" sideWeight="0.4937888" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33561644" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23825504" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32051283" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32038835" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -2357,292 +2367,106 @@
           <properties />
           <option name="timeStamp" value="32" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/LoginActivity.java</url>
+          <line>565</line>
+          <properties />
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter.java</url>
+          <line>375</line>
+          <properties />
+          <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity.java</url>
+          <line>543</line>
+          <properties />
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="48" />
+      <option name="time" value="81" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/adapter/DragAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.7859712">
+          <caret line="62" column="20" selection-start-line="62" selection-start-column="20" selection-end-line="62" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_about_us.xml">
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_modify_each_score.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9310346">
-          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment.java">
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/model/Score.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2004717">
-          <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.77504724">
+          <caret line="138" column="1" selection-start-line="138" selection-start-column="1" selection-end-line="138" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/BaseFragment.java">
+    <entry file="file://$PROJECT_DIR$/res/values/arrays.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4982015">
+          <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/model/Plan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.6493506">
+          <caret line="137" column="16" selection-start-line="137" selection-start-column="16" selection-end-line="137" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/model/SmallScore.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/MyApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/AboutUsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="106" column="30" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/ModifyPassActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.444445">
-          <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/QueryScoreActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.444445">
-          <caret line="103" column="28" selection-start-line="103" selection-start-column="28" selection-end-line="103" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/RegistAcyivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.740741">
-          <caret line="61" column="8" selection-start-line="61" selection-start-column="8" selection-end-line="62" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/RetrievePasswordActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.333333">
-          <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/SettingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.222222">
-          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/IndexFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1771337">
-          <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="84" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/radio.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/pager_title_selector.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="72" selection-start-line="5" selection-start-column="72" selection-end-line="5" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/OtherFunctionActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.925926">
-          <caret line="86" column="16" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="16" />
-          <folding>
-            <element signature="e#1400#1410#0" expanded="true" />
-            <element signature="e#3948#3949#0" expanded="true" />
-            <element signature="e#3990#3991#0" expanded="true" />
-            <element signature="e#4029#4030#0" expanded="true" />
-            <element signature="e#4064#4065#0" expanded="true" />
-          </folding>
+          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.407408">
-          <caret line="114" column="40" selection-start-line="114" selection-start-column="40" selection-end-line="114" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/FrequenceFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7032374">
-          <caret line="71" column="51" selection-start-line="71" selection-start-column="51" selection-end-line="71" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_other_function.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.62069">
-          <caret line="38" column="35" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
-          <folding>
-            <element signature="e#2032#2052#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/layout_timer.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.448276">
-          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/fragment_frequence.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3548387">
-          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-          <folding>
-            <element signature="e#976#1003#0" expanded="true" />
-            <element signature="e#1770#1785#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/SearchboxActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3327338">
-          <caret line="286" column="0" selection-start-line="286" selection-start-column="0" selection-end-line="286" selection-end-column="0" />
+        <state vertical-scroll-proportion="-3.2222223">
+          <caret line="94" column="56" selection-start-line="94" selection-start-column="56" selection-end-line="94" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6115108">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/fragment_sprint.xml">
+    <entry file="file://$PROJECT_DIR$/res/layout/warp_main_right.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2675522">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-          <folding />
+        <state vertical-scroll-proportion="0.032258064">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/SprintFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.794964">
-          <caret line="82" column="56" selection-start-line="82" selection-start-column="56" selection-end-line="82" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/MineFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="52" selection-start-line="44" selection-start-column="52" selection-end-line="44" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/fragment_more.xml">
+    <entry file="file://$PROJECT_DIR$/res/layout/warp_main_left.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="199" column="0" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/NetworkUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="52" selection-start-line="56" selection-start-column="52" selection-end-line="56" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/http/JsonTools.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3327338">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/volley.jar!/com/android/volley/Request.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.80340266">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_timer.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.851852">
-          <caret line="168" column="33" selection-start-line="168" selection-start-column="33" selection-end-line="168" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/ShowScoreActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="15" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
-          <folding />
+        <state vertical-scroll-proportion="-8.206897">
+          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -2651,18 +2475,164 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="8" />
+        <state vertical-scroll-proportion="-6.034483">
+          <caret line="76" column="4" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/model/Score.java">
+    <entry file="file://$PROJECT_DIR$/res/layout/match_2_list.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="98" column="33" selection-start-line="98" selection-start-column="33" selection-end-line="98" selection-end-column="33" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/dialog_dispatch_athlete.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/matchscore_list_item.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06451613">
+          <caret line="2" column="39" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/drag_list_item.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7096774">
+          <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/chosen_athlete_list_item.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.206897">
+          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/adapter/ShowChosenAthleteAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="43" selection-start-line="54" selection-start-column="43" selection-end-line="54" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/fragment_timer.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.034483">
+          <caret line="123" column="20" selection-start-line="123" selection-start-column="20" selection-end-line="123" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/model/AdapterHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12230216">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-17/android/widget/CompoundButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3327338">
+          <caret line="85" column="16" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-17/android/util/SparseBooleanArray.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36690646">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/TimerSettingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.179856">
+          <caret line="83" column="23" selection-start-line="83" selection-start-column="23" selection-end-line="83" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/adapter/ChooseAthleteAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/TimerFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="232" column="76" selection-start-line="232" selection-start-column="76" selection-end-line="232" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-17/java/lang/ThreadGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33279222">
+          <caret line="692" column="0" selection-start-line="692" selection-start-column="0" selection-end-line="692" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/MyApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-30.222221">
+          <caret line="70" column="55" selection-start-line="70" selection-start-column="55" selection-end-line="70" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/model/SmallPlan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/VolleyUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3323077">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/TimerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.148148">
+          <caret line="140" column="21" selection-start-line="140" selection-start-column="21" selection-end-line="140" selection-end-column="21" />
           <folding>
-            <element signature="e#1241#1242#0" expanded="false" />
+            <element signature="e#4098#4373#0" expanded="false" />
+            <element signature="e#4372#4373#0" expanded="false" />
+            <element signature="e#4880#4881#0" expanded="false" />
+            <element signature="e#4994#5024#0" expanded="false" />
+            <element signature="e#5039#5525#0" expanded="false" />
+            <element signature="e#5524#5525#0" expanded="false" />
+            <element signature="e#5938#5963#0" expanded="false" />
+            <element signature="e#6051#6067#0" expanded="false" />
+            <element signature="e#6210#6234#0" expanded="false" />
+            <element signature="e#9008#9052#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2670,70 +2640,9 @@
     <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/SpUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="212" column="23" selection-start-line="212" selection-start-column="23" selection-end-line="212" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/QuestionHelpActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57733816">
-          <caret line="128" column="26" selection-start-line="128" selection-start-column="26" selection-end-line="128" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/adapter/ChooseAthleteAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="66" selection-start-line="26" selection-start-column="66" selection-end-line="26" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/TimerActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="80" column="30" selection-start-line="80" selection-start-column="30" selection-end-line="80" selection-end-column="30" />
+          <caret line="116" column="48" selection-start-line="116" selection-start-column="48" selection-end-line="116" selection-end-column="48" />
           <folding>
-            <element signature="e#2006#2014#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="324" column="13" selection-start-line="324" selection-start-column="13" selection-end-line="324" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="347" column="44" selection-start-line="347" selection-start-column="44" selection-end-line="347" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/volley.jar!/com/android/volley/toolbox/StringRequest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32136106">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.333334">
-          <caret line="556" column="8" selection-start-line="556" selection-start-column="8" selection-end-line="556" selection-end-column="25" />
-          <folding>
-            <element signature="e#18240#18241#0" expanded="true" />
-            <element signature="e#18264#18265#0" expanded="true" />
-            <element signature="e#18305#18306#0" expanded="true" />
-            <element signature="e#18328#18329#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2741,61 +2650,259 @@
     <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/AppController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-          <folding />
+          <caret line="121" column="26" selection-start-line="121" selection-start-column="26" selection-end-line="121" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/TimerSettingActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/MineFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="320" column="43" selection-start-line="320" selection-start-column="43" selection-end-line="320" selection-end-column="43" />
+          <caret line="115" column="38" selection-start-line="115" selection-start-column="38" selection-end-line="115" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#976#977#0" expanded="false" />
+            <element signature="e#1026#1027#0" expanded="false" />
+            <element signature="e#1978#1979#0" expanded="false" />
+            <element signature="e#2010#2011#0" expanded="false" />
+            <element signature="e#2052#2053#0" expanded="false" />
+            <element signature="e#2082#2083#0" expanded="false" />
+            <element signature="e#2127#2128#0" expanded="false" />
+            <element signature="e#2160#2161#0" expanded="false" />
+            <element signature="e#2209#2210#0" expanded="false" />
+            <element signature="e#2246#2247#0" expanded="false" />
+            <element signature="e#3156#3640#0" expanded="false" />
+            <element signature="e#3639#3640#0" expanded="false" />
+            <element signature="e#3716#3944#0" expanded="false" />
+            <element signature="e#3943#3944#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-17/android/net/ConnectivityManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="19.216217">
+          <caret line="654" column="0" selection-start-line="654" selection-start-column="0" selection-end-line="654" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/NetworkUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/db/DBManager.java">
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3327338">
-          <caret line="153" column="25" selection-start-line="153" selection-start-column="25" selection-end-line="153" selection-end-column="25" />
-          <folding>
-            <element signature="e#828#829#0" expanded="true" />
-            <element signature="e#851#852#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="77" selection-start-line="12" selection-start-column="77" selection-end-line="12" selection-end-column="77" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/MatchSprintScoreActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="287" column="52" selection-start-line="287" selection-start-column="52" selection-end-line="287" selection-end-column="52" />
+          <caret line="335" column="35" selection-start-line="335" selection-start-column="35" selection-end-line="335" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/HomeActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/ModifyPassActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="226" column="54" selection-start-line="226" selection-start-column="54" selection-end-line="226" selection-end-column="54" />
+          <caret line="138" column="41" selection-start-line="138" selection-start-column="41" selection-end-line="138" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/WlecomeActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/QueryScoreActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <caret line="301" column="35" selection-start-line="301" selection-start-column="35" selection-end-line="301" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/TimerFragment.java">
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/RetrievePasswordActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2967626">
-          <caret line="375" column="5" selection-start-line="375" selection-start-column="5" selection-end-line="375" selection-end-column="5" />
+        <state vertical-scroll-proportion="-60.444443">
+          <caret line="117" column="77" selection-start-line="117" selection-start-column="77" selection-end-line="117" selection-end-column="77" />
+          <folding>
+            <element signature="e#1830#1865#0" expanded="false" />
+            <element signature="e#2030#2063#0" expanded="false" />
+            <element signature="e#2605#2646#0" expanded="false" />
+            <element signature="e#2765#2799#0" expanded="false" />
+            <element signature="e#2900#2932#0" expanded="false" />
+            <element signature="e#3112#3265#0" expanded="false" />
+            <element signature="e#3264#3265#0" expanded="false" />
+            <element signature="e#3470#3513#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/SearchboxActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.7764087">
+          <caret line="246" column="45" selection-start-line="246" selection-start-column="45" selection-end-line="246" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/AthleteActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.3105361">
+          <caret line="262" column="52" selection-start-line="262" selection-start-column="52" selection-end-line="262" selection-end-column="52" />
+          <folding>
+            <element signature="e#4462#4495#0" expanded="false" />
+            <element signature="e#5841#5865#0" expanded="false" />
+            <element signature="e#5905#5931#0" expanded="false" />
+            <element signature="e#7733#7766#0" expanded="false" />
+            <element signature="e#8661#8677#0" expanded="false" />
+            <element signature="e#9776#9819#0" expanded="false" />
+            <element signature="e#13539#13579#0" expanded="false" />
+            <element signature="e#16210#16211#0" expanded="false" />
+            <element signature="e#16234#16235#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/adapter/AthleteListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2975352">
+          <caret line="468" column="37" selection-start-line="468" selection-start-column="37" selection-end-line="468" selection-end-column="37" />
+          <folding>
+            <element signature="e#16283#16299#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/RegistAcyivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.5555553">
+          <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+          <folding>
+            <element signature="e#2171#2172#0" expanded="false" />
+            <element signature="e#2186#2187#0" expanded="false" />
+            <element signature="e#2708#2745#0" expanded="false" />
+            <element signature="e#2826#2858#0" expanded="false" />
+            <element signature="e#2963#3004#0" expanded="false" />
+            <element signature="e#3150#3185#0" expanded="false" />
+            <element signature="e#3338#3377#0" expanded="false" />
+            <element signature="e#3595#3631#0" expanded="false" />
+            <element signature="e#3857#3890#0" expanded="false" />
+            <element signature="e#4750#4786#0" expanded="false" />
+            <element signature="e#5116#5153#0" expanded="false" />
+            <element signature="e#5240#5273#0" expanded="false" />
+            <element signature="e#5539#5582#0" expanded="false" />
+            <element signature="e#7985#8001#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/CommonUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.9259257">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/util/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18853974">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/db/DBManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="8.420188">
+          <caret line="228" column="5" selection-start-line="228" selection-start-column="5" selection-end-line="228" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.666667">
+          <caret line="134" column="98" selection-start-line="134" selection-start-column="98" selection-end-line="134" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/MatchScoreActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45112783">
+          <caret line="654" column="8" selection-start-line="654" selection-start-column="8" selection-end-line="654" selection-end-column="55" />
+          <folding>
+            <element signature="e#16801#16841#0" expanded="false" />
+            <element signature="e#17474#17517#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="236" column="43" selection-start-line="236" selection-start-column="43" selection-end-line="236" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/activity/EachTimeScoreActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="21.260653">
+          <caret line="560" column="5" selection-start-line="560" selection-start-column="5" selection-end-line="560" selection-end-column="5" />
+          <folding>
+            <element signature="e#7664#7695#0" expanded="true" />
+            <element signature="e#7708#7752#0" expanded="true" />
+            <element signature="e#7781#7803#0" expanded="true" />
+            <element signature="e#7977#8000#0" expanded="true" />
+            <element signature="e#9021#9054#0" expanded="true" />
+            <element signature="e#9198#9249#0" expanded="true" />
+            <element signature="e#9586#9616#0" expanded="true" />
+            <element signature="e#9844#9877#0" expanded="true" />
+            <element signature="e#10051#10084#0" expanded="true" />
+            <element signature="e#10178#10208#0" expanded="true" />
+            <element signature="e#12904#12944#0" expanded="true" />
+            <element signature="e#13292#13331#0" expanded="true" />
+            <element signature="e#13594#13637#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/scnu/swimmingtrainingsystem/fragment/EachTimeScoreFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5866261">
+          <caret line="264" column="79" selection-start-line="264" selection-start-column="79" selection-end-line="264" selection-end-column="79" />
+          <folding>
+            <element signature="e#5867#5913#0" expanded="true" />
+            <element signature="e#6540#6584#0" expanded="true" />
+            <element signature="e#9049#9077#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

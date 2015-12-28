@@ -3,8 +3,8 @@
     <!-- From: file:/Users/lixinkun/git/SwimmingTrainingSystem/res/values/arrays.xml -->
     <eat-comment/>
     <string-array name="pool_length">
-        <item>25米</item>
-        <item>50米</item>
+        <item>25</item>
+        <item>50</item>
     </string-array>
     <integer-array name="strokeintarray">
         <item>1</item>
@@ -64,7 +64,7 @@
     <color name="aliceblue">#696969</color>
     <color name="black">#ff000000</color>
     <color name="blue">#22addf</color>
-    <color name="button_text_color">@color/black</color>
+    <color name="button_text_color">@color/white</color>
     <color name="color_dialog_bg">@color/light_green</color>
     <color name="color_text">@color/black</color>
     <color name="color_toast">@color/light_blue</color>
@@ -116,8 +116,10 @@
     <string name="cancel_save_record">是否放弃保存本轮成绩</string>
     <string name="cannot_connect_to_server">无法连接服务器</string>
     <string name="cannot_login">无法登陆</string>
+    <string name="check_athlete_msg">查看运动员信息</string>
     <string name="choose_athlete">选择运动员</string>
     <string name="choose_stroke">泳姿选择</string>
+    <string name="choosed_athlete">已经选择的运动员</string>
     <string name="click_clock_and_record_score">点击表盘开始计时，再次点击记录成绩</string>
     <string name="con_pwd_not_equal_pwd">确认密码与原密码不相同</string>
     <string name="confirm_pwd">确认密码</string>
@@ -132,6 +134,8 @@
     <string name="date_picker_title">日期选择：</string>
     <string name="default_acount_login">默认账号登陆</string>
     <string name="default_time_per_min">0.00次/分钟</string>
+    <string name="delete_failed">删除失败</string>
+    <string name="delete_succeed">删除成功</string>
     <string name="dont_need_to_save_again">成绩已经保存，无需再次保存!</string>
     <string name="dont_save_more_score">不要保存太多不必要的成绩</string>
     <string name="email">邮箱</string>
@@ -149,8 +153,7 @@
     <string name="fragment_index">首页</string>
     <string name="fragment_more">更多</string>
     <string name="fragment_timer">计时</string>
-    <string name="goto_next_timer_or_adjust_score">"是否开始下一趟计时？ \n选择【否】
-        则返回调整成绩或者运动员数目,或者结束本轮计时\n选择【是】则直接开始下一趟计时</string>
+    <string name="goto_next_timer_or_adjust_score">"是否开始下一趟计时？\n  选择【否】则返回调整成绩或者运动员数目,或者结束本轮计时\n  选择【是】则直接开始下一趟计时</string>
     <string name="input_extra">请输入备注</string>
     <string name="input_pwd">请输入密码</string>
     <string name="input_user_name">请输入用户名</string>
@@ -173,9 +176,12 @@
     <string name="manage_athlete">运动员管理</string>
     <string name="match_done">匹配完成!</string>
     <string name="match_score_athlete">运动员成绩匹配</string>
+    <string name="match_succeed">成绩匹配完成</string>
     <string name="mine">我的</string>
     <string name="modify">修改</string>
+    <string name="modify_failed">修改失败</string>
     <string name="modify_pwd">修改密码</string>
+    <string name="modify_score">调整多趟成绩</string>
     <string name="modify_succeed">修改成功</string>
     <string name="name">姓名</string>
     <string name="name_cannot_be_empty_string">运动员名字不能为空</string>
@@ -213,7 +219,7 @@
     <string name="reset">重置</string>
     <string name="save">保存</string>
     <string name="score_is_zero">该趟成绩当前距离为0!</string>
-    <string name="score_num_not_equalwith_athlete_num">成绩数目与运动员数目不相等,请删除部分数据!</string>
+    <string name="score_num_not_equalwith_athlete_num">成绩数目与运动员数目不相等,请删除部分数据!若误删数据，可以按右上角按钮进行恢复</string>
     <string name="score_num_not_match_athlete_num">成绩数与运动员人数不对应!</string>
     <string name="score_record_done">全部成绩记录完成</string>
     <string name="score_saved_goto_to_home">成绩已经保存，是否返回主界面？</string>

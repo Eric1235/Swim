@@ -5,6 +5,32 @@
     android:background="@color/common_bg"
     android:orientation="vertical" >
 
+    <RelativeLayout
+        android:id="@+id/modify_headbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/title_bar_bg" >
+
+        <TextView
+            style="@style/custom_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/modify_score" />
+
+        <ImageButton
+            android:id="@+id/modify_back"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@color/transparent"
+            android:onClick="getback"
+            android:src="@drawable/btn_back" />
+    </RelativeLayout>
+
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView_home"
         android:layout_width="wrap_content"

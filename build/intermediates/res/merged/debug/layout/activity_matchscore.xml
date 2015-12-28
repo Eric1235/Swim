@@ -59,7 +59,7 @@
         <AutoCompleteTextView
             android:id="@+id/match_act_current_distance"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_marginLeft="10dp"
             android:inputType="number"
             android:background="@drawable/bg_edit"
